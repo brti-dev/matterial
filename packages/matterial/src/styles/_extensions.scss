@@ -1,0 +1,23 @@
+@use 'sass:color';
+@use 'theme' as *;
+
+%surface {
+  --color-body: var(--color-surface-light);
+  --color-surface: var(--color-comment-light);
+  --color-surface-hover: var(--color-lightblue);
+  --color-comment: var(--color-lightblue);
+
+  @include theme(dark) {
+    --color-body: var(--color-surface-dark);
+    --color-surface: var(--color-comment-dark);
+    --color-surface-hover: var(--color-darkblue);
+    --color-comment: var(--color-darkblue);
+  }
+
+  padding: 1.5em;
+  background-color: var(--color-body);
+}
+
+%card {
+  border-radius: var(--radius);
+}

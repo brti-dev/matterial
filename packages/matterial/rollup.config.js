@@ -1,3 +1,4 @@
+import { defineConfig } from 'rollup'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
@@ -6,8 +7,8 @@ import sass from 'sass'
 
 import pkg from './package.json'
 
-export default {
-  input: 'src/index.tsx',
+export default defineConfig({
+  input: 'src/main.tsx',
   output: [
     {
       file: pkg.main,
@@ -18,9 +19,9 @@ export default {
     },
   ],
   plugins: [
-    typescript(),
-    nodeResolve(),
     commonjs(),
+    nodeResolve(),
+    typescript(),
     sassPlugin({
       runtime: sass,
       insert: false,
@@ -28,4 +29,4 @@ export default {
     }),
   ],
   external: ['react', 'react-dom', 'react/jsx-runtime'],
-}
+})

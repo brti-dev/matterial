@@ -35,17 +35,16 @@ export const AvatarGroup = ({
   const total = naturalTotal || numChildren
 
   if (numChildren > max || numChildren < total) {
-    const excess = max ? numChildren - max : total - numChildren
-    const mapToIndex = max ?? numChildren
+    const excess = numChildren > max ? numChildren - max : total - numChildren
     const childrenOutput = children
       .map((child, i) => {
-        if (i < mapToIndex) {
+        if (i < max) {
           return child
         } else {
           return null
         }
       })
-      .filter((child) => !!child)
+      .filter(child => !!child)
       .reverse()
     childrenOutput.unshift(
       <Avatar

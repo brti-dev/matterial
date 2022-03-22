@@ -16,7 +16,8 @@
   "scripts": {
     "compile": "tsc --outDir dist --declaration true",
     "build": "npm run compile && rollup -c",
-    "start": "npm run compile && rollup -c -w"
+    "start": "npm run compile && rollup -c -w",
+    "test": "jest --watch"
   },
   "peerDependencies": {
     "react": "^17.0.2",
@@ -38,21 +39,23 @@
     "@rollup/plugin-node-resolve": "^13.1.3",
     "@rollup/plugin-typescript": "^8.3.1",
     "@testing-library/dom": "^8.11.0",
-    "@testing-library/jest-dom": "^5.15.0",
-    "@testing-library/react": "^12.1.2",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.0.2",
+    "@types/jest": "^27.4.1",
     "@types/react": "^17.0.40",
     "@types/react-dom": "^17.0.13",
     "@types/react-test-renderer": "^17.0.1",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
-    "jest": "^27.3.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-test-renderer": "^17.0.2",
     "rollup": "^2.70.1",
     "rollup-plugin-sass": "^1.2.10",
+    "ts-jest": "^27.1.3",
     "tslib": "^2.3.1",
     "typescript": "^4.6.2"
   },
@@ -60,7 +63,7 @@
     "react",
     "typescript",
     "npm",
-    "design system",
-    "ui components"
+    "design-system",
+    "ui-components"
   ]
 }

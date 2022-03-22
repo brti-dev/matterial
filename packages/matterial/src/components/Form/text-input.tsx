@@ -1,13 +1,32 @@
 import { useState, forwardRef, SyntheticEvent } from 'react'
 
 export type TextInputProps = {
-  type?: 'text' | 'date' | 'email' | 'number' | 'password' | 'tel' | 'url'
-  name: string
-  value?: string
+  /**
+   * If true, renders a <textarea> element, otherwise renders an
+   * <input type={type}> element
+   */
   multiline?: boolean
-  rows?: number
-  // maxRows?: number
+  /**
+   * Input name (required)
+   */
+  name: string
+  /**
+   * Callback to fire when the input element is *blurred* (doesn't fire on
+   * event change)
+   */
   onChange?: (event: any, text: string) => void
+  /**
+   * If multiline, renders this many rows
+   */
+  rows?: number
+  /**
+   * HTML input types
+   */
+  type?: 'text' | 'date' | 'email' | 'number' | 'password' | 'tel' | 'url'
+  /**
+   * Input value
+   */
+  value?: string
 } & Omit<JSX.IntrinsicElements['input'], 'onChange'> & // Necessary because of some strange error
   Omit<JSX.IntrinsicElements['textarea'], 'onChange'>
 
@@ -21,17 +40,12 @@ export const TextInput = forwardRef<
     value = '',
     multiline = false,
     rows = 1,
-    // maxRows,
-    onChange = null,
+    onChange = () => null,
     ...fieldProps
   } = props
   const [textValue, setTextValue] = useState<string>(value)
 
-  const handleBlur = (event: SyntheticEvent) => {
-    if (onChange) {
-      onChange(event, textValue)
-    }
-  }
+  const handleBlur = (event: SyntheticEvent) => onChange(event, textValue)
 
   const handleChange = (event: SyntheticEvent) => {
     const { value } = event.target as HTMLInputElement

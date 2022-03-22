@@ -2,6 +2,7 @@ import '@testing-library/jest-dom'
 
 import { render, screen } from '../../../test-utils'
 import { Form, FormGroup, TextInput } from '.'
+import userEvent from '@testing-library/user-event'
 
 test('should render a form and label with text input', () => {
   const label = 'foo'
@@ -15,57 +16,74 @@ test('should render a form and label with text input', () => {
   expect(getByLabelText(label)).toBeInTheDocument()
 })
 
-test('form group should have helper text', () => {
-  const note = 'foo'
-  const label = 'bar'
-  const { getByText } = render(
-    <FormGroup
-      label={label}
-      input={<TextInput name={label} />}
-      helperText={note}
-    />
-  )
+describe('text input', () => {
+  test('should have the proper `type` attribute', () => {
+    const { getByRole, getByPlaceholderText, rerender } = render(
+      <TextInput name="text-input" />
+    )
 
-  expect(getByText(note)).toBeInTheDocument()
-})
+    expect(getByRole('textbox')).toHaveAttribute('type', 'text')
 
-test('text input should have the proper `type` attribute', () => {
-  const { getByRole, getByPlaceholderText, rerender } = render(
-    <TextInput name="text-input" />
-  )
+    const placeholder = 'My Number'
+    rerender(
+      <TextInput type="number" name="number-input" placeholder={placeholder} />
+    )
 
-  expect(getByRole('textbox')).toHaveAttribute('type', 'text')
+    expect(getByPlaceholderText(placeholder)).toHaveAttribute('type', 'number')
+  })
 
-  const placeholder = 'My Number'
-  rerender(
-    <TextInput type="number" name="number-input" placeholder={placeholder} />
-  )
+  test('should render a textarea when appropriate', () => {
+    const placeholder = 'placeholder'
+    const { container } = render(
+      <TextInput
+        name="multirow"
+        multiline={true}
+        rows={2}
+        placeholder={placeholder}
+      />
+    )
 
-  expect(getByPlaceholderText(placeholder)).toHaveAttribute('type', 'number')
-})
+    expect(container.querySelector('input')).not.toBeInTheDocument()
+    expect(container.querySelector('textarea')).toHaveAttribute('rows', '2')
+  })
 
-test('text input should render a textarea when appropriate', () => {
-  const placeholder = 'placeholder'
-  const { container } = render(
-    <TextInput
-      name="multirow"
-      multiline={true}
-      rows={2}
-      placeholder={placeholder}
-    />
-  )
+  test('should render with a value and change the value on input', () => {
+    const value = 'foo'
+    let changedValue = ''
+    const registerChange = (_: any, newValue: string) => {
+      changedValue = newValue
+    }
 
-  expect(container.querySelector('input')).not.toBeInTheDocument()
-  expect(container.querySelector('textarea')).toHaveAttribute('rows', '2')
-})
-
-test('text input value changes with input', () => {
-  render(<FormGroup label="input" input={<TextInput name="input" />} />)
-  // This should fail for now
-  expect(screen.getByRole('textbox', { name: 'input' })).toHaveValue('foo')
+    render(
+      <FormGroup
+        label="input"
+        input={
+          <TextInput name="input" value={value} onChange={registerChange} />
+        }
+      />
+    )
+    expect(screen.getByRole('textbox')).toHaveValue(value)
+    userEvent.type(screen.getByRole('textbox'), 'bar')
+    userEvent.tab() // trigger onBlur event thereby triggering onChange callback
+    expect(screen.getByRole('textbox')).toHaveValue(changedValue)
+  })
 })
 
 describe('form group', () => {
+  test('should have helper text', () => {
+    const note = 'foo'
+    const label = 'bar'
+    const { getByText } = render(
+      <FormGroup
+        label={label}
+        input={<TextInput name={label} />}
+        helperText={note}
+      />
+    )
+
+    expect(getByText(note)).toBeInTheDocument()
+  })
+
   test('should indicate error', () => {
     render(
       <FormGroup
@@ -75,7 +93,8 @@ describe('form group', () => {
         input={<TextInput name="input" />}
       />
     )
-    expect(screen.getByRole('textbox', { name: 'input' })).toBeInvalid()
-    expect(screen.getByRole('note')).toHaveText('error')
+
+    expect(screen.getByRole('textbox')).toBeInvalid()
+    expect(screen.getByRole('note')).toHaveTextContent('error')
   })
 })

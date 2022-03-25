@@ -2,6 +2,20 @@
 
 // Variables and mixins releavant to color theme
 
+// Media query based on client preference
+
+@mixin theme($theme) {
+  @if $theme == dark {
+    @media (prefers-color-scheme: dark) {
+      @content;
+    }
+  } @else {
+    @media (prefers-color-scheme: light) {
+      @content;
+    }
+  }
+}
+
 // Color variables
 
 $blue: hsl(210, 100%, 65%);
@@ -35,16 +49,50 @@ $color-primary-hover-dark: $lightblue;
 $color-secondary: $purple;
 $color-secondary-hover: color.scale($color-secondary, $lightness: 30%);
 
-// Media query based on client preference
+%root-color {
+  --color-background: #{$color-body-light};
+  --color-foreground: #{$color-font-light};
+  --color-primary: #{$color-primary-light};
+  --color-primary-hover: #{$color-primary-hover-light};
+  --color-secondary: #{$color-secondary};
+  --color-secondary-hover: #{$color-secondary-hover};
+  --color-surface: #{$color-surface-light}; // Default color, non-thematic
+  --color-surface-hover: #{$color-surface-hover-light};
+  --color-comment: #{$color-comment-light};
+  --color-error: #{$red};
+  --color-warning: #{$yellow};
+  --color-info: #{$blue};
+  --color-success: #{$green};
+  --color-shadow: #3a3b3c57;
 
-@mixin theme($theme) {
-  @if $theme == dark {
-    @media (prefers-color-scheme: dark) {
-      @content;
-    }
-  } @else {
-    @media (prefers-color-scheme: light) {
-      @content;
-    }
+  --color-accents-1: hsl(0, 0%, 98%);
+  --color-accents-2: hsl(0, 0%, 92%);
+  --color-accents-3: hsl(0, 0%, 60%);
+  --color-accents-4: hsl(0, 0%, 53%);
+  --color-accents-5: hsl(0, 0%, 40%);
+  --color-accents-6: hsl(0, 0%, 27%);
+  --color-accents-7: hsl(0, 0%, 20%);
+  --color-accents-8: hsl(0, 0%, 7%);
+
+  @include theme(dark) {
+    --color-background: #{$color-body-dark};
+    --color-foreground: #{$color-font-dark};
+    --color-primary: #{$color-primary-dark};
+    --color-primary-hover: #{$color-primary-hover-dark};
+    --color-surface: #{$color-surface-dark};
+    --color-surface-hover: #{$color-surface-hover-dark};
+    --color-comment: #{$color-comment-dark};
+    --color-shadow: black;
+
+    --color-accents-8: #fafafa;
+    --color-accents-7: #eaeaea;
+    --color-accents-6: #999;
+    --color-accents-5: #888;
+    --color-accents-4: #666;
+    --color-accents-3: #444;
+    --color-accents-2: #333;
+    --color-accents-1: #111;
+
+    color: var(--color-foreground);
   }
 }

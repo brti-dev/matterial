@@ -1,5 +1,5 @@
 @use 'sass:color';
-@use 'theme' as *;
+@use './theme' as *;
 
 %surface {
   --color-body: var(--color-surface-light);

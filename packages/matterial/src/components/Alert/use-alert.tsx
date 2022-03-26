@@ -1,6 +1,6 @@
 import { useCallback, useReducer } from 'react'
 
-import Alert, { AlertDispatch } from 'components/Alert'
+import Alert, { AlertDispatch } from './alert'
 
 export function reducer(
   _: /* state */ null | AlertDispatch,

@@ -1,7 +1,7 @@
 import classnames from 'lib/classnames'
-import * as React from 'react'
+import React from 'react'
 
-import Avatar from '.'
+import Avatar from './avatar'
 import classes from './avatar.module.scss'
 
 export type AvatarGroupProps = React.ComponentPropsWithoutRef<'div'> & {

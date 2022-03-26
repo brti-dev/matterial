@@ -1,4 +1,4 @@
-import { useAlert } from '.'
+import { useAlert } from './use-alert'
 import Button from 'components/Button'
 
 export function AlertExample() {

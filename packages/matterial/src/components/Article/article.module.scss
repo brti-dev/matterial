@@ -1,6 +1,6 @@
-@use 'breakpoint' as *;
-@use 'theme' as *;
-@use 'extensions' as *;
+@use '../../styles/breakpoint' as *;
+@use '../../styles/theme' as *;
+@use '../../styles/extensions' as *;
 
 %p {
   display: block;

@@ -1,18 +1,16 @@
-import React from 'react'
-
 export type OverlayProps = {
-  opened: boolean
+  active: boolean
   onClose: any
 } & React.HTMLAttributes<HTMLDivElement>
 
-function Overlay({ opened = false, onClose }: OverlayProps) {
+function Overlay({ active = false, onClose }: OverlayProps) {
   return (
     <div
       className="overlay"
       role="button"
-      hidden={!opened}
+      hidden={!active}
       onClick={onClose}
-      aria-hidden={!opened}
+      aria-hidden={!active}
       aria-label="close"
     />
   )

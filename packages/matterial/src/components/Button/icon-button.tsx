@@ -1,13 +1,12 @@
 import Tooltip from '../Tooltip'
-import Button, { ButtonProps } from '.'
+import Button, { ButtonProps } from './button'
 
 export type IconButtonProps = ButtonProps & {
   tooltip?: string
 }
 
 /**
- * Sugar for <Button shape="circle"><Icon /></Button>
- * <Button> is preferred; This component may be depreciated in future
+ * Sugar for icon buttons
  */
 export function IconButton({ tooltip, ...rest }: IconButtonProps) {
   return (

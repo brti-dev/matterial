@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { isValidElement, cloneElement, useState } from 'react'
 import ReachAlert from '@reach/alert'
 import {
   BiErrorCircle as ErrorIcon,
@@ -44,8 +44,8 @@ export type AlertProps = Partial<AlertDispatch> & {
  * Regenerate a React element with the prop `size` small
  */
 function shrink(component: string | React.ReactElement) {
-  if (React.isValidElement(component)) {
-    return React.cloneElement(component, { size: 'small' })
+  if (isValidElement(component)) {
+    return cloneElement(component, { size: 'small' })
   }
 
   return component
@@ -69,7 +69,7 @@ function Alert({
     className
   )
 
-  let [message, setMessage] = React.useState(children || naturalMessage)
+  let [message, setMessage] = useState(children || naturalMessage)
 
   if (dismiss && !action) {
     action = (
@@ -95,14 +95,16 @@ function Alert({
       // aria-label={label || severity || 'alert'}
       data-severity={severity}
     >
-      {severity && <Icon severity={severity} />}
-      <div className="content">
-        <div className="message">
-          {label && <strong className="label">{label}: </strong>}
-          {message}
+      <>
+        {severity && <Icon severity={severity} />}
+        <div className="content">
+          <div className="message">
+            {label && <strong className="label">{label}: </strong>}
+            {message}
+          </div>
+          {action && <div className="action">{shrink(action)}</div>}
         </div>
-        {action && <div className="action">{shrink(action)}</div>}
-      </div>
+      </>
     </ReachAlert>
   )
 }

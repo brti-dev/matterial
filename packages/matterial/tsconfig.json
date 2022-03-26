@@ -2,6 +2,8 @@
   "compilerOptions": {
     "allowJs": false,
     "baseUrl": "src",
+    "declaration": true,
+    "declarationDir": "dist",
     "esModuleInterop": true, // For Sass export
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",

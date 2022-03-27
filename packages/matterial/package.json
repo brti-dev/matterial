@@ -1,6 +1,6 @@
 {
-  "name": "matterial-ui",
-  "version": "0.0.0",
+  "name": "matterial",
+  "version": "1.0.0",
   "description": "A React design system made by Matt Berti",
   "author": "dr-spaceman",
   "license": "apache-2.0",
@@ -19,6 +19,7 @@
     "compile": "tsc --outDir dist --declaration true",
     "build": "webpack --mode production --config webpack.config.js",
     "build:watch": "webpack --watch --mode production --config webpack.config.js",
+    "build:dev": "webpack --watch --mode development --config webpack.config.js",
     "test": "jest",
     "test:watch": "jest --watch"
   },

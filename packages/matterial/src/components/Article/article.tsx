@@ -19,7 +19,7 @@ export type ArticleProps = {
  * Render an article. A header will be built based on props passed, or include a custom header in
  * the content.
  */
-export default function Article({
+export function Article({
   title,
   description,
   preface,

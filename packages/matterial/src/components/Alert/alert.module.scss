@@ -1,0 +1,55 @@
+@use 'styles/breakpoint' as *;
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
+  padding: 0.5em;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-foreground);
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  background: var(--color-background);
+
+  .icon {
+    display: flex;
+
+    & > * {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+
+  .label {
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .content {
+    width: 100%;
+    display: flex;
+    gap: 0.5em;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.85rem;
+    font-weight: 400;
+
+    .message {
+      flex-basis: 100%;
+      word-break: break-word;
+    }
+
+    .action {
+      flex-shrink: 0;
+    }
+
+    @include breakpoint('mobile') {
+      flex-direction: column;
+    }
+  }
+
+  & + .alert {
+    margin-top: 1em;
+  }
+}

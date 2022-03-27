@@ -9,7 +9,9 @@ import {
 
 import { Severity, Variant } from 'interfaces/theme'
 import classnames from 'lib/classnames'
-import Button from 'components/Button'
+import { Button } from 'components/Button'
+
+import classes from './alert.module.scss'
 
 const ICONS = {
   error: <ErrorIcon />,
@@ -19,19 +21,33 @@ const ICONS = {
 }
 
 export type AlertDispatch = {
-  // A short message to show
+  /**
+   * A short message to show
+   */
   message: string | null
-  // A button or other call to action
+  /**
+   * A button or other call to action
+   */
   action?: string | React.ReactElement
-  // Append an action to dismiss the alert; Overwritten by `action`
+  /**
+   * Append an action to dismiss the alert; Overwritten by `action`
+   */
   dismiss?: boolean
-  // Prefix a short phrase like "Critical Error" or "Warning"
+  /**
+   * Prefix a short phrase like "Critical Error" or "Warning"
+   */
   label?: string
-  // Describes the type of alert
+  /**
+   * Describes the type of alert
+   */
   severity?: Severity
-  // Controls whether the assistive technology should read immediately ("assertive") or wait until the user is idle ("polite").
+  /**
+   * Controls whether the assistive technology should read immediately ("assertive") or wait until the user is idle ("polite").
+   */
   type?: 'polite' | 'assertive'
-  // Style variants
+  /**
+   * Style variants
+   */
   variant?: Variant
 }
 
@@ -51,7 +67,7 @@ function shrink(component: string | React.ReactElement) {
   return component
 }
 
-function Alert({
+export function Alert({
   action,
   children,
   className,
@@ -63,7 +79,7 @@ function Alert({
   variant = 'outlined',
 }: AlertProps) {
   const classNames = classnames(
-    'alert',
+    classes.alert,
     `variant--${variant}`,
     severity && `color--${severity}`,
     className
@@ -110,10 +126,8 @@ function Alert({
 }
 
 const Icon = ({ severity }: { severity: Severity }) =>
-  ICONS[severity] && (
+  ICONS[severity] ? (
     <div className="icon" aria-hidden="true">
       {ICONS[severity]}
     </div>
-  )
-
-export default Alert
+  ) : null

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<div
+  className="cb__group container containerVertical"
+>
+  <div
+    className="cb__item checkButton"
+  >
+    <input
+      checked={true}
+      className="visually-hidden"
+      id="checkButton__daddy__true"
+      name="daddy"
+      onChange={[Function]}
+      type="checkbox"
+      value="true"
+    />
+    <label
+      className="button variant--outlined checked"
+      htmlFor="checkButton__daddy__true"
+    >
+      <span
+        className="text-content"
+      >
+        I'm a daddy
+      </span>
+    </label>
+  </div>
+  <div
+    className="cb__item checkButton"
+  >
+    <input
+      checked={false}
+      className="visually-hidden"
+      id="checkButton__has_boat__true"
+      name="has_boat"
+      onChange={[Function]}
+      type="checkbox"
+      value="true"
+    />
+    <label
+      className="button variant--outlined"
+      htmlFor="checkButton__has_boat__true"
+    >
+      <span
+        className="text-content"
+      >
+        I have a boat
+      </span>
+    </label>
+  </div>
+</div>
+`;

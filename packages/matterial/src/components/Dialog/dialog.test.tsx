@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 
 import { render, screen } from '../../../test-utils'
 import { Dialog } from './dialog'
-import { DialogHook } from './dialog.example'
+import { DialogExample } from './dialog.example'
 
 const TestDialog = ({ label = 'dialog', ...rest }) => (
   <Dialog
@@ -26,7 +26,7 @@ jest.mock('lib/use-media-query', () => {
 
 describe('useDialog hook', () => {
   test('should appear and disappear', () => {
-    render(<DialogHook />)
+    render(<DialogExample />)
     const activateBtn = screen.getByRole('button', { name: 'Open Dialog' })
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
     userEvent.click(activateBtn)

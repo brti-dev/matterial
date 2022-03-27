@@ -1,7 +1,7 @@
 import { Button } from 'components/Button'
 import { Dialog, useDialog } from 'components/Dialog'
 
-export function DialogHook() {
+export function DialogExample() {
   const [active, open, close] = useDialog(false)
 
   return (

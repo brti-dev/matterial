@@ -5,7 +5,7 @@ const MiniCss = require('mini-css-extract-plugin')
 const copyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  entry: './src/main.ts',
+  entry: './src/index.ts',
   externals: [nodeExternals()],
   output: {
     filename: 'index.js',

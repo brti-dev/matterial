@@ -1,6 +1,6 @@
 {
   "name": "matterial",
-  "version": "1.0.1",
+  "version": "1.0.7",
   "description": "A React design system made by Matt Berti",
   "author": "dr-spaceman",
   "license": "apache-2.0",
@@ -10,7 +10,7 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts",
+  "types": "dist/src/index.d.ts",
   "engines": {
     "node": ">=16",
     "npm": ">=8"

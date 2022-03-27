@@ -2,7 +2,7 @@ import { forwardRef } from 'react'
 
 import { Color, Variant } from 'interfaces/theme'
 import classnames from 'lib/classnames'
-import Link from 'components/Link'
+import { Link } from 'components/Link'
 
 type Percent = `${number}%`
 
@@ -65,7 +65,7 @@ type NativeAttrs = Omit<React.ButtonHTMLAttributes<any>, keyof Props>
 
 export type ButtonProps = Props & NativeAttrs
 
-const ButtonComponent = forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
     const {
       append,
@@ -143,5 +143,3 @@ const ButtonComponent = forwardRef<HTMLButtonElement, ButtonProps>(
     )
   }
 )
-
-export default ButtonComponent

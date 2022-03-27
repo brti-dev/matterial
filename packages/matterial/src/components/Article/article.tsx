@@ -2,8 +2,8 @@ import React from 'react'
 import { BiRightArrowAlt as ArrowRightIcon } from 'react-icons/bi'
 
 import { DateTimeType } from 'interfaces/other'
-import DateTime from 'components/DateTime'
-import Link from 'components/Link'
+import { DateTime } from 'components/DateTime'
+import { Link } from 'components/Link'
 import classes from './article.module.scss'
 
 export type ArticleProps = {

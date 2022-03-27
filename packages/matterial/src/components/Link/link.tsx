@@ -1,3 +1,3 @@
-export default function Link(p: any) {
+export function Link(p: any) {
   return <a {...p} />
 }

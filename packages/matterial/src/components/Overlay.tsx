@@ -3,7 +3,7 @@ export type OverlayProps = {
   onClose: any
 } & React.HTMLAttributes<HTMLDivElement>
 
-function Overlay({ active = false, onClose }: OverlayProps) {
+export function Overlay({ active = false, onClose }: OverlayProps) {
   return (
     <div
       className="overlay"
@@ -15,5 +15,3 @@ function Overlay({ active = false, onClose }: OverlayProps) {
     />
   )
 }
-
-export default Overlay

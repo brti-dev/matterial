@@ -1,4 +1,7 @@
-import { Dialog, DialogProps as ReachDialogProps } from '@reach/dialog'
+import {
+  Dialog as ReachDialog,
+  DialogProps as ReachDialogProps,
+} from '@reach/dialog'
 
 import useMediaQuery from 'lib/use-media-query'
 import { CloseButton } from './close-button'
@@ -26,7 +29,7 @@ type AriaLabelledBy = {
 
 export type DialogProps = DialogProps_base & (AriaLabelledBy | AriaLabel)
 
-export default function CustomDialog({
+export function Dialog({
   active = false,
   children,
   closable = false,
@@ -48,7 +51,7 @@ export default function CustomDialog({
   }
 
   return (
-    <Dialog
+    <ReachDialog
       isOpen={active}
       data-fullscreen={isFullscreen || undefined}
       aria-label={label || undefined}
@@ -56,6 +59,6 @@ export default function CustomDialog({
     >
       {closable && <CloseButton onClick={rest.onDismiss} />}
       {children}
-    </Dialog>
+    </ReachDialog>
   )
 }

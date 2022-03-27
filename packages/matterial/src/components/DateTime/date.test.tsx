@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 
 import { render, screen } from '../../../test-utils'
-import DateTime from '.'
+import { DateTime } from '.'
 
 describe('DateTime component', () => {
   test('takes string as input', () => {

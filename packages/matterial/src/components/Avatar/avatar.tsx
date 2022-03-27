@@ -5,7 +5,7 @@ import {
   OverloadedElementProps,
 } from 'interfaces/OverloadedElement'
 import { Color } from 'interfaces/theme'
-import Tooltip from 'components/Tooltip'
+import { Tooltip } from 'components/Tooltip'
 import classes from './avatar.module.scss'
 
 export type AvatarProps = {
@@ -21,7 +21,7 @@ export type AvatarProps = {
 const TooltipWrapper = ({ tooltipLabel, children }: any) =>
   tooltipLabel ? <Tooltip label={tooltipLabel}>{children}</Tooltip> : children
 
-const Avatar: OverloadedElement<AvatarProps> = (props: AvatarProps) => {
+export const Avatar: OverloadedElement<AvatarProps> = (props: AvatarProps) => {
   const {
     alt,
     children,
@@ -67,5 +67,3 @@ const Avatar: OverloadedElement<AvatarProps> = (props: AvatarProps) => {
     </TooltipWrapper>
   )
 }
-
-export default Avatar

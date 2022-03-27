@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 // import userEvent from '@testing-library/user-event'
 
 // import { render, screen } from '../../../test-utils'
-import Loader from './loader'
+import { Loader } from './loader'
 
 describe('loader', () => {
   test('should render sizes correctly', () => {

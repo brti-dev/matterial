@@ -1,13 +1,13 @@
 import { Color } from 'interfaces/theme'
 import cssColor from 'lib/css-color'
-import './loader.module.scss'
+import './loader.scss'
 
 export type LoaderProps = React.HTMLAttributes<HTMLDivElement> & {
   color?: Color | string
   size?: number
 }
 
-export default function Loader({
+export function Loader({
   color,
   size = 30,
   style: styleOverwrite = {},

@@ -5,8 +5,8 @@ import userEvent from '@testing-library/user-event/dist'
 import { Severity, Variant } from 'interfaces/theme'
 import { reducer } from 'components/Alert/use-alert'
 import { render, screen } from '../../../test-utils'
-import Alert, { AlertDispatch } from 'components/Alert'
-import Button from 'components/Button'
+import { Alert, AlertDispatch } from 'components/Alert'
+import { Button } from 'components/Button'
 import { AlertExample } from '.'
 
 const SEVERITY = ['error', 'warning', 'info', 'success']

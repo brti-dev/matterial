@@ -1,12 +1,12 @@
+import React from 'react'
 import '@testing-library/jest-dom'
 
 import { render } from '../../../test-utils'
-import Avatar, { AvatarGroup } from '.'
+import { Avatar, AvatarGroup } from '.'
 import {
   OverloadedElement,
   OverloadedElementProps,
 } from 'interfaces/OverloadedElement'
-import React from 'react'
 
 describe('avatar', () => {
   test('should render initials and label properly', () => {

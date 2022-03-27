@@ -22,7 +22,7 @@ type BadgePropsDot = BadgePropsBase & {
 
 export type BadgeProps = BadgePropsContent | BadgePropsDot
 
-function Badge(props: BadgeProps) {
+export function Badge(props: BadgeProps) {
   const {
     children,
     className,
@@ -70,5 +70,3 @@ function Badge(props: BadgeProps) {
     </span>
   )
 }
-
-export default Badge

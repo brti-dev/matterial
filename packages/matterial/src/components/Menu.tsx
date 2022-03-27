@@ -7,7 +7,7 @@ import {
   MenuPopover,
   MenuLink,
 } from '@reach/menu-button'
-import Button, { ButtonProps } from './Button'
+import { Button, ButtonProps } from './Button'
 
 const NewMenuButton = (props: ButtonProps) => (
   <MenuButton

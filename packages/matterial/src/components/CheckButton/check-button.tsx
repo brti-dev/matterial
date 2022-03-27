@@ -15,51 +15,52 @@ export type CheckButtonProps = {
   onChange?: (value: boolean) => void
 }
 
-const CheckButton = forwardRef<HTMLLabelElement, CheckButtonProps>(
-  (props, ref) => {
-    const {
-      name,
-      value,
-      checked,
-      disabled,
-      loading,
-      id: naturalId,
-      className,
-      onChange = () => {},
-      children,
-      ...rest
-    } = props
-    const id = naturalId || `checkButton__${name}__${value}`
+const PlainOlUnmemoizedCheckButton = forwardRef<
+  HTMLLabelElement,
+  CheckButtonProps
+>((props, ref) => {
+  const {
+    name,
+    value,
+    checked,
+    disabled,
+    loading,
+    id: naturalId,
+    className,
+    onChange = () => {},
+    children,
+    ...rest
+  } = props
+  const id = naturalId || `checkButton__${name}__${value}`
 
-    const toggleChecked = () => onChange(!checked)
+  const toggleChecked = () => onChange(!checked)
 
-    return (
-      <div className={classnames(className, classes.checkButton)} {...rest}>
-        <input
-          type="checkbox"
-          name={name}
-          value={value}
-          checked={checked}
-          disabled={disabled || loading}
-          id={id}
-          className="visually-hidden"
-          onChange={toggleChecked}
-        />
-        <label
-          htmlFor={id}
-          className={classnames(
-            'button variant--outlined',
-            (disabled || loading) && 'disabled',
-            checked && 'checked'
-          )}
-          data-loading={loading && 'true'}
-          ref={ref}
-        >
-          <span className="text-content">{children}</span>
-        </label>
-      </div>
-    )
-  }
-)
+  return (
+    <div className={classnames(className, classes.checkButton)} {...rest}>
+      <input
+        type="checkbox"
+        name={name}
+        value={value}
+        checked={checked}
+        disabled={disabled || loading}
+        id={id}
+        className="visually-hidden"
+        onChange={toggleChecked}
+      />
+      <label
+        htmlFor={id}
+        className={classnames(
+          'button variant--outlined',
+          (disabled || loading) && 'disabled',
+          checked && 'checked'
+        )}
+        data-loading={loading && 'true'}
+        ref={ref}
+      >
+        <span className="text-content">{children}</span>
+      </label>
+    </div>
+  )
+})
 
-export default memo(CheckButton)
+export const CheckButton = memo(PlainOlUnmemoizedCheckButton)

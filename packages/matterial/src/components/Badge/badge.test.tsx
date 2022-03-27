@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer'
 import { render } from '../../../test-utils'
 import { Color } from 'interfaces/theme'
 import { COLORS } from 'lib/constants'
-import Badge from '.'
+import { Badge } from '.'
 
 test('should render correctly', () => {
   const tree = renderer.create(<Badge variant="dot">B</Badge>).toJSON()

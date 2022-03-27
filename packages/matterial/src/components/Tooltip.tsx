@@ -1,3 +1,1 @@
-import Tooltip from '@reach/tooltip'
-
-export default Tooltip
+export * from '@reach/tooltip'

@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 
 import { render, screen } from '../../../test-utils'
-import Dialog from '.'
+import { Dialog } from './dialog'
 import { DialogHook } from './dialog.example'
 
 const TestDialog = ({ label = 'dialog', ...rest }) => (

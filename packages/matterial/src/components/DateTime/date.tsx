@@ -9,7 +9,7 @@ export type DateTimeProps = React.HTMLAttributes<HTMLTimeElement> & {
   format?: 'default' | 'yy-MM-dd'
 }
 
-export default function DateTime({ date, format, ...rest }: DateTimeProps) {
+export function DateTime({ date, format, ...rest }: DateTimeProps) {
   const dateStr = date.toString()
   const dateParsed = date instanceof Date ? date : new Date(date)
   let dateOut: string

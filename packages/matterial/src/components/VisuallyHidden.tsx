@@ -1,3 +1,1 @@
-import VisuallyHidden from '@reach/visually-hidden'
-
-export default VisuallyHidden
+export * from '@reach/visually-hidden'

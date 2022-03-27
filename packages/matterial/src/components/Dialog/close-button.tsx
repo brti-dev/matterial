@@ -1,6 +1,6 @@
 import classnames from 'lib/classnames'
-import VisuallyHidden from 'components/VisuallyHidden'
-import Button, { ButtonProps } from 'components/Button'
+import { VisuallyHidden } from 'components/VisuallyHidden'
+import { Button, ButtonProps } from 'components/Button'
 
 export function CloseButton({
   className,
@@ -17,7 +17,7 @@ export function CloseButton({
       {...props}
     >
       <VisuallyHidden>Close</VisuallyHidden>
-      <span aria-hidden>×</span>
+      <span aria-hidden>{'\u00d7'}</span>
     </Button>
   )
 }

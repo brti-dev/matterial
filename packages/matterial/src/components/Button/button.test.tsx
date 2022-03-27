@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event'
 
 import { render, screen } from '../../../test-utils'
 import { Variant, Color } from 'interfaces/theme'
-import Button, { IconButton } from '.'
+import { Button, IconButton } from '.'
 
 test('should render correctly', () => {
   const tree = renderer

@@ -1,8 +1,8 @@
 @use 'sass:color';
 @use 'sass:math';
-@use './breakpoint' as *;
-@use './extensions' as *;
-@use './theme' as *;
+@use 'styles/breakpoint' as *;
+@use 'styles/extensions' as *;
+@use 'styles/theme' as *;
 
 :root {
   --space-small: 1rem;
@@ -11,13 +11,58 @@
   --gap: 1rem;
 
   --radius: 0.13rem;
-  --shadow: 2px 2px 5px var(--color-shadow);
+  --shadow: 0 1px 3px 0 var(--color-shadow), 0 1px 2px -1px var(--color-shadow);
+  --shadow-heavy: 0 10px 15px -3px var(--tw-color-shadow),
+    0 4px 6px -4px var(--tw-color-shadow);
   --input-height: 1.8rem;
   --input-height-small: 1.4rem;
   --input-height-large: 2.2rem;
 
-  // Variables set by theme
-  @extend %root-color;
+  --color-background: #{$color-body-light};
+  --color-foreground: #{$color-font-light};
+  --color-primary: #{$color-primary-light};
+  --color-primary-hover: #{$color-primary-hover-light};
+  --color-secondary: #{$color-secondary};
+  --color-secondary-hover: #{$color-secondary-hover};
+  --color-surface: #{$color-surface-light}; // Default color, non-thematic
+  --color-surface-hover: #{$color-surface-hover-light};
+  --color-comment: #{$color-comment-light};
+  --color-error: #{$red};
+  --color-warning: #{$yellow};
+  --color-info: #{$blue};
+  --color-success: #{$green};
+  --color-shadow: #3a3b3c57;
+
+  --color-accents-1: hsl(0, 0%, 98%);
+  --color-accents-2: hsl(0, 0%, 92%);
+  --color-accents-3: hsl(0, 0%, 60%);
+  --color-accents-4: hsl(0, 0%, 53%);
+  --color-accents-5: hsl(0, 0%, 40%);
+  --color-accents-6: hsl(0, 0%, 27%);
+  --color-accents-7: hsl(0, 0%, 20%);
+  --color-accents-8: hsl(0, 0%, 7%);
+
+  @include theme(dark) {
+    --color-background: #{$color-body-dark};
+    --color-foreground: #{$color-font-dark};
+    --color-primary: #{$color-primary-dark};
+    --color-primary-hover: #{$color-primary-hover-dark};
+    --color-surface: #{$color-surface-dark};
+    --color-surface-hover: #{$color-surface-hover-dark};
+    --color-comment: #{$color-comment-dark};
+    --color-shadow: black;
+
+    --color-accents-8: #fafafa;
+    --color-accents-7: #eaeaea;
+    --color-accents-6: #999;
+    --color-accents-5: #888;
+    --color-accents-4: #666;
+    --color-accents-3: #444;
+    --color-accents-2: #333;
+    --color-accents-1: #111;
+
+    color: var(--color-foreground);
+  }
 
   // Animation variables
   --bouncy: cubic-bezier(1, -1, 0, 2);
@@ -220,7 +265,7 @@ h2,
 a:not(.button),
 .a:not(.button) {
   color: var(--color-primary);
-  text-decoration: none;
+  text-decoration-line: none;
   cursor: pointer;
 
   &:focus {
@@ -229,12 +274,12 @@ a:not(.button),
 
   &:hover {
     color: var(--color-primary-hover);
-    text-decoration: underline;
+    text-decoration-line: underline;
   }
 
   &.unstyled {
     color: var(--color-foreground) !important;
-    text-decoration: none !important;
+    text-decoration-line: none !important;
   }
 }
 
@@ -404,13 +449,14 @@ button,
   background-color: var(--color-background);
   transition: background-color 0.3s ease, box-shadow 0.3s ease, border 0.3s ease,
     opacity 0.3s ease;
-  text-decoration: none !important;
+  text-decoration-line: none !important;
   user-select: none;
 
   &:disabled,
   &.disabled {
     cursor: not-allowed;
     opacity: 0.65;
+    box-shadow: none;
   }
 
   &:hover {
@@ -532,10 +578,6 @@ textarea.input {
 
 // Components
 
-.card {
-  @extend %card;
-}
-
 .chip {
   padding: 0.25rem 0.55rem;
   border: none;
@@ -553,7 +595,7 @@ textarea.input {
   border-radius: 16px;
   vertical-align: middle;
   justify-content: center;
-  text-decoration: none;
+  text-decoration-line: none;
   overflow: hidden;
   text-overflow: ellipsis;
   background-color: var(--color-surface);
@@ -683,7 +725,7 @@ textarea.input {
   display: block;
   color: inherit;
   font: inherit;
-  text-decoration: initial;
+  text-decoration-line: initial;
 
   /* both */
   padding: 0.5em 1em;

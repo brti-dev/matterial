@@ -1,0 +1,30 @@
+@use 'styles/extensions' as *;
+
+.cardgroup {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card {
+  @extend %surface;
+
+  display: block;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  height: 100%;
+  transition-duration: 0.15s;
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  width: 100%;
+
+  &a {
+    color: unset;
+    text-decoration-line: none;
+
+    &:hover {
+      box-shadow: var(--shadow-heavy);
+      background-color: var(--color-surface-hover);
+    }
+  }
+}

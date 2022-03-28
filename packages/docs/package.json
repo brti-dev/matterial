@@ -1,23 +1,23 @@
 {
-  "name": "next.js-starter",
-  "version": "2.0.0",
-  "description": "Bootstrap a new Next.js app",
-  "private": false,
+  "name": "docs",
+  "version": "0.0.0",
+  "description": "Matterial UI docs",
+  "private": true,
   "license": "ISC",
   "main": "pages/_app.js",
-  "siteTitle": "✨My App",
+  "siteTitle": "Matterial UI",
   "pages": [
     {
       "link": "/",
       "title": "Home"
     },
     {
-      "link": "/foo",
-      "title": "Foo"
+      "link": "/setup",
+      "title": "Setup"
     },
     {
-      "link": "/bar",
-      "title": "Bar"
+      "link": "/components",
+      "title": "Foo"
     }
   ],
   "scripts": {

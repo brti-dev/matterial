@@ -1,4 +1,4 @@
-@use 'styles/theme' as *;
+@use '../../styles/theme' as *;
 
 .avatar {
   box-sizing: border-box;
@@ -11,6 +11,7 @@
   position: relative;
   color: var(--color-font);
   font-size: 1rem;
+  font-variant-numeric: tabular-nums;
   align-items: center;
   flex-shrink: 0;
   line-height: 1;

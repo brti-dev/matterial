@@ -1,8 +1,8 @@
 @use 'sass:color';
 @use 'sass:math';
-@use 'styles/breakpoint' as *;
-@use 'styles/extensions' as *;
-@use 'styles/theme' as *;
+@use './breakpoint' as *;
+@use './extensions' as *;
+@use './theme' as *;
 
 :root {
   --space-small: 1rem;

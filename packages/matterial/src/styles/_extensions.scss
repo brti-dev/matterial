@@ -1,3 +1,5 @@
+@use './theme' as *;
+
 %surface {
   --color-background: var(--color-surface-light);
   --color-surface: var(--color-comment-light);

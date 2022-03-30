@@ -6,6 +6,7 @@ import classes from './check-button.module.scss'
 
 export type CheckButtonGroupProps = OverloadedElementProps & {
   className?: string
+  children: React.ReactNode
   orientation?: 'horizontal' | 'vertical'
 }
 

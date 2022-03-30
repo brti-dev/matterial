@@ -120,10 +120,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     if (to) {
       return (
-        <Link href={to}>
-          <a className={classNameString} style={style} {...rest}>
-            {content}
-          </a>
+        <Link href={to} className={classNameString} style={style} {...rest}>
+          {content}
         </Link>
       )
     }

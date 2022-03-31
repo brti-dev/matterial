@@ -1,6 +1,6 @@
 {
   "name": "matterial",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "A React design system made by Matt Berti",
   "author": "dr-spaceman",
   "license": "apache-2.0",
@@ -11,15 +11,12 @@
     "dist"
   ],
   "types": "dist/src/index.d.ts",
-  "engines": {
-    "node": ">=16",
-    "npm": ">=8"
-  },
   "scripts": {
     "compile": "tsc --outDir dist --declaration true",
     "build": "webpack --mode production --config webpack.config.js",
     "build:watch": "webpack --watch --mode production --config webpack.config.js",
     "build:dev": "webpack --watch --mode development --config webpack.config.js",
+    "publish": "node ./scripts/publish.mjs && npm publish && node ./scripts/clean.mjs",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -33,7 +30,8 @@
     "@reach/menu-button": "^0.15.3",
     "@reach/skip-nav": "^0.15.0",
     "@reach/tooltip": "^0.13.2",
-    "@reach/visually-hidden": "^0.15.0"
+    "@reach/visually-hidden": "^0.15.0",
+    "react-icons": "^4.2.0"
   },
   "devDependencies": {
     "@testing-library/dom": "^8.11.0",
@@ -54,7 +52,6 @@
     "mini-css-extract-plugin": "^2.6.0",
     "react": ">=17.0.2",
     "react-dom": ">=17.0.2",
-    "react-icons": "^4.2.0",
     "react-test-renderer": "^17.0.2",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",

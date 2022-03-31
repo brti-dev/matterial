@@ -1,5 +1,5 @@
-import { Color } from 'interfaces/theme'
-import cssColor from 'lib/css-color'
+import { Color } from '../../interfaces/theme'
+import cssColor from '../../lib/css-color'
 import './loader.scss'
 
 export type LoaderProps = React.HTMLAttributes<HTMLDivElement> & {

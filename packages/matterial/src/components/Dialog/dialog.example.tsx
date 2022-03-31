@@ -1,5 +1,5 @@
-import { Button } from 'components/Button'
-import { Dialog, useDialog } from 'components/Dialog'
+import { Button } from '../Button'
+import { Dialog, useDialog } from '../Dialog'
 
 export function DialogExample() {
   const [active, open, close] = useDialog(false)

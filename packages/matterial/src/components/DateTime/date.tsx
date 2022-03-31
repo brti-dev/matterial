@@ -2,7 +2,7 @@
 // import parseISO from 'date-fns/parseISO'
 // import format from 'date-fns/format'
 
-import { DateTimeType } from 'interfaces/other'
+import { DateTimeType } from '../../interfaces/other'
 
 export type DateTimeProps = React.HTMLAttributes<HTMLTimeElement> & {
   date: DateTimeType

@@ -1,4 +1,4 @@
-import classnames from 'lib/classnames'
+import classnames from '../../lib/classnames'
 import classes from './form.module.scss'
 
 type SubmitRowProps = React.ComponentPropsWithoutRef<'menu'> & {

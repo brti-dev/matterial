@@ -2,8 +2,8 @@ import '@testing-library/jest-dom'
 import renderer from 'react-test-renderer'
 
 import { render } from '../../../test-utils'
-import { Color } from 'interfaces/theme'
-import { COLORS } from 'lib/constants'
+import { Color } from '../../interfaces/theme'
+import { COLORS } from '../../const'
 import { Badge } from '.'
 
 test('should render correctly', () => {

@@ -1,6 +1,6 @@
 import { cloneElement } from 'react'
 
-import classnames from 'lib/classnames'
+import classnames from '../../lib/classnames'
 import classes from './form.module.scss'
 
 export type FormGroupProps = {

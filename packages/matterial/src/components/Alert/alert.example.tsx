@@ -1,5 +1,5 @@
 import { useAlert } from './use-alert'
-import { Button } from 'components/Button'
+import { Button } from '../Button'
 
 export function AlertExample() {
   const [AlertComponent, setAlert] = useAlert()

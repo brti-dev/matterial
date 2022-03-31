@@ -1,4 +1,4 @@
-import classnames from 'lib/classnames'
+import classnames from '../../lib/classnames'
 import classes from './keyboard.module.scss'
 
 export type KeyboardProps = Omit<

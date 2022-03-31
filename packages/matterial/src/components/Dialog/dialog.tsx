@@ -3,7 +3,7 @@ import {
   DialogProps as ReachDialogProps,
 } from '@reach/dialog'
 
-import useMediaQuery from 'lib/use-media-query'
+import useMediaQuery from '../../lib/use-media-query'
 import { CloseButton } from './close-button'
 
 type DialogProps_base = Omit<ReachDialogProps, 'isOpen'> & {

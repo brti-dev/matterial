@@ -1,7 +1,7 @@
 import {
   OverloadedElement,
   OverloadedElementProps,
-} from 'interfaces/OverloadedElement'
+} from '../../interfaces/OverloadedElement'
 import classes from './check-button.module.scss'
 
 export type CheckButtonGroupProps = OverloadedElementProps & {

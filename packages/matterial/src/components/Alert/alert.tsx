@@ -7,9 +7,9 @@ import {
   BiInfoCircle as InfoIcon,
 } from 'react-icons/bi'
 
-import { Severity, Variant } from 'interfaces/theme'
-import classnames from 'lib/classnames'
-import { Button } from 'components/Button'
+import { Severity, Variant } from '../../interfaces/theme'
+import classnames from '../../lib/classnames'
+import { Button } from '../Button'
 
 import classes from './alert.module.scss'
 

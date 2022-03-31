@@ -6,7 +6,7 @@ import { Avatar, AvatarGroup } from '.'
 import {
   OverloadedElement,
   OverloadedElementProps,
-} from 'interfaces/OverloadedElement'
+} from '../../interfaces/OverloadedElement'
 
 describe('avatar', () => {
   test('should render initials and label properly', () => {

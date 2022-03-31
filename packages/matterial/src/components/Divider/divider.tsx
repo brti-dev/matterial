@@ -1,4 +1,4 @@
-import classnames from 'lib/classnames'
+import classnames from '../../lib/classnames'
 
 export type DividerProps = React.HTMLAttributes<HTMLHRElement>
 

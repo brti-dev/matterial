@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Color } from 'interfaces/theme'
+import { Color } from '../../interfaces/theme'
 import classes from './badge.module.scss'
 
 type BadgePropsBase = {

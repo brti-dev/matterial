@@ -1,8 +1,8 @@
 import { forwardRef } from 'react'
 
-import { Color, Variant } from 'interfaces/theme'
-import classnames from 'lib/classnames'
-import { Link } from 'components/Link'
+import { Color, Variant } from '../../interfaces/theme'
+import classnames from '../../lib/classnames'
+import { Link } from '../Link'
 
 type Percent = `${number}%`
 

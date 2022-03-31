@@ -1,6 +1,6 @@
-import classnames from 'lib/classnames'
-import { VisuallyHidden } from 'components/VisuallyHidden'
-import { Button, ButtonProps } from 'components/Button'
+import classnames from '../../lib/classnames'
+import { VisuallyHidden } from '../VisuallyHidden'
+import { Button, ButtonProps } from '../Button'
 
 export function CloseButton({
   className,

@@ -1,4 +1,4 @@
-import classnames from 'lib/classnames'
+import classnames from '../../lib/classnames'
 import React from 'react'
 
 import { Avatar } from './avatar'

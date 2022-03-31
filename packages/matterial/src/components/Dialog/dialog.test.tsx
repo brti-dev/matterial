@@ -17,7 +17,7 @@ const TestDialog = ({ label = 'dialog', ...rest }) => (
   </Dialog>
 )
 
-jest.mock('lib/use-media-query', () => {
+jest.mock('../../lib/use-media-query', () => {
   return {
     __esModule: true,
     default: jest.fn(() => true),

@@ -1,4 +1,4 @@
-import classnames from 'lib/classnames'
+import classnames from '../../lib/classnames'
 import 'card.scss'
 
 export type CardGroupProps = {

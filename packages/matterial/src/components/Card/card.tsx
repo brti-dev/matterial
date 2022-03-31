@@ -1,8 +1,8 @@
-import classnames from 'lib/classnames'
+import classnames from '../../lib/classnames'
 import {
   OverloadedElement,
   OverloadedElementProps,
-} from 'interfaces/OverloadedElement'
+} from '../../interfaces/OverloadedElement'
 
 export type CardProps = OverloadedElementProps & {
   children: React.ReactNode

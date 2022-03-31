@@ -1,4 +1,4 @@
-import { IconButton } from '../../../../matterial/src/components/Button'
+import { IconButton } from '../../../../matterial'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'

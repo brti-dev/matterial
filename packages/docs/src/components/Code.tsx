@@ -1,4 +1,4 @@
-const mapProps = (props): string => {
+const mapProps = (props: any): string => {
   if (!props) return ''
   let propString = ''
   for (const [key, value] of Object.entries(props)) {
@@ -20,7 +20,7 @@ type CodeType = {
   children?: React.ReactNode
 } & any
 
-export function CodeBlock({ children }) {
+export function CodeBlock(props: any) {
   return (
     <pre
       className="surface"
@@ -29,9 +29,8 @@ export function CodeBlock({ children }) {
         counterReset: 'linenumbers',
         lineHeight: 1,
       }}
-    >
-      {children}
-    </pre>
+      {...props}
+    />
   )
 }
 

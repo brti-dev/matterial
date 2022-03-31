@@ -3,5 +3,5 @@ dist
 .storybook
 .gitignore
 .prettierrc
-rollup.config.js
+webpack.config.js
 tsconfig.json

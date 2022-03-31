@@ -1,4 +1,4 @@
-import { COLORS, ACCENTS } from './constants'
+import { COLORS, ACCENTS } from '../const'
 
 /**
  * Parse color prop to CSS

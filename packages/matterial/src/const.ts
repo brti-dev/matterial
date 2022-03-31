@@ -1,4 +1,4 @@
-import { Color, Accent } from 'interfaces/theme'
+import { Color, Accent } from './interfaces/theme'
 
 export const COLORS: Color[] = [
   'primary',

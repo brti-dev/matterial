@@ -1,25 +1,10 @@
 {
   "name": "docs",
   "version": "0.0.0",
-  "description": "Matterial UI docs",
+  "description": "Docs for Matterial UI, a design system by Matt Berti",
   "private": true,
   "license": "ISC",
   "main": "pages/_app.js",
-  "siteTitle": "Matterial UI",
-  "pages": [
-    {
-      "link": "/",
-      "title": "Home"
-    },
-    {
-      "link": "/setup",
-      "title": "Setup"
-    },
-    {
-      "link": "/components",
-      "title": "Foo"
-    }
-  ],
   "scripts": {
     "dev": "next dev",
     "#build": "`next export` uses static export; Use only `next build` for other deploy options.",

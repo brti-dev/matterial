@@ -10,12 +10,10 @@ import {
 import { SkipNavLink, SkipNavContent } from '@reach/skip-nav'
 import '@reach/skip-nav/styles.css'
 
-import config from '../../../package.json'
+import { PAGES, TITLE } from '../../../const'
 import scrollToTop from 'lib/scroll-to-top'
 import useMediaQuery from 'lib/use-media-query'
 import classes from './layout.module.scss'
-
-const { pages, siteTitle } = config
 
 type OptionalChildren = {
   children?: React.ReactChild | React.ReactChild[]
@@ -37,7 +35,7 @@ export function Header({ children }: OptionalChildren) {
 
   const isScreenMobile = useMediaQuery('(max-width: 680px)')
 
-  const currentPageIndex = pages.findIndex(page => page.link === pathnameRoot)
+  const currentPageIndex = PAGES.findIndex(page => page.link === pathnameRoot)
 
   const [menu, setMenu] = useState(isScreenMobile)
   const handleOpenMenu = () => setMenu(!menu)
@@ -45,7 +43,7 @@ export function Header({ children }: OptionalChildren) {
   return (
     <header id="top" className={classes.header}>
       <div className="heading">
-        <h1>{siteTitle}</h1>
+        <h1>{TITLE}</h1>
         {isScreenMobile && (
           <IconButton onClick={handleOpenMenu}>
             <MenuIcon />
@@ -62,7 +60,7 @@ export function Header({ children }: OptionalChildren) {
         aria-label="Main"
       >
         <ul>
-          {pages.map(({ link, title: pageTitle }) => (
+          {PAGES.map(({ link, title: pageTitle }) => (
             <li
               key={link}
               className={isCurrentPage(link) ? 'current' : undefined}
@@ -86,7 +84,7 @@ export function Footer({ children }: OptionalChildren) {
     <footer className={classes.footer}>
       <nav aria-label="Footer">
         <ul>
-          {pages.map(({ link, title: pageTitle }) => (
+          {PAGES.map(({ link, title: pageTitle }) => (
             <li key={link}>
               <Link href={link}>{pageTitle}</Link>
             </li>
@@ -101,7 +99,7 @@ export function Footer({ children }: OptionalChildren) {
   )
 }
 
-export default function Layout({ title = siteTitle, children }: LayoutProps) {
+export default function Layout({ title = TITLE, children }: LayoutProps) {
   return (
     <>
       <Head>
@@ -116,10 +114,10 @@ export default function Layout({ title = siteTitle, children }: LayoutProps) {
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle
+            TITLE
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
-        <meta name="og:title" content={siteTitle} />
+        <meta name="og:title" content={TITLE} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <SkipNavLink />

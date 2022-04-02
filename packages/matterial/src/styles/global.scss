@@ -666,11 +666,11 @@ textarea.input {
   width: 100vw;
   height: 100vh;
   overflow: auto;
-  background: hsla(0, 0%, 100%, 0.8);
+  background: hsla(0, 0%, 100%, 0.97);
   @extend .fade-in;
 
   @include theme(dark) {
-    background: hsla(0, 0%, 0%, 0.8);
+    background: hsla(0, 0%, 0%, 0.91);
   }
 
   &[hidden] {

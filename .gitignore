@@ -46,3 +46,6 @@ typings/
 
 # generate output
 dist
+
+# Matterial package dev files
+packages/matterial/README.md

@@ -8,12 +8,12 @@ import {
   MenuItems,
   MenuPopover,
   MenuLink,
-} from 'matterial'
+} from '../../../matterial'
 
 import Layout from 'components/Layout'
 
 export default function MenuComponent() {
-  const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState<null | string>(null)
   return (
     <Layout>
       <h1>Menu</h1>
@@ -28,7 +28,9 @@ export default function MenuComponent() {
       <h2>Simple Menu</h2>
       <Menu>
         <MenuButton variant="contained">Open Menu</MenuButton>{' '}
-        <span>Selected option: {selected ?? 'none'}</span>
+        <span>
+          Selected option: <b>{selected ?? 'none'}</b>
+        </span>
         <MenuList>
           <MenuItem onSelect={() => setSelected('Foo')}>Foo</MenuItem>
           <MenuItem onSelect={() => setSelected('Bar')}>Bar</MenuItem>

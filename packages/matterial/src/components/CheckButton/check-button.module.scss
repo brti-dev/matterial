@@ -19,7 +19,7 @@
   }
 
   input:checked + label {
-    --color-border: var(--color-font);
+    --color-border: var(--color-foreground);
     opacity: 1;
   }
 

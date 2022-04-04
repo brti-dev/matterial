@@ -10,6 +10,7 @@ const COMPONENTS = [
   'checkbutton',
   'dialog',
   'form',
+  'link',
   'loader',
   'menu',
   'tooltip',

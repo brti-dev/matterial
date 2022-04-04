@@ -5,17 +5,7 @@ import { Color } from 'interfaces/theme'
 import Layout from 'components/Layout'
 import { BiBell as BellIcon } from 'react-icons/bi'
 import Code, { CodeBlock } from 'components/Code'
-
-const COLORS = [
-  'primary',
-  'secondary',
-  'error',
-  'warning',
-  'success',
-  'info',
-  'light',
-  'dark',
-]
+import { COLORS } from '../../const'
 
 const flex: React.CSSProperties = {
   display: 'flex',
@@ -53,7 +43,7 @@ export default function ButtonComponent() {
 
       <h2>Colors</h2>
       <div style={flex}>
-        {COLORS.map((color: Color) => (
+        {[...COLORS, 'hotpink'].map(color => (
           <Button key={color} variant="contained" color={color}>
             {color[0].toUpperCase() + color.substring(1)}
           </Button>

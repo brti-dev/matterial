@@ -33,14 +33,14 @@
   --color-success: #{$green};
   --color-shadow: #3a3b3c57;
 
-  --color-accents-1: hsl(0, 0%, 98%);
-  --color-accents-2: hsl(0, 0%, 92%);
-  --color-accents-3: hsl(0, 0%, 60%);
-  --color-accents-4: hsl(0, 0%, 53%);
-  --color-accents-5: hsl(0, 0%, 40%);
-  --color-accents-6: hsl(0, 0%, 27%);
-  --color-accents-7: hsl(0, 0%, 20%);
-  --color-accents-8: hsl(0, 0%, 7%);
+  --color-accent-1: hsl(0, 0%, 98%);
+  --color-accent-2: hsl(0, 0%, 92%);
+  --color-accent-3: hsl(0, 0%, 60%);
+  --color-accent-4: hsl(0, 0%, 53%);
+  --color-accent-5: hsl(0, 0%, 40%);
+  --color-accent-6: hsl(0, 0%, 27%);
+  --color-accent-7: hsl(0, 0%, 20%);
+  --color-accent-8: hsl(0, 0%, 7%);
 
   @include theme(dark) {
     --color-background: #{$color-body-dark};
@@ -52,14 +52,14 @@
     --color-comment: #{$color-comment-dark};
     --color-shadow: black;
 
-    --color-accents-8: #fafafa;
-    --color-accents-7: #eaeaea;
-    --color-accents-6: #999;
-    --color-accents-5: #888;
-    --color-accents-4: #666;
-    --color-accents-3: #444;
-    --color-accents-2: #333;
-    --color-accents-1: #111;
+    --color-accent-8: #fafafa;
+    --color-accent-7: #eaeaea;
+    --color-accent-6: #999;
+    --color-accent-5: #888;
+    --color-accent-4: #666;
+    --color-accent-3: #444;
+    --color-accent-2: #333;
+    --color-accent-1: #111;
 
     color: var(--color-foreground);
   }
@@ -107,7 +107,12 @@ body {
   }
 
   &:not(.color--default) {
+    // Inherit the vars just above
     --color-border: var(--color-foreground);
+  }
+
+  &.color--default {
+    --color-border: var(--color-accent-2);
   }
 }
 
@@ -456,7 +461,7 @@ button,
   &.disabled {
     cursor: not-allowed;
     opacity: 0.65;
-    box-shadow: none;
+    box-shadow: none !important;
   }
 
   &:hover {

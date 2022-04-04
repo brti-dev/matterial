@@ -5,6 +5,7 @@ exports[`should render correctly 1`] = `
   className="button color--primary size--small variant--contained"
   style={
     Object {
+      "--color": "var(--color-primary)",
       "width": "50px",
     }
   }
@@ -21,7 +22,11 @@ exports[`should render correctly 1`] = `
 exports[`should render icon button correctly 1`] = `
 <button
   className="button color--default shape--circle size--medium variant--default"
-  style={Object {}}
+  style={
+    Object {
+      "--color": null,
+    }
+  }
   type="button"
 >
   <span
@@ -36,7 +41,11 @@ exports[`should work with different colors 1`] = `
 Array [
   <button
     className="button color--primary size--medium variant--default"
-    style={Object {}}
+    style={
+      Object {
+        "--color": "var(--color-primary)",
+      }
+    }
     type="button"
   >
     <span
@@ -47,7 +56,11 @@ Array [
   </button>,
   <button
     className="button color--secondary size--medium variant--default"
-    style={Object {}}
+    style={
+      Object {
+        "--color": "var(--color-secondary)",
+      }
+    }
     type="button"
   >
     <span
@@ -58,7 +71,11 @@ Array [
   </button>,
   <button
     className="button color--error size--medium variant--default"
-    style={Object {}}
+    style={
+      Object {
+        "--color": "var(--color-error)",
+      }
+    }
     type="button"
   >
     <span
@@ -69,7 +86,11 @@ Array [
   </button>,
   <button
     className="button color--warning size--medium variant--default"
-    style={Object {}}
+    style={
+      Object {
+        "--color": "var(--color-warning)",
+      }
+    }
     type="button"
   >
     <span
@@ -80,7 +101,11 @@ Array [
   </button>,
   <button
     className="button color--info size--medium variant--default"
-    style={Object {}}
+    style={
+      Object {
+        "--color": "var(--color-info)",
+      }
+    }
     type="button"
   >
     <span
@@ -91,7 +116,11 @@ Array [
   </button>,
   <button
     className="button color--success size--medium variant--default"
-    style={Object {}}
+    style={
+      Object {
+        "--color": "var(--color-success)",
+      }
+    }
     type="button"
   >
     <span
@@ -102,7 +131,11 @@ Array [
   </button>,
   <button
     className="button color--dark size--medium variant--default"
-    style={Object {}}
+    style={
+      Object {
+        "--color": "var(--color-dark)",
+      }
+    }
     type="button"
   >
     <span
@@ -113,7 +146,11 @@ Array [
   </button>,
   <button
     className="button color--light size--medium variant--default"
-    style={Object {}}
+    style={
+      Object {
+        "--color": "var(--color-light)",
+      }
+    }
     type="button"
   >
     <span
@@ -124,7 +161,11 @@ Array [
   </button>,
   <button
     className="button color--hotpink size--medium variant--default"
-    style={Object {}}
+    style={
+      Object {
+        "--color": "hotpink",
+      }
+    }
     type="button"
   >
     <span
@@ -140,7 +181,11 @@ exports[`should work with different shapes 1`] = `
 Array [
   <button
     className="button color--default shape--circle size--medium variant--default"
-    style={Object {}}
+    style={
+      Object {
+        "--color": null,
+      }
+    }
     type="button"
   >
     <span
@@ -151,7 +196,11 @@ Array [
   </button>,
   <button
     className="button color--default shape--square size--medium variant--default"
-    style={Object {}}
+    style={
+      Object {
+        "--color": null,
+      }
+    }
     type="button"
   >
     <span
@@ -167,7 +216,11 @@ exports[`should work with different sizes 1`] = `
 Array [
   <button
     className="button color--default size--small variant--default"
-    style={Object {}}
+    style={
+      Object {
+        "--color": null,
+      }
+    }
     type="button"
   >
     <span
@@ -178,7 +231,11 @@ Array [
   </button>,
   <button
     className="button color--default size--medium variant--default"
-    style={Object {}}
+    style={
+      Object {
+        "--color": null,
+      }
+    }
     type="button"
   >
     <span
@@ -189,7 +246,11 @@ Array [
   </button>,
   <button
     className="button color--default size--large variant--default"
-    style={Object {}}
+    style={
+      Object {
+        "--color": null,
+      }
+    }
     type="button"
   >
     <span
@@ -205,7 +266,11 @@ exports[`should work with different variants 1`] = `
 Array [
   <button
     className="button color--default size--medium variant--default"
-    style={Object {}}
+    style={
+      Object {
+        "--color": null,
+      }
+    }
     type="button"
   >
     <span
@@ -216,7 +281,11 @@ Array [
   </button>,
   <button
     className="button color--default size--medium variant--outlined"
-    style={Object {}}
+    style={
+      Object {
+        "--color": null,
+      }
+    }
     type="button"
   >
     <span
@@ -227,7 +296,11 @@ Array [
   </button>,
   <button
     className="button color--default size--medium variant--contained"
-    style={Object {}}
+    style={
+      Object {
+        "--color": null,
+      }
+    }
     type="button"
   >
     <span

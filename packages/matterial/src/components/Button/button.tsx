@@ -3,6 +3,7 @@ import { forwardRef } from 'react'
 import { Color, Variant } from '../../interfaces/theme'
 import classnames from '../../lib/classnames'
 import { Link } from '../Link'
+import cssColor from '../../lib/css-color'
 
 type Percent = `${number}%`
 
@@ -22,7 +23,7 @@ interface Props {
   /**
    * What is your favorite color?
    */
-  color?: Color
+  color?: Color | string
   /**
    * Prevent button from triggering events
    */
@@ -85,6 +86,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ...rest
     } = props
 
+    style['--color'] = cssColor(color)
     if (typeof width === 'number') {
       style.width = `${width}px`
     } else if (typeof width === 'string') {

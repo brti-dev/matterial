@@ -45,6 +45,10 @@ interface Props {
    */
   size?: 'small' | 'medium' | 'large'
   /**
+   * CSS style
+   */
+  style?: React.CSSProperties
+  /**
    * A URL location; Changes the button into a hyperlink
    */
   to?: string
@@ -78,7 +82,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       prepend,
       size = 'medium',
       shape,
-      style = {},
+      style: naturalStyle = {},
       to,
       type = 'button',
       variant = 'default',
@@ -86,7 +90,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ...rest
     } = props
 
-    style['--color'] = cssColor(color)
+    console.log('Button', props)
+
+    const style = { ...naturalStyle, '--color': cssColor(color) }
     if (typeof width === 'number') {
       style.width = `${width}px`
     } else if (typeof width === 'string') {

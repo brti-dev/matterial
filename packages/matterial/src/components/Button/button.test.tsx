@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event'
 
 import { render, screen } from '../../../test-utils'
 import { Variant, Color } from '../../interfaces/theme'
+import { COLORS } from '../../const'
 import { Button, IconButton } from '.'
 
 test('should render correctly', () => {
@@ -42,16 +43,7 @@ test('should work with different colors', () => {
   const tree = renderer
     .create(
       <>
-        {[
-          'primary',
-          'secondary',
-          'error',
-          'warning',
-          'info',
-          'success',
-          'dark',
-          'light',
-        ].map((color: Color) => (
+        {[...COLORS, 'hotpink'].map((color: Color) => (
           <Button color={color} key={color}>
             {color}
           </Button>

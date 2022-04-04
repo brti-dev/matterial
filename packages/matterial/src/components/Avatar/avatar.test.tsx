@@ -1,7 +1,9 @@
 import React from 'react'
+import renderer from 'react-test-renderer'
 import '@testing-library/jest-dom'
 
 import { render } from '../../../test-utils'
+import { COLORS } from '../../const'
 import { Avatar, AvatarGroup } from '.'
 import {
   OverloadedElement,
@@ -9,6 +11,21 @@ import {
 } from '../../interfaces/OverloadedElement'
 
 describe('avatar', () => {
+  test('should work with different colors', () => {
+    const tree = renderer
+      .create(
+        <>
+          {[...COLORS, 'hotpink'].map(color => (
+            <Avatar alt={color} color={color} key={color}>
+              {color}
+            </Avatar>
+          ))}
+        </>
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
   test('should render initials and label properly', () => {
     const { getByText } = render(<Avatar alt="Barry Lyndon">BL</Avatar>)
 

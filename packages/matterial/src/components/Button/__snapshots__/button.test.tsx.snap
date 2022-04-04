@@ -122,6 +122,17 @@ Array [
       light
     </span>
   </button>,
+  <button
+    className="button color--hotpink size--medium variant--default"
+    style={Object {}}
+    type="button"
+  >
+    <span
+      className="main-content"
+    >
+      hotpink
+    </span>
+  </button>,
 ]
 `;
 

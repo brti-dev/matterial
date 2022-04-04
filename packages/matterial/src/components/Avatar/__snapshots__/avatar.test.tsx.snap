@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`avatar should work with different colors 1`] = `
+Array [
+  <div
+    className="avatar variant--contained color--primary no-hover"
+    role="img"
+    style={
+      Object {
+        "--color": "var(--color-primary)",
+        "--size": "40px",
+      }
+    }
+  >
+    primary
+  </div>,
+  <div
+    className="avatar variant--contained color--secondary no-hover"
+    role="img"
+    style={
+      Object {
+        "--color": "var(--color-secondary)",
+        "--size": "40px",
+      }
+    }
+  >
+    secondary
+  </div>,
+  <div
+    className="avatar variant--contained color--error no-hover"
+    role="img"
+    style={
+      Object {
+        "--color": "var(--color-error)",
+        "--size": "40px",
+      }
+    }
+  >
+    error
+  </div>,
+  <div
+    className="avatar variant--contained color--warning no-hover"
+    role="img"
+    style={
+      Object {
+        "--color": "var(--color-warning)",
+        "--size": "40px",
+      }
+    }
+  >
+    warning
+  </div>,
+  <div
+    className="avatar variant--contained color--info no-hover"
+    role="img"
+    style={
+      Object {
+        "--color": "var(--color-info)",
+        "--size": "40px",
+      }
+    }
+  >
+    info
+  </div>,
+  <div
+    className="avatar variant--contained color--success no-hover"
+    role="img"
+    style={
+      Object {
+        "--color": "var(--color-success)",
+        "--size": "40px",
+      }
+    }
+  >
+    success
+  </div>,
+  <div
+    className="avatar variant--contained color--dark no-hover"
+    role="img"
+    style={
+      Object {
+        "--color": "var(--color-dark)",
+        "--size": "40px",
+      }
+    }
+  >
+    dark
+  </div>,
+  <div
+    className="avatar variant--contained color--light no-hover"
+    role="img"
+    style={
+      Object {
+        "--color": "var(--color-light)",
+        "--size": "40px",
+      }
+    }
+  >
+    light
+  </div>,
+  <div
+    className="avatar variant--contained color--hotpink no-hover"
+    role="img"
+    style={
+      Object {
+        "--color": "hotpink",
+        "--size": "40px",
+      }
+    }
+  >
+    hotpink
+  </div>,
+]
+`;

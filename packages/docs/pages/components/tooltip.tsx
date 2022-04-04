@@ -1,4 +1,4 @@
-import { Tooltip } from '../../../matterial'
+import { Tooltip } from '../../../matterial/src/components'
 
 import Code, { CodeBlock } from 'components/Code'
 import Layout from 'components/Layout'

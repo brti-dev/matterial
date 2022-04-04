@@ -4,7 +4,7 @@ import {
   FormGroup,
   TextInput,
   SubmitRow,
-} from '../../../matterial'
+} from '../../../matterial/src/components'
 
 import Layout from 'components/Layout'
 import Code, { CodeBlock } from 'components/Code'

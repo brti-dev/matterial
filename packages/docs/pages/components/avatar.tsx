@@ -1,4 +1,4 @@
-import { Avatar, AvatarGroup, Badge } from '../../../matterial'
+import { Avatar, AvatarGroup, Badge } from '../../../matterial/src/components'
 
 import Code, { CodeBlock } from 'components/Code'
 import Layout from 'components/Layout'
@@ -146,7 +146,7 @@ export default function AvatarComponent() {
 
       <h3>Tooltip</h3>
       <p>
-        <Code>{`tooltip={string | boolean}`}</Code>
+        <Code>{`tooltip = string | boolean`}</Code>
       </p>
       <p>
         The <code>tooltip</code> prop takes a string or boolean value. If
@@ -158,7 +158,7 @@ export default function AvatarComponent() {
 
       <h3>Overload Element</h3>
       <p>
-        <Code>{`as={string | React Element}`}</Code>
+        <Code>{`as = string | Component`}</Code>
       </p>
       <p>
         Use the <code>as</code> prop to override the component root node with an

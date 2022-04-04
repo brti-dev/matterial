@@ -1,4 +1,4 @@
-import { DialogExample } from '../../../matterial'
+import { DialogExample } from '../../../matterial/src/components'
 
 import Layout from 'components/Layout'
 
@@ -11,17 +11,17 @@ export default function DialogComponent() {
       <h2>Dialog Props</h2>
 
       <h3>
-        <code>{`active={boolean}`}</code>
+        <code>{`active = boolean`}</code>
       </h3>
       <p>Indicates if the dialog is open/shown</p>
 
       <h3>
-        <code>{'closable={boolean}'}</code>
+        <code>{'closable = boolean'}</code>
       </h3>
       <p>If true, add a CloseButton with onDismiss callback when clicked</p>
 
       <h3>
-        <code>{`fullscreen={'auto'|boolean}`}</code>
+        <code>{`fullscreen = 'auto' | boolean`}</code>
       </h3>
       <p>
         Expand the modal to the edges of the viewport; 'auto' by default:
@@ -29,7 +29,7 @@ export default function DialogComponent() {
       </p>
 
       <h3>
-        <code>{`onDismiss={() => void}`}</code>
+        <code>{`onDismiss = () => void`}</code>
       </h3>
       <p>
         Function called whenever the user hits "Escape" or clicks outside the

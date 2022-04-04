@@ -1,4 +1,4 @@
-import { Loader } from '../../../matterial'
+import { Loader } from '../../../matterial/src/components'
 
 import Layout from 'components/Layout'
 import { COLORS } from '../../const'
@@ -12,10 +12,10 @@ export default function LoaderComponent() {
       <Loader />
       <h2>Loader Props</h2>
       <h3>Size</h3>
-      <p>{`size={number}`}</p>
+      <p>{`size = number`}</p>
       <Loader size={50} />
       <h3>Color</h3>
-      <p>{`color={${[...COLORS, 'string'].map(c => `"${c}"`).join(' | ')}}`}</p>
+      <p>{`color = string | ${[...COLORS].map(c => `"${c}"`).join(' | ')}`}</p>
       <div style={{ display: 'flex', gap: '1em' }}>
         <Loader color="primary" />
         <Loader color="secondary" />

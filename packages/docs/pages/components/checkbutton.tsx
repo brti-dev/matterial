@@ -1,5 +1,9 @@
 import { useState } from 'react'
-import { Button, CheckButton, CheckButtonGroup } from '../../../matterial'
+import {
+  Button,
+  CheckButton,
+  CheckButtonGroup,
+} from '../../../matterial/src/components'
 
 import Layout from 'components/Layout'
 import Code, { CodeBlock } from 'components/Code'
@@ -66,12 +70,12 @@ export default function CheckButtonComponent() {
       </h2>
       <h3>as</h3>
       <p>
-        <Code>{'as={string|ReactElement}'}</Code>
+        <Code>{'as = string | Component'}</Code>
       </p>
 
       <h3>orientation</h3>
       <p>
-        <Code>{`orientation={'horizontal'|'vertical'}`}</Code>
+        <Code>{`orientation = 'horizontal' | 'vertical'`}</Code>
       </p>
       <CheckButtonGroup orientation="vertical">
         <CheckButton name="foo" value="1">

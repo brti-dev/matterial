@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button } from '../../../matterial'
+import { Button } from '../../../matterial/src/components'
 
 import { Color } from 'interfaces/theme'
 import Layout from 'components/Layout'

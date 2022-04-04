@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Alert, AlertExample, Button } from '../../../matterial'
+import { Alert, AlertExample, Button } from '../../../matterial/src/components'
 
 import Code, { CodeBlock } from 'components/Code'
 import Layout from 'components/Layout'

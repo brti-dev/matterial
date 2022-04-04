@@ -5,10 +5,7 @@ import {
   MenuList,
   MenuButton,
   MenuItem,
-  MenuItems,
-  MenuPopover,
-  MenuLink,
-} from '../../../matterial'
+} from '../../../matterial/src/components'
 
 import Layout from 'components/Layout'
 

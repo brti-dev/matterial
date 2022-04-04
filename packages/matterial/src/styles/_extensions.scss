@@ -1,17 +1,8 @@
 @use './theme' as *;
 
 %surface {
-  --color-background: var(--color-surface-light);
-  --color-surface: var(--color-comment-light);
-  --color-surface-hover: var(--color-lightblue);
-  --color-comment: var(--color-lightblue);
-
-  @include theme(dark) {
-    --color-background: var(--color-surface-dark);
-    --color-surface: var(--color-comment-dark);
-    --color-surface-hover: var(--color-darkblue);
-    --color-comment: var(--color-darkblue);
-  }
+  --color-background: var(--color-surface);
+  --color-surface: var(--color-comment);
 
   padding: 1.5rem;
   background-color: var(--color-background);

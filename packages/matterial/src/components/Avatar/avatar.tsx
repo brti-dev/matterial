@@ -5,16 +5,39 @@ import {
   OverloadedElementProps,
 } from '../../interfaces/OverloadedElement'
 import { Color } from '../../interfaces/theme'
+import classnames from '../../lib/classnames'
+import cssColor from '../../lib/css-color'
 import { Tooltip } from '../Tooltip'
 import classes from './avatar.module.scss'
 
 export type AvatarProps = {
+  /**
+   * Alt text used for aria-label, img alt, tooltip, etc.
+   */
   alt: string
+  /**
+   * <Avatar> childrens
+   */
   children?: React.ReactNode
+  /**
+   * ClassName
+   */
   className?: string
-  color?: Color
+  /**
+   * Thematic color or a CSS color string
+   */
+  color?: Color | string
+  /**
+   * Size in pixels; Default: 40
+   */
   size?: number
+  /**
+   * Image source
+   */
   src?: string
+  /**
+   * Tooltip helper; If true, tooltip label is determined by `alt` prop; If string, overrides `alt`
+   */
   tooltip?: string | boolean
 } & OverloadedElementProps
 
@@ -34,13 +57,13 @@ export const Avatar: OverloadedElement<AvatarProps> = (props: AvatarProps) => {
     ...rest
   } = props
 
-  const classNames = [
+  const classNames = classnames(
     classes.avatar,
     'variant--contained', // Access global colors
-    `color--${color}`,
+    cssColor(color),
     'no-hover',
-    className && className,
-  ]
+    className
+  )
 
   let tooltipLabel: string = ''
   if (!!tooltip) {
@@ -52,7 +75,7 @@ export const Avatar: OverloadedElement<AvatarProps> = (props: AvatarProps) => {
   }
 
   const finalProps = {
-    className: classNames.join(' '),
+    className: classNames,
     style: { '--size': `${size}px` } as React.CSSProperties,
     role: 'img',
     'aria-label': alt !== children ? alt : undefined,

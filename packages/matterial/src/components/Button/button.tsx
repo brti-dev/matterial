@@ -24,7 +24,7 @@ interface Props {
    */
   color?: Color
   /**
-   * What is your quest?
+   * Prevent button from triggering events
    */
   disabled?: boolean
   /**
@@ -32,7 +32,7 @@ interface Props {
    */
   loading?: boolean
   /**
-   * Stuff to put on the left side of children
+   * Stuff to put on the left side of children/main content
    */
   prepend?: React.ReactNode
   /**
@@ -40,7 +40,7 @@ interface Props {
    */
   shape?: 'default' | 'square' | 'circle'
   /**
-   * Medium by default
+   * Size; Medium by default
    */
   size?: 'small' | 'medium' | 'large'
   /**
@@ -61,7 +61,7 @@ interface Props {
   width?: number | Percent
 }
 
-type NativeAttrs = Omit<React.ButtonHTMLAttributes<any>, keyof Props>
+type NativeAttrs = Omit<React.ComponentPropsWithRef<'button'>, keyof Props>
 
 export type ButtonProps = Props & NativeAttrs
 
@@ -75,8 +75,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       disabled = false,
       loading = false,
       prepend,
-      shape,
       size = 'medium',
+      shape,
+      style = {},
       to,
       type = 'button',
       variant = 'default',
@@ -84,7 +85,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ...rest
     } = props
 
-    const style: React.CSSProperties = {}
     if (typeof width === 'number') {
       style.width = `${width}px`
     } else if (typeof width === 'string') {
@@ -120,7 +120,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     if (to) {
       return (
-        <Link href={to} className={classNameString} style={style} {...rest}>
+        <Link href={to} className={classNameString} style={style}>
           {content}
         </Link>
       )

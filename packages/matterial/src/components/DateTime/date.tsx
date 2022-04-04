@@ -4,12 +4,16 @@
 
 import { DateTimeType } from '../../interfaces/other'
 
-export type DateTimeProps = React.HTMLAttributes<HTMLTimeElement> & {
+export type DateTimeProps = React.ComponentPropsWithoutRef<'time'> & {
   date: DateTimeType
   format?: 'default' | 'yy-MM-dd'
 }
 
-export function DateTime({ date, format, ...rest }: DateTimeProps) {
+export function DateTime({
+  date,
+  format,
+  ...rest
+}: DateTimeProps): JSX.Element {
   const dateStr = date.toString()
   const dateParsed = date instanceof Date ? date : new Date(date)
   let dateOut: string

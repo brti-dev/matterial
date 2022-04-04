@@ -6,13 +6,31 @@ import { DateTime } from '../DateTime'
 import { Link } from '../Link'
 import classes from './article.module.scss'
 
-export type ArticleProps = {
-  title?: string
-  description?: string | React.ReactElement
-  preface?: string | React.ReactElement
-  date?: DateTimeType
-  nextArticle?: React.ReactElement
+export type ArticleProps = React.ComponentPropsWithoutRef<'div'> & {
+  /**
+   * Article content
+   */
   children: React.ReactNode
+  /**
+   * Article date
+   */
+  date?: DateTimeType
+  /**
+   * A brief description
+   */
+  description?: string | React.ReactElement
+  /**
+   * Indicate what to read next in a series; Should be a <Link> component or <a> hyperlink
+   */
+  nextArticle?: React.ReactElement
+  /**
+   * A short introduction to the article
+   */
+  preface?: string | React.ReactElement
+  /**
+   * Article title
+   */
+  title?: string
 }
 
 /**
@@ -27,7 +45,7 @@ export function Article({
   nextArticle,
   children,
   ...rest
-}: ArticleProps) {
+}: ArticleProps): JSX.Element {
   let header: null | React.ReactElement = null
   let hasHeader = false
   let next: null | React.ReactElement = null

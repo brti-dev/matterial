@@ -1,9 +1,20 @@
 export type OverlayProps = {
+  /**
+   * Indicates if the overlay is open; Default: false
+   */
   active: boolean
-  onClose: any
-} & React.HTMLAttributes<HTMLDivElement>
+  /**
+   * Callback when close is requested, eg. click the overlay container or press
+   * Esc
+   */
+  onClose: () => void
+} & React.ComponentPropsWithoutRef<'div'>
 
-export function Overlay({ active = false, onClose }: OverlayProps) {
+export function Overlay({
+  active = false,
+  onClose,
+  ...rest
+}: OverlayProps): JSX.Element {
   return (
     <div
       className="overlay"
@@ -12,6 +23,7 @@ export function Overlay({ active = false, onClose }: OverlayProps) {
       onClick={onClose}
       aria-hidden={!active}
       aria-label="close"
+      {...rest}
     />
   )
 }

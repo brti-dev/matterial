@@ -1,8 +1,8 @@
-import classnames from '../../lib/classnames'
-import React from 'react'
+import { Children } from 'react'
 
-import { Avatar } from './avatar'
+import classnames from '../../lib/classnames'
 import classes from './avatar.module.scss'
+import { Avatar } from './avatar'
 
 export type AvatarGroupProps = React.ComponentPropsWithoutRef<'div'> & {
   /**
@@ -21,14 +21,14 @@ export type AvatarGroupProps = React.ComponentPropsWithoutRef<'div'> & {
   children: React.ReactNode
 }
 
-export const AvatarGroup = ({
+export function AvatarGroup({
   children: allChildren,
   className,
   max: naturalMax,
   total: naturalTotal,
   ...rest
-}: AvatarGroupProps) => {
-  const children = React.Children.toArray(allChildren)
+}: AvatarGroupProps): JSX.Element {
+  const children = Children.toArray(allChildren)
   const numChildren = children.length
 
   const max = naturalMax || numChildren

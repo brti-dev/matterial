@@ -18,7 +18,7 @@
   user-select: none;
   border-radius: 50%;
   justify-content: center;
-  background-color: var(--color-background, var(--color-surface));
+  background-color: var(--color, var(--color-background, var(--color-surface)));
 }
 
 .group {

@@ -36,6 +36,10 @@ export type AvatarProps = {
    */
   src?: string
   /**
+   * CSS Style
+   */
+  style?: React.CSSProperties
+  /**
    * Tooltip helper; If true, tooltip label is determined by `alt` prop; If string, overrides `alt`
    */
   tooltip?: string | boolean
@@ -53,6 +57,7 @@ export const Avatar: OverloadedElement<AvatarProps> = (props: AvatarProps) => {
     as: Component = 'div',
     size = 40,
     src,
+    style = {},
     tooltip,
     ...rest
   } = props
@@ -60,7 +65,7 @@ export const Avatar: OverloadedElement<AvatarProps> = (props: AvatarProps) => {
   const classNames = classnames(
     classes.avatar,
     'variant--contained', // Access global colors
-    cssColor(color),
+    `color--${color}`,
     'no-hover',
     className
   )
@@ -76,7 +81,7 @@ export const Avatar: OverloadedElement<AvatarProps> = (props: AvatarProps) => {
 
   const finalProps = {
     className: classNames,
-    style: { '--size': `${size}px` } as React.CSSProperties,
+    style: { ...style, '--size': `${size}px`, '--color': cssColor(color) },
     role: 'img',
     'aria-label': alt !== children ? alt : undefined,
     ...rest,

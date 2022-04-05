@@ -7,23 +7,45 @@ import useMediaQuery from '../../lib/use-media-query'
 import { CloseButton } from './close-button'
 
 type DialogProps_base = Omit<ReachDialogProps, 'isOpen'> & {
-  // Indicates if the dialog is open/shown
+  /**
+   * Indicates if the dialog is open/shown
+   */
   active?: boolean
-  // If true, add a CloseButton with onDismiss callback when clicked
+  /**
+   * If true, add a CloseButton with onDismiss callback when clicked
+   */
   closable?: boolean
-  // Expand the modal to the edges of the viewport; 'auto' by default: fullscreen on mobile only
+  /**
+   * Expand the modal to the edges of the viewport; 'auto' by default:
+   * fullscreen on mobile only
+   */
   fullscreen?: boolean | 'auto'
-  // Function called whenever the user hits "Escape" or clicks outside the dialog; Used to close the dialog or check if conditions are met before closing
-  onDismiss: () => void // Required
+  /**
+   * Description of contextual information for the interactive controls inside
+   * the dialog; Required if `labelledBy` is not specified
+   */
+  label?: string
+  /**
+   * Element ID within the dialog that describes contextual information for the
+   * interactive controls inside the dialog; Required if `label` is not
+   * specified
+   */
+  labelledBy?: string
+  /**
+   * Function called whenever the user hits "Escape" or clicks outside the
+   * dialog; Used to close the dialog or check if conditions are met before
+   * closing
+   */
+  onDismiss: () => void
 }
 
 type AriaLabel = {
   label: string
-  'aria-labelled-by'?: never
+  labelledBy?: never
 }
 
 type AriaLabelledBy = {
-  'aria-labelledby': string
+  labelledBy: string
   label?: never
 }
 
@@ -35,6 +57,7 @@ export function Dialog({
   closable = false,
   fullscreen = 'auto',
   label,
+  labelledBy,
   ...rest
 }: DialogProps) {
   const isScreenMobile = useMediaQuery('(max-width: 640px)')
@@ -55,6 +78,7 @@ export function Dialog({
       isOpen={active}
       data-fullscreen={isFullscreen || undefined}
       aria-label={label || undefined}
+      aria-labelledby={labelledBy || undefined}
       {...rest}
     >
       {closable && <CloseButton onClick={rest.onDismiss} />}

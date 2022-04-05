@@ -39,7 +39,7 @@ describe('useDialog hook', () => {
 test('should be labelled correctly', () => {
   const { rerender } = render(<TestDialog />)
   expect(screen.getByRole('dialog')).toHaveAttribute('aria-label', 'dialog')
-  rerender(<TestDialog aria-labelledby="dialog" label="" />)
+  rerender(<TestDialog labelledBy="dialog" label="" />)
   expect(screen.getByRole('dialog')).toHaveAttribute(
     'aria-labelledby',
     'dialog'

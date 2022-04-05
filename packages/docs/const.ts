@@ -29,4 +29,6 @@ export const PAGES = [
   },
 ]
 
-export const description = packageJson.description
+export const DESCRIPTION = packageJson.description
+
+export const PACKAGE = 'matterial'

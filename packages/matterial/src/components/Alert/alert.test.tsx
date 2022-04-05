@@ -40,69 +40,71 @@ describe('useAlert hook', () => {
   })
 })
 
-test('should render correctly', () => {
-  const tree = renderer
-    .create(
-      <Alert severity="error" action={<b>Action</b>}>
-        Alert
+describe('alert component', () => {
+  test('should render correctly', () => {
+    const tree = renderer
+      .create(
+        <Alert severity="error" action={<b>Action</b>}>
+          Alert
+        </Alert>
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  test('should work with different variants', () => {
+    const tree = renderer
+      .create(
+        <>
+          {['default', 'outlined', 'contained'].map((variant: Variant) => (
+            <Alert variant={variant} key={variant}>
+              {variant}
+            </Alert>
+          ))}
+        </>
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  test('has the proper `severity` attributes', () => {
+    const severity = SEVERITY[0]
+    const { getByRole, rerender } = render(
+      <Alert severity={severity as Severity} label="Alert">
+        Foo
       </Alert>
     )
-    .toJSON()
-  expect(tree).toMatchSnapshot()
-})
-
-test('should work with different variants', () => {
-  const tree = renderer
-    .create(
-      <>
-        {['default', 'outlined', 'contained'].map((variant: Variant) => (
-          <Alert variant={variant} key={variant}>
-            {variant}
-          </Alert>
-        ))}
-      </>
-    )
-    .toJSON()
-  expect(tree).toMatchSnapshot()
-})
-
-test('has the proper `severity` attributes', () => {
-  const severity = SEVERITY[0]
-  const { getByRole, rerender } = render(
-    <Alert severity={severity as Severity} label="Alert">
-      Foo
-    </Alert>
-  )
-  expect(getByRole('alert')).toHaveAttribute('data-severity', severity)
-
-  SEVERITY.slice(1).forEach((severity: Severity) => {
-    rerender(<Alert severity={severity}>alert</Alert>)
     expect(getByRole('alert')).toHaveAttribute('data-severity', severity)
+
+    SEVERITY.slice(1).forEach((severity: Severity) => {
+      rerender(<Alert severity={severity}>alert</Alert>)
+      expect(getByRole('alert')).toHaveAttribute('data-severity', severity)
+    })
   })
-})
 
-test('should output a message using the `message` prop', () => {
-  const { getByText } = render(<Alert message="WARNING!" />)
-  expect(getByText('WARNING!')).toBeInTheDocument()
-})
+  test('should output a message using the `message` prop', () => {
+    const { getByText } = render(<Alert message="WARNING!" />)
+    expect(getByText('WARNING!')).toBeInTheDocument()
+  })
 
-test('should output a message using the `children` prop', () => {
-  const { getByText } = render(<Alert>WARNING!</Alert>)
-  expect(getByText('WARNING!')).toBeInTheDocument()
-})
+  test('should output a message using the `children` prop', () => {
+    const { getByText } = render(<Alert>WARNING!</Alert>)
+    expect(getByText('WARNING!')).toBeInTheDocument()
+  })
 
-test('should include a call to action with the `action` prop', () => {
-  const { getByRole } = render(
-    <Alert message="Alert" action={<Button>Act</Button>} />
-  )
-  expect(getByRole('button')).toBeInTheDocument()
-})
+  test('should include a call to action with the `action` prop', () => {
+    const { getByRole } = render(
+      <Alert message="Alert" action={<Button>Act</Button>} />
+    )
+    expect(getByRole('button')).toBeInTheDocument()
+  })
 
-test('should dismiss', () => {
-  const { getByRole } = render(<Alert dismiss>Alert</Alert>)
+  test('should dismiss', () => {
+    const { getByRole } = render(<Alert dismiss>Alert</Alert>)
 
-  const btn = getByRole('button')
-  expect(btn).toBeInTheDocument()
-  userEvent.click(btn)
-  expect(btn).not.toBeVisible()
+    const btn = getByRole('button')
+    expect(btn).toBeInTheDocument()
+    userEvent.click(btn)
+    expect(btn).not.toBeVisible()
+  })
 })

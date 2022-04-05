@@ -13,6 +13,11 @@ import { Button } from '../Button'
 
 import classes from './alert.module.scss'
 
+const LABELS = {
+  error: 'Error',
+  warning: 'Warning',
+  success: 'Success',
+}
 const ICONS = {
   error: <ErrorIcon />,
   warning: <WarningIcon />,
@@ -20,11 +25,9 @@ const ICONS = {
   info: <InfoIcon />,
 }
 
+type Icon = boolean | React.ReactElement
+
 export type AlertDispatch = {
-  /**
-   * A short message to show
-   */
-  message: string | null
   /**
    * A button or other call to action
    */
@@ -34,15 +37,24 @@ export type AlertDispatch = {
    */
   dismiss?: boolean
   /**
-   * Prefix a short phrase like "Critical Error" or "Warning"
+   * Display an icon; Differs by severity, or indicate custom; Default: false
    */
-  label?: string
+  icon?: Icon
+  /**
+   * Prefix a short phrase; Defaults to a phrase based on severity, or suppress with false
+   */
+  label?: boolean | string
+  /**
+   * A short message to show; Nullable for use in useAlert hook
+   */
+  message: string | null
   /**
    * Describes the type of alert
    */
   severity?: Severity
   /**
-   * Controls whether the assistive technology should read immediately ("assertive") or wait until the user is idle ("polite").
+   * Controls whether the assistive technology should read immediately
+   * ("assertive") or wait until the user is idle ("polite"); Default: 'polite'
    */
   type?: 'polite' | 'assertive'
   /**
@@ -72,7 +84,8 @@ export function Alert({
   children,
   className,
   dismiss = false,
-  label,
+  icon = false,
+  label: naturalLabel = true,
   message: naturalMessage,
   severity,
   type,
@@ -103,6 +116,13 @@ export function Alert({
     return null
   }
 
+  let label
+  if (naturalLabel === true && severity && severity in LABELS) {
+    label = LABELS[severity]
+  } else if (typeof naturalLabel === 'string') {
+    label = naturalLabel
+  }
+
   return (
     <ReachAlert
       className={classNames}
@@ -112,22 +132,42 @@ export function Alert({
       data-severity={severity}
     >
       <>
-        {severity && <Icon severity={severity} />}
-        <div className="content">
-          <div className="message">
-            {label && <strong className="label">{label}: </strong>}
+        {icon && <Icon icon={icon} severity={severity} />}
+        <div className={classes.content}>
+          <div className={classes.message}>
+            {label && <strong className={classes.label}>{label}: </strong>}
             {message}
           </div>
-          {action && <div className="action">{shrink(action)}</div>}
+          {action && <div className={classes.action}>{shrink(action)}</div>}
         </div>
       </>
     </ReachAlert>
   )
 }
 
-const Icon = ({ severity }: { severity: Severity }) =>
-  ICONS[severity] ? (
-    <div className="icon" aria-hidden="true">
-      {ICONS[severity]}
+function Icon({
+  icon,
+  severity,
+}: {
+  icon: Icon
+  severity?: Severity
+}): JSX.Element | null {
+  if (icon === true) {
+    // Return icon by severity, or default icon
+    if (!severity || !ICONS[severity]) {
+      severity = 'info'
+    }
+    return (
+      <div className={classes.icon} aria-hidden="true">
+        {ICONS[severity]}
+      </div>
+    )
+  }
+
+  // Return custom icon
+  return (
+    <div className={classes.icon} aria-hidden="true">
+      {icon}
     </div>
-  ) : null
+  )
+}

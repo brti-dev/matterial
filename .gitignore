@@ -13,8 +13,8 @@ lib-cov
 coverage
 *.lcov
 
-# nyc test coverage
-.nyc_output
+# Binaries
+.DS_Store
 
 # node-waf configuration
 .lock-wscript

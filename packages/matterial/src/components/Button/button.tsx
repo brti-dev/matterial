@@ -90,8 +90,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ...rest
     } = props
 
-    console.log('Button', props)
-
     const style = { ...naturalStyle, '--color': cssColor(color) }
     if (typeof width === 'number') {
       style.width = `${width}px`

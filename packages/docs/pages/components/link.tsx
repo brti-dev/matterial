@@ -2,7 +2,7 @@ import { Button, Link } from '../../../matterial/src/components'
 import NextLink from 'next/link'
 
 import Layout from 'components/Layout'
-import { COLORS } from '../../const'
+import { COLORS, PACKAGE } from '../../const'
 import Code, { CodeBlock } from 'components/Code'
 
 const flex = { display: 'flex', gap: '1em' }
@@ -58,13 +58,24 @@ export default function LinkComponent() {
 
       <h2>NextLink</h2>
       <p>
-        Wrap <code>Link</code> components in Next.js <code>Link</code>{' '}
-        component.
+        Wrap <code>Link</code> components in a component imported from{' '}
+        <code>next/link</code>.{' '}
+        <strong>
+          Pass the <code>passHref</code> prop to the wrapper to{' '}
+          <a href="https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag">
+            ensure the link component renders a <code>href</code> tag
+          </a>
+          .
+        </strong>
       </p>
+      <NextLink href="/" passHref>
+        <Link color="secondary">Home</Link>
+      </NextLink>
       <CodeBlock>
         <Code>{`import NextLink from 'next/link'
+import { Link } from '${PACKAGE}'
 
-const App = () => <NextLink href="/"><Link>Foo</Link></NextLink>`}</Code>
+const App = () => <NextLink href="/" passHref><Link color="secondary">Home</Link></NextLink>`}</Code>
       </CodeBlock>
     </Layout>
   )

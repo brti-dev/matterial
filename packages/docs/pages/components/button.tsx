@@ -9,7 +9,7 @@ import { COLORS } from '../../const'
 
 const flex: React.CSSProperties = {
   display: 'flex',
-  gap: '1em',
+  gap: 'var(--gap)',
   flexWrap: 'wrap',
   alignItems: 'flex-start',
 }
@@ -35,10 +35,22 @@ export default function ButtonComponent() {
         <Button variant="outlined">Outlined</Button>
         <Button variant="contained">Contained</Button>
       </div>
+      <div style={{ ...flex, marginTop: 'var(--gap)' }}>
+        <Button color="primary">Default</Button>
+        <Button color="primary" variant="outlined">
+          Outlined
+        </Button>
+        <Button color="primary" variant="contained">
+          Contained
+        </Button>
+      </div>
       <CodeBlock>
         <Code>{`<Button>Default</Button>
 <Button variant="outlined">Outlined</Button>
-<Button variant="contained">Contained</Button>`}</Code>
+<Button variant="contained">Contained</Button>
+<Button color="primary">Default</Button>
+<Button color="primary" variant="outlined">Outlined</Button>
+<Button color="primary" variant="contained">Contained</Button>`}</Code>
       </CodeBlock>
 
       <h2>Colors</h2>

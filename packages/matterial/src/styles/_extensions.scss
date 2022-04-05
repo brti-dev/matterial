@@ -2,8 +2,11 @@
 
 %surface {
   --color-background: var(--color-surface);
-  --color-surface: var(--color-comment);
 
   padding: 1.5rem;
   background-color: var(--color-background);
+
+  & * {
+    --color-background: var(--color-comment);
+  }
 }

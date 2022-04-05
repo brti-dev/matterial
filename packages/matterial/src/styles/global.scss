@@ -117,78 +117,52 @@ body {
 }
 
 .variant--contained {
-  --color-background: var(--color-surface);
-
-  &:hover:not(.no-hover) {
-    --color-background: var(--color-surface-hover);
+  &.color--default {
+    --color-background: var(--color-surface);
   }
 
   &.color--primary {
     --color-background: var(--color-primary);
     --color-foreground: white;
-    &:hover:not(.no-hover) {
-      --color-background: var(--color-primary-hover);
-    }
   }
 
   &.color--secondary {
     --color-background: var(--color-secondary);
     --color-foreground: white;
-    &:hover:not(.no-hover) {
-      --color-background: var(--color-secondary-hover);
-    }
   }
 
   &.color--light {
     --color-foreground: #{$color-font-light};
     --color-background: #{$color-surface-light};
-    &:hover:not(.no-hover) {
-      --color-background: #{$color-surface-hover-light};
-    }
   }
 
   &.color--dark {
     --color-foreground: #{$color-font-dark};
     --color-background: #{$color-surface-dark};
-    &:hover:not(.no-hover) {
-      --color-background: #{$color-surface-hover-dark};
-    }
   }
 
   &.color--red,
   &.color--error {
     --color-background: #{$red};
     --color-foreground: white;
-    &:hover:not(.no-hover) {
-      --color-background: #{color.scale($red, $lightness: 20%)};
-    }
   }
 
   &.color--green,
   &.color--success {
     --color-background: #{$green};
     --color-foreground: white;
-    &:hover:not(.no-hover) {
-      --color-background: #{color.scale($green, $lightness: 5%)};
-    }
   }
 
   &.color--yellow,
   &.color--warning {
     --color-background: #{$yellow};
     --color-foreground: white;
-    &:hover:not(.no-hover) {
-      --color-background: #{color.scale($yellow, $lightness: 20%)};
-    }
   }
 
   &.color--blue,
   &.color--info {
     --color-background: #{$blue};
     --color-foreground: white;
-    &:hover:not(.no-hover) {
-      --color-background: #{color.scale($blue, $lightness: 20%)};
-    }
   }
 }
 
@@ -423,6 +397,7 @@ input,
 button,
 .button {
   --input-padding: 0.95rem;
+  --color-background: transparent;
 
   &.variant--outlined {
     --input-padding: calc(0.95rem - 2px);
@@ -430,9 +405,9 @@ button,
 
   // On dialog, close button has focus on open
   // Problem: need to indicate focus without distraction
-  &.button__close {
-    --color-comment: rgba(0, 0, 0, 0.05);
-  }
+  // &.button__close {
+  //   --color-comment: rgba(0, 0, 0, 0.05);
+  // }
 }
 
 input,
@@ -474,7 +449,7 @@ button,
   &:focus,
   .focus {
     border-color: transparent;
-    box-shadow: 0 0 0 3px var(--color-comment);
+    box-shadow: 0 0 0 3px var(--color-border, var(--color-comment));
   }
 
   &.size-- {

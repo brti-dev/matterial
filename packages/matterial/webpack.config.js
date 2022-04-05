@@ -1,26 +1,29 @@
 const path = require('path')
-const nodeExternals = require('webpack-node-externals')
+// const nodeExternals = require('webpack-node-externals')
 const MiniCss = require('mini-css-extract-plugin')
 const copyPlugin = require('copy-webpack-plugin')
 
+// const externals = [nodeExternals()] // Bundle all imported modules
+const externals = [
+  {
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'React',
+      root: 'React',
+    },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'ReactDOM',
+      root: 'ReactDOM',
+    },
+  },
+]
+
 module.exports = {
   entry: './src/index.ts',
-  externals: [
-    {
-      react: {
-        commonjs: 'react',
-        commonjs2: 'react',
-        amd: 'React',
-        root: 'React',
-      },
-      'react-dom': {
-        commonjs: 'react-dom',
-        commonjs2: 'react-dom',
-        amd: 'ReactDOM',
-        root: 'ReactDOM',
-      },
-    },
-  ],
+  externals,
   output: {
     clean: true,
     filename: 'index.js',

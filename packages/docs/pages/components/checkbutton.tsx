@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import {
-  Button,
   CheckButton,
   CheckButtonGroup,
 } from '../../../matterial/src/components'
 
 import Layout from 'components/Layout'
-import Code, { CodeBlock } from 'components/Code'
+import Code from 'components/Code'
 
 export default function CheckButtonComponent() {
   const [checked, setChecked] = useState({ foo: true, bar: false })
@@ -49,16 +48,18 @@ export default function CheckButtonComponent() {
           value="true"
           checked={radio === 'daddy'}
           onChange={() => setRadio('daddy')}
+          prepend="👨"
         >
-          👨 I'm a daddy
+          I'm a daddy
         </CheckButton>
         <CheckButton
           name="has_boat"
           value="true"
           checked={radio === 'has_boat'}
           onChange={() => setRadio('has_boat')}
+          prepend="🛥️"
         >
-          🛥️ I have a boat
+          I have a boat
         </CheckButton>
         <div>
           Checked: <strong>{radio || 'none'}</strong>

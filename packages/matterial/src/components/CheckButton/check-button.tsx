@@ -1,9 +1,10 @@
 import { memo, forwardRef } from 'react'
 
+import { Button, CommonButtonProps } from '../Button'
 import classnames from '../../lib/classnames'
 import classes from './check-button.module.scss'
 
-export type CheckButtonProps = {
+export interface CheckButtonProps extends CommonButtonProps {
   name: string
   children: React.ReactNode
   value: string
@@ -36,7 +37,7 @@ const PlainOlUnmemoizedCheckButton = forwardRef<
   const toggleChecked = () => onChange(!checked)
 
   return (
-    <div className={classnames(className, classes.checkButton)} {...rest}>
+    <div className={classnames(className, classes.checkButton)}>
       <input
         type="checkbox"
         name={name}
@@ -47,7 +48,8 @@ const PlainOlUnmemoizedCheckButton = forwardRef<
         className="visually-hidden"
         onChange={toggleChecked}
       />
-      <label
+      <Button
+        as="label"
         htmlFor={id}
         className={classnames(
           'button variant--outlined',
@@ -56,9 +58,10 @@ const PlainOlUnmemoizedCheckButton = forwardRef<
         )}
         data-loading={loading && 'true'}
         ref={ref}
+        {...rest}
       >
-        <span className="text-content">{children}</span>
-      </label>
+        {children}
+      </Button>
     </div>
   )
 })

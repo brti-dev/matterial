@@ -8,6 +8,11 @@ exports[`should render correctly 1`] = `
   <span
     className="badge content variant--contained color--default no-hover variant--dot size--medium "
     hidden={false}
+    style={
+      Object {
+        "--color": null,
+      }
+    }
   />
 </span>
 `;
@@ -21,6 +26,11 @@ Array [
     <span
       className="badge content variant--contained color--primary no-hover variant--dot size--medium "
       hidden={false}
+      style={
+        Object {
+          "--color": "var(--color-primary)",
+        }
+      }
     />
   </span>,
   <span
@@ -30,6 +40,11 @@ Array [
     <span
       className="badge content variant--contained color--secondary no-hover variant--dot size--medium "
       hidden={false}
+      style={
+        Object {
+          "--color": "var(--color-secondary)",
+        }
+      }
     />
   </span>,
   <span
@@ -39,6 +54,11 @@ Array [
     <span
       className="badge content variant--contained color--error no-hover variant--dot size--medium "
       hidden={false}
+      style={
+        Object {
+          "--color": "var(--color-error)",
+        }
+      }
     />
   </span>,
   <span
@@ -48,6 +68,11 @@ Array [
     <span
       className="badge content variant--contained color--warning no-hover variant--dot size--medium "
       hidden={false}
+      style={
+        Object {
+          "--color": "var(--color-warning)",
+        }
+      }
     />
   </span>,
   <span
@@ -57,6 +82,11 @@ Array [
     <span
       className="badge content variant--contained color--info no-hover variant--dot size--medium "
       hidden={false}
+      style={
+        Object {
+          "--color": "var(--color-info)",
+        }
+      }
     />
   </span>,
   <span
@@ -66,6 +96,11 @@ Array [
     <span
       className="badge content variant--contained color--success no-hover variant--dot size--medium "
       hidden={false}
+      style={
+        Object {
+          "--color": "var(--color-success)",
+        }
+      }
     />
   </span>,
   <span
@@ -75,6 +110,11 @@ Array [
     <span
       className="badge content variant--contained color--dark no-hover variant--dot size--medium "
       hidden={false}
+      style={
+        Object {
+          "--color": "var(--color-dark)",
+        }
+      }
     />
   </span>,
   <span
@@ -84,6 +124,11 @@ Array [
     <span
       className="badge content variant--contained color--light no-hover variant--dot size--medium "
       hidden={false}
+      style={
+        Object {
+          "--color": "var(--color-light)",
+        }
+      }
     />
   </span>,
 ]

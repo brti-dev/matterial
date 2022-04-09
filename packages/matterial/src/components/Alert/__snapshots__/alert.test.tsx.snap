@@ -6,6 +6,11 @@ exports[`alert component should render correctly 1`] = `
   data-reach-alert={true}
   data-severity="error"
   role="alert"
+  style={
+    Object {
+      "--color": "var(--color-error)",
+    }
+  }
 >
   <div
     className="content"
@@ -40,6 +45,11 @@ Array [
     className="alert variant--default"
     data-reach-alert={true}
     role="alert"
+    style={
+      Object {
+        "--color": null,
+      }
+    }
   >
     <div
       className="content"
@@ -55,6 +65,11 @@ Array [
     className="alert variant--outlined"
     data-reach-alert={true}
     role="alert"
+    style={
+      Object {
+        "--color": null,
+      }
+    }
   >
     <div
       className="content"
@@ -70,6 +85,11 @@ Array [
     className="alert variant--contained"
     data-reach-alert={true}
     role="alert"
+    style={
+      Object {
+        "--color": null,
+      }
+    }
   >
     <div
       className="content"

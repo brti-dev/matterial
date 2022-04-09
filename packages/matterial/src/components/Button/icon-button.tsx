@@ -1,7 +1,7 @@
 import { Tooltip } from '../Tooltip'
-import { Button, ButtonProps } from './button'
+import { Button, CommonButtonProps } from './button'
 
-export type IconButtonProps = ButtonProps & {
+export interface IconButtonProps extends CommonButtonProps {
   tooltip?: string
 }
 

@@ -1,13 +1,13 @@
 import classnames from '../../lib/classnames'
 import { VisuallyHidden } from '../VisuallyHidden'
-import { Button, ButtonProps } from '../Button'
+import { Button, CommonButtonProps } from '../Button'
 
 export function CloseButton({
   className,
   onClick,
   size = 'large',
   ...props
-}: Omit<ButtonProps, 'children'> & { onClick: () => void }) {
+}: Omit<CommonButtonProps, 'children'> & { onClick: () => void }) {
   return (
     <Button
       className={classnames('button__close', className)}

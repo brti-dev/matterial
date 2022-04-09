@@ -17,11 +17,17 @@ exports[`should render correctly 1`] = `
       value="true"
     />
     <label
-      className="button variant--outlined checked"
+      className="button color--default size--medium variant--default button variant--outlined checked"
       htmlFor="checkButton__daddy__true"
+      style={
+        Object {
+          "--color": null,
+        }
+      }
+      type="button"
     >
       <span
-        className="text-content"
+        className="main-content"
       >
         I'm a daddy
       </span>
@@ -40,11 +46,17 @@ exports[`should render correctly 1`] = `
       value="true"
     />
     <label
-      className="button variant--outlined"
+      className="button color--default size--medium variant--default button variant--outlined"
       htmlFor="checkButton__has_boat__true"
+      style={
+        Object {
+          "--color": null,
+        }
+      }
+      type="button"
     >
       <span
-        className="text-content"
+        className="main-content"
       >
         I have a boat
       </span>

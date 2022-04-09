@@ -15,10 +15,6 @@ export function DialogExample() {
           Culpa nostrud sint elit duis ad aute aliqua non cupidatat eiusmod
           consequat adipisicing.
         </p>
-        <div className="surface">
-          Nisi eiusmod sint sunt enim adipisicing eiusmod id ipsum anim magna
-          sunt.
-        </div>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
           <Button onClick={close}>Close Dialog</Button>
         </div>

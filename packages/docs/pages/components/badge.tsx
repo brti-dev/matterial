@@ -27,8 +27,8 @@ export default function BadgeComponent() {
       </CodeBlock>
 
       <h2>Colored Badge</h2>
-      <div style={{ display: 'flex', gap: '1em' }}>
-        {COLORS.map(color => (
+      <div style={{ display: 'flex', gap: '1em', flexWrap: 'wrap' }}>
+        {[...COLORS, 'hotpink'].map(color => (
           <Badge key={color} content={99} color={color}>
             <Avatar alt={color}>{color.substring(0, 1).toUpperCase()}</Avatar>
           </Badge>
@@ -36,7 +36,7 @@ export default function BadgeComponent() {
       </div>
       <CodeBlock>
         <Code>
-          {COLORS.map(
+          {[...COLORS, 'hotpink'].map(
             color => `<Badge content={99} color="${color}"><Avatar /></Badge>
 `
           )}

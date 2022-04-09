@@ -1,12 +1,13 @@
 import React from 'react'
 
 import { Color } from '../../interfaces/theme'
+import cssColor from '../../lib/css-color'
 import classes from './badge.module.scss'
 
 type BadgePropsBase = {
   children: React.ReactNode
   className?: string
-  color?: Color
+  color?: Color | string
   max?: number
   showZero?: boolean
   size?: 'small' | 'medium' | 'large' | number
@@ -22,19 +23,18 @@ type BadgePropsDot = BadgePropsBase & {
 
 export type BadgeProps = BadgePropsContent | BadgePropsDot
 
-export function Badge(props: BadgeProps) {
-  const {
-    children,
-    className,
-    color = 'default',
-    content,
-    max,
-    showZero = false,
-    size = 'medium',
-    variant = 'default',
-    ...rest
-  } = props
-
+export function Badge({
+  children,
+  className,
+  color = 'default',
+  content,
+  max,
+  showZero = false,
+  size = 'medium',
+  style: naturalStyle = {},
+  variant = 'default',
+  ...rest
+}: BadgeProps): JSX.Element {
   const classNames = [
     'badge',
     classes.content,
@@ -43,7 +43,7 @@ export function Badge(props: BadgeProps) {
     'no-hover',
     classes[`variant--${variant}`],
     classes[`size--${size}`],
-    className && className,
+    className ? className : undefined,
   ]
 
   let contentOutput = content
@@ -61,10 +61,17 @@ export function Badge(props: BadgeProps) {
     classNames.push(classes.componentAsBadge)
   }
 
+  const style = { ...naturalStyle, '--color': cssColor(color) }
+
   return (
     <span className={classes.container}>
       {children}
-      <span className={classNames.join(' ')} {...rest} hidden={hidden}>
+      <span
+        className={classNames.join(' ')}
+        style={style}
+        {...rest}
+        hidden={hidden}
+      >
         {contentOutput}
       </span>
     </span>

@@ -1,13 +1,17 @@
 import { forwardRef } from 'react'
 
 import { Color, Variant } from '../../interfaces/theme'
+import {
+  OverloadedElement,
+  OverloadedElementProps,
+} from '../../interfaces/OverloadedElement'
 import classnames from '../../lib/classnames'
-import { Link } from '../Link'
 import cssColor from '../../lib/css-color'
+import { Link } from '../Link'
 
 type Percent = `${number}%`
 
-interface Props {
+export interface CommonButtonProps {
   /**
    * Stuff to put on the right side of children/main content
    */
@@ -66,14 +70,24 @@ interface Props {
   width?: number | Percent
 }
 
-type NativeAttrs = Omit<React.ComponentPropsWithRef<'button'>, keyof Props>
+type NativeAttrs = Omit<
+  React.ComponentPropsWithRef<'button'>,
+  keyof CommonButtonProps
+>
+type NativeButtonProps = CommonButtonProps & NativeAttrs & { as?: never } // Make `as` never to distinguish with overloaded element
+type OverloadedButtonProps = CommonButtonProps &
+  Required<OverloadedElementProps> // Make `as` required to distinguish with native button element
 
-export type ButtonProps = Props & NativeAttrs
+export type ButtonProps = NativeButtonProps | OverloadedButtonProps
+interface PolymorphicButton extends OverloadedElement<OverloadedButtonProps> {
+  (props: NativeButtonProps): JSX.Element
+}
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (props, ref) => {
+export const Button: PolymorphicButton = forwardRef(
+  (props: ButtonProps, ref: any) => {
     const {
       append,
+      as: Component = 'button',
       children,
       className,
       color = 'default',
@@ -133,7 +147,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     }
 
     return (
-      <button
+      <Component
         type={type}
         className={classNameString}
         disabled={disabled || loading ? true : undefined}
@@ -143,7 +157,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...rest}
       >
         {content}
-      </button>
+      </Component>
     )
   }
-)
+) as any

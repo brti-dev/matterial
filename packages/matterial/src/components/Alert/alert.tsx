@@ -9,8 +9,8 @@ import {
 
 import { Severity, Variant } from '../../interfaces/theme'
 import classnames from '../../lib/classnames'
+import cssColor from '../../lib/css-color'
 import { Button } from '../Button'
-
 import classes from './alert.module.scss'
 
 const LABELS = {
@@ -66,6 +66,7 @@ export type AlertDispatch = {
 export type AlertProps = Partial<AlertDispatch> & {
   children?: React.ReactNode
   className?: string
+  style?: React.CSSProperties
 }
 
 /**
@@ -88,6 +89,7 @@ export function Alert({
   label: naturalLabel = true,
   message: naturalMessage,
   severity,
+  style: naturalStyle = {},
   type,
   variant = 'outlined',
 }: AlertProps) {
@@ -123,13 +125,17 @@ export function Alert({
     label = naturalLabel
   }
 
+  const color = severity || 'default'
+  const style = { ...naturalStyle, '--color': cssColor(color) }
+
   return (
     <ReachAlert
-      className={classNames}
       type={type}
+      className={classNames}
       role="alert"
       // aria-label={label || severity || 'alert'}
       data-severity={severity}
+      style={style}
     >
       <>
         {icon && <Icon icon={icon} severity={severity} />}

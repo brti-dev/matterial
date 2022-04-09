@@ -3,13 +3,17 @@ import { COLORS, ACCENTS } from '../const'
 /**
  * Parse color prop to CSS
  *
- * @returns {string} Color parsed for use in CSS
+ * @returns {string | null} Color parsed for use in CSS
  */
 export default function cssColor(
-  color: string,
+  color: string | null,
   includeAccents = true,
   allowDefaultColor = false
-) {
+): string | null {
+  if (!color) {
+    return null
+  }
+
   const colors = [...COLORS, ...(includeAccents ? ACCENTS : [])]
 
   if (colors.includes(color as any)) {

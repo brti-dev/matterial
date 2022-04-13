@@ -30,6 +30,7 @@ export type LinkProps = Props & NativeAttrs
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   const { className, color, href, style = {}, unstyled, ...rest } = props
   if (color) {
+    // @ts-ignore
     style['--color'] = cssColor(color)
   }
 

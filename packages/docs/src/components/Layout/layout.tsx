@@ -1,4 +1,4 @@
-import { IconButton } from '../../../../matterial/src/components'
+import { Button } from '../../../../matterial/src/components'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -45,9 +45,9 @@ export function Header({ children }: OptionalChildren) {
       <div className="heading">
         <h1>{TITLE}</h1>
         {isScreenMobile && (
-          <IconButton onClick={handleOpenMenu}>
+          <Button shape="circle" onClick={handleOpenMenu}>
             <MenuIcon />
-          </IconButton>
+          </Button>
         )}
       </div>
       <nav
@@ -91,9 +91,13 @@ export function Footer({ children }: OptionalChildren) {
           ))}
         </ul>
       </nav>
-      <IconButton className={classes.scrollToTop} onClick={scrollToTop}>
+      <Button
+        shape="circle"
+        className={classes.scrollToTop}
+        onClick={scrollToTop}
+      >
         <ArrowTopIcon />
-      </IconButton>
+      </Button>
       {children}
     </footer>
   )

@@ -21,7 +21,7 @@ function useMediaQuery(query: string): boolean {
     if (media.matches !== matches) {
       setMatches(media.matches)
     }
-    const listener = e => {
+    const listener = (e: any) => {
       setMatches(e.matches)
     }
     // Not 100% sure about the following

@@ -6,7 +6,7 @@ import { COLORS, ACCENTS } from '../const'
  * @returns {string | null} Color parsed for use in CSS
  */
 export default function cssColor(
-  color: string | null,
+  color?: string,
   includeAccents = true,
   allowDefaultColor = false
 ): string | null {

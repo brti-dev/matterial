@@ -1,8 +1,9 @@
-import React, { FC, ReactElement } from 'react'
+import { FC, ReactElement } from 'react'
 import { render, RenderOptions } from '@testing-library/react'
 
-function ThemeProvider({ theme, children }) {
-  return <>{children}</>
+// Example of wrapping a test
+function ThemeProvider({ theme, children }: any) {
+  return <div className={`theme--${theme}`}>{children}</div>
 }
 
 const AllTheProviders: FC = ({ children }) => {

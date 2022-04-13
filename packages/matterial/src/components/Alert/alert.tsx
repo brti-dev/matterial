@@ -118,9 +118,10 @@ export function Alert({
     return null
   }
 
-  let label
-  if (naturalLabel === true && severity && severity in LABELS) {
-    label = LABELS[severity]
+  let label: any
+  if (naturalLabel === true && severity) {
+    // @ts-ignore
+    label = severity in LABELS ? LABELS[severity] : null
   } else if (typeof naturalLabel === 'string') {
     label = naturalLabel
   }
@@ -141,7 +142,7 @@ export function Alert({
         {icon && <Icon icon={icon} severity={severity} />}
         <div className={classes.content}>
           <div className={classes.message}>
-            {label && <strong className={classes.label}>{label}: </strong>}
+            {!!label && <strong className={classes.label}>{label}: </strong>}
             {message}
           </div>
           {action && <div className={classes.action}>{shrink(action)}</div>}

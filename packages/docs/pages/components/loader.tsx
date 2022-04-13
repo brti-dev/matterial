@@ -1,4 +1,4 @@
-import { Loader } from '../../../matterial/src/components'
+import { Loader } from 'matterial'
 
 import Layout from 'components/Layout'
 import { COLORS } from '../../const'

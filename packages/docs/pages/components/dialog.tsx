@@ -1,4 +1,4 @@
-import { DialogExample } from '../../../matterial/src/components'
+import { DialogExample } from 'matterial'
 
 import Layout from 'components/Layout'
 

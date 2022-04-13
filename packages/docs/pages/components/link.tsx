@@ -1,4 +1,4 @@
-import { Button, Link } from '../../../matterial/src/components'
+import { Button, Link } from 'matterial'
 import NextLink from 'next/link'
 
 import Layout from 'components/Layout'

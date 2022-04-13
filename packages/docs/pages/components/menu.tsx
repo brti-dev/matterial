@@ -1,11 +1,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
-import {
-  Menu,
-  MenuList,
-  MenuButton,
-  MenuItem,
-} from '../../../matterial/src/components'
+import { Menu, MenuList, MenuButton, MenuItem } from 'matterial'
 
 import Layout from 'components/Layout'
 

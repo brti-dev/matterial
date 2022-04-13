@@ -1,8 +1,5 @@
 import { useState } from 'react'
-import {
-  CheckButton,
-  CheckButtonGroup,
-} from '../../../matterial/src/components'
+import { CheckButton, CheckButtonGroup } from 'matterial'
 
 import Layout from 'components/Layout'
 import Code from 'components/Code'

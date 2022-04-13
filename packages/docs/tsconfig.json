@@ -11,6 +11,10 @@
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
+    "paths": {
+      "matterial/*": ["../matterial/src/*"],
+      "matterial": ["../matterial/src/index"]
+    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,

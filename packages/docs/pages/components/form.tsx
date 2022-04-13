@@ -1,10 +1,4 @@
-import {
-  Button,
-  Form,
-  FormGroup,
-  TextInput,
-  SubmitRow,
-} from '../../../matterial/src/components'
+import { Button, Form, FormGroup, TextInput, SubmitRow } from 'matterial'
 
 import Layout from 'components/Layout'
 import Code, { CodeBlock } from 'components/Code'

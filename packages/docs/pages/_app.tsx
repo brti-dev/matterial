@@ -2,7 +2,7 @@
 import type { AppProps /*, AppContext */ } from 'next/app'
 
 import 'normalize.css'
-import '../../../packages/matterial/src/styles/global.scss'
+import '../../../packages/matterial/dist/main.css'
 import 'styles/custom.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {

@@ -1,4 +1,4 @@
-import { Button } from '../../../../matterial/src/components'
+import { Button } from 'matterial'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'

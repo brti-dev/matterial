@@ -1,5 +1,5 @@
 const path = require('path')
-const withTM = require('next-transpile-modules')(['../matterial'])
+const withTM = require('next-transpile-modules')(['matterial'])
 
 module.exports = withTM({
   webpack: (config, options) => {
@@ -15,5 +15,10 @@ module.exports = withTM({
     )
 
     return config
+  },
+  experimental: {
+    // Experimental feature for allowing importing Typescript files outside of
+    // the root directory
+    externalDir: true,
   },
 })

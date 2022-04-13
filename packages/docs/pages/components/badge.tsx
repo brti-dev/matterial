@@ -1,5 +1,5 @@
 import { BiBell as BellIcon } from 'react-icons/bi'
-import { IconButton, Badge, Avatar } from '../../../matterial/src/components'
+import { IconButton, Badge, Avatar } from 'matterial'
 
 import { COLORS } from '../../const'
 import Code, { CodeBlock } from 'components/Code'

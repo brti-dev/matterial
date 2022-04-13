@@ -1,4 +1,4 @@
-import { Avatar, AvatarGroup, Badge } from '../../../matterial/src/components'
+import { Avatar, AvatarGroup, Badge } from 'matterial'
 
 import Code, { CodeBlock } from 'components/Code'
 import Layout from 'components/Layout'

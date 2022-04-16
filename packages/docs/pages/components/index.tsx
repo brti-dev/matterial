@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import NextLink from 'next/link'
+import { Link } from 'matterial'
 
 import Layout from 'components/Layout'
 
@@ -23,9 +24,9 @@ export default function Foo() {
       <ul>
         {COMPONENTS.map(component => (
           <li key={component}>
-            <Link href={`/components/${component}`}>
-              {component[0].toUpperCase() + component.substring(1)}
-            </Link>
+            <NextLink href={`/components/${component}`} passHref>
+              <Link>{component[0].toUpperCase() + component.substring(1)}</Link>
+            </NextLink>
           </li>
         ))}
       </ul>

@@ -1,7 +1,8 @@
-const path = require('path')
+// const path = require('path')
 const withTM = require('next-transpile-modules')(['matterial'])
 
-module.exports = withTM({
+module.exports =
+  withTM(/*{
   webpack: (config, options) => {
     if (options.isServer) {
       config.externals = ['react', ...config.externals]
@@ -21,4 +22,4 @@ module.exports = withTM({
     // the root directory
     externalDir: true,
   },
-})
+}*/)

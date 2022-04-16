@@ -1,0 +1,161 @@
+---
+name: Button
+description: Buttons trigger actions when clicked.
+---
+
+## Style Variants
+
+<Container>
+  <Container row>
+    <Button>Default</Button>
+    <Button variant="outlined">Outlined</Button>
+    <Button variant="contained">Contained</Button>
+  </Container>
+  <Container row>
+    <Button color="primary">Default</Button>
+    <Button color="primary" variant="outlined">
+      Outlined
+    </Button>
+    <Button color="primary" variant="contained">
+      Contained
+    </Button>
+  </Container>
+</Container>
+
+```jsx
+<Button>Default</Button>
+<Button variant="outlined">Outlined</Button>
+<Button variant="contained">Contained</Button>
+<Button color="primary">Default</Button>
+<Button color="primary" variant="outlined">Outlined</Button>
+<Button color="primary" variant="contained">Contained</Button>
+```
+
+## Colors
+
+`color = string`
+
+<Container row>
+  {[...COLORS, 'hotpink'].map(color => (
+    <Button key={color} variant="contained" color={color}>
+      {color[0].toUpperCase() + color.substring(1)}
+    </Button>
+  ))}
+</Container>
+
+## Loading Button
+
+`loading = boolean`
+
+<Container row>
+  <LoadingButtonExample />
+  <Button loading>Loading</Button>
+  <Button variant="contained" color="primary" loading>
+    Loading
+  </Button>
+</Container>
+
+## Anchor Button
+
+`to = string`
+
+Create a button-like link.
+
+<Container row>
+  <Button to="/" color="primary">
+    Home
+  </Button>
+  <Button to="/" variant="contained" color="primary">
+    Home
+  </Button>
+</Container>
+
+```jsx
+<Button to="/">Home</Button>
+```
+
+## Icon Button
+
+<Container row>
+  <Button shape="circle">
+    <BellIcon />
+  </Button>
+  <Button shape="circle" variant="outlined">
+    <BellIcon />
+  </Button>
+  <Button shape="circle" variant="contained">
+    <BellIcon />
+  </Button>
+  <Button shape="square" variant="outlined">
+    <BellIcon />
+  </Button>
+  <Button shape="square" variant="contained">
+    <BellIcon />
+  </Button>
+</Container>
+
+```jsx
+<Button shape="circle"><BellIcon /></Button>
+<Button shape="circle" variant="outlined"><BellIcon /></Button>
+<Button shape="circle" variant="contained"><BellIcon /></Button>
+<Button shape="square" variant="outlined"><BellIcon /></Button>
+<Button shape="square" variant="contained"><BellIcon /></Button>
+```
+
+## Icon Button Content
+
+<Container row>
+  <Button prepend={<BellIcon />} variant="contained">
+    Alerts
+  </Button>
+  <Button append={<BellIcon />} variant="contained">
+    Alerts
+  </Button>
+  <Button prepend={<BellIcon />} append={<BellIcon />} variant="contained">
+    So Many Alerts
+  </Button>
+</Container>
+
+```jsx
+<Button prepend={<BellIcon />}>Alerts</Button>
+<Button append={<BellIcon />}>Alerts</Button>
+<Button prepend={<BellIcon />} append={<BellIcon />}>So Many Alerts</Button>
+```
+
+## Fixed Width
+
+`width = number | percent`
+
+Text will overflow or center on fixed-width buttons.
+
+<Container wrap={false}>
+  <Button width="50%" variant="contained" color="primary">
+    Minim eu exercitation pariatur cillum eiusmod occaecat enim proident ipsum.
+  </Button>
+  <Button width="50%" variant="contained" color="warning">
+    Foo
+  </Button>
+</Container>
+
+## Sizes
+
+`size = "small" | "medium" | "large"`
+
+<Container row>
+  <Button variant="contained" size="small">
+    Small
+  </Button>
+  <Button variant="contained">Medium</Button>
+  <Button variant="contained" size="large">
+    Large
+  </Button>
+  <Button variant="contained" size="small" shape="circle">
+    <BellIcon />
+  </Button>
+  <Button variant="contained" size="medium" shape="circle">
+    <BellIcon />
+  </Button>
+  <Button variant="contained" size="large" shape="circle">
+    <BellIcon />
+  </Button>
+</Container>

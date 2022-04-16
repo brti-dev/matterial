@@ -1,0 +1,59 @@
+---
+description: Hyperlinks between pages.
+---
+
+## Link Props
+
+### Color
+
+<Container>
+  <Link href="#" color="primary">
+    Primary (thematic)
+  </Link>
+  <Link href="#" color="secondary">
+    Secondary (thematic)
+  </Link>
+  <Link href="#" color="hotpink">
+    Hotpink
+  </Link>
+</Container>
+
+### Unstyled
+
+`unstyled = boolean`
+
+<Link href="#" unstyled>
+  Unstyled link
+</Link>
+
+## Button Link
+
+`to = string`
+
+Create a button-like link.
+
+<Container>
+  <Button to="#" color="primary">
+    Home
+  </Button>
+  <Button to="#" variant="contained" color="primary">
+    Home
+  </Button>
+</Container>
+
+`<Button" to="/">Home</Code>`
+
+## NextLink
+
+Wrap `Link` components in a component imported from `next/link`. **Pass the `passHref` prop to the wrapper to <a href="https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag">ensure the link component renders a `href` tag</a>.**
+
+```jsx
+import NextLink from 'next/link'
+import { Link } from '${PACKAGE}'
+
+const App = () => (
+  <NextLink href="/" passHref>
+    <Link color="secondary">Home</Link>
+  </NextLink>
+)
+```

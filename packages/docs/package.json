@@ -1,43 +1,12 @@
 {
-  "name": "docs",
-  "version": "0.0.0",
+  "name": "matterial-docs",
+  "version": "0.1.0",
   "description": "Docs for Matterial UI, a design system by Matt Berti",
   "private": true,
-  "license": "ISC",
-  "main": "pages/_app.js",
+  "main": "pages/index.js",
   "scripts": {
     "dev": "next dev",
-    "start": "next start",
     "build": "next build",
-    "#clean": "Clean up dist files generated on dev, old builds, etc; Optimally done before new builds",
-    "clean": "npx rimraf .next out",
-    "test": "jest --watch"
-  },
-  "dependencies": {
-    "@reach/skip-nav": "^0.16.0",
-    "matterial": "^1.3.1",
-    "next": "^12.1.0",
-    "next-transpile-modules": "^9.0.0",
-    "normalize.css": "^8.0.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-icons": "^4.2.0",
-    "sass": "^1.43.4",
-    "source-map-support": "^0.5.21"
-  },
-  "devDependencies": {
-    "@testing-library/dom": "^8.11.0",
-    "@testing-library/jest-dom": "^5.15.0",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.0.2",
-    "@types/node": "^16.11.6",
-    "@types/react": "^17.0.8",
-    "@types/react-dom": "^17.0.5",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.3.1",
-    "open": "^8.0.4",
-    "react-test-renderer": "^17.0.2",
-    "typescript": "^4.2.4"
+    "start": "next start"
   }
 }

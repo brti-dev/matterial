@@ -1,29 +1,9 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "allowJs": false,
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "declarationDir": "dist",
-    "esModuleInterop": true, // For Sass export
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "react-jsx",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "rootDir": ".",
-    "outDir": "./dist",
-    "resolveJsonModule": true,
-    "skipDefaultLibCheck": true,
-    "sourceMap": true,
-    "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "target": "ESNext"
+    "noEmit": false,
+    "outDir": "build"
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist", "webpack.config.js"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

@@ -92,7 +92,7 @@ export function Alert({
   style: naturalStyle = {},
   type,
   variant = 'outlined',
-}: AlertProps) {
+}: AlertProps): JSX.Element {
   const classNames = classnames(
     classes.alert,
     `variant--${variant}`,
@@ -115,7 +115,7 @@ export function Alert({
   }
 
   if (!message) {
-    return null
+    return <></>
   }
 
   let label: any

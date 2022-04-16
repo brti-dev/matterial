@@ -1,14 +1,13 @@
-import { Color, Accent } from './interfaces/theme'
+import { Color, Accent, Severity } from './interfaces/theme'
+
+export const SEVERITIES: Severity[] = ['error', 'warning', 'info', 'success']
 
 export const COLORS: Color[] = [
   'primary',
   'secondary',
-  'error',
-  'warning',
-  'info',
-  'success',
   'dark',
   'light',
+  ...SEVERITIES,
 ]
 
 export const ACCENTS: Accent[] = [

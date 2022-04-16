@@ -1,0 +1,25 @@
+---
+name: Container
+description: Grid system for complex layouts
+---
+
+## Usage
+
+```jsx
+import { Container } from 'matterial'
+
+function ContainerExample() {
+  return (
+    <Container>
+      <Container row nowrap>
+        <div>Foo<div>
+        <div>Bar</div>
+      </Container>
+      <Container row nowrap>
+        <div>Lorem</div>
+        <div>Ipsum</div>
+      </Container>
+    </Container>
+  )
+}
+```

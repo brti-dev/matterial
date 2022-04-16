@@ -1,7 +1,19 @@
 export type ContainerProps = React.ComponentPropsWithoutRef<'div'> & {
+  /**
+   * Container contents
+   */
   children: React.ReactNode
+  /**
+   * CSS flex properties
+   */
   flex?: number | string
+  /**
+   * Orient content into rows; Default is columns
+   */
   row?: boolean
+  /**
+   * Wrap content; Default is true
+   */
   wrap?: boolean | 'reverse'
 }
 

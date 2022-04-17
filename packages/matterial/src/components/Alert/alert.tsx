@@ -1,11 +1,6 @@
 import { isValidElement, cloneElement, useState } from 'react'
 import ReachAlert from '@reach/alert'
-import {
-  BiErrorCircle as ErrorIcon,
-  BiError as WarningIcon,
-  BiCheckCircle as SuccessIcon,
-  BiInfoCircle as InfoIcon,
-} from 'react-icons/bi'
+import { ErrorIcon, WarningIcon, SuccessIcon, InfoIcon } from '../Icons'
 
 import { Severity, Variant } from '../../interfaces/theme'
 import classnames from '../../lib/classnames'

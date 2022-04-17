@@ -1,5 +1,5 @@
 import NextLink from 'next/link'
-import { Link } from 'matterial'
+import { Link } from '../../../matterial/src'
 
 import { getDocsFiles } from 'lib/mdx'
 import { capitalize } from 'lib/string'

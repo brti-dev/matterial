@@ -5,7 +5,7 @@ import { capitalize } from 'lib/string'
 import { Metadata, getDocSource, getDocsFiles } from 'lib/mdx'
 import Layout from 'components/Layout'
 import { Mdx } from 'components/Mdx'
-import { Alert } from 'matterial'
+import { Alert } from '../../../matterial/src'
 
 type Props = {
   mdxSource: string

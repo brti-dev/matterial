@@ -1,4 +1,4 @@
-import { Alert, Button, Container, Link } from 'matterial'
+import { Alert, Button, Container, Link } from '../../../../matterial/src'
 // import { getMDXComponent } from 'mdx-bundler/client'
 // import { ComponentMap } from 'mdx-bundler/dist/client.d'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'

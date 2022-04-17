@@ -1,4 +1,4 @@
-import { Alert, Button, Container, Link } from '../../../../matterial/src'
+import * as matterial from '../../../../matterial/src'
 // import { getMDXComponent } from 'mdx-bundler/client'
 // import { ComponentMap } from 'mdx-bundler/dist/client.d'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
@@ -7,8 +7,6 @@ import { useMemo } from 'react'
 // import { components } from './mdxComponents'
 
 import * as constants from '../../../../matterial/src/const'
-
-const matterial = { Alert, Button, Container, Link }
 
 export function Mdx({ source }: { source: string }): JSX.Element {
   // const Component = useMemo(() => getMDXComponent(source), [source])
@@ -19,6 +17,7 @@ export function Mdx({ source }: { source: string }): JSX.Element {
     <MDXRemote
       compiledSource={source}
       scope={constants}
+      // @ts-ignore
       components={matterial}
     />
   )

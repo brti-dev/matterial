@@ -27,11 +27,11 @@ export function reducer(
  */
 export function useAlert(
   initialState?: string | AlertDispatch
-): [React.ComponentType, any] {
+): [() => JSX.Element, any] {
   const [alert, setAlert] = useReducer(reducer, reducer(null, initialState))
 
   const component = useCallback(() => {
-    if (!alert?.message) return null
+    if (!alert?.message) return <></>
 
     return <Alert {...{ ...alert }} />
   }, [alert])

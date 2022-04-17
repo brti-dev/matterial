@@ -6,6 +6,7 @@ export function AlertExample() {
 
   return (
     <>
+      {/* @ts-ignore */}
       <AlertComponent />
       <div style={{ display: 'flex', gap: '1em', margin: '1em 0' }}>
         <Button

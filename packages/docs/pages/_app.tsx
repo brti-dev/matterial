@@ -6,7 +6,8 @@ import 'matterial/src/styles/global.scss'
 import 'styles/custom.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  const AnyComponent = Component as any
+  return <AnyComponent {...pageProps} />
 }
 
 // Only uncomment this method if you have blocking data requirements for

@@ -1,22 +1,14 @@
-import fs from 'fs'
-import { Alert, Button, Container, Link } from 'matterial'
-import { GetStaticProps } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-import path from 'path'
 
-import Layout from 'components/Layout'
 import { capitalize } from 'lib/string'
-import { getMetadata, Metadata } from 'lib/mdx'
-import * as constants from '../../../matterial/src/const'
-
-const matterial = { Alert, Button, Container, Link }
-
-const DOCS_PATH = path.join(process.cwd())
-const SOURCE_PATH = path.join(process.cwd(), '../matterial/src/components')
+import { Metadata, getDocSource, getDocsFiles } from 'lib/mdx'
+import Layout from 'components/Layout'
+import { Mdx } from 'components/Mdx'
+import { Alert } from 'matterial'
 
 type Props = {
-  mdxSource: MDXRemoteSerializeResult
+  mdxSource: string
   metadata: any & Metadata
   slug: string
 }
@@ -26,51 +18,61 @@ export default function Doc({
   metadata = {},
   slug,
 }: Props): JSX.Element {
+  if (!mdxSource) {
+    return (
+      <Layout>
+        <h1>{capitalize(slug)}</h1>
+        <Alert severity="error">
+          There was an problem fetching the document file for this component.
+        </Alert>
+      </Layout>
+    )
+  }
+
   return (
     <Layout>
       <h1>{metadata.name || capitalize(slug)}</h1>
-      <p>{metadata.description}</p>
-      <MDXRemote {...mdxSource} scope={constants} components={matterial} />
+      <p>{metadata.description || 'A nice UI component'}</p>
+      <Mdx source={mdxSource} />
     </Layout>
   )
 }
 
 export const getStaticProps = async ({
   params: { slug },
-}: {
-  params: { slug: string }
 }): Promise<{ props: Props }> => {
-  const file = path.join(SOURCE_PATH, capitalize(slug), `${slug}.docs.mdx`)
-  const source = fs.readFileSync(file, 'utf-8')
-  console.log(slug, file, source)
+  try {
+    const source = getDocSource(slug)
 
-  const { frontmatter: metadata, ...mdxSource } = await serialize(source, {
-    parseFrontmatter: true,
-  })
-  console.log(metadata, mdxSource)
-  return { props: { mdxSource, slug, metadata } }
+    // console.log('gsp', slug, file, source)
+
+    const result = await serialize(source, {
+      parseFrontmatter: true,
+    })
+
+    // console.log('mdx result', result)
+
+    return {
+      props: {
+        mdxSource: result.compiledSource,
+        metadata: result.frontmatter,
+        slug,
+      },
+    }
+  } catch (err) {
+    console.error(err)
+
+    return { props: { mdxSource: '', metadata: {}, slug } }
+  }
 }
 
-export const getStaticPaths = async (): Promise<{
-  paths: Array<{
-    params: {
-      slug: string
-    }
-  }>
-  fallback: false
-}> => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = getDocsFiles().map(file => ({
+    params: { slug: file.replace('.docs.mdx', '') },
+  }))
+
   return {
-    paths: ['alert', 'link'].map(slug => ({ params: { slug: slug } })),
+    paths,
     fallback: false,
   }
-  // const paths = componentsFilePaths
-  //   .map(path => toKebabCase(path.replace(/\.tsx?$/, '')))
-  //   .map(slug => ({ params: { slug } }))
-
-  // console.log({ paths })
-
-  // return {
-  //   paths,
-  //   fallback: false,
-  // }
 }

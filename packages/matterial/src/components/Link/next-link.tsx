@@ -1,3 +1,4 @@
+export default {}
 // Can't config webpack to exclude next/link from bundle...
 // Until this is resolved, this component should not be used
 // Use <NextLink href="#" passHref><Link>...</Link></NextLink> instead

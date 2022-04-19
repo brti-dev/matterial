@@ -1,12 +1,9 @@
-import { Button } from '../../../../matterial/src'
+import { ArrowTopIcon, MenuIcon, Button } from '../../../../matterial/src'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
-import {
-  BiArrowToTop as ArrowTopIcon,
-  BiMenu as MenuIcon,
-} from 'react-icons/bi'
+
 import { SkipNavLink, SkipNavContent } from '@reach/skip-nav'
 import '@reach/skip-nav/styles.css'
 

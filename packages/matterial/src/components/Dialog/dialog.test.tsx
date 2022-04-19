@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 
 import { render, screen } from '../../../test-utils'
 import { Dialog } from './dialog'
-import { DialogExample } from './dialog.example'
+import { DialogExample } from './dialog.examples'
 
 const TestDialog = ({ label = 'dialog', ...rest }) => (
   <Dialog

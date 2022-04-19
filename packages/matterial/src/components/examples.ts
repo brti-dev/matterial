@@ -6,4 +6,5 @@
 
 export * from './Avatar/avatar.examples'
 export * from './Button/button.examples'
+export * from './CheckButton/check-button.examples'
 export * from './Dialog/dialog.examples'

@@ -1,0 +1,46 @@
+---
+name: CheckButton
+description: A button-like alternative to a checkbox.
+---
+
+## Usage
+
+```jsx
+import { CheckButton, CheckButtonGroup } from 'matterial'
+
+function App() {
+  return (
+    <CheckButtonGroup>
+      <CheckButton name="foo" value="bar" checked>
+        Foo
+      </CheckButton>
+      <CheckButton name="bar" value="baz">
+        Bar
+      </CheckButton>
+    </CheckButtonGroup>
+  )
+}
+```
+
+## Checkbox-Like Example
+
+<CheckButtonCheckBoxExample />
+
+## Radio-Like Example
+
+<CheckButtonRadioExample />
+
+## `CheckButtonGroup` Props
+
+### as
+
+`as = string | Component`
+
+### orientation
+
+`orientation = 'horizontal' | 'vertical'`
+
+<CheckButtonGroup orientation="vertical">
+  <CheckButton name="foo" value="1" checked>Foo</CheckButton>
+  <CheckButton name="bar" value="1">Bar</CheckButton>
+</CheckButtonGroup>

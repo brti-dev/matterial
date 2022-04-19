@@ -23,7 +23,7 @@ export type Metadata = {
 }
 
 export function getDocSource(slug: string): string {
-  const file = path.join(SOURCE_PATH, capitalize(slug), `${slug}.docs.mdx`)
+  const file = path.join(SOURCE_PATH, toPascalCase(slug), `${slug}.docs.mdx`)
 
   return fs.readFileSync(file, 'utf-8')
 }

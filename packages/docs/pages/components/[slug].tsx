@@ -44,7 +44,7 @@ export const getStaticProps = async ({
   try {
     const source = getDocSource(slug)
 
-    // console.log('gsp', slug, file, source)
+    // console.log('gsp', slug, source)
 
     const result = await serialize(source, {
       parseFrontmatter: true,

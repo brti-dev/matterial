@@ -3,6 +3,16 @@ name: Button
 description: Buttons trigger actions when clicked.
 ---
 
+## Usage
+
+```jsx
+import { Button } from 'matterial'
+
+function ButtonExample() {
+  return <Button onClick={() => console.log('I got clicked!')}>Click Me</Button>
+}
+```
+
 ## Style Variants
 
 <Container>
@@ -13,12 +23,8 @@ description: Buttons trigger actions when clicked.
   </Container>
   <Container row>
     <Button color="primary">Default</Button>
-    <Button color="primary" variant="outlined">
-      Outlined
-    </Button>
-    <Button color="primary" variant="contained">
-      Contained
-    </Button>
+    <Button color="primary" variant="outlined">Outlined</Button>
+    <Button color="primary" variant="contained">Contained</Button>
   </Container>
 </Container>
 
@@ -50,9 +56,7 @@ description: Buttons trigger actions when clicked.
 <Container row>
   <LoadingButtonExample />
   <Button loading>Loading</Button>
-  <Button variant="contained" color="primary" loading>
-    Loading
-  </Button>
+  <Button variant="contained" color="primary" loading>Loading</Button>
 </Container>
 
 ## Anchor Button
@@ -62,12 +66,8 @@ description: Buttons trigger actions when clicked.
 Create a button-like link.
 
 <Container row>
-  <Button to="/" color="primary">
-    Home
-  </Button>
-  <Button to="/" variant="contained" color="primary">
-    Home
-  </Button>
+  <Button to="/" color="primary">Home</Button>
+  <Button to="/" variant="contained" color="primary">Home</Button>
 </Container>
 
 ```jsx
@@ -105,15 +105,9 @@ Create a button-like link.
 ## Icon Button Content
 
 <Container row>
-  <Button prepend={<BellIcon />} variant="contained">
-    Alerts
-  </Button>
-  <Button append={<BellIcon />} variant="contained">
-    Alerts
-  </Button>
-  <Button prepend={<BellIcon />} append={<BellIcon />} variant="contained">
-    So Many Alerts
-  </Button>
+  <Button prepend={<BellIcon />} variant="contained">Alerts</Button>
+  <Button append={<BellIcon />} variant="contained">Alerts</Button>
+  <Button prepend={<BellIcon />} append={<BellIcon />} variant="contained">So Many Alerts</Button>
 </Container>
 
 ```jsx
@@ -128,13 +122,9 @@ Create a button-like link.
 
 Text will overflow or center on fixed-width buttons.
 
-<Container wrap={false}>
-  <Button width="50%" variant="contained" color="primary">
-    Minim eu exercitation pariatur cillum eiusmod occaecat enim proident ipsum.
-  </Button>
-  <Button width="50%" variant="contained" color="warning">
-    Foo
-  </Button>
+<Container row wrap={false}>
+  <Button width="50%" variant="contained" color="primary">Minim eu exercitation pariatur cillum eiusmod occaecat enim proident ipsum.</Button>
+  <Button width="50%" variant="contained" color="warning">Foo</Button>
 </Container>
 
 ## Sizes
@@ -142,13 +132,9 @@ Text will overflow or center on fixed-width buttons.
 `size = "small" | "medium" | "large"`
 
 <Container row>
-  <Button variant="contained" size="small">
-    Small
-  </Button>
+  <Button variant="contained" size="small">Small</Button>
   <Button variant="contained">Medium</Button>
-  <Button variant="contained" size="large">
-    Large
-  </Button>
+  <Button variant="contained" size="large">Large</Button>
   <Button variant="contained" size="small" shape="circle">
     <BellIcon />
   </Button>

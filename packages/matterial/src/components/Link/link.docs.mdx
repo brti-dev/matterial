@@ -1,6 +1,17 @@
 ---
+name: Link
 description: Hyperlinks between pages.
 ---
+
+## Usage
+
+```jsx
+import { Link } from 'matterial'
+
+function App() {
+  return <Link href="#">Anchor</Link>
+}
+```
 
 ## Link Props
 
@@ -30,9 +41,9 @@ description: Hyperlinks between pages.
 
 `to = string`
 
-Create a button-like link.
+Create a button-like link with the `to` prop on a `<Button>` component.
 
-<Container>
+<Container row>
   <Button to="#" color="primary">
     Home
   </Button>
@@ -41,7 +52,10 @@ Create a button-like link.
   </Button>
 </Container>
 
-`<Button" to="/">Home</Code>`
+```jsx
+<Button to="#" color="primary">Home</Button>
+<Button to="#" variant="contained" color="primary">Home</Button>
+```
 
 ## NextLink
 
@@ -49,7 +63,7 @@ Wrap `Link` components in a component imported from `next/link`. **Pass the `pas
 
 ```jsx
 import NextLink from 'next/link'
-import { Link } from '${PACKAGE}'
+import { Link } from 'matterial'
 
 const App = () => (
   <NextLink href="/" passHref>

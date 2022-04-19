@@ -1,0 +1,159 @@
+---
+name: Avatar
+description: Graphic representative of users.
+---
+
+## Usage
+
+```js
+import { Avatar } from 'matterial'
+
+function App() {
+  return <Avatar alt="John Doe">JD</Avatar>
+}
+```
+
+## Image Avatar
+
+<AvatarImageExample />
+
+```jsx
+<Avatar src="/img/avatar.png" alt="Mr Banana Grabber" />
+```
+
+## Monogram Avatar
+
+<Container row>
+  <Avatar alt="Regular unstyled avatar">A</Avatar>
+  <Avatar color="primary" alt="Primary color avatar">
+    BC
+  </Avatar>
+  <Avatar color="secondary" alt="Secondary color avatar">
+    DEF
+  </Avatar>
+  <Avatar color="green" alt="Green avatar">
+    G
+  </Avatar>
+  <Avatar color="red" alt="Red avatar">
+    R
+  </Avatar>
+</Container>
+
+```jsx
+<Avatar>A</Avatar>
+<Avatar color="primary">BC</Avatar>
+<Avatar color="secondary">DEF</Avatar>
+<Avatar color="green">G</Avatar>
+<Avatar color="red">R</Avatar>
+```
+
+## Sizes
+
+Input a number into the `size` prop to change the diameter of the avatar. The default value is `40`.
+
+<Container row>
+  <Avatar
+    src="https://www.gravatar.com/avatar/4f7c491251c66a5841858a93c95aaa91"
+    alt="Mr Banana Grabber"
+    size={20}
+  />
+  <Avatar
+    src="https://www.gravatar.com/avatar/4f7c491251c66a5841858a93c95aaa91"
+    alt="Mr Banana Grabber"
+  />
+  <Avatar
+    src="https://www.gravatar.com/avatar/4f7c491251c66a5841858a93c95aaa91"
+    alt="Mr Banana Grabber"
+    size={60}
+  />
+</Container>
+
+```jsx
+<Avatar size={20} />
+<Avatar />
+<Avatar size={60} />
+```
+
+## Avatar Group
+
+Group together multiple avatars.
+
+<AvatarGroup max={3}>
+  <Avatar alt="head">🧑</Avatar>
+  <Avatar alt="mustache head">👨‍🦰</Avatar>
+  <Avatar alt="lady head">👩‍🦰</Avatar>
+  <Avatar alt="girl head">👱‍♀️</Avatar>
+  <Avatar alt="? head">👴</Avatar>
+</AvatarGroup>
+
+```jsx
+<AvatarGroup max={3}>
+  <Avatar>🧑</Avatar>
+  <Avatar>👨‍🦰</Avatar>
+  <Avatar>👩‍🦰</Avatar>
+  <Avatar>👱‍♀️</Avatar>
+  <Avatar>👴</Avatar>
+</AvatarGroup>
+```
+
+### Total avatars
+
+Use the `total` prop to control the total number of avatars
+
+<AvatarGroup total={13}>
+  <Avatar alt="monkey">🙈</Avatar>
+  <Avatar alt="monkey">🙉</Avatar>
+  <Avatar alt="monkey">🙊</Avatar>
+</AvatarGroup>
+
+```jsx
+<AvatarGroup total={13}>
+  <Avatar>🙈</Avatar>
+  <Avatar>🙉</Avatar>
+  <Avatar>🙊</Avatar>
+</AvatarGroup>
+```
+
+## With Badge
+
+<Container row>
+  <Badge variant="dot" color="red">
+    <Avatar alt="avatar with badge">A</Avatar>
+  </Badge>
+  <Badge
+    content={
+      <Avatar size={20} alt="poo">
+        💩
+      </Avatar>
+    }
+  >
+    <Avatar alt="Avatar with poo badge">B</Avatar>
+  </Badge>
+</Container>
+
+```jsx
+<Badge variant="dot" color="red">
+  <Avatar>A</Avatar>
+</Badge>
+<Badge content={<Avatar size={20}>💩</Avatar>}>
+  <Avatar>B</Avatar>
+</Badge>
+```
+
+## Other Props
+
+### Tooltip
+
+`tooltip = string | boolean`
+
+The `tooltip` prop takes a string or boolean value. Ifboolean, the `alt` prop is used as the tooltip label.
+
+<Avatar tooltip alt="foo">
+  ✨
+</Avatar>
+
+### Overload Element
+
+`as = string | Component`
+
+Use the `as` prop to override the component root node with an HTML element (`string`) or another React Element.

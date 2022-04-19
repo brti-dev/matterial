@@ -1,3 +1,5 @@
+import classnames from '../lib/classnames'
+
 const mapProps = (props: any): string => {
   if (!props) return ''
   let propString = ''
@@ -14,27 +16,32 @@ const mapProps = (props: any): string => {
   return propString
 }
 
-type CodeType = {
-  componentType?: string
-  language?: string
-  children?: React.ReactNode
-} & any
-
-export function CodeBlock(props: any) {
+export function CodeBlock({
+  className,
+  style: naturalStyle,
+  ...props
+}: React.ComponentPropsWithoutRef<'pre'>) {
   return (
     <pre
-      className="surface"
+      className={classnames(className, 'surface')}
       style={{
         overflow: 'auto',
         counterReset: 'linenumbers',
         lineHeight: 1,
+        ...naturalStyle,
       }}
       {...props}
     />
   )
 }
 
-export default function Code({
+export type CodeType = {
+  componentType?: string
+  language?: string
+  children?: React.ReactNode
+} & React.ComponentPropsWithoutRef<'code'>
+
+export function Code({
   componentType,
   language = 'react',
   children,
@@ -59,5 +66,5 @@ export default function Code({
     )
   }
 
-  return <code>{children}</code>
+  return <code className={`language-${language}`}>{children}</code>
 }

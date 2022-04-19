@@ -1,8 +1,11 @@
 import * as matterial from '../../../../matterial/src'
+import * as matterialExamples from '../../../../matterial/src/components/examples'
 // import { getMDXComponent } from 'mdx-bundler/client'
 // import { ComponentMap } from 'mdx-bundler/dist/client.d'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { useMemo } from 'react'
+
+import { Code, CodeBlock } from 'components/Code'
 
 // import { components } from './mdxComponents'
 
@@ -18,7 +21,12 @@ export function Mdx({ source }: { source: string }): JSX.Element {
       compiledSource={source}
       scope={constants}
       // @ts-ignore
-      components={matterial}
+      components={{
+        ...matterial,
+        ...matterialExamples,
+        pre: props => <CodeBlock {...props} />,
+        // code: props => <Code {...props} />,
+      }}
     />
   )
 }

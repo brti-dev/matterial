@@ -7,14 +7,27 @@ description: A button-like alternative to a checkbox.
 
 ```jsx
 import { CheckButton, CheckButtonGroup } from 'matterial'
+import { useState } from 'react'
 
 function App() {
+  const [checked, setChecked] = useState('foo')
+
   return (
     <CheckButtonGroup>
-      <CheckButton name="foo" value="bar" checked>
+      <CheckButton
+        name="foo"
+        value="bar"
+        checked={checked === 'foo'}
+        onChange={() => setChecked('foo')}
+      >
         Foo
       </CheckButton>
-      <CheckButton name="bar" value="baz">
+      <CheckButton
+        name="bar"
+        value="baz"
+        checked={checked === 'bar'}
+        onChange={() => setChecked('bar')}
+      >
         Bar
       </CheckButton>
     </CheckButtonGroup>

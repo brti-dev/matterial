@@ -5,15 +5,34 @@ import classnames from '../../lib/classnames'
 import classes from './check-button.module.scss'
 
 export interface CheckButtonProps extends CommonButtonProps {
-  name: string
-  children: React.ReactNode
-  value: string
+  /**
+   * Whether or not it's checked
+   */
   checked?: boolean
-  className?: string
+  /**
+   * Whether or not it can be changed
+   */
   disabled?: boolean
+  /**
+   * Unique identifier for the element; Automatically generated if none is given
+   */
   id?: string
+  /**
+   * Indicate if there is a loading process happening; Disables the button if true
+   */
   loading?: boolean
+  /**
+   * Input name
+   */
+  name: string
+  /**
+   * Callback function when the button is activated
+   */
   onChange?: (value: boolean) => void
+  /**
+   * Input value
+   */
+  value: string
 }
 
 const PlainOlUnmemoizedCheckButton = forwardRef<

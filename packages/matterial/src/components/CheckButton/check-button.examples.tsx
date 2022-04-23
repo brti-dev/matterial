@@ -3,6 +3,7 @@ import { CheckButton, CheckButtonGroup } from './'
 
 export function CheckButtonCheckBoxExample() {
   const [checked, setChecked] = useState({ foo: true, bar: false })
+
   return (
     <CheckButtonGroup>
       <CheckButton

@@ -29,7 +29,7 @@ function AlertExample() {
 
 ## Colors
 
-{SEVERITIES.map(severity => <Alert severity={severity} label={false}>{severity}</Alert>)}
+{SEVERITIES.map(severity => <Alert key={severity} severity={severity} label={false}>{severity}</Alert>)}
 
 # `useAlert` Hook
 

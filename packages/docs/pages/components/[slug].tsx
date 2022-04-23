@@ -1,11 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { serialize } from 'next-mdx-remote/serialize'
 
 import { capitalize } from 'lib/string'
-import { Metadata, getDocSource, getDocsFiles } from 'lib/mdx'
+import { Metadata, getDocSource, getDocsFiles, compileMdx } from 'lib/mdx'
 import Layout from 'components/Layout'
 import { Mdx } from 'components/Mdx'
-import { Alert } from '../../../matterial/src'
+import { Alert, Article } from '../../../matterial/src'
 
 type Props = {
   mdxSource: string
@@ -31,9 +30,12 @@ export default function Doc({
 
   return (
     <Layout>
-      <h1>{metadata.name || capitalize(slug)}</h1>
-      <p>{metadata.description || 'A nice UI component'}</p>
-      <Mdx source={mdxSource} />
+      <Article
+        title={metadata.name || capitalize(slug)}
+        description={metadata.description || 'A nice UI component'}
+      >
+        <Mdx source={mdxSource} />
+      </Article>
     </Layout>
   )
 }
@@ -43,19 +45,16 @@ export const getStaticProps = async ({
 }): Promise<{ props: Props }> => {
   try {
     const source = getDocSource(slug)
+    // const metadata = getMetadata(slug)
+    const { compiledSource, frontmatter } = await compileMdx(source)
 
     // console.log('gsp', slug, source)
-
-    const result = await serialize(source, {
-      parseFrontmatter: true,
-    })
-
     // console.log('mdx result', result)
 
     return {
       props: {
-        mdxSource: result.compiledSource,
-        metadata: result.frontmatter,
+        mdxSource: compiledSource,
+        metadata: frontmatter,
         slug,
       },
     }

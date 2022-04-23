@@ -27,6 +27,30 @@ Array [
     secondary
   </div>,
   <div
+    className="avatar variant--contained color--dark no-hover"
+    role="img"
+    style={
+      Object {
+        "--color": "var(--color-dark)",
+        "--size": "40px",
+      }
+    }
+  >
+    dark
+  </div>,
+  <div
+    className="avatar variant--contained color--light no-hover"
+    role="img"
+    style={
+      Object {
+        "--color": "var(--color-light)",
+        "--size": "40px",
+      }
+    }
+  >
+    light
+  </div>,
+  <div
     className="avatar variant--contained color--error no-hover"
     role="img"
     style={
@@ -73,30 +97,6 @@ Array [
     }
   >
     success
-  </div>,
-  <div
-    className="avatar variant--contained color--dark no-hover"
-    role="img"
-    style={
-      Object {
-        "--color": "var(--color-dark)",
-        "--size": "40px",
-      }
-    }
-  >
-    dark
-  </div>,
-  <div
-    className="avatar variant--contained color--light no-hover"
-    role="img"
-    style={
-      Object {
-        "--color": "var(--color-light)",
-        "--size": "40px",
-      }
-    }
-  >
-    light
   </div>,
   <div
     className="avatar variant--contained color--hotpink no-hover"

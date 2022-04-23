@@ -70,6 +70,36 @@ Array [
     </span>
   </button>,
   <button
+    className="button color--dark size--medium variant--default"
+    style={
+      Object {
+        "--color": "var(--color-dark)",
+      }
+    }
+    type="button"
+  >
+    <span
+      className="main-content"
+    >
+      dark
+    </span>
+  </button>,
+  <button
+    className="button color--light size--medium variant--default"
+    style={
+      Object {
+        "--color": "var(--color-light)",
+      }
+    }
+    type="button"
+  >
+    <span
+      className="main-content"
+    >
+      light
+    </span>
+  </button>,
+  <button
     className="button color--error size--medium variant--default"
     style={
       Object {
@@ -127,36 +157,6 @@ Array [
       className="main-content"
     >
       success
-    </span>
-  </button>,
-  <button
-    className="button color--dark size--medium variant--default"
-    style={
-      Object {
-        "--color": "var(--color-dark)",
-      }
-    }
-    type="button"
-  >
-    <span
-      className="main-content"
-    >
-      dark
-    </span>
-  </button>,
-  <button
-    className="button color--light size--medium variant--default"
-    style={
-      Object {
-        "--color": "var(--color-light)",
-      }
-    }
-    type="button"
-  >
-    <span
-      className="main-content"
-    >
-      light
     </span>
   </button>,
   <button

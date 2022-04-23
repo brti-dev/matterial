@@ -50,6 +50,34 @@ Array [
   <span
     className="container"
   >
+    da
+    <span
+      className="badge content variant--contained color--dark no-hover variant--dot size--medium "
+      hidden={false}
+      style={
+        Object {
+          "--color": "var(--color-dark)",
+        }
+      }
+    />
+  </span>,
+  <span
+    className="container"
+  >
+    li
+    <span
+      className="badge content variant--contained color--light no-hover variant--dot size--medium "
+      hidden={false}
+      style={
+        Object {
+          "--color": "var(--color-light)",
+        }
+      }
+    />
+  </span>,
+  <span
+    className="container"
+  >
     er
     <span
       className="badge content variant--contained color--error no-hover variant--dot size--medium "
@@ -99,34 +127,6 @@ Array [
       style={
         Object {
           "--color": "var(--color-success)",
-        }
-      }
-    />
-  </span>,
-  <span
-    className="container"
-  >
-    da
-    <span
-      className="badge content variant--contained color--dark no-hover variant--dot size--medium "
-      hidden={false}
-      style={
-        Object {
-          "--color": "var(--color-dark)",
-        }
-      }
-    />
-  </span>,
-  <span
-    className="container"
-  >
-    li
-    <span
-      className="badge content variant--contained color--light no-hover variant--dot size--medium "
-      hidden={false}
-      style={
-        Object {
-          "--color": "var(--color-light)",
         }
       }
     />

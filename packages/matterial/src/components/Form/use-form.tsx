@@ -26,10 +26,16 @@ export function useForm<T>(initialData: T) {
   )
 
   const handleChange = (
-    event: ChangeEvent<HTMLInputElement>,
+    nameOrEvent: string | ChangeEvent<HTMLInputElement>,
     value: string | number | boolean | null
   ) => {
-    const { name } = event.target as HTMLInputElement
+    let name: string
+    if (typeof nameOrEvent === 'string') {
+      name = nameOrEvent
+    } else {
+      const { name: targetName } = event.target as HTMLInputElement
+      name = targetName
+    }
 
     if (form.error?.inputName === name) {
       setForm({ error: null })

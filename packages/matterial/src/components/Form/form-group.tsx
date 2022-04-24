@@ -1,6 +1,7 @@
 import { cloneElement } from 'react'
 
 import classnames from '../../lib/classnames'
+import { toKebabCase } from '../../lib/string'
 import classes from './form.module.scss'
 
 export type FormGroupProps = {
@@ -23,7 +24,7 @@ export function FormGroup({
     className,
     error && classes.error
   )
-  const id = `form__${label.replace(/[\s_]+/g, '-').toLowerCase()}`
+  const id = `form__${toKebabCase(label)}`
   const inputProps = { id, ...(error && { 'aria-invalid': true }) }
 
   return (

@@ -28,6 +28,10 @@ type Props = {
    */
   color?: Color | string
   /**
+   * Indicates the checkbox is not changeable
+   */
+  disabled?: boolean
+  /**
    * Input name
    */
   name?: string
@@ -51,6 +55,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       children,
       className,
       color = 'default',
+      disabled = false,
       name,
       onChange = () => {},
       size = 'medium',
@@ -67,7 +72,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       classes.checkbox,
       className,
       sizeClass,
-      `variant--default color--${color}`
+      `variant--default color--${color}`,
+      disabled ? classes.disabled : undefined
     )
 
     const toggleChecked = () => onChange(!checked)
@@ -81,6 +87,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           ref={ref}
           onChange={toggleChecked}
           checked={checked}
+          disabled={disabled}
         />
         <Icon {...props} />
         <span className={classes.label}>{children}</span>

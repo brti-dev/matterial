@@ -37,6 +37,14 @@
   }
 }
 
+.disabled {
+  &,
+  & * {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+  }
+}
+
 .label {
   display: inline-block;
   font-size: var(--size);

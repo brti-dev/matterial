@@ -4,16 +4,4 @@
 
 :root {
   font-family: Roboto, sans-serif;
-  font-size: calc(100vw / 22);
-  font-weight: 400;
-
-  @include breakpoint(screen) {
-    font-size: calc(100vw / 60);
-    font-weight: 300;
-  }
-
-  @include breakpoint(omnivision) {
-    // Computed size at 'omnivision'
-    font-size: 22px;
-  }
 }

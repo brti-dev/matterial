@@ -7,16 +7,19 @@
   cursor: pointer;
 
   svg {
-    opacity: 0.5;
+    opacity: 0.6;
     width: calc(var(--size) + 0.1em);
     height: calc(var(--size) + 0.1em);
+    color: var(--color-foreground);
+    transition: opacity 0.2s linear;
   }
 
   &:hover > svg {
-    color: var(--color-primary-hover);
+    opacity: 1;
   }
 
   input:focus + svg {
+    opacity: 1;
     box-shadow: 0 0 0 3px var(--color-accent-2);
     border-radius: var(--radius);
   }
@@ -37,4 +40,5 @@
 .label {
   display: inline-block;
   font-size: var(--size);
+  color: var(--color-foreground);
 }

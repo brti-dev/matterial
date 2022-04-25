@@ -2,8 +2,12 @@
 
 exports[`Checkbox component should render correctly 1`] = `
 <label
-  className="checkbox foo size--medium"
-  style={Object {}}
+  className="checkbox foo size--medium variant--default color--primary"
+  style={
+    Object {
+      "--color": "var(--color-primary)",
+    }
+  }
 >
   <input
     checked={true}
@@ -44,8 +48,12 @@ exports[`Checkbox component should render correctly 1`] = `
 exports[`Checkbox component should work with different colors 1`] = `
 Array [
   <label
-    className="checkbox size--medium"
-    style={Object {}}
+    className="checkbox size--medium variant--default color--primary"
+    style={
+      Object {
+        "--color": "var(--color-primary)",
+      }
+    }
   >
     <input
       className="visually-hidden"
@@ -78,8 +86,12 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox size--medium"
-    style={Object {}}
+    className="checkbox size--medium variant--default color--secondary"
+    style={
+      Object {
+        "--color": "var(--color-secondary)",
+      }
+    }
   >
     <input
       className="visually-hidden"
@@ -112,8 +124,12 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox size--medium"
-    style={Object {}}
+    className="checkbox size--medium variant--default color--dark"
+    style={
+      Object {
+        "--color": "var(--color-dark)",
+      }
+    }
   >
     <input
       className="visually-hidden"
@@ -146,8 +162,12 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox size--medium"
-    style={Object {}}
+    className="checkbox size--medium variant--default color--light"
+    style={
+      Object {
+        "--color": "var(--color-light)",
+      }
+    }
   >
     <input
       className="visually-hidden"
@@ -180,8 +200,12 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox size--medium"
-    style={Object {}}
+    className="checkbox size--medium variant--default color--error"
+    style={
+      Object {
+        "--color": "var(--color-error)",
+      }
+    }
   >
     <input
       className="visually-hidden"
@@ -214,8 +238,12 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox size--medium"
-    style={Object {}}
+    className="checkbox size--medium variant--default color--warning"
+    style={
+      Object {
+        "--color": "var(--color-warning)",
+      }
+    }
   >
     <input
       className="visually-hidden"
@@ -248,8 +276,12 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox size--medium"
-    style={Object {}}
+    className="checkbox size--medium variant--default color--info"
+    style={
+      Object {
+        "--color": "var(--color-info)",
+      }
+    }
   >
     <input
       className="visually-hidden"
@@ -282,8 +314,12 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox size--medium"
-    style={Object {}}
+    className="checkbox size--medium variant--default color--success"
+    style={
+      Object {
+        "--color": "var(--color-success)",
+      }
+    }
   >
     <input
       className="visually-hidden"
@@ -316,8 +352,12 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox size--medium"
-    style={Object {}}
+    className="checkbox size--medium variant--default color--hotpink"
+    style={
+      Object {
+        "--color": "hotpink",
+      }
+    }
   >
     <input
       className="visually-hidden"
@@ -355,8 +395,12 @@ Array [
 exports[`Checkbox component should work with different sizes 1`] = `
 Array [
   <label
-    className="checkbox size--small"
-    style={Object {}}
+    className="checkbox size--small variant--default color--default"
+    style={
+      Object {
+        "--color": null,
+      }
+    }
   >
     <input
       className="visually-hidden"
@@ -389,8 +433,12 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox size--large"
-    style={Object {}}
+    className="checkbox size--large variant--default color--default"
+    style={
+      Object {
+        "--color": null,
+      }
+    }
   >
     <input
       className="visually-hidden"
@@ -423,9 +471,10 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox"
+    className="checkbox variant--default color--default"
     style={
       Object {
+        "--color": null,
         "--size": "50px",
       }
     }

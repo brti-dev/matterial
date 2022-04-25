@@ -1,6 +1,7 @@
 import { Checkbox } from '.'
 import { Container } from '../Container'
 import { Form, useForm } from '../Form'
+import { COLORS } from '../../const'
 
 const FORM = {
   isDaddy: true,
@@ -72,6 +73,28 @@ export function CheckboxSizesExample() {
       >
         50 pixels
       </Checkbox>
+    </Container>
+  )
+}
+
+export function CheckboxColorsExample() {
+  const checkboxColors = COLORS.filter(c => c !== 'dark' && c !== 'light')
+  const { form, handleChange } = useForm(
+    COLORS.reduce((colors, color) => ({ ...colors, [color]: false }), {})
+  )
+
+  return (
+    <Container row>
+      {checkboxColors.map(color => (
+        <Checkbox
+          key={color}
+          checked={form.data[color]}
+          color={color}
+          onChange={checked => handleChange(color, checked)}
+        >
+          {color}
+        </Checkbox>
+      ))}
     </Container>
   )
 }

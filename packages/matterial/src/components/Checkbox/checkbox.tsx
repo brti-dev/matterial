@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 
+import { Color } from '../../interfaces/theme'
 import {
   CheckboxIcon,
   CheckboxCheckedIcon,
@@ -7,6 +8,7 @@ import {
   CheckboxSquareIcon,
 } from '../Icons'
 import classnames from '../../lib/classnames'
+import cssColor from '../../lib/css-color'
 import classes from './checkbox.module.scss'
 
 type Size = number | 'small' | 'medium' | 'large'
@@ -21,6 +23,10 @@ type Props = {
    * Label
    */
   children: React.ReactNode
+  /**
+   * Color of the checkbox
+   */
+  color?: Color | string
   /**
    * Input name
    */
@@ -44,6 +50,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       checked,
       children,
       className,
+      color = 'default',
       name,
       onChange = () => {},
       size = 'medium',
@@ -51,8 +58,17 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     } = props
     const sizePx = typeof size === 'number' ? `${size}px` : null
     const sizeClass = !sizePx ? `size--${size}` : null
-    const style = { ...naturalStyle, ...(sizePx && { '--size': sizePx }) }
-    const classNames = classnames(classes.checkbox, className, sizeClass)
+    const style = {
+      ...naturalStyle,
+      '--color': cssColor(color),
+      ...(sizePx && { '--size': sizePx }),
+    }
+    const classNames = classnames(
+      classes.checkbox,
+      className,
+      sizeClass,
+      `variant--default color--${color}`
+    )
 
     const toggleChecked = () => onChange(!checked)
 

@@ -1,0 +1,32 @@
+.checkbox {
+  --size: var(--font-size);
+
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--gap) / 3);
+  cursor: pointer;
+
+  svg {
+    opacity: 0.5;
+    width: calc(var(--size) + 0.1em);
+    height: calc(var(--size) + 0.1em);
+  }
+
+  &:hover > svg {
+    color: var(--color-primary-hover);
+  }
+
+  input:focus + svg {
+    box-shadow: 0 0 0 3px var(--color-accent-2);
+    border-radius: var(--radius);
+  }
+
+  input:checked + svg {
+    opacity: 1;
+  }
+}
+
+.label {
+  display: inline-block;
+  font-size: var(--size);
+}

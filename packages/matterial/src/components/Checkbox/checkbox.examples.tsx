@@ -34,3 +34,44 @@ export function CheckboxExample() {
     </Form>
   )
 }
+
+export function CheckboxSizesExample() {
+  const { form, handleChange } = useForm({
+    small: false,
+    default: false,
+    large: false,
+    px: false,
+  })
+
+  return (
+    <Container row center>
+      <Checkbox
+        size="small"
+        checked={form.data.small}
+        onChange={c => handleChange('small', c)}
+      >
+        Small
+      </Checkbox>
+      <Checkbox
+        checked={form.data.default}
+        onChange={c => handleChange('default', c)}
+      >
+        Default
+      </Checkbox>
+      <Checkbox
+        size="large"
+        checked={form.data.large}
+        onChange={c => handleChange('large', c)}
+      >
+        Large
+      </Checkbox>
+      <Checkbox
+        size={50}
+        checked={form.data.px}
+        onChange={c => handleChange('px', c)}
+      >
+        50 pixels
+      </Checkbox>
+    </Container>
+  )
+}

@@ -24,6 +24,14 @@
   input:checked + svg {
     opacity: 1;
   }
+
+  &[class~='size--small'] {
+    --size: calc(var(--font-size) - 0.25em);
+  }
+
+  &[class~='size--large'] {
+    --size: calc(var(--font-size) + 0.25em);
+  }
 }
 
 .label {

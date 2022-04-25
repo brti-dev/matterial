@@ -35,6 +35,21 @@ describe('Checkbox component', () => {
     expect(tree).toMatchSnapshot()
   })
 
+  test('should work with different sizes', () => {
+    const tree = renderer
+      .create(
+        <>
+          {['small', 'large', 50].map((size: any) => (
+            <Checkbox size={size} key={size}>
+              {size}
+            </Checkbox>
+          ))}
+        </>
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
   test('should render checked initially', () => {
     render(<Checkbox checked>checked</Checkbox>)
 
@@ -56,7 +71,7 @@ describe('Checkbox component', () => {
       const [change, setChange] = useState(false)
 
       return (
-        <Checkbox onClick={() => setChange(!change)}>
+        <Checkbox onChange={() => setChange(true)}>
           {change ? 'is checked' : 'not checked'}
         </Checkbox>
       )

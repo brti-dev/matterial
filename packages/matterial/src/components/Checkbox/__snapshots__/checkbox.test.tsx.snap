@@ -2,10 +2,11 @@
 
 exports[`Checkbox component should render correctly 1`] = `
 <label
-  className="checkbox foo"
+  className="checkbox foo size--medium"
+  style={Object {}}
 >
   <input
-    aria-checked={true}
+    checked={true}
     className="visually-hidden"
     onChange={[Function]}
     type="checkbox"
@@ -43,7 +44,8 @@ exports[`Checkbox component should render correctly 1`] = `
 exports[`Checkbox component should work with different colors 1`] = `
 Array [
   <label
-    className="checkbox"
+    className="checkbox size--medium"
+    style={Object {}}
   >
     <input
       className="visually-hidden"
@@ -76,7 +78,8 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox"
+    className="checkbox size--medium"
+    style={Object {}}
   >
     <input
       className="visually-hidden"
@@ -109,7 +112,8 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox"
+    className="checkbox size--medium"
+    style={Object {}}
   >
     <input
       className="visually-hidden"
@@ -142,7 +146,8 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox"
+    className="checkbox size--medium"
+    style={Object {}}
   >
     <input
       className="visually-hidden"
@@ -175,7 +180,8 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox"
+    className="checkbox size--medium"
+    style={Object {}}
   >
     <input
       className="visually-hidden"
@@ -208,7 +214,8 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox"
+    className="checkbox size--medium"
+    style={Object {}}
   >
     <input
       className="visually-hidden"
@@ -241,7 +248,8 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox"
+    className="checkbox size--medium"
+    style={Object {}}
   >
     <input
       className="visually-hidden"
@@ -274,7 +282,8 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox"
+    className="checkbox size--medium"
+    style={Object {}}
   >
     <input
       className="visually-hidden"
@@ -307,7 +316,8 @@ Array [
     </span>
   </label>,
   <label
-    className="checkbox"
+    className="checkbox size--medium"
+    style={Object {}}
   >
     <input
       className="visually-hidden"
@@ -337,6 +347,117 @@ Array [
       className="label"
     >
       hotpink
+    </span>
+  </label>,
+]
+`;
+
+exports[`Checkbox component should work with different sizes 1`] = `
+Array [
+  <label
+    className="checkbox size--small"
+    style={Object {}}
+  >
+    <input
+      className="visually-hidden"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <svg
+      aria-hidden={true}
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7 5c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2H7zm0 12V7h10l.002 10H7z"
+      />
+    </svg>
+    <span
+      className="label"
+    >
+      small
+    </span>
+  </label>,
+  <label
+    className="checkbox size--large"
+    style={Object {}}
+  >
+    <input
+      className="visually-hidden"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <svg
+      aria-hidden={true}
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7 5c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2H7zm0 12V7h10l.002 10H7z"
+      />
+    </svg>
+    <span
+      className="label"
+    >
+      large
+    </span>
+  </label>,
+  <label
+    className="checkbox"
+    style={
+      Object {
+        "--size": "50px",
+      }
+    }
+  >
+    <input
+      className="visually-hidden"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <svg
+      aria-hidden={true}
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7 5c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2H7zm0 12V7h10l.002 10H7z"
+      />
+    </svg>
+    <span
+      className="label"
+    >
+      50
     </span>
   </label>,
 ]

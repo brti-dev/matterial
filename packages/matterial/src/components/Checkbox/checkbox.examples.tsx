@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import { Checkbox } from '.'
 import { Container } from '../Container'
 import { Form, useForm } from '../Form'
 import { COLORS } from '../../const'
+import { Button } from '../Button'
 
 const FORM = {
   isDaddy: true,
@@ -95,6 +97,29 @@ export function CheckboxColorsExample() {
           {color}
         </Checkbox>
       ))}
+    </Container>
+  )
+}
+
+export function CheckboxIndeterminateExample() {
+  const [state, setState] = useState(null)
+
+  return (
+    <Container row>
+      <Checkbox
+        checked={!!state}
+        indeterminate={state === null}
+        onChange={checked => setState(checked)}
+      >
+        Indeterminate
+      </Checkbox>
+      <Button
+        variant="contained"
+        disabled={state === null}
+        onClick={() => setState(null)}
+      >
+        Reset
+      </Button>
     </Container>
   )
 }

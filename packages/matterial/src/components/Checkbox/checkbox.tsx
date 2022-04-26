@@ -32,6 +32,10 @@ type Props = {
    */
   disabled?: boolean
   /**
+   * Limbo state
+   */
+  indeterminate?: boolean
+  /**
    * Input name
    */
   name?: string
@@ -51,11 +55,12 @@ type CheckboxProps = NativeProps & Props
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (props: CheckboxProps, ref: any) => {
     const {
-      checked,
+      checked = false,
       children,
       className,
       color = 'default',
       disabled = false,
+      indeterminate = false,
       name,
       onChange = () => {},
       size = 'medium',
@@ -100,6 +105,8 @@ function Icon(props: CheckboxProps): React.ReactElement {
   let Component: any
   if (props.checked) {
     Component = CheckboxCheckedIcon
+  } else if (props.indeterminate) {
+    Component = CheckboxMinusIcon
   } else {
     Component = CheckboxIcon
   }

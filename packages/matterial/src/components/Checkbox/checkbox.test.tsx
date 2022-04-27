@@ -7,6 +7,7 @@ import { render, screen } from '../../../test-utils'
 import { Color } from '../../interfaces/theme'
 import { COLORS } from '../../const'
 import { Checkbox } from '.'
+import { CheckboxExample } from './checkbox.examples'
 
 describe('Checkbox component', () => {
   test('should render correctly', () => {
@@ -50,21 +51,15 @@ describe('Checkbox component', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  test('should render checked initially', () => {
-    render(<Checkbox checked>checked</Checkbox>)
+  test('should render checked initially and toggle', () => {
+    render(<CheckboxExample />)
 
-    expect(screen.queryByRole('checkbox')).toBeChecked()
-  })
-
-  test('should toggle', () => {
-    render(<Checkbox>checked</Checkbox>)
-
-    const cbox = screen.queryByRole('checkbox')
-    expect(cbox).not.toBeChecked()
+    const cbox = screen.getByLabelText("I'm a daddy")
+    expect(cbox).toBeChecked()
 
     // @ts-ignore
     userEvent.click(cbox)
-    expect(cbox).toBeChecked()
+    expect(cbox).not.toBeChecked()
   })
 
   test('should trigger a callback onChange', () => {

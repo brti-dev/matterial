@@ -33,7 +33,7 @@ export function useForm<T>(initialData: T) {
     if (typeof nameOrEvent === 'string') {
       name = nameOrEvent
     } else {
-      const { name: targetName } = event.target as HTMLInputElement
+      const { name: targetName } = nameOrEvent.target as HTMLInputElement
       name = targetName
     }
 

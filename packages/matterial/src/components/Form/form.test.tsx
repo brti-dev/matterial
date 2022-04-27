@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 
-import { render, screen } from '../../../../../test-utils'
+import { render, screen } from '../../../test-utils'
 import { Form, FormGroup, TextInput } from '.'
 
 test('should render a form and label with text input', () => {

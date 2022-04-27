@@ -5,7 +5,7 @@ import {
   CheckboxIcon,
   CheckboxCheckedIcon,
   CheckboxMinusIcon,
-  CheckboxSquareIcon,
+  // CheckboxSquareIcon,
 } from '../Icons'
 import classnames from '../../lib/classnames'
 import cssColor from '../../lib/css-color'
@@ -60,7 +60,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       className,
       color = 'default',
       disabled = false,
-      indeterminate = false,
+      // indeterminate = false,
       name,
       onChange = () => {},
       size = 'medium',

@@ -3,8 +3,8 @@ import '@testing-library/jest-dom'
 import renderer from 'react-test-renderer'
 import userEvent from '@testing-library/user-event'
 
-import { render, screen } from '../../../../../test-utils'
-import { Variant, Color } from '../../interfaces/theme'
+import { render, screen } from '../../../test-utils'
+import { Color } from '../../interfaces/theme'
 import { COLORS } from '../../const'
 import { Checkbox } from '.'
 
@@ -62,6 +62,7 @@ describe('Checkbox component', () => {
     const cbox = screen.queryByRole('checkbox')
     expect(cbox).not.toBeChecked()
 
+    // @ts-ignore
     userEvent.click(cbox)
     expect(cbox).toBeChecked()
   })

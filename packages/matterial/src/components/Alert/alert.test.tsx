@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event/dist'
 
 import { Severity, Variant } from '../../interfaces/theme'
 import { reducer } from '../Alert/use-alert'
-import { render, screen } from '../../../../../test-utils'
+import { render, screen } from '../../../test-utils'
 import { Alert, AlertDispatch } from '../Alert'
 import { Button } from '../Button'
 import { AlertExample } from '.'

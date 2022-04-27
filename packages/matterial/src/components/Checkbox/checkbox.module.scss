@@ -8,10 +8,10 @@
 
   svg {
     opacity: 0.6;
-    width: calc(var(--size) + 0.1em);
-    height: calc(var(--size) + 0.1em);
+    width: calc(var(--size) + 0.3em);
+    height: calc(var(--size) + 0.3em);
     color: var(--color-foreground);
-    transition: opacity 0.2s linear;
+    transition: opacity 0.1s ease-in-out;
   }
 
   &:hover > svg {

@@ -25,3 +25,26 @@ description: Display a Boolean value
 ## Indeterminate
 
 <CheckboxIndeterminateExample />
+
+```jsx
+export function CheckboxIndeterminateExample() {
+  const [state, setState] = useState(null)
+
+  return (
+    <Checkbox
+      checked={!!state}
+      indeterminate={state === null}
+      onChange={checked => setState(checked)}
+    >
+      Indeterminate
+    </Checkbox>
+    <Button
+      variant="contained"
+      disabled={state === null}
+      onClick={() => setState(null)}
+    >
+      Reset
+    </Button>
+  )
+}
+```

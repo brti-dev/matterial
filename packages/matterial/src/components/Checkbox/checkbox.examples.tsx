@@ -102,7 +102,7 @@ export function CheckboxColorsExample() {
 }
 
 export function CheckboxIndeterminateExample() {
-  const [state, setState] = useState(null)
+  const [state, setState] = useState<boolean | null>(null)
 
   return (
     <Container row>

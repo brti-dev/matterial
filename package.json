@@ -2,10 +2,10 @@
   "name": "matterial",
   "version": "2.0.1",
   "description": "A React design system made by Matt Berti",
-  "private": true,
+  "private": false,
   "author": "dr-spaceman",
   "license": "apache-2.0",
-  "repository": "dr-spaceman/matterial-ui",
+  "repository": "dr-spaceman/matterial",
   "main": "packages/matterial/index.js",
   "files": [
     "packages/matterial/src"

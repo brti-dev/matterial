@@ -1,7 +1,15 @@
 {
   "name": "matterial",
+  "version": "1.3.1",
+  "description": "A React design system made by Matt Berti",
   "private": true,
-  "description": "Matterial UI, a design system by Matt Berti",
+  "author": "dr-spaceman",
+  "license": "apache-2.0",
+  "repository": "dr-spaceman/matterial-ui",
+  "main": "packages/matterial/index.js",
+  "files": [
+    "packages/matterial/src"
+  ],
   "workspaces": [
     "packages/*"
   ],
@@ -13,8 +21,6 @@
     "test": "jest",
     "test:watch": "jest --watch"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@testing-library/dom": "^8.11.0",
     "@testing-library/jest-dom": "^5.16.2",

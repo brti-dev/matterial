@@ -3,9 +3,16 @@
   "version": "2.0.2",
   "description": "A React design system made by Matt Berti",
   "private": false,
-  "author": "dr-spaceman",
-  "license": "apache-2.0",
-  "repository": "dr-spaceman/matterial",
+  "author": "Matt Berti <mat.berti@gmail.com> (https://brti.dev)",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dr-spaceman/matterial"
+  },
+  "homepage": "https://matterial.brti.dev",
+  "bugs": {
+    "url": "https://github.com/dr-spaceman/matterial/issues"
+  },
   "main": "packages/matterial/index.js",
   "files": [
     "packages/matterial/src"

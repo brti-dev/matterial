@@ -6,7 +6,7 @@ function ThemeProvider({ theme, children }: any) {
   return <div className={`theme--${theme}`}>{children}</div>
 }
 
-const AllTheProviders: FC = ({ children }) => {
+const AllTheProviders: FC = ({ children }: any) => {
   return <ThemeProvider theme="light">{children}</ThemeProvider>
 }
 

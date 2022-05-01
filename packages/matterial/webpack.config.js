@@ -102,9 +102,7 @@ module.exports = {
     alias: {
       react: path.resolve('./node_modules/react'),
       'react-dom': path.resolve('./node_modules/react-dom'),
-      'react/jsx-runtime': require.resolve(
-        '../../node_modules/react/jsx-runtime'
-      ),
+      'react/jsx-runtime': path.resolve('../../node_modules/react/jsx-runtime'),
     },
     extensions: ['.tsx', '.ts', '.js', '.scss'],
   },

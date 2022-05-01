@@ -2,7 +2,7 @@ import highlight from 'rehype-highlight'
 import fs from 'fs'
 import { serialize } from 'next-mdx-remote/serialize'
 import path from 'path'
-import reactDocgen from 'react-docgen-typescript'
+// import reactDocgen from 'react-docgen-typescript'
 import remarkGfm from 'remark-gfm'
 
 import { toPascalCase } from './string'
@@ -56,50 +56,50 @@ export function getDocsFiles(): string[] {
   return docsFileNames
 }
 
-export function getMetadata(slug: string): Metadata {
-  const sourcePath = path.join(SOURCE_PATH, toPascalCase(slug), `${slug}.tsx`)
-  const sourceFile = fs.readFileSync(sourcePath, 'utf-8')
-  const codeFileName = sourcePath.split('/').pop() || ''
+// export function getMetadata(slug: string): Metadata {
+//   const sourcePath = path.join(SOURCE_PATH, toPascalCase(slug), `${slug}.tsx`)
+//   const sourceFile = fs.readFileSync(sourcePath, 'utf-8')
+//   const codeFileName = sourcePath.split('/').pop() || ''
 
-  try {
-    const components = reactDocgen.parse(
-      sourceFile
-      // reactDocgen.resolver.findAllComponentDefinitions,
-      // null,
-      // {
-      //   filename: sourcePath,
-      // }
-    )
-    console.log(components)
+//   try {
+//     const components = reactDocgen.parse(
+//       sourceFile
+//       // reactDocgen.resolver.findAllComponentDefinitions,
+//       // null,
+//       // {
+//       //   filename: sourcePath,
+//       // }
+//     )
+//     console.log(components)
 
-    const { description, displayName, props } =
-      components[components.length - 1]
+//     const { description, displayName, props } =
+//       components[components.length - 1]
 
-    return {
-      description,
-      displayName,
-      codeFileName,
-      slug,
-      props: Object.keys(props || {}).map(key => {
-        return {
-          name: `${key}${props[key].required ? '' : '?'}`,
-          type: '', //props[key].tsType.raw || props[key].tsType.name,
-          description: props[key].description,
-        }
-      }),
-    }
-  } catch (error) {
-    console.error(error)
+//     return {
+//       description,
+//       displayName,
+//       codeFileName,
+//       slug,
+//       props: Object.keys(props || {}).map(key => {
+//         return {
+//           name: `${key}${props[key].required ? '' : '?'}`,
+//           type: '', //props[key].tsType.raw || props[key].tsType.name,
+//           description: props[key].description,
+//         }
+//       }),
+//     }
+//   } catch (error) {
+//     console.error(error)
 
-    return {
-      codeFileName,
-      slug,
-      description: '',
-      displayName: '',
-      props: [],
-    }
-  }
-}
+//     return {
+//       codeFileName,
+//       slug,
+//       description: '',
+//       displayName: '',
+//       props: [],
+//     }
+//   }
+// }
 
 export async function compileMdx(
   source: string

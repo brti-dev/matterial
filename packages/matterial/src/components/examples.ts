@@ -4,6 +4,7 @@
  * Used for docs and tests
  */
 
+export * from './Alert/alert.examples'
 export * from './Avatar/avatar.examples'
 export * from './Button/button.examples'
 export * from './Checkbox/checkbox.examples'

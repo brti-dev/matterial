@@ -7,7 +7,7 @@ import { reducer } from '../Alert/use-alert'
 import { render, screen } from '../../../test-utils'
 import { Alert, AlertDispatch } from '../Alert'
 import { Button } from '../Button'
-import { AlertExample } from '.'
+import { AlertExample } from './alert.examples'
 
 const SEVERITY = ['error', 'warning', 'info', 'success']
 

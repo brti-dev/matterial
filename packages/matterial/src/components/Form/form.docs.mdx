@@ -8,7 +8,15 @@ description: Handle user inputs
 <FormExample />
 
 ```jsx
-import { useForm, Form, FormGroup, TextInput, SubmitRow, Button } from 'matterial'
+import {
+  useForm,
+  Form,
+  FormGroup,
+  TextInput,
+  SubmitRow,
+  Button,
+  Container,
+} from 'matterial'
 
 const initialFormVals = {
   name: '',
@@ -19,7 +27,7 @@ const initialFormVals = {
 
 export function FormExample() {
   const { form, setForm, handleChange, isError } = useForm(initialFormVals)
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault()
     handleChange('submitted', true)
   }
@@ -61,6 +69,14 @@ export function FormExample() {
             />
           }
         />
+        <Container row>
+          <Checkbox name="foo" checked={form.data.foo} onChange={handleChange}>
+            Foo
+          </Checkbox>
+          <Checkbox name="bar" checked={form.data.bar} onChange={handleChange}>
+            Bar
+          </Checkbox>
+        </Container>
         <SubmitRow>
           <Button type="submit" variant="contained" color="primary">
             Submit

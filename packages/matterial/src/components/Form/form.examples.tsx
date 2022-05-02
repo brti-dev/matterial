@@ -1,15 +1,19 @@
 import { useForm, Form, FormGroup, TextInput, SubmitRow } from '.'
 import { Button } from '../Button'
+import { Checkbox } from '../Checkbox'
+import { Container } from '../Container'
 
 const initialFormVals = {
   name: '',
   feedback: 'Officia incididunt do officia eiusmod commodo.',
   email: 'foo@bar.baz',
+  foo: true,
+  bar: false,
   submitted: false,
 }
 
 export function FormExample() {
-  const { form, setForm, handleChange, isError } = useForm(initialFormVals)
+  const { form, handleChange } = useForm(initialFormVals)
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault()
     handleChange('submitted', true)
@@ -52,6 +56,14 @@ export function FormExample() {
             />
           }
         />
+        <Container row>
+          <Checkbox name="foo" checked={form.data.foo} onChange={handleChange}>
+            Foo
+          </Checkbox>
+          <Checkbox name="bar" checked={form.data.bar} onChange={handleChange}>
+            Bar
+          </Checkbox>
+        </Container>
         <SubmitRow>
           <Button type="submit" variant="contained" color="primary">
             Submit

@@ -3,6 +3,19 @@ import userEvent from '@testing-library/user-event'
 
 import { render, screen } from '../../../test-utils'
 import { Form, FormGroup, TextInput } from '.'
+import { FormExample } from './form.examples'
+
+describe('useForm hook', () => {
+  test('should render with a value and change the value on input', () => {
+    render(<FormExample />)
+
+    const inpEl = screen.getByLabelText('Feedback')
+    expect(inpEl).toHaveValue('Officia incididunt do officia eiusmod commodo.')
+    userEvent.type(inpEl, 'bar')
+    userEvent.tab() // trigger onBlur event thereby triggering onChange callback
+    expect(inpEl).toHaveValue('bar')
+  })
+})
 
 test('should render a form and label with text input', () => {
   const label = 'foo'

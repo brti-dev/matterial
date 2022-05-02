@@ -1,34 +1,6 @@
-import { useState, forwardRef, SyntheticEvent } from 'react'
+import { useState, forwardRef, ChangeEvent } from 'react'
 
-export type TextInputProps = {
-  /**
-   * If true, renders a <textarea> element, otherwise renders an
-   * <input type={type}> element
-   */
-  multiline?: boolean
-  /**
-   * Input name (required)
-   */
-  name: string
-  /**
-   * Callback to fire when the input element is *blurred* (doesn't fire on
-   * event change)
-   */
-  onChange?: (event: any, text: string) => void
-  /**
-   * If multiline, renders this many rows
-   */
-  rows?: number
-  /**
-   * HTML input types
-   */
-  type?: 'text' | 'date' | 'email' | 'number' | 'password' | 'tel' | 'url'
-  /**
-   * Input value
-   */
-  value?: string
-} & Omit<JSX.IntrinsicElements['input'], 'onChange'> & // Necessary because of some strange error
-  Omit<JSX.IntrinsicElements['textarea'], 'onChange'>
+import { TextInputProps } from './form.types'
 
 export const TextInput = forwardRef<
   HTMLTextAreaElement & HTMLInputElement,
@@ -45,10 +17,14 @@ export const TextInput = forwardRef<
   } = props
   const [textValue, setTextValue] = useState<string>(value)
 
-  const handleBlur = (event: SyntheticEvent) => onChange(event, textValue)
+  const handleBlur = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => onChange(event, textValue)
 
-  const handleChange = (event: SyntheticEvent) => {
-    const { value } = event.target as HTMLInputElement
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { value } = event.currentTarget /* as HTMLInputElement*/
     setTextValue(value)
   }
 

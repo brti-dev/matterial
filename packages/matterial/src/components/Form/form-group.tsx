@@ -2,15 +2,8 @@ import { cloneElement } from 'react'
 
 import classnames from '../../lib/classnames'
 import { toKebabCase } from '../../lib/string'
+import { FormGroupProps } from './form.types'
 import classes from './form.module.scss'
-
-export type FormGroupProps = {
-  label: string
-  input: React.ReactElement<HTMLInputElement>
-  className?: string
-  error?: boolean
-  helperText?: string
-} & React.ComponentPropsWithoutRef<'div'>
 
 export function FormGroup({
   label,

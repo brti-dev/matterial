@@ -1,10 +1,6 @@
+import { FormProps } from './form.types'
 import classnames from '../../lib/classnames'
 import classes from './form.module.scss'
-
-export type FormProps = {
-  children: React.ReactNode
-  className?: string
-} & React.ComponentPropsWithoutRef<'form'>
 
 export function Form({ children, className, ...rest }: FormProps) {
   return (

@@ -1,4 +1,6 @@
-import { useReducer, ChangeEvent } from 'react'
+import { useReducer } from 'react'
+
+import { FormChangeEvent } from './form.types'
 
 type FormStateLoading = {
   loading: boolean
@@ -25,15 +27,12 @@ export function useForm<T>(initialData: T) {
     }
   )
 
-  const handleChange = (
-    nameOrEvent: string | ChangeEvent<HTMLInputElement>,
-    value: string | number | boolean | null
-  ) => {
+  const handleChange: FormChangeEvent = (nameOrEvent, value) => {
     let name: string
     if (typeof nameOrEvent === 'string') {
       name = nameOrEvent
     } else {
-      const { name: targetName } = nameOrEvent.target as HTMLInputElement
+      const { name: targetName } = nameOrEvent.currentTarget as HTMLInputElement
       name = targetName
     }
 

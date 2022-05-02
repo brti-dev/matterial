@@ -1,0 +1,50 @@
+---
+name: Dialog
+description:
+---
+
+## Usage
+
+```jsx
+function DialogExample() {
+  const { active, open, close } = useDialog(false)
+
+  return (
+    <>
+      <Button variant="contained" color="primary" onClick={open}>
+        Open Dialog
+      </Button>
+      <Dialog active={active} closable onDismiss={close} labelledBy="foo">
+        <h5 id="foo">Foo</h5>
+        <p>
+          Culpa nostrud sint elit duis ad aute aliqua non cupidatat eiusmod
+          consequat adipisicing.
+        </p>
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <Button onClick={close}>Close Dialog</Button>
+        </div>
+      </Dialog>
+    </>
+  )
+}
+```
+
+<DialogExample />
+
+## Dialog Props
+
+### `active = boolean`
+
+Indicates if the dialog is open/shown
+
+### `closable = boolean`
+
+If true, add a CloseButton with onDismiss callback when clicked
+
+### `fullscreen = 'auto' | boolean`
+
+Expand the modal to the edges of the viewport; `auto` by default: Will automtically expand to fullscreen on mobile screens.
+
+### `onDismiss = () => void`
+
+Function called whenever the user hits <Keyboard>esc</Keyboard> or clicks outside the dialog; Used to close the dialog or check if conditions are met before closing

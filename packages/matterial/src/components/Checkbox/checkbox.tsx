@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 
+import { ChangeEvent, CheckboxChangeEvent } from '../Form'
 import { Color } from '../../interfaces/theme'
 import {
   CheckboxIcon,
@@ -38,11 +39,11 @@ type Props = {
   /**
    * Input name
    */
-  name?: string
+  name: string
   /**
    * Callback executed when the input value changes
    */
-  onChange?: (checked: boolean) => void
+  onChange?: CheckboxChangeEvent
   /**
    * Size of checkbox and label; Number in pixels
    */
@@ -62,7 +63,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       disabled = false,
       // indeterminate = false,
       name,
-      onChange = () => {},
+      onChange = () => null,
       size = 'medium',
       style: naturalStyle,
     } = props
@@ -81,7 +82,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       disabled ? classes.disabled : undefined
     )
 
-    const toggleChecked = () => onChange(!checked)
+    const toggleChecked = (event: ChangeEvent) => onChange(event, !checked)
 
     return (
       <label className={classNames} style={style}>

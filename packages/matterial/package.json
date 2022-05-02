@@ -2,15 +2,15 @@
   "name": "matterial",
   "version": "2.0.6",
   "description": "A React design system made by Matt Berti",
-  "private": false,
+  "private": true,
   "author": "dr-spaceman",
   "license": "apache-2.0",
   "repository": "dr-spaceman/matterial",
   "type": "module",
   "main": "./dist/index.js",
   "exports": {
-    ".": "./dist/index.js",
-    "./styles/*": "./dist/src/styles/*"
+    ".": "./index.js",
+    "./styles/*": "./src/styles/*"
   },
   "scripts": {
     "build": "tsc",
@@ -27,9 +27,6 @@
     "@reach/skip-nav": "^0.15.0",
     "@reach/tooltip": "^0.13.2",
     "@reach/visually-hidden": "^0.15.0",
-    "css-loader": "^6.7.1",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
     "react-icons": "^4.2.0",
     "sass": "^1.49.9"
   },
@@ -37,7 +34,6 @@
     "@types/node": "^14.14.10",
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.3",
-    "sass-loader": "^12.6.0",
     "typescript": "^4.3.5"
   }
 }

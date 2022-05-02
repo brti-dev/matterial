@@ -2,10 +2,9 @@ import * as matterial from '../../../../matterial/src'
 import * as matterialExamples from '../../../../matterial/src/components/examples'
 // import { getMDXComponent } from 'mdx-bundler/client'
 // import { ComponentMap } from 'mdx-bundler/dist/client.d'
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { useMemo } from 'react'
+import { MDXRemote /*, MDXRemoteSerializeResult*/ } from 'next-mdx-remote'
 
-import { Code, CodeBlock } from 'components/Code'
+import { CodeBlock } from 'components/Code'
 
 // import { components } from './mdxComponents'
 

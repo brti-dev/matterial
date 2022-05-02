@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetStaticPaths } from 'next'
 
 import { capitalize } from 'lib/string'
 import { Metadata, getDocSource, getDocsFiles, compileMdx } from 'lib/mdx'

@@ -7,6 +7,41 @@ description: Display a Boolean value
 
 <CheckboxExample />
 
+```jsx
+import { Checkbox, useForm } from 'matterial'
+
+const FORM = {
+  isDaddy: true,
+  hasBoat: false,
+}
+
+function App() {
+  const { form, handleChange } = useForm(FORM)
+
+  return (
+    <Form>
+      <Checkbox
+        name="isDaddy"
+        checked={form.data.isDaddy}
+        onChange={handleChange}
+      >
+        I'm a daddy
+      </Checkbox>
+      <Checkbox
+        name="hasBoat"
+        checked={form.data.hasBoat}
+        onChange={handleChange}
+      >
+        I have a boat
+      </Checkbox>
+      <pre>
+        <code>{JSON.stringify(form.data, null, 2)}</code>
+      </pre>
+    </Form>
+  )
+}
+```
+
 ## Sizes
 
 <CheckboxSizesExample />
@@ -34,7 +69,7 @@ export function CheckboxIndeterminateExample() {
     <Checkbox
       checked={!!state}
       indeterminate={state === null}
-      onChange={checked => setState(checked)}
+      onChange={(_, checked) => setState(checked)}
     >
       Indeterminate
     </Checkbox>

@@ -19,20 +19,20 @@ export function CheckboxExample() {
         <Checkbox
           name="isDaddy"
           checked={form.data.isDaddy}
-          onChange={checked => handleChange('isDaddy', checked)}
+          onChange={handleChange}
         >
           I'm a daddy
         </Checkbox>
         <Checkbox
           name="hasBoat"
           checked={form.data.hasBoat}
-          onChange={checked => handleChange('hasBoat', checked)}
+          onChange={handleChange}
         >
           I have a boat
         </Checkbox>
       </Container>
       <pre>
-        <code>{JSON.stringify(form, null, 2)}</code>
+        <code>{JSON.stringify(form.data, null, 2)}</code>
       </pre>
     </Form>
   )
@@ -49,29 +49,33 @@ export function CheckboxSizesExample() {
   return (
     <Container row center>
       <Checkbox
+        name="small"
         size="small"
         checked={form.data.small}
-        onChange={c => handleChange('small', c)}
+        onChange={handleChange}
       >
         Small
       </Checkbox>
       <Checkbox
+        name="default"
         checked={form.data.default}
-        onChange={c => handleChange('default', c)}
+        onChange={handleChange}
       >
         Default
       </Checkbox>
       <Checkbox
+        name="large"
         size="large"
         checked={form.data.large}
-        onChange={c => handleChange('large', c)}
+        onChange={handleChange}
       >
         Large
       </Checkbox>
       <Checkbox
+        name="px"
         size={50}
         checked={form.data.px}
-        onChange={c => handleChange('px', c)}
+        onChange={handleChange}
       >
         50 pixels
       </Checkbox>
@@ -89,10 +93,11 @@ export function CheckboxColorsExample() {
     <Container row>
       {checkboxColors.map(color => (
         <Checkbox
+          name={color}
           key={color}
           checked={form.data[color]}
           color={color}
-          onChange={checked => handleChange(color, checked)}
+          onChange={handleChange}
         >
           {color}
         </Checkbox>
@@ -107,9 +112,10 @@ export function CheckboxIndeterminateExample() {
   return (
     <Container row>
       <Checkbox
+        name="indeterminate"
         checked={!!state}
         indeterminate={state === null}
-        onChange={checked => setState(checked)}
+        onChange={(_, checked) => setState(checked)}
       >
         Indeterminate
       </Checkbox>

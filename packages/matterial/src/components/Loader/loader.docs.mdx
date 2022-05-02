@@ -1,0 +1,48 @@
+---
+name: Loader
+description: Indicates something's happening.
+---
+
+## Usage
+
+```jsx
+import { Loader } from 'matterial'
+
+function App() {
+  return <Loader />
+}
+```
+
+## Loader Props
+
+### Size
+
+`size = number`
+
+<Container row>
+  <Loader size={20} />
+  <Loader />
+  <Loader size={100} />
+</Container>
+
+```jsx
+<Loader size={20} />
+<Loader />
+<Loader size={100} />
+```
+
+### Color
+
+`color = string | Color`
+
+<Container row>
+  <Loader color="primary" />
+  <Loader color="secondary" />
+  <Loader color="hotpink" />
+</Container>
+
+```jsx
+<Loader color="primary" />
+<Loader color="secondary" />
+<Loader color="hotpink" />
+```

@@ -3,7 +3,7 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "noEmit": false,
-    "outDir": "build"
+    "outDir": "dist"
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

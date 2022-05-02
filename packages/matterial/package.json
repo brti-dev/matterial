@@ -1,12 +1,17 @@
 {
   "name": "matterial",
-  "version": "2.0.3",
+  "version": "2.0.6",
   "description": "A React design system made by Matt Berti",
   "private": false,
   "author": "dr-spaceman",
   "license": "apache-2.0",
   "repository": "dr-spaceman/matterial",
-  "module": "./index.js",
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./styles/*": "./dist/src/styles/*"
+  },
   "scripts": {
     "build": "tsc",
     "publish": "npm publish"

@@ -1,7 +1,6 @@
-dist
 .babelrc
 .storybook
 .gitignore
 .prettierrc
 webpack.config.js
-tsconfig.json
+scripts

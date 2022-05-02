@@ -1,6 +1,7 @@
 import highlight from 'rehype-highlight'
 import fs from 'fs'
 import { serialize } from 'next-mdx-remote/serialize'
+
 import path from 'path'
 // import reactDocgen from 'react-docgen-typescript'
 import remarkGfm from 'remark-gfm'
@@ -103,7 +104,7 @@ export function getDocsFiles(): string[] {
 
 export async function compileMdx(
   source: string
-): Promise<{ compiledSource: string; frontmatter: Record<string, unknown> }> {
+): Promise<{ compiledSource: string; frontmatter: any }> {
   const result = await serialize(source, {
     parseFrontmatter: true,
     mdxOptions: {

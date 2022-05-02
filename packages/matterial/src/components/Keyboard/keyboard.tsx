@@ -8,11 +8,7 @@ export type KeyboardProps = Omit<
   children: string
 }
 
-export default function Keyboard({
-  children,
-  className,
-  ...rest
-}: KeyboardProps) {
+export function Keyboard({ children, className, ...rest }: KeyboardProps) {
   return (
     <span className={classnames(className, classes.keyboard)} {...rest}>
       {children}

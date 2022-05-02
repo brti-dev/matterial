@@ -29,7 +29,9 @@ function AlertExample() {
 
 ## Colors
 
-{SEVERITIES.map(severity => <Alert key={severity} severity={severity} label={false}>{severity}</Alert>)}
+<Container row>
+  {SEVERITIES.map(severity => <Alert key={severity} severity={severity} label={false} style={{margin:0}}>{severity}</Alert>)}
+</Container>
 
 # `useAlert` Hook
 

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { CheckButton, CheckButtonGroup } from './'
+import { CheckButton, CheckButtonGroup } from '.'
 
 export function CheckButtonCheckBoxExample() {
   const [checked, setChecked] = useState({ foo: true, bar: false })

@@ -3,9 +3,9 @@ import renderer from 'react-test-renderer'
 import userEvent from '@testing-library/user-event/dist'
 
 import { Severity, Variant } from '../../interfaces/theme'
-import { reducer } from '../Alert/use-alert'
+import { reducer } from './use-alert'
 import { render, screen } from '../../../test-utils'
-import { Alert, AlertDispatch } from '../Alert'
+import { Alert, AlertDispatch } from '.'
 import { Button } from '../Button'
 import { AlertExample } from './alert.examples'
 

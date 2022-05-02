@@ -21,11 +21,11 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "yarn --cwd packages/docs dev",
-    "build": "yarn --cwd packages/docs build",
+    "dev": "yarn workspace docs dev",
+    "build": "yarn workspace docs build",
     "package": "yarn workspace matterial build",
     "publish": "yarn workspace matterial publish",
-    "start": "yarn --cwd packages/docs start",
+    "start": "yarn workspace docs start",
     "test": "jest",
     "test:watch": "jest --watch"
   }

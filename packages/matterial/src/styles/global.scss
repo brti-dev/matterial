@@ -642,9 +642,11 @@ textarea.input {
   margin-top: 0.5em !important;
   padding: 0 !important;
   overflow: hidden;
+  animation: open 0.1s ease forwards;
 }
 [data-reach-menu][hidden],
 [data-reach-menu-popover][hidden] {
+  animation: close 0.1s ease forwards; // for reference ,,,
   display: none;
 }
 [data-reach-menu-list],
@@ -774,6 +776,28 @@ textarea.input {
   }
   100% {
     transform: translateX(100%);
+  }
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes close {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
   }
 }
 

@@ -6,24 +6,12 @@ const copyPlugin = require('copy-webpack-plugin')
 // const externals = [nodeExternals()] // Bundle all imported modules
 const externals = [
   {
-    react: {
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'React',
-      root: 'React',
-    },
-    'react-dom': {
-      commonjs: 'react-dom',
-      commonjs2: 'react-dom',
-      amd: 'ReactDOM',
-      root: 'ReactDOM',
-    },
+    react: 'react',
   },
 ]
 
 module.exports = {
   entry: './src/index.ts',
-  externals,
   output: {
     clean: true,
     filename: 'index.js',
@@ -37,9 +25,9 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
-    new copyPlugin({
-      patterns: [{ from: 'src/styles', to: 'src/styles' }],
-    }),
+    // new copyPlugin({
+    //   patterns: [{ from: 'src/styles', to: 'src/styles' }],
+    // }),
   ],
   module: {
     rules: [
@@ -93,17 +81,18 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: ['babel-loader', 'ts-loader'],
         exclude: /node_modules/,
       },
     ],
   },
   resolve: {
-    alias: {
-      react: path.resolve('./node_modules/react'),
-      'react-dom': path.resolve('./node_modules/react-dom'),
-      // 'react/jsx-runtime': path.resolve('../../node_modules/react/jsx-runtime'),
-    },
+    // alias: {
+    //   react: path.resolve('./node_modules/react'),
+    //   'react-dom': path.resolve('./node_modules/react-dom'),
+    //   // 'react/jsx-runtime': path.resolve('../../node_modules/react/jsx-runtime'),
+    // },
     extensions: ['.tsx', '.ts', '.js', '.scss'],
   },
+  externals,
 }

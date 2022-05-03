@@ -44,6 +44,7 @@ const {
 const merged = {
   ...base,
   ...src,
+  private: false,
   exports,
   scripts,
   peerDependencies,

@@ -59,5 +59,6 @@ typings/
 # generate output
 dist
 
-# Matterial package dev files
-packages/matterial/README.md
+# Matterial redundancies
+bundle/README.md
+bundle/src

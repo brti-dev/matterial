@@ -23,8 +23,9 @@
   "scripts": {
     "dev": "yarn workspace docs dev",
     "build": "yarn workspace docs build",
-    "package": "yarn workspace matterial build",
-    "publish": "yarn workspace matterial publish",
+    "prepare": "yarn --cwd bundle prepare",
+    "package": "yarn --cwd bundle build",
+    "publish": "yarn --cwd bundle publish",
     "start": "yarn workspace docs start",
     "test": "jest",
     "test:watch": "jest --watch"

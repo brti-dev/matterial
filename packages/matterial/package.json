@@ -7,18 +7,17 @@
   "license": "apache-2.0",
   "repository": "dr-spaceman/matterial",
   "type": "module",
-  "main": "./dist/index.js",
   "exports": {
     ".": "./index.js",
     "./styles/*": "./src/styles/*"
   },
   "scripts": {
-    "build": "tsc",
-    "publish": "npm publish"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "dependencies": {
     "@reach/alert": "^0.15.0",

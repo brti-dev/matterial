@@ -3,7 +3,7 @@ import '@testing-library/jest-dom'
 import renderer from 'react-test-renderer'
 import userEvent from '@testing-library/user-event'
 
-import { render, screen } from '../../../test-utils'
+import { render, screen } from '../../test-utils'
 import { Variant, Color } from '../../interfaces/theme'
 import { COLORS } from '../../const'
 import { Button, IconButton } from '.'

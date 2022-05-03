@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import '@testing-library/jest-dom'
 
-import { render } from '../../../test-utils'
+import { render } from '../../test-utils'
 import { COLORS } from '../../const'
 import { Avatar, AvatarGroup } from '.'
 import {

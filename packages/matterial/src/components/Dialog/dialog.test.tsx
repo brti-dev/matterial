@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 
-import { render, screen } from '../../../test-utils'
+import { render, screen } from '../../test-utils'
 import { Dialog } from './dialog'
 import { DialogExample } from './dialog.examples'
 

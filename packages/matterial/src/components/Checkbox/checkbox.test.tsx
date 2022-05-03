@@ -3,7 +3,7 @@ import '@testing-library/jest-dom'
 import renderer from 'react-test-renderer'
 import userEvent from '@testing-library/user-event'
 
-import { render, screen } from '../../../test-utils'
+import { render, screen } from '../../test-utils'
 import { Color } from '../../interfaces/theme'
 import { COLORS } from '../../const'
 import { Checkbox } from '.'
@@ -13,7 +13,7 @@ describe('Checkbox component', () => {
   test('should render correctly', () => {
     const tree = renderer
       .create(
-        <Checkbox color="primary" className="foo" checked>
+        <Checkbox name="checkbox" color="primary" className="foo" checked>
           Checkbox
         </Checkbox>
       )
@@ -26,7 +26,7 @@ describe('Checkbox component', () => {
       .create(
         <>
           {[...COLORS, 'hotpink'].map((color: Color) => (
-            <Checkbox color={color} key={color}>
+            <Checkbox name="checkbox" color={color} key={color}>
               {color}
             </Checkbox>
           ))}
@@ -41,7 +41,7 @@ describe('Checkbox component', () => {
       .create(
         <>
           {['small', 'large', 50].map((size: any) => (
-            <Checkbox size={size} key={size}>
+            <Checkbox name="checkbox" size={size} key={size}>
               {size}
             </Checkbox>
           ))}
@@ -67,7 +67,7 @@ describe('Checkbox component', () => {
       const [change, setChange] = useState(false)
 
       return (
-        <Checkbox onChange={() => setChange(true)}>
+        <Checkbox name="checkbox" onChange={() => setChange(true)}>
           {change ? 'is checked' : 'not checked'}
         </Checkbox>
       )
@@ -80,7 +80,11 @@ describe('Checkbox component', () => {
   })
 
   test('should be disabled', () => {
-    render(<Checkbox disabled>disabled</Checkbox>)
+    render(
+      <Checkbox name="checkbox" disabled>
+        disabled
+      </Checkbox>
+    )
 
     expect(screen.getByRole('checkbox')).toBeDisabled()
   })

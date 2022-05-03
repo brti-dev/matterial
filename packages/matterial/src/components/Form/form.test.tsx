@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 
-import { render, screen } from '../../../test-utils'
+import { render, screen } from '../../test-utils'
 import { Form, FormGroup, TextInput } from '.'
 import { FormExample } from './form.examples'
 

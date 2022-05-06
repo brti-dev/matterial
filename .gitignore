@@ -63,3 +63,6 @@ dist
 bundle/README.md
 bundle/src
 bundle/package.json
+
+# Dev only
+packages/docs/pages/test-dist.tsx

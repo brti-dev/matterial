@@ -1,3 +1,4 @@
+// @ ts-ignore
 import { Alert, Button } from '../../../bundle/dist'
 
 export default function TestDist() {

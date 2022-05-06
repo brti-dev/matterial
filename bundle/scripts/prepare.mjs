@@ -10,7 +10,7 @@ fs.copyFileSync(getPath('../../README.md'), getPath('../README.md'))
 
 // Clean and copy src
 
-fs.rmSync(getPath('../src'), { recursive: true })
+fs.rmSync(getPath('../src'), { recursive: true, force: true })
 fs.cpSync(getPath('../../packages/matterial/src'), getPath('../src'), {
   recursive: true,
 })
@@ -49,7 +49,7 @@ const merged = {
   scripts,
   peerDependencies,
   devDependencies: mergeSort(dev_base, dev_src),
-  dependencies: mergeSort(dependencies, peerDependencies),
+  dependencies: mergeSort(dependencies),
 }
 
 try {

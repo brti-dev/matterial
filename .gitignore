@@ -62,3 +62,4 @@ dist
 # Matterial redundancies
 bundle/README.md
 bundle/src
+bundle/package.json

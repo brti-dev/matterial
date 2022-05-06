@@ -5,10 +5,9 @@ import fs from 'fs'
 const getPath = filePath => new URL(filePath, import.meta.url).pathname
 
 // fs.renameSync(getPath('../package.json'), getPath('../package.dist.json'))
-// fs.renameSync(getPath('../package.local.json'), getPath('../package.json'))
 
-// fs.rmSync(getPath('../README.md'))
-// fs.rmSync(getPath('../package.json'))
+fs.rmSync(getPath('../README.md'))
+fs.rmSync(getPath('../package.json'))
 
 fs.rmSync(getPath('../dist'), { recursive: true })
 fs.rmSync(getPath('../src'), { recursive: true })

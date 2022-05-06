@@ -22,12 +22,12 @@ module.exports = {
   },
   plugins: [
     new MiniCss({
-      filename: '[name].css',
+      filename: 'src/styles/[name].css',
       chunkFilename: '[id].css',
     }),
-    // new copyPlugin({
-    //   patterns: [{ from: 'src/styles', to: 'src/styles' }],
-    // }),
+    new copyPlugin({
+      patterns: [{ from: 'src/styles', to: 'src/styles' }],
+    }),
   ],
   module: {
     rules: [
@@ -81,8 +81,17 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        use: ['babel-loader', 'ts-loader'],
         exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+              ['@babel/preset-react', { runtime: 'automatic' }],
+              '@babel/preset-typescript',
+            ],
+          },
+        },
       },
     ],
   },

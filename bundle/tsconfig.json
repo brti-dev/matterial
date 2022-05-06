@@ -1,10 +1,16 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "dist/declarations",
+    "isolatedModules": true,
     "jsx": "react-jsx",
-    "noEmit": false,
-    "outDir": "dist"
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "outDir": "dist",
+    "sourceMap": true,
+    "strict": false,
+    "target": "es5"
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]
 }

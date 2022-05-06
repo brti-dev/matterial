@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "incremental": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "noEmit": true
   },
   "include": [
     "next-env.d.ts",

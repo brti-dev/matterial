@@ -2,47 +2,53 @@ import { GetStaticPaths } from 'next'
 
 import { capitalize } from 'lib/string'
 import { Metadata, getDocSource, getDocsFiles, compileMdx } from 'lib/mdx'
-import Layout from 'components/Layout'
+import { Header, Navigation, Main } from 'components/Layout'
 import { Mdx } from 'components/Mdx'
 import { Alert, Article } from '../../../matterial/src'
 
 type Props = {
+  components: string[]
   mdxSource: string
   metadata: any & Metadata
   slug: string
 }
 
 export default function Doc({
+  components,
   mdxSource,
   metadata = {},
   slug,
 }: Props): JSX.Element {
-  if (!mdxSource) {
-    return (
-      <Layout>
-        <h1>{capitalize(slug)}</h1>
-        <Alert severity="error">
-          There was an problem fetching the document file for this component.
-        </Alert>
-      </Layout>
-    )
-  }
-
   return (
-    <Layout>
-      <Article
-        title={metadata.name || capitalize(slug)}
-        description={metadata.description || 'A nice UI component'}
-      >
-        <Mdx source={mdxSource} />
-      </Article>
-    </Layout>
+    <>
+      <Header title={`Matterial UI Components -- ${capitalize(slug)}`} />
+      <Navigation components={components} />
+      <Main>
+        <Article
+          title={metadata.name || capitalize(slug)}
+          description={metadata.description}
+        >
+          {!mdxSource ? (
+            <Alert severity="error">
+              There was an problem fetching the document file for this
+              component.
+            </Alert>
+          ) : (
+            <Mdx source={mdxSource} />
+          )}
+        </Article>
+      </Main>
+    </>
   )
 }
 
 export const getStaticProps = async ({
   params: { slug },
 }): Promise<{ props: Props }> => {
+  const components = getDocsFiles().map(fileName =>
+    fileName.replace('.docs.mdx', '')
+  )
+
   try {
     const source = getDocSource(slug)
     // const metadata = getMetadata(slug)
@@ -53,6 +59,7 @@ export const getStaticProps = async ({
 
     return {
       props: {
+        components,
         mdxSource: compiledSource,
         metadata: frontmatter,
         slug,
@@ -61,7 +68,7 @@ export const getStaticProps = async ({
   } catch (err) {
     console.error(err)
 
-    return { props: { mdxSource: '', metadata: {}, slug } }
+    return { props: { components, mdxSource: '', metadata: {}, slug } }
   }
 }
 

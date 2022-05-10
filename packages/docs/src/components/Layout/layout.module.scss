@@ -21,6 +21,17 @@
   margin-top: var(--layout-spacing, var(--space-small));
   margin-bottom: var(--layout-spacing, var(--space-small));
 
+  h1 {
+    // Gradient: https://tonfisk.fish/
+    background-color: #f3ec78;
+    background-image: linear-gradient(90deg, #12c2e9, #c471ed, #f64f59);
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   & > [class~='heading'] {
     display: flex;
     flex-direction: row-reverse;

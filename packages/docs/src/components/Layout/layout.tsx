@@ -4,103 +4,28 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
-import { SkipNavLink, SkipNavContent } from '@reach/skip-nav'
-import '@reach/skip-nav/styles.css'
-
-import { PAGES, TITLE } from '../../../const'
+import { TITLE } from '../../../const'
 import scrollToTop from 'lib/scroll-to-top'
+import { capitalize, unKebabCase } from 'lib/string'
 import useMediaQuery from 'lib/use-media-query'
 import classes from './layout.module.scss'
 
 type OptionalChildren = {
-  children?: React.ReactChild | React.ReactChild[]
+  children?: React.ReactNode
 }
 
 type RequiredChildren = {
-  children: React.ReactChild | React.ReactChild[]
+  children: React.ReactNode
 }
 
 export type LayoutProps = {
   title?: string
 } & RequiredChildren
 
-export function Header({ children }: OptionalChildren) {
-  const { pathname, query } = useRouter()
-  const pathnameRoot = pathname.split('/', 2).join('/')
-
-  const isCurrentPage = (link: string) => link === pathnameRoot
-
-  const isScreenMobile = useMediaQuery('(max-width: 680px)')
-
-  const currentPageIndex = PAGES.findIndex(page => page.link === pathnameRoot)
-
-  const [menu, setMenu] = useState(isScreenMobile)
-  const handleOpenMenu = () => setMenu(!menu)
-
-  return (
-    <header id="top" className={classes.header}>
-      <div className="heading">
-        <h1>{TITLE}</h1>
-        {isScreenMobile && (
-          <Button shape="circle" onClick={handleOpenMenu}>
-            <MenuIcon />
-          </Button>
-        )}
-      </div>
-      <nav
-        style={
-          {
-            display: menu || !isScreenMobile ? 'block' : 'none',
-            '--current-index': currentPageIndex,
-          } as React.CSSProperties
-        }
-        aria-label="Main"
-      >
-        <ul>
-          {PAGES.map(({ link, title: pageTitle }) => (
-            <li
-              key={link}
-              className={isCurrentPage(link) ? 'current' : undefined}
-            >
-              <Link href={link}>{pageTitle}</Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-      {children}
-    </header>
-  )
-}
-
-export function Main({ children }: RequiredChildren) {
-  return <main className={classes.main}>{children}</main>
-}
-
-export function Footer({ children }: OptionalChildren) {
-  return (
-    <footer className={classes.footer}>
-      <nav aria-label="Footer">
-        <ul>
-          {PAGES.map(({ link, title: pageTitle }) => (
-            <li key={link}>
-              <Link href={link}>{pageTitle}</Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <Button
-        shape="circle"
-        className={classes.scrollToTop}
-        onClick={scrollToTop}
-      >
-        <ArrowTopIcon />
-      </Button>
-      {children}
-    </footer>
-  )
-}
-
-export default function Layout({ title = TITLE, children }: LayoutProps) {
+export function Header({
+  children,
+  title,
+}: OptionalChildren & { title: string }) {
   return (
     <>
       <Head>
@@ -121,11 +46,83 @@ export default function Layout({ title = TITLE, children }: LayoutProps) {
         <meta name="og:title" content={TITLE} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <SkipNavLink />
-      <Header />
-      <SkipNavContent />
-      <Main>{children}</Main>
-      <Footer />
+      <header id="top" className={classes.header}>
+        <div className="heading">
+          <h1>{TITLE}</h1>
+        </div>
+        {children}
+      </header>
     </>
+  )
+}
+
+export function Navigation({ components }: { components: string[] }) {
+  const { pathname } = useRouter()
+  const pathnameRoot = pathname.split('/', 2).join('/')
+
+  const isCurrentPage = (link: string) => link === pathnameRoot
+
+  const isScreenMobile = useMediaQuery('(max-width: 680px)')
+
+  const [menu, setMenu] = useState(isScreenMobile)
+  const handleOpenMenu = () => setMenu(!menu)
+
+  return (
+    <>
+      {isScreenMobile && (
+        <Button shape="circle" onClick={handleOpenMenu}>
+          <MenuIcon />
+        </Button>
+      )}
+      <nav
+        style={
+          {
+            display: menu || !isScreenMobile ? 'block' : 'none',
+          } as React.CSSProperties
+        }
+        aria-label="Main"
+      >
+        <ul>
+          <li>
+            <Link href="/">Homepage</Link>
+          </li>
+          <li>
+            <Link href="/setup">Getting Started</Link>
+          </li>
+        </ul>
+        <h5>Components</h5>
+        <ul>
+          {components.map(slug => (
+            <li
+              key={slug}
+              className={isCurrentPage(slug) ? 'current' : undefined}
+            >
+              <Link href={`/components/${slug}`}>
+                {capitalize(unKebabCase(slug))}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </>
+  )
+}
+
+export function Main({ children }: RequiredChildren) {
+  return <main className={classes.main}>{children}</main>
+}
+
+export function Footer({ children }: OptionalChildren) {
+  return (
+    <footer className={classes.footer}>
+      <Button
+        shape="circle"
+        className={classes.scrollToTop}
+        onClick={scrollToTop}
+      >
+        <ArrowTopIcon />
+      </Button>
+      {children}
+    </footer>
   )
 }

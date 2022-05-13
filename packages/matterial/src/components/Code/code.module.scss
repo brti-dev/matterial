@@ -1,0 +1,10 @@
+// May not cascade over other <pre> settings; Use !important
+.codeBlock {
+  padding: 1em 5%;
+  overflow: auto;
+  background: #272822 !important;
+  counter-reset: linenumbers;
+  line-height: 1;
+}
+
+// Highlight code is at global.scss

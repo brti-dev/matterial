@@ -1,10 +1,10 @@
+import { Alert, Article, Link } from '../../../matterial/src'
 import { GetStaticPaths } from 'next'
 
 import { capitalize } from 'lib/string'
 import { Metadata, getDocSource, getDocsFiles, compileMdx } from 'lib/mdx'
-import { Header, Navigation, Main } from 'components/Layout'
+import { Layout, Header, Navigation, Main, Footer } from 'components/Layout'
 import { Mdx } from 'components/Mdx'
-import { Alert, Article } from '../../../matterial/src'
 
 type Props = {
   components: string[]
@@ -20,7 +20,7 @@ export default function Doc({
   slug,
 }: Props): JSX.Element {
   return (
-    <>
+    <Layout>
       <Header title={`Matterial UI Components -- ${capitalize(slug)}`} />
       <Navigation components={components} />
       <Main>
@@ -38,7 +38,10 @@ export default function Doc({
           )}
         </Article>
       </Main>
-    </>
+      <Footer>
+        <Link href="#">Source Code</Link>
+      </Footer>
+    </Layout>
   )
 }
 

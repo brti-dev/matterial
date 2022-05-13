@@ -1,4 +1,4 @@
-import { Header, Navigation, Main } from 'components/Layout'
+import { Layout, Header, Navigation, Main } from 'components/Layout'
 import { Mdx } from 'components/Mdx'
 import { Article } from '../../matterial/src'
 import { compileMdx, getDocsFiles } from 'lib/mdx'
@@ -37,15 +37,15 @@ type Props = { mdxSource: string; components: string[] }
 
 export default function SetupPage({ mdxSource, components }: Props) {
   return (
-    <>
+    <Layout>
       <Header title="Matterial UI -- Getting Started" />
       <Navigation components={components} />
       <Main>
-        <Article title="Matterial UI Setup">
+        <Article title="Setup">
           <Mdx source={mdxSource} />
         </Article>
       </Main>
-    </>
+    </Layout>
   )
 }
 

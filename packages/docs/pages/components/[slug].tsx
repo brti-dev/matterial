@@ -1,7 +1,8 @@
 import { Alert, Article, Link } from '../../../matterial/src'
 import { GetStaticPaths } from 'next'
+import { AiFillGithub as GithubIcon } from 'react-icons/ai'
 
-import { capitalize } from 'lib/string'
+import { capitalize, toPascalCase } from 'lib/string'
 import { Metadata, getDocSource, getDocsFiles, compileMdx } from 'lib/mdx'
 import { Layout, Header, Navigation, Main, Footer } from 'components/Layout'
 import { Mdx } from 'components/Mdx'
@@ -19,6 +20,9 @@ export default function Doc({
   metadata = {},
   slug,
 }: Props): JSX.Element {
+  const sourceHref = `https://github.com/dr-spaceman/matterial/tree/main/packages/matterial/src/components/${toPascalCase(
+    slug
+  )}`
   return (
     <Layout>
       <Header title={`Matterial UI Components -- ${capitalize(slug)}`} />
@@ -39,7 +43,10 @@ export default function Doc({
         </Article>
       </Main>
       <Footer>
-        <Link href="#">Source Code</Link>
+        <Link href={sourceHref} className="sourcelink">
+          <GithubIcon />
+          <span>Source Code</span>
+        </Link>
       </Footer>
     </Layout>
   )

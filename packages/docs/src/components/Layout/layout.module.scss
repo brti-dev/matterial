@@ -139,40 +139,41 @@
     margin-top: var(--layout-spacing, var(--space-small));
   }
 
-  nav ul {
-    margin: 0;
-    padding: 1em 0 0;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid var(--color-comment);
+  // nav ul {
+  //   margin: 0;
+  //   padding: 1em 0 0;
+  //   list-style-type: none;
+  //   display: flex;
+  //   flex-direction: column;
+  //   border-top: 1px solid var(--color-comment);
 
-    @include breakpoint(screen) {
-      padding: 0;
-      border: none;
-      flex-direction: row;
-    }
+  //   @include breakpoint(screen) {
+  //     padding: 0;
+  //     border: none;
+  //     flex-direction: row;
+  //   }
 
-    li {
-      margin: 0 1em 0 0;
-      padding: 0;
+  //   li {
+  //     margin: 0 1em 0 0;
+  //     padding: 0;
 
-      &:first-child {
-        font-weight: bold;
-      }
-    }
-  }
-
-  // a.sourcecode {
-  //   text-decoration: none;
-
-  //   span {
-  //     display: none;
-  //     @include breakpoint(screen) {
-  //       display: unset;
+  //     &:first-child {
+  //       font-weight: bold;
   //     }
   //   }
   // }
+
+  [class~='sourcelink'] {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    text-decoration: none !important;
+
+    svg {
+      width: 1.5em;
+      height: 1.5em;
+    }
+  }
 }
 
 .scrollToTop {

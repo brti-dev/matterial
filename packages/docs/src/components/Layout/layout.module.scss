@@ -1,13 +1,12 @@
 @use 'sass:math';
 @use 'styles/breakpoint' as *;
 
-.header,
-.section,
-.main,
-.footer {
+.container {
   @include breakpoint(screen) {
     --layout-spacing: var(--space-large);
   }
+
+  --page-margin-top: var(--space-small);
 
   box-sizing: border-box;
   max-width: 1280px;
@@ -15,21 +14,74 @@
   padding-right: var(--layout-spacing, var(--space-small));
   padding-left: var(--layout-spacing, var(--space-small));
 }
+.containerNav {
+  --nav-width: 12em;
+  --nav-offset: calc(var(--nav-width) + var(--space-small));
+
+  @include breakpoint(screen) {
+    padding-left: var(--nav-offset);
+  }
+}
+
+.navigation {
+  --margin: 0.5em;
+
+  font-size: 80%;
+
+  h1 {
+    display: inline-block;
+    margin: 0 0 var(--margin);
+    padding: 0;
+    font-size: 1.8em;
+  }
+
+  ul,
+  li {
+    margin: var(--margin) 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  h5 {
+    margin: calc(var(--margin) + var(--margin)) 0;
+    font-size: 1rem;
+  }
+
+  a {
+    padding: 0.1em 0;
+    display: block;
+    color: var(--color-accent-6);
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--color-accent-7);
+      text-decoration: none;
+    }
+  }
+}
+
+.navigationScreen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: var(--nav-width);
+  height: 100vh;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  padding: var(--page-margin-top) 0;
+  margin-left: calc(0em - var(--nav-offset));
+}
+
+.navigationMobile {
+}
 
 .header {
   width: 100%;
   margin-top: var(--layout-spacing, var(--space-small));
-  margin-bottom: var(--layout-spacing, var(--space-small));
 
   h1 {
-    // Gradient: https://tonfisk.fish/
-    background-color: #f3ec78;
-    background-image: linear-gradient(90deg, #12c2e9, #c471ed, #f64f59);
-    background-size: 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    display: inline;
   }
 
   & > [class~='heading'] {
@@ -43,7 +95,7 @@
     }
 
     button {
-      // Extends h1 styles; CHanges to global should be reflected here
+      // Extends h1 styles; Changes to global should be reflected here
       font-size: 2.5em;
       font-weight: 700;
       letter-spacing: -0.02em;
@@ -54,34 +106,26 @@
       }
     }
   }
+}
 
-  nav {
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      display: flex;
-      gap: 1em;
-
-      @include breakpoint(mobile) {
-        flex-direction: column;
-      }
-
-      li {
-        margin: 0;
-        padding: 0;
-
-        &.current {
-          font-weight: bold;
-          text-decoration: underline;
-        }
-      }
-    }
-  }
+.heading {
+  // Gradient: https://tonfisk.fish/
+  background-color: #f3ec78;
+  background-image: linear-gradient(90deg, #12c2e9, #c471ed, #f64f59);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .main {
   line-height: 1.6;
+  margin-top: 1rem;
+
+  h1 {
+    font-weight: 300;
+  }
 }
 
 .footer {
@@ -134,7 +178,7 @@
 .scrollToTop {
   position: absolute;
   bottom: 0;
-  right: var(--layout-spacing, var(--space-small));
+  right: 0;
   transition: transform 0.2s ease-in-out;
 
   @include breakpoint(screen) {

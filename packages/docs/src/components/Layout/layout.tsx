@@ -1,14 +1,20 @@
-import { ArrowTopIcon, MenuIcon, Button } from '../../../../matterial/src'
+import {
+  ArrowTopIcon,
+  Button,
+  Dialog,
+  MenuIcon,
+  useDialog,
+} from '../../../../matterial/src'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { useState } from 'react'
 
 import { TITLE } from '../../../const'
 import scrollToTop from 'lib/scroll-to-top'
 import { capitalize, unKebabCase } from 'lib/string'
 import useMediaQuery from 'lib/use-media-query'
 import classes from './layout.module.scss'
+import React from 'react'
 
 type OptionalChildren = {
   children?: React.ReactNode
@@ -21,6 +27,25 @@ type RequiredChildren = {
 export type LayoutProps = {
   title?: string
 } & RequiredChildren
+
+export function Layout({ children }: RequiredChildren) {
+  let hasNav = false
+  React.Children.forEach(children, (child: any) => {
+    if (child?.type?.name == 'Navigation') {
+      hasNav = true
+    }
+  })
+
+  return (
+    <div className={classes.container}>
+      {hasNav ? (
+        <div className={classes.containerNav}>{children}</div>
+      ) : (
+        children
+      )}
+    </div>
+  )
+}
 
 export function Header({
   children,
@@ -46,14 +71,13 @@ export function Header({
         <meta name="og:title" content={TITLE} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header id="top" className={classes.header}>
-        <div className="heading">
-          <h1>{TITLE}</h1>
-        </div>
-        {children}
-      </header>
+      {children && <header className={classes.header}>{children}</header>}
     </>
   )
+}
+
+export function Heading({ children = TITLE }: OptionalChildren) {
+  return <h1 className={classes.heading}>{children}</h1>
 }
 
 export function Navigation({ components }: { components: string[] }) {
@@ -64,46 +88,62 @@ export function Navigation({ components }: { components: string[] }) {
 
   const isScreenMobile = useMediaQuery('(max-width: 680px)')
 
-  const [menu, setMenu] = useState(isScreenMobile)
-  const handleOpenMenu = () => setMenu(!menu)
+  const navContent = (
+    <nav
+      id="navigation__nav"
+      aria-label="Main"
+      className={`${classes.navigation} ${
+        isScreenMobile ? classes.navigationMobile : classes.navigationScreen
+      }`}
+    >
+      <Heading />
+      <ul>
+        <li>
+          <Link href="/">Homepage</Link>
+        </li>
+        <li>
+          <Link href="/setup">Getting Started</Link>
+        </li>
+      </ul>
+      <h5>Components</h5>
+      <ul>
+        {components.map(slug => (
+          <li
+            key={slug}
+            className={isCurrentPage(slug) ? 'current' : undefined}
+          >
+            <Link href={`/components/${slug}`}>
+              {capitalize(unKebabCase(slug))}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+
+  if (isScreenMobile) {
+    return <DialogNav>{navContent}</DialogNav>
+  }
+
+  return navContent
+}
+
+function DialogNav({ children }: RequiredChildren) {
+  const { active, open, close } = useDialog(false)
 
   return (
     <>
-      {isScreenMobile && (
-        <Button shape="circle" onClick={handleOpenMenu}>
-          <MenuIcon />
-        </Button>
-      )}
-      <nav
-        style={
-          {
-            display: menu || !isScreenMobile ? 'block' : 'none',
-          } as React.CSSProperties
-        }
-        aria-label="Main"
+      <Button shape="circle" onClick={open}>
+        <MenuIcon />
+      </Button>
+      <Dialog
+        active={active}
+        closable
+        onDismiss={close}
+        labelledBy="navigation__nav"
       >
-        <ul>
-          <li>
-            <Link href="/">Homepage</Link>
-          </li>
-          <li>
-            <Link href="/setup">Getting Started</Link>
-          </li>
-        </ul>
-        <h5>Components</h5>
-        <ul>
-          {components.map(slug => (
-            <li
-              key={slug}
-              className={isCurrentPage(slug) ? 'current' : undefined}
-            >
-              <Link href={`/components/${slug}`}>
-                {capitalize(unKebabCase(slug))}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        {children}
+      </Dialog>
     </>
   )
 }

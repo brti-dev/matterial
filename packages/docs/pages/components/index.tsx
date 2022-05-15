@@ -3,7 +3,7 @@ import { Link } from '../../../matterial/src'
 
 import { getDocsFiles } from 'lib/mdx'
 import { capitalize } from 'lib/string'
-import Layout from 'components/Layout'
+import { Layout } from 'components/Layout'
 
 type Props = {
   slugs: string[]

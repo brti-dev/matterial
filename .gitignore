@@ -60,10 +60,12 @@ typings/
 dist
 
 # Matterial redundancies
+packages/matterial/README.md
+#abandoned bundle package
 bundle/README.md
 bundle/src
 bundle/package.json
-packages/matterial/README.md
+bundle
 
 # Dev only
 packages/docs/pages/test-dist.tsx

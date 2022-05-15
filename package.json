@@ -1,6 +1,6 @@
 {
   "name": "matterial",
-  "version": "2.0.2",
+  "version": "0.0.0",
   "description": "A React design system made by Matt Berti",
   "private": true,
   "author": "Matt Berti <mat.berti@gmail.com> (https://brti.dev)",
@@ -23,9 +23,7 @@
   "scripts": {
     "dev": "yarn workspace docs dev",
     "build": "yarn workspace docs build",
-    "prepare": "yarn --cwd bundle prepare",
-    "package": "yarn --cwd bundle build",
-    "publish": "yarn --cwd bundle publish",
+    "bundle": "yarn workspace matterial build",
     "start": "yarn workspace docs start",
     "test": "jest",
     "test:watch": "jest --watch"

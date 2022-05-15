@@ -13,10 +13,9 @@
   },
   "scripts": {
     "prepare": "node ./scripts/prepare.mjs",
-    "build": "webpack --mode production --config webpack.config.cjs",
+    "build": "tsc && webpack --mode production --config webpack.config.cjs",
     "build:watch": "webpack --watch --mode production --config webpack.config.cjs",
-    "build:dev": "webpack --mode development --config webpack.config.cjs",
-    "version": "npm --prefix ../packages/matterial run npm version"
+    "build:dev": "webpack --mode development --config webpack.config.cjs"
   },
   "peerDependencies": {
     "react": "^18.1.0",

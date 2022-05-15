@@ -85,9 +85,11 @@ export function CheckboxSizesExample() {
 
 export function CheckboxColorsExample() {
   const checkboxColors = COLORS.filter(c => c !== 'dark' && c !== 'light')
-  const { form, handleChange } = useForm(
-    COLORS.reduce((colors, color) => ({ ...colors, [color]: false }), {})
+  const formInitial: Record<string, boolean> = COLORS.reduce(
+    (colors, color) => ({ ...colors, [color]: false }),
+    {}
   )
+  const { form, handleChange } = useForm(formInitial)
 
   return (
     <Container row>

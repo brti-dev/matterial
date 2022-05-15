@@ -9,7 +9,7 @@ import { Alert, AlertDispatch } from '.'
 import { Button } from '../Button'
 import { AlertExample } from './alert.examples'
 
-const SEVERITY = ['error', 'warning', 'info', 'success']
+const SEVERITY: Severity[] = ['error', 'warning', 'info', 'success']
 
 describe('useAlert hook', () => {
   const initialState: AlertDispatch = {
@@ -56,7 +56,7 @@ describe('alert component', () => {
     const tree = renderer
       .create(
         <>
-          {['default', 'outlined', 'contained'].map((variant: Variant) => (
+          {(['default', 'outlined', 'contained'] as Variant[]).map(variant => (
             <Alert variant={variant} key={variant}>
               {variant}
             </Alert>
@@ -76,7 +76,7 @@ describe('alert component', () => {
     )
     expect(getByRole('alert')).toHaveAttribute('data-severity', severity)
 
-    SEVERITY.slice(1).forEach((severity: Severity) => {
+    SEVERITY.slice(1).forEach(severity => {
       rerender(<Alert severity={severity}>alert</Alert>)
       expect(getByRole('alert')).toHaveAttribute('data-severity', severity)
     })

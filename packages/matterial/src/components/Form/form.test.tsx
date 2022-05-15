@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 
+import { FormChangeEvent } from '.'
 import { render, screen } from '../../test-utils'
 import { Form, FormGroup, TextInput } from '.'
 import { FormExample } from './form.examples'
@@ -62,8 +63,8 @@ describe('text input', () => {
 
   test('should render with a value and change the value on input', () => {
     const value = 'foo'
-    let changedValue = ''
-    const registerChange = (_: any, newValue: string) => {
+    let changedValue: Parameters<FormChangeEvent>[1] = ''
+    const registerChange: FormChangeEvent = (_, newValue) => {
       changedValue = newValue
     }
 

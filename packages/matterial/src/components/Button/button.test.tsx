@@ -28,11 +28,13 @@ test('should work with different variants', () => {
   const tree = renderer
     .create(
       <>
-        {['default', 'outlined', 'contained'].map((variant: Variant) => (
-          <Button variant={variant} key={variant}>
-            {variant}
-          </Button>
-        ))}
+        {(['default', 'outlined', 'contained'] as Variant[]).map(
+          (variant: Variant) => (
+            <Button variant={variant} key={variant}>
+              {variant}
+            </Button>
+          )
+        )}
       </>
     )
     .toJSON()
@@ -43,7 +45,7 @@ test('should work with different colors', () => {
   const tree = renderer
     .create(
       <>
-        {[...COLORS, 'hotpink'].map((color: Color) => (
+        {[...COLORS, 'hotpink'].map(color => (
           <Button color={color} key={color}>
             {color}
           </Button>
@@ -55,16 +57,19 @@ test('should work with different colors', () => {
 })
 
 test('should work with different sizes', () => {
+  const sizes: Array<'small' | 'medium' | 'large'> = [
+    'small',
+    'medium',
+    'large',
+  ]
   const tree = renderer
     .create(
       <>
-        {['small', 'medium', 'large'].map(
-          (size: 'small' | 'medium' | 'large') => (
-            <Button size={size} key={size}>
-              {size}
-            </Button>
-          )
-        )}
+        {sizes.map(size => (
+          <Button size={size} key={size}>
+            {size}
+          </Button>
+        ))}
       </>
     )
     .toJSON()
@@ -72,11 +77,11 @@ test('should work with different sizes', () => {
 })
 
 test('should work with different shapes', () => {
-  const shapes = ['circle', 'square']
+  const shapes: Array<'circle' | 'square'> = ['circle', 'square']
   const tree = renderer
     .create(
       <>
-        {shapes.map((shape: 'circle' | 'square') => (
+        {shapes.map(shape => (
           <Button shape={shape} key={shape}>
             {shape}
           </Button>

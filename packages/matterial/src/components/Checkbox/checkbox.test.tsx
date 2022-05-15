@@ -25,7 +25,7 @@ describe('Checkbox component', () => {
     const tree = renderer
       .create(
         <>
-          {[...COLORS, 'hotpink'].map((color: Color) => (
+          {[...COLORS, 'hotpink'].map(color => (
             <Checkbox name="checkbox" color={color} key={color}>
               {color}
             </Checkbox>

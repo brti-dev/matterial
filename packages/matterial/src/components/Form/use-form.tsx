@@ -1,4 +1,4 @@
-import { useReducer } from 'react'
+import * as React from 'react'
 
 import { FormChangeEvent } from './form.types'
 
@@ -15,7 +15,7 @@ type FormState = FormStateLoading & FormStateError
 type FormNewState = FormStateLoading | FormStateError
 
 export function useForm<T>(initialData: T) {
-  const [form, setForm] = useReducer(
+  const [form, setForm] = React.useReducer(
     (form: FormState & { data: T }, newState: FormNewState | { data: T }) => ({
       ...form,
       ...newState,

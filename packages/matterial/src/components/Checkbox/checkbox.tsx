@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import * as React from 'react'
 
 import { ChangeEvent, CheckboxChangeEvent } from '../Form'
 import { Color } from '../../interfaces/theme'
@@ -53,7 +53,7 @@ type Props = {
 type NativeProps = Omit<React.ComponentPropsWithRef<'input'>, keyof Props>
 type CheckboxProps = NativeProps & Props
 
-export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
+export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (props: CheckboxProps, ref: any) => {
     const {
       checked = false,

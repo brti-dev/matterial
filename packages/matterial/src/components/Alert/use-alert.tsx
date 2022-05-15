@@ -1,4 +1,4 @@
-import { useCallback, useReducer } from 'react'
+import * as React from 'react'
 
 import { Alert, AlertDispatch } from './alert'
 
@@ -28,9 +28,12 @@ export function reducer(
 export function useAlert(
   initialState?: string | AlertDispatch
 ): [() => JSX.Element, any] {
-  const [alert, setAlert] = useReducer(reducer, reducer(null, initialState))
+  const [alert, setAlert] = React.useReducer(
+    reducer,
+    reducer(null, initialState)
+  )
 
-  const component = useCallback(() => {
+  const component = React.useCallback(() => {
     if (!alert?.message) return <></>
 
     return <Alert {...{ ...alert }} />

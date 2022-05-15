@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import * as React from 'react'
 import '@testing-library/jest-dom'
 import renderer from 'react-test-renderer'
 import userEvent from '@testing-library/user-event'
@@ -64,7 +64,7 @@ describe('Checkbox component', () => {
 
   test('should trigger a callback onChange', () => {
     const CheckboxComponent = () => {
-      const [change, setChange] = useState(false)
+      const [change, setChange] = React.useState(false)
 
       return (
         <Checkbox name="checkbox" onChange={() => setChange(true)}>

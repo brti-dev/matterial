@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 import { Color } from '../../interfaces/theme'
 import cssColor from '../../lib/css-color'

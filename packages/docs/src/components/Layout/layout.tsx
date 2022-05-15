@@ -8,13 +8,13 @@ import {
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import * as React from 'react'
 
 import { TITLE } from '../../../const'
 import scrollToTop from 'lib/scroll-to-top'
 import { capitalize, unKebabCase } from 'lib/string'
 import useMediaQuery from 'lib/use-media-query'
 import classes from './layout.module.scss'
-import React from 'react'
 
 type OptionalChildren = {
   children?: React.ReactNode

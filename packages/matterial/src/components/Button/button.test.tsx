@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import * as React from 'react'
 import '@testing-library/jest-dom'
 import renderer from 'react-test-renderer'
 import userEvent from '@testing-library/user-event'
@@ -89,7 +89,7 @@ test('should work with different shapes', () => {
 
 test('should trigger a callback onClick', () => {
   const ButtonComponent = () => {
-    const [clicks, setClicks] = useState(0)
+    const [clicks, setClicks] = React.useState(0)
     return <Button onClick={() => setClicks(c => (c += 1))}>{clicks}</Button>
   }
 

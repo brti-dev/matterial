@@ -1,5 +1,5 @@
 export default {}
-// import React from 'react'
+// import * as React from 'react'
 // import { LivePreview, LiveProvider, LiveError } from 'react-live'
 // import Editor from './editor'
 

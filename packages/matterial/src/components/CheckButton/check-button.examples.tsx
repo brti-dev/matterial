@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import * as React from 'react'
 import { CheckButton, CheckButtonGroup } from '.'
 
 export function CheckButtonCheckBoxExample() {
-  const [checked, setChecked] = useState({ foo: true, bar: false })
+  const [checked, setChecked] = React.useState({ foo: true, bar: false })
 
   return (
     <CheckButtonGroup>
@@ -33,7 +33,7 @@ export function CheckButtonCheckBoxExample() {
 }
 
 export function CheckButtonRadioExample() {
-  const [radio, setRadio] = useState('has_boat')
+  const [radio, setRadio] = React.useState('has_boat')
 
   return (
     <CheckButtonGroup>

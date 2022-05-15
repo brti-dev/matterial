@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import * as React from 'react'
 import { Checkbox } from '.'
 import { Container } from '../Container'
 import { Form, useForm } from '../Form'
@@ -107,7 +107,7 @@ export function CheckboxColorsExample() {
 }
 
 export function CheckboxIndeterminateExample() {
-  const [state, setState] = useState<boolean | null>(null)
+  const [state, setState] = React.useState<boolean | null>(null)
 
   return (
     <Container row>

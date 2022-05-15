@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import * as React from 'react'
 import { Menu, MenuList, MenuButton, MenuItem } from './menu'
 
 export function MenuExample() {
-  const [selected, setSelected] = useState<null | string>(null)
+  const [selected, setSelected] = React.useState<null | string>(null)
 
   return (
     <Menu>

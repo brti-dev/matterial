@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import * as React from 'react'
 
 import { Color } from '../../interfaces/theme'
 import cssColor from '../../lib/css-color'
@@ -27,16 +27,18 @@ type NativeAttrs = Omit<React.ComponentPropsWithoutRef<'a'>, keyof Props>
 
 export type LinkProps = Props & NativeAttrs
 
-export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
-  const { className, color, href, style = {}, unstyled, ...rest } = props
-  if (color) {
-    // @ts-ignore
-    style['--color'] = cssColor(color)
+export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  (props, ref) => {
+    const { className, color, href, style = {}, unstyled, ...rest } = props
+    if (color) {
+      // @ts-ignore
+      style['--color'] = cssColor(color)
+    }
+
+    const classNames = classnames(className, unstyled && 'unstyled')
+
+    return (
+      <a href={href} className={classNames} style={style} ref={ref} {...rest} />
+    )
   }
-
-  const classNames = classnames(className, unstyled && 'unstyled')
-
-  return (
-    <a href={href} className={classNames} style={style} ref={ref} {...rest} />
-  )
-})
+)

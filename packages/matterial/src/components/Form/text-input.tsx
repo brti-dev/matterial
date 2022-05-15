@@ -1,8 +1,8 @@
-import { useState, forwardRef, ChangeEvent } from 'react'
+import * as React from 'react'
 
 import { TextInputProps } from './form.types'
 
-export const TextInput = forwardRef<
+export const TextInput = React.forwardRef<
   HTMLTextAreaElement & HTMLInputElement,
   TextInputProps
 >((props, ref) => {
@@ -15,14 +15,14 @@ export const TextInput = forwardRef<
     onChange = () => null,
     ...fieldProps
   } = props
-  const [textValue, setTextValue] = useState<string>(value)
+  const [textValue, setTextValue] = React.useState<string>(value)
 
   const handleBlur = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => onChange(event, textValue)
 
   const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { value } = event.currentTarget /* as HTMLInputElement*/
     setTextValue(value)

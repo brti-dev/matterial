@@ -1,4 +1,4 @@
-import { isValidElement, cloneElement, useState } from 'react'
+import * as React from 'react'
 import ReachAlert from '@reach/alert'
 import { ErrorIcon, WarningIcon, SuccessIcon, InfoIcon } from '../Icons'
 
@@ -68,8 +68,8 @@ export type AlertProps = Partial<AlertDispatch> & {
  * Regenerate a React element with the prop `size` small
  */
 function shrink(component: string | React.ReactElement) {
-  if (isValidElement(component)) {
-    return cloneElement(component, { size: 'small' })
+  if (React.isValidElement(component)) {
+    return React.cloneElement(component, { size: 'small' })
   }
 
   return component
@@ -95,7 +95,7 @@ export function Alert({
     className
   )
 
-  let [message, setMessage] = useState(children || naturalMessage)
+  let [message, setMessage] = React.useState(children || naturalMessage)
 
   if (dismiss && !action) {
     action = (

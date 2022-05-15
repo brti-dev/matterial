@@ -1,4 +1,4 @@
-import { cloneElement } from 'react'
+import * as React from 'react'
 
 import classnames from '../../lib/classnames'
 import { toKebabCase } from '../../lib/string'
@@ -23,7 +23,7 @@ export function FormGroup({
   return (
     <div className={classNames}>
       <label htmlFor={id}>{label}</label>
-      {cloneElement(input, inputProps)}
+      {React.cloneElement(input, inputProps)}
       {helperText && <div role="note">{helperText}</div>}
     </div>
   )

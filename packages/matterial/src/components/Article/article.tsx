@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 import { DateTimeType } from '../../interfaces/other'
 import { DateTime } from '../DateTime'

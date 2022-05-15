@@ -1,4 +1,4 @@
-import { Children } from 'react'
+import * as React from 'react'
 
 import classnames from '../../lib/classnames'
 import classes from './avatar.module.scss'
@@ -28,7 +28,7 @@ export function AvatarGroup({
   total: naturalTotal,
   ...rest
 }: AvatarGroupProps): JSX.Element {
-  const children = Children.toArray(allChildren)
+  const children = React.Children.toArray(allChildren)
   const numChildren = children.length
 
   const max = naturalMax || numChildren

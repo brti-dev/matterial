@@ -1,9 +1,9 @@
-import { ChangeEvent as ReactChangeEvent } from 'react'
+import * as React from 'react'
 
 /**
  * Synthetic change event on an HTML input element
  */
-export type ChangeEvent = ReactChangeEvent<
+export type ChangeEvent = React.ChangeEvent<
   HTMLInputElement | HTMLTextAreaElement
 >
 

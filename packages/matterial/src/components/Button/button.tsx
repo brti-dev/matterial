@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import * as React from 'react'
 
 import { Color, Variant } from '../../interfaces/theme'
 import {
@@ -83,7 +83,7 @@ interface PolymorphicButton extends OverloadedElement<OverloadedButtonProps> {
   (props: NativeButtonProps): JSX.Element
 }
 
-export const Button: PolymorphicButton = forwardRef(
+export const Button: PolymorphicButton = React.forwardRef(
   (props: ButtonProps, ref: any) => {
     const {
       append,

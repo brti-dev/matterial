@@ -1,4 +1,4 @@
-import { memo, forwardRef } from 'react'
+import * as React from 'react'
 
 import { Button, CommonButtonProps } from '../Button'
 import classnames from '../../lib/classnames'
@@ -35,7 +35,7 @@ export interface CheckButtonProps extends CommonButtonProps {
   value: string
 }
 
-const PlainOlUnmemoizedCheckButton = forwardRef<
+const PlainOlUnmemoizedCheckButton = React.forwardRef<
   HTMLLabelElement,
   CheckButtonProps
 >((props, ref) => {
@@ -85,4 +85,4 @@ const PlainOlUnmemoizedCheckButton = forwardRef<
   )
 })
 
-export const CheckButton = memo(PlainOlUnmemoizedCheckButton)
+export const CheckButton = React.memo(PlainOlUnmemoizedCheckButton)

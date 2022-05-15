@@ -2,15 +2,16 @@
 @use 'styles/breakpoint' as *;
 
 .container {
+  --page-margin-top: var(--space-small);
+
   @include breakpoint(screen) {
+    --page-margin-top: var(--space-medium);
     --layout-spacing: var(--space-large);
   }
 
-  --page-margin-top: var(--space-small);
-
   box-sizing: border-box;
   max-width: 1280px;
-  margin: 0 auto;
+  margin: var(--page-margin-top) auto;
   padding-right: var(--layout-spacing, var(--space-small));
   padding-left: var(--layout-spacing, var(--space-small));
 }
@@ -50,12 +51,12 @@
   a {
     padding: 0.1em 0;
     display: block;
-    color: var(--color-accent-6);
+    color: var(--color-accent-5);
 
     &:hover,
     &:focus,
     &:active {
-      color: var(--color-accent-7);
+      color: var(--color-accent-8);
       text-decoration: none;
     }
   }

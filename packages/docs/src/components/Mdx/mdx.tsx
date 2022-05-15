@@ -4,7 +4,7 @@ import * as matterialExamples from '../../../../matterial/src/components/example
 // import { ComponentMap } from 'mdx-bundler/dist/client.d'
 import { MDXRemote /*, MDXRemoteSerializeResult*/ } from 'next-mdx-remote'
 
-import { CodeBlock } from 'components/Code'
+const { CodeBlock } = matterial
 
 // import { components } from './mdxComponents'
 
@@ -23,7 +23,9 @@ export function Mdx({ source }: { source: string }): JSX.Element {
       components={{
         ...matterial,
         ...matterialExamples,
-        pre: props => <CodeBlock {...props} />,
+        pre: ({ children, ...props }) => (
+          <CodeBlock {...props}>{children}</CodeBlock>
+        ),
         // code: props => <Code {...props} />,
       }}
     />

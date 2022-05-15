@@ -11,7 +11,7 @@ export type CodeProps = CommonCodeProps & React.ComponentPropsWithoutRef<'code'>
 export function Code({
   children,
   className,
-  language = 'react',
+  language = 'js',
   ...props
 }: CodeProps) {
   return (

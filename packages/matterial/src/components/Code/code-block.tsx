@@ -8,7 +8,7 @@ export type CodeBlockProps = CommonCodeProps &
 export function CodeBlock({
   children,
   className,
-  language = 'react',
+  language = 'js',
   ...props
 }: CodeBlockProps) {
   return (

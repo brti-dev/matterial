@@ -2,9 +2,9 @@
 import type { AppProps /*, AppContext */ } from 'next/app'
 
 import 'normalize.css'
-import 'matterial/styles/global.scss'
+import '../../matterial/src/styles/global.scss'
 // Importing matterial bundle will require the above global and below compiled css
-// import 'matterial/styles/main.css'
+// import 'matterial/styles/global.scss'
 import 'styles/custom.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {

@@ -17,8 +17,9 @@ export default function Home() {
       </Header>
       <Main>
         <p>
-          A minimalist design system by Matt Berti. Not to be confused with{' '}
-          <Link href="https://mui.com/">Material UI</Link>.
+          A minimalist design system by{' '}
+          <Link href="https://brti.dev">Matt Berti</Link>. Not to be confused
+          with <Link href="https://mui.com/">Material UI</Link>.
         </p>
         <pre style={{ margin: '2em 0' }}>
           <code>

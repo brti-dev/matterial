@@ -25,20 +25,13 @@ type RequiredChildren = {
 }
 
 export type LayoutProps = {
-  title?: string
+  fullWidth?: boolean
 } & RequiredChildren
 
-export function Layout({ children }: RequiredChildren) {
-  let hasNav = false
-  React.Children.forEach(children, (child: any) => {
-    if (child?.type?.name == 'Navigation') {
-      hasNav = true
-    }
-  })
-
+export function Layout({ children, fullWidth = false }: LayoutProps) {
   return (
     <div className={classes.container}>
-      {hasNav ? (
+      {!fullWidth ? (
         <div className={classes.containerNav}>{children}</div>
       ) : (
         children

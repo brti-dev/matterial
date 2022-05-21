@@ -5,7 +5,7 @@ import { Link, Button, Container, ArrowRightIcon } from '../../matterial/src'
 
 export default function Home() {
   return (
-    <Layout>
+    <Layout fullWidth>
       <Header title="Matterial UI -- A design system by Matt Berti">
         <Head>
           <meta

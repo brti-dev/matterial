@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 import userEvent from '@testing-library/user-event/dist'
 
 import { Severity, Variant } from '../../interfaces/theme'
-import { reducer } from './use-alert'
+import { alertReducer } from './use-alert'
 import { render, screen } from '../../test-utils'
 import { Alert, AlertDispatch } from '.'
 import { Button } from '../Button'
@@ -19,7 +19,7 @@ describe('useAlert hook', () => {
   }
 
   test('should set up reducer', () => {
-    expect(reducer(null, initialState)).toEqual(initialState)
+    expect(alertReducer(null, initialState)).toEqual(initialState)
   })
 
   test('alert appears and disappears', () => {

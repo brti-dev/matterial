@@ -4,7 +4,6 @@ import renderer from 'react-test-renderer'
 import userEvent from '@testing-library/user-event'
 
 import { render, screen } from '../../test-utils'
-import { Color } from '../../interfaces/theme'
 import { COLORS } from '../../const'
 import { Checkbox } from '.'
 import { CheckboxExample } from './checkbox.examples'

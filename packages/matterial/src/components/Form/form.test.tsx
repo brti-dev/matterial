@@ -11,10 +11,11 @@ describe('useForm hook', () => {
     render(<FormExample />)
 
     const inpEl = screen.getByLabelText('Feedback')
-    expect(inpEl).toHaveValue('Officia incididunt do officia eiusmod commodo.')
+    const inputValue = 'Officia incididunt do officia eiusmod commodo.'
+    expect(inpEl).toHaveValue(inputValue)
     userEvent.type(inpEl, 'bar')
     userEvent.tab() // trigger onBlur event thereby triggering onChange callback
-    expect(inpEl).toHaveValue('bar')
+    expect(inpEl).toHaveValue(inputValue + 'bar')
   })
 })
 

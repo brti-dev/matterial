@@ -25,7 +25,7 @@
     "build": "yarn workspace docs build",
     "bundle": "yarn workspace matterial build",
     "start": "yarn workspace docs start",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "yarn workspace matterial test",
+    "test:watch": "yarn workspace matterial test:watch"
   }
 }

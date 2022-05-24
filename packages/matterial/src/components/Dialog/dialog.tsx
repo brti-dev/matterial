@@ -3,6 +3,7 @@ import {
   DialogProps as ReachDialogProps,
 } from '@reach/dialog'
 
+import { AriaLabel, AriaLabelledBy } from '../../interfaces/other'
 import useMediaQuery from '../../lib/use-media-query'
 import { CloseButton } from './close-button'
 
@@ -11,6 +12,10 @@ type DialogProps_base = Omit<ReachDialogProps, 'isOpen'> & {
    * Indicates if the dialog is open/shown
    */
   active?: boolean
+  /**
+   * This seems to want to be explicitly typed
+   */
+  className?: string
   /**
    * If true, add a CloseButton with onDismiss callback when clicked
    */
@@ -37,16 +42,6 @@ type DialogProps_base = Omit<ReachDialogProps, 'isOpen'> & {
    * closing
    */
   onDismiss: () => void
-}
-
-type AriaLabel = {
-  label: string
-  labelledBy?: never
-}
-
-type AriaLabelledBy = {
-  labelledBy: string
-  label?: never
 }
 
 export type DialogProps = DialogProps_base & (AriaLabelledBy | AriaLabel)

@@ -2,6 +2,7 @@ import {
   Menu,
   MenuList,
   MenuButton,
+  MenuButtonProps,
   MenuItem,
   MenuItems,
   MenuPopover,
@@ -9,9 +10,14 @@ import {
 } from '@reach/menu-button'
 import { Button, CommonButtonProps } from '../Button'
 
-const NewMenuButton = (props: CommonButtonProps) => (
+type NewMenuButtonProps = {
+  as?: any // MenuButton props `as` conflict with ButtonProps `as`
+} & MenuButtonProps &
+  CommonButtonProps
+
+const NewMenuButton = ({ as, ...props }: NewMenuButtonProps) => (
   <MenuButton
-    as={Button}
+    as={as || Button}
     style={{
       appearance: 'none',
       WebkitAppearance: 'none',

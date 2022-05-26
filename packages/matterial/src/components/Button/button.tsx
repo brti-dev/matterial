@@ -79,6 +79,7 @@ type OverloadedButtonProps = CommonButtonProps &
   Required<OverloadedElementProps> // Make `as` required to distinguish with native button element
 
 export type ButtonProps = NativeButtonProps | OverloadedButtonProps
+
 interface PolymorphicButton extends OverloadedElement<OverloadedButtonProps> {
   (props: NativeButtonProps): JSX.Element
 }

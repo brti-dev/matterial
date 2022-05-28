@@ -1,9 +1,5 @@
 import * as React from 'react'
 
-import {
-  OverloadedElement,
-  OverloadedElementProps,
-} from '../../interfaces/OverloadedElement'
 import { Color } from '../../interfaces/theme'
 import classnames from '../../lib/classnames'
 import cssColor from '../../lib/css-color'
@@ -43,55 +39,57 @@ export type AvatarProps = {
    * Tooltip helper; If true, tooltip label is determined by `alt` prop; If string, overrides `alt`
    */
   tooltip?: string | boolean
-} & OverloadedElementProps
+}
 
 const TooltipWrapper = ({ tooltipLabel, children }: any) =>
   tooltipLabel ? <Tooltip label={tooltipLabel}>{children}</Tooltip> : children
 
-export const Avatar: OverloadedElement<AvatarProps> = (props: AvatarProps) => {
-  const {
-    alt,
-    children,
-    className,
-    color = 'default',
-    as: Component = 'div',
-    size = 40,
-    src,
-    style = {},
-    tooltip,
-    ...rest
-  } = props
+export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
+  (props, ref) => {
+    const {
+      alt,
+      children,
+      className,
+      color = 'default',
+      size = 40,
+      src,
+      style = {},
+      tooltip,
+      ...rest
+    } = props
 
-  const classNames = classnames(
-    classes.avatar,
-    'variant--contained', // Access global colors
-    `color--${color}`,
-    'no-hover',
-    className
-  )
+    const classNames = classnames(
+      classes.avatar,
+      'variant--contained', // Access global colors
+      `color--${color}`,
+      'no-hover',
+      className
+    )
 
-  let tooltipLabel: string = ''
-  if (!!tooltip) {
-    if (tooltip === true && alt) {
-      tooltipLabel = alt
-    } else if (typeof tooltip === 'string') {
-      tooltipLabel = tooltip as string
+    let tooltipLabel: string = ''
+    if (!!tooltip) {
+      if (tooltip === true && alt) {
+        tooltipLabel = alt
+      } else if (typeof tooltip === 'string') {
+        tooltipLabel = tooltip as string
+      }
     }
-  }
 
-  const finalProps = {
-    className: classNames,
-    style: { ...style, '--size': `${size}px`, '--color': cssColor(color) },
-    role: 'img',
-    'aria-label': alt !== children ? alt : undefined,
-    ...rest,
-  }
+    const finalProps = {
+      className: classNames,
+      style: { ...style, '--size': `${size}px`, '--color': cssColor(color) },
+      role: 'img',
+      'aria-label': alt !== children ? alt : undefined,
+      ref,
+      ...rest,
+    }
 
-  return (
-    <TooltipWrapper tooltipLabel={tooltipLabel}>
-      <Component {...finalProps}>
-        {src ? <img src={src} alt={alt} /> : children}
-      </Component>
-    </TooltipWrapper>
-  )
-}
+    return (
+      <TooltipWrapper tooltipLabel={tooltipLabel}>
+        <div {...finalProps}>
+          {src ? <img src={src} alt={alt} /> : children}
+        </div>
+      </TooltipWrapper>
+    )
+  }
+)

@@ -63,19 +63,19 @@ describe('avatar', () => {
     expect(getByText('b')).toHaveStyle({ '--size': '20px' })
   })
 
-  test('should overload element root when given `as` prop', () => {
-    const Foo = ({ foo, ...props }: { foo: string }) => (
-      <div data-foo={foo} {...props} />
-    )
+  // test('should overload element root when given `as` prop', () => {
+  //   const Foo = ({ foo, ...props }: { foo: string }) => (
+  //     <div data-foo={foo} {...props} />
+  //   )
 
-    const { getByText } = render(
-      <Avatar alt="foo" as={Foo} foo="foo">
-        BL
-      </Avatar>
-    )
+  //   const { getByText } = render(
+  //     <Avatar alt="foo" as={Foo} foo="foo">
+  //       BL
+  //     </Avatar>
+  //   )
 
-    expect(getByText('BL')).toHaveAttribute('data-foo', 'foo')
-  })
+  //   expect(getByText('BL')).toHaveAttribute('data-foo', 'foo')
+  // })
 
   test('should function as overloaded element', () => {
     type User = {

@@ -8,23 +8,23 @@ import {
   MenuPopover,
   MenuLink,
 } from '@reach/menu-button'
+import * as React from 'react'
+
+import { OverloadedElementProps } from '../../interfaces/OverloadedElement'
 import { Button, CommonButtonProps } from '../Button'
 
-type NewMenuButtonProps = {
-  as?: any // MenuButton props `as` conflict with ButtonProps `as`
-} & MenuButtonProps &
-  CommonButtonProps
+type NewMenuButtonProps =
+  | (Required<OverloadedElementProps> & any) // MenuButton props `as` conflict with ButtonProps `as`
+  | (MenuButtonProps & CommonButtonProps)
 
-const NewMenuButton = ({ as, ...props }: NewMenuButtonProps) => (
-  <MenuButton
-    as={as || Button}
-    style={{
-      appearance: 'none',
-      WebkitAppearance: 'none',
-      MozAppearance: 'none',
-    }}
-    {...props}
-  />
+const style = {
+  appearance: 'none',
+  WebkitAppearance: 'none',
+  MozAppearance: 'none',
+}
+const NewMenuButton = React.forwardRef(
+  ({ as = Button, ...props }: NewMenuButtonProps, ref: any) =>
+    React.createElement(MenuButton, { as, style, ref, ...props })
 )
 
 export {

@@ -84,8 +84,12 @@ interface PolymorphicButton extends OverloadedElement<OverloadedButtonProps> {
   (props: NativeButtonProps): JSX.Element
 }
 
-export const Button: PolymorphicButton = React.forwardRef(
-  (props: ButtonProps, ref: any) => {
+/**
+ * TODO: Make this work without the `any` type assignment at the end
+ * Cannot currently read overloaded props
+ */
+export const Button = React.forwardRef<PolymorphicButton, ButtonProps>(
+  (props, ref) => {
     const {
       append,
       as: Component = 'button',
@@ -123,7 +127,7 @@ export const Button: PolymorphicButton = React.forwardRef(
       className
     )
 
-    const content = (
+    const content: JSX.Element = (
       <>
         {prepend && (
           <span className="prepend-content" aria-hidden>
@@ -161,4 +165,4 @@ export const Button: PolymorphicButton = React.forwardRef(
       </Component>
     )
   }
-) as any
+) as any // sorry (-_-) sorry

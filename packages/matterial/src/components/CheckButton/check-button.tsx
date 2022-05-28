@@ -35,10 +35,7 @@ export interface CheckButtonProps extends CommonButtonProps {
   value: string
 }
 
-const PlainOlUnmemoizedCheckButton = React.forwardRef<
-  HTMLLabelElement,
-  CheckButtonProps
->((props, ref) => {
+const PlainOlUnmemoizedCheckButton = (props: CheckButtonProps) => {
   const {
     name,
     value,
@@ -76,13 +73,12 @@ const PlainOlUnmemoizedCheckButton = React.forwardRef<
           checked && 'checked'
         )}
         data-loading={loading && 'true'}
-        ref={ref}
         {...rest}
       >
         {children}
       </Button>
     </div>
   )
-})
+}
 
 export const CheckButton = React.memo(PlainOlUnmemoizedCheckButton)

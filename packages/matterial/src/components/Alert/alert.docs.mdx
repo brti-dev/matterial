@@ -33,6 +33,22 @@ function AlertExample() {
   {SEVERITIES.map(severity => <Alert key={severity} severity={severity} label={false} style={{margin:0}}>{severity}</Alert>)}
 </Container>
 
+## Icons
+
+<Alert icon severity="error">Error</Alert>
+<Alert icon severity="warning">Warning</Alert>
+<Alert icon severity="success">Success</Alert>
+<Alert icon severity="info">Info</Alert>
+<Alert icon={<Icon.Notification color="hotpink" />}>Custom</Alert>
+
+```jsx
+<Alert icon severity="error">Error</Alert>
+<Alert icon severity="warning">Warning</Alert>
+<Alert icon severity="success">Success</Alert>
+<Alert icon severity="info">Info</Alert>
+<Alert icon={<Icon.Notification color="hotpink" />}>Custom</Alert>
+```
+
 # `useAlert` Hook
 
 A React Hook to access an alert state and component.

@@ -4,6 +4,7 @@
   display: flex;
   align-items: flex-start;
   gap: 0.5em;
+  margin: 0 0 1em;
   padding: 0.5em;
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius);
@@ -11,10 +12,6 @@
   line-height: 1.43;
   letter-spacing: 0.01071em;
   background: var(--color-background);
-
-  & + * {
-    margin-top: 1em;
-  }
 }
 
 .icon {

@@ -2,12 +2,7 @@ import * as React from 'react'
 
 import { ChangeEvent, CheckboxChangeEvent } from '../Form'
 import { Color } from '../../interfaces/theme'
-import {
-  CheckboxIcon,
-  CheckboxCheckedIcon,
-  CheckboxMinusIcon,
-  // CheckboxSquareIcon,
-} from '../Icons'
+import { Icon } from '../Icon'
 import classnames from '../../lib/classnames'
 import cssColor from '../../lib/css-color'
 import classes from './checkbox.module.scss'
@@ -95,21 +90,21 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           checked={checked}
           disabled={disabled}
         />
-        <Icon {...props} />
+        <CheckboxIcon {...props} />
         <span className={classes.label}>{children}</span>
       </label>
     )
   }
 )
 
-function Icon(props: CheckboxProps): React.ReactElement {
+function CheckboxIcon(props: CheckboxProps): React.ReactElement {
   let Component: any
   if (props.checked) {
-    Component = CheckboxCheckedIcon
+    Component = Icon.CheckboxChecked
   } else if (props.indeterminate) {
-    Component = CheckboxMinusIcon
+    Component = Icon.CheckboxMinus
   } else {
-    Component = CheckboxIcon
+    Component = Icon.Checkbox
   }
 
   return <Component aria-hidden />

@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { DateTimeType } from '../../interfaces/other'
 import { DateTime } from '../DateTime'
-import { ArrowRightIcon } from '../Icons'
+import { Icon } from '../Icon'
 import { Link } from '../Link'
 import classes from './article.module.scss'
 
@@ -58,7 +58,7 @@ export function Article({
           <small className="text-label">Up Next</small>
           <big>
             <strong>{nextArticle.props.children}</strong>
-            <ArrowRightIcon className="arrow" />
+            <Icon.ArrowRight className="arrow" />
           </big>
         </Link>
       </section>

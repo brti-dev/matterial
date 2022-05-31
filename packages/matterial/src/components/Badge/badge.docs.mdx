@@ -7,12 +7,12 @@ description: A small emblem to attach to avatars, icons, and other elements toge
 
 <Badge content={1}>
   <IconButton variant="contained" color="primary">
-    <BellIcon />
+    <Icon.Notification />
   </IconButton>
 </Badge>
 
 ```jsx
-<Badge content={1}><BellIcon /></Badge>
+<Badge content={1}><Icon.Notification /></Badge>
 ```
 
 ## Colored Badge
@@ -33,12 +33,12 @@ count.
 
 <Badge variant="dot" color="secondary">
   <IconButton variant="contained">
-    <BellIcon />
+    <Icon.Notification />
   </IconButton>
 </Badge>
 
 ```jsx
-<Badge variant="dot" color="secondary"><BellIcon /></Badge>
+<Badge variant="dot" color="secondary"><Icon.Notification /></Badge>
 ```
 
 ## Maximum Content
@@ -48,12 +48,12 @@ badge.
 
 <Badge color="red" max={99} content={100}>
   <IconButton variant="contained">
-    <BellIcon />
+    <Icon.Notification />
   </IconButton>
 </Badge>
 
 ```jsx
-<Badge color="red" max={99} content={100}><BellIcon /></Badge>
+<Badge color="red" max={99} content={100}><Icon.Notification /></Badge>
 ```
 
 ## Badge Visibility
@@ -64,17 +64,17 @@ override this with the <code>showZero</code> prop.
 <Container>
   <Badge color="red" content={0}>
     <IconButton variant="contained">
-      <BellIcon />
+      <Icon.Notification />
     </IconButton>
   </Badge>
   <Badge color="red" content={0} showZero>
     <IconButton variant="contained">
-      <BellIcon />
+      <Icon.Notification />
     </IconButton>
   </Badge>
 </Container>
 
 ```jsx
-<Badge color="red" content={0}><BellIcon /></Badge>
-<Badge color="red" content={0} showZero><BellIcon /></Badge>
+<Badge color="red" content={0}><Icon.Notification /></Badge>
+<Badge color="red" content={0} showZero><Icon.Notification /></Badge>
 ```

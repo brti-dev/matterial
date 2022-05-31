@@ -1,6 +1,6 @@
 import * as React from 'react'
 import ReachAlert from '@reach/alert'
-import { ErrorIcon, WarningIcon, SuccessIcon, InfoIcon } from '../Icons'
+import { Icon } from '../Icon'
 
 import { Severity, Variant } from '../../interfaces/theme'
 import classnames from '../../lib/classnames'
@@ -14,13 +14,13 @@ const LABELS = {
   success: 'Success',
 }
 const ICONS = {
-  error: <ErrorIcon />,
-  warning: <WarningIcon />,
-  success: <SuccessIcon />,
-  info: <InfoIcon />,
+  error: <Icon.Error />,
+  warning: <Icon.Warning />,
+  success: <Icon.Success />,
+  info: <Icon.Info />,
 }
 
-type Icon = boolean | React.ReactElement
+type AlertIcon = boolean | React.ReactElement
 
 export type AlertDispatch = {
   /**
@@ -34,7 +34,7 @@ export type AlertDispatch = {
   /**
    * Display an icon; Differs by severity, or indicate custom; Default: false
    */
-  icon?: Icon
+  icon?: AlertIcon
   /**
    * Prefix a short phrase; Defaults to a phrase based on severity, or suppress with false
    */
@@ -134,7 +134,7 @@ export function Alert({
       style={style}
     >
       <>
-        {icon && <Icon icon={icon} severity={severity} />}
+        {icon && <AlertIcon icon={icon} severity={severity} />}
         <div className={classes.content}>
           <div className={classes.message}>
             {!!label && <strong className={classes.label}>{label}: </strong>}
@@ -147,11 +147,11 @@ export function Alert({
   )
 }
 
-function Icon({
+function AlertIcon({
   icon,
   severity,
 }: {
-  icon: Icon
+  icon: AlertIcon
   severity?: Severity
 }): JSX.Element | null {
   if (icon === true) {

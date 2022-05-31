@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 import { Layout, Header, Heading, Main } from 'components/Layout'
-import { Link, Button, Container, ArrowRightIcon } from '../../matterial/src'
+import { Link, Button, Container, Icon } from '../../matterial/src'
 
 export default function Home() {
   return (
@@ -34,7 +34,7 @@ export default function Home() {
             to="/setup"
             variant="contained"
             color="primary"
-            append={<ArrowRightIcon />}
+            append={<Icon.ArrowRight />}
           >
             Get Started
           </Button>

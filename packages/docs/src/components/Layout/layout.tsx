@@ -1,28 +1,15 @@
-import {
-  ArrowTopIcon,
-  Button,
-  Dialog,
-  MenuIcon,
-  useDialog,
-} from '../../../../matterial/src'
+import { Button, Dialog, Icon, useDialog } from '../../../../matterial/src'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import * as React from 'react'
 
+import { RequiredChildren, OptionalChildren } from 'interfaces/children'
 import { TITLE } from '../../../const'
 import scrollToTop from 'lib/scroll-to-top'
 import { capitalize, unKebabCase } from 'lib/string'
 import useMediaQuery from 'lib/use-media-query'
 import classes from './layout.module.scss'
-
-type OptionalChildren = {
-  children?: React.ReactNode
-}
-
-type RequiredChildren = {
-  children: React.ReactNode
-}
 
 export type LayoutProps = {
   fullWidth?: boolean
@@ -127,7 +114,7 @@ function DialogNav({ children }: RequiredChildren) {
   return (
     <>
       <Button shape="circle" onClick={open}>
-        <MenuIcon />
+        <Icon.Menu />
       </Button>
       <Dialog
         active={active}
@@ -153,7 +140,7 @@ export function Footer({ children }: OptionalChildren) {
         className={classes.scrollToTop}
         onClick={scrollToTop}
       >
-        <ArrowTopIcon />
+        <Icon.ArrowToTop />
       </Button>
       {children}
     </footer>

@@ -18,6 +18,10 @@ export type Color =
   | 'dark'
   | 'light'
 
+export interface ColoredElement {
+  color?: OpenColor
+}
+
 export type OpenColor = Color | string
 
 export type Severity = 'error' | 'warning' | 'info' | 'success'

@@ -73,7 +73,7 @@ export function Navigation({ components }: { components: string[] }) {
       id="navigation__nav"
       aria-label="Main"
       className={`${classes.navigation} ${
-        isScreenMobile ? classes.navigationMobile : classes.navigationScreen
+        !isScreenMobile && classes.navigationScreen
       }`}
     >
       <Heading />
@@ -113,8 +113,8 @@ function DialogNav({ children }: RequiredChildren) {
 
   return (
     <>
-      <Button shape="circle" onClick={open}>
-        <Icon.Menu />
+      <Button shape="circle" onClick={open} className={classes.menuButton}>
+        <Icon.Menu size={50} />
       </Button>
       <Dialog
         active={active}

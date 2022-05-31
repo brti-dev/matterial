@@ -74,7 +74,10 @@
   margin-left: calc(0em - var(--nav-offset));
 }
 
-.navigationMobile {
+.menuButton {
+  position: absolute;
+  top: var(--space-small);
+  right: var(--space-small);
 }
 
 .header {

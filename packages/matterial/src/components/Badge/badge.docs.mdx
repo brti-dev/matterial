@@ -3,6 +3,20 @@ name: Badge
 description: A small emblem to attach to avatars, icons, and other elements togenerate notifications.
 ---
 
+## Usage
+
+```jsx
+import { Badge } from 'matterial'
+
+function App() {
+  return (
+    <Badge content={99}>
+      <Icon.Notification />
+    </Badge>
+  )
+}
+```
+
 ## Basic Badge
 
 <Badge content={1}>
@@ -12,7 +26,9 @@ description: A small emblem to attach to avatars, icons, and other elements toge
 </Badge>
 
 ```jsx
-<Badge content={1}><Icon.Notification /></Badge>
+<Badge content={1}>
+  <Icon.Notification />
+</Badge>
 ```
 
 ## Colored Badge
@@ -38,7 +54,9 @@ count.
 </Badge>
 
 ```jsx
-<Badge variant="dot" color="secondary"><Icon.Notification /></Badge>
+<Badge variant="dot" color="secondary">
+  <Icon.Notification />
+</Badge>
 ```
 
 ## Maximum Content
@@ -53,7 +71,9 @@ badge.
 </Badge>
 
 ```jsx
-<Badge color="red" max={99} content={100}><Icon.Notification /></Badge>
+<Badge color="red" max={99} content={100}>
+  <Icon.Notification />
+</Badge>
 ```
 
 ## Badge Visibility

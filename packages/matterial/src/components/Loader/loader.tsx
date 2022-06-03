@@ -1,12 +1,10 @@
-import { Color } from '../../interfaces/theme'
-import cssColor from '../../lib/css-color'
+import { ColoredElement } from '../../interfaces/theme'
+import useColor from '../../lib/use-color'
 import './loader.scss'
 
-export type LoaderProps = React.ComponentPropsWithoutRef<'div'> & {
-  /**
-   * Thematic color or a CSS color string
-   */
-  color?: Color | string
+export interface LoaderProps
+  extends React.ComponentPropsWithoutRef<'div'>,
+    ColoredElement {
   /**
    * Size in pixels; Default: 30
    */
@@ -14,21 +12,23 @@ export type LoaderProps = React.ComponentPropsWithoutRef<'div'> & {
 }
 
 export function Loader({
-  color,
+  color: naturalColor,
   size = 30,
-  style: styleOverwrite = {},
+  style: naturalStyle = {},
   ...rest
 }: LoaderProps): JSX.Element {
+  const color = useColor(naturalColor)
+
   const style = {
     '--size': `${size}px`,
-    ...(color && { '--color': cssColor(color) }),
-    ...styleOverwrite,
+    ...color.style,
+    ...naturalStyle,
   }
 
   return (
     <div
-      className="loader__container"
-      style={style as React.CSSProperties}
+      className={`loader__container ${color.className}`}
+      style={style}
       {...rest}
     >
       <div className="loader">

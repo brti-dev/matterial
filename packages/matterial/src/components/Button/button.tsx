@@ -5,13 +5,14 @@ import {
   OverloadedElement,
   OverloadedElementProps,
 } from '../../interfaces/OverloadedElement'
+import { ColoredElement } from '../../interfaces/theme'
 import classnames from '../../lib/classnames'
-import cssColor from '../../lib/css-color'
+import useColor from '../../lib/use-color'
 import { Link } from '../Link'
 
 type Percent = `${number}%`
 
-export interface CommonButtonProps {
+export interface CommonButtonProps extends ColoredElement {
   /**
    * Stuff to put on the right side of children/main content
    */
@@ -24,10 +25,6 @@ export interface CommonButtonProps {
    * What is your name?
    */
   className?: string
-  /**
-   * What is your favorite color?
-   */
-  color?: Color | string
   /**
    * Prevent button from triggering events
    */
@@ -109,7 +106,9 @@ export const Button = React.forwardRef<PolymorphicButton, ButtonProps>(
       ...rest
     } = props
 
-    const style = { ...naturalStyle, '--color': cssColor(color) }
+    const cssColor = useColor(color)
+
+    const style = { ...naturalStyle, ...cssColor.style }
     if (typeof width === 'number') {
       style.width = `${width}px`
     } else if (typeof width === 'string') {
@@ -119,7 +118,7 @@ export const Button = React.forwardRef<PolymorphicButton, ButtonProps>(
 
     const classNameString = classnames(
       'button', // Give access to global button style shared with other inputs
-      `color--${color}`,
+      cssColor.className,
       shape && `shape--${shape}`,
       `size--${size}`,
       `variant--${variant}`,

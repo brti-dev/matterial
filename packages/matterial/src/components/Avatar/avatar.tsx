@@ -1,28 +1,21 @@
 import * as React from 'react'
 
-import { Color } from '../../interfaces/theme'
+import { ColoredElement } from '../../interfaces/theme'
+import { OptionalChildren } from '../../interfaces/children'
 import classnames from '../../lib/classnames'
-import cssColor from '../../lib/css-color'
+import useColor from '../../lib/use-color'
 import { Tooltip } from '../Tooltip'
 import classes from './avatar.module.scss'
 
-export type AvatarProps = {
+export interface AvatarProps extends ColoredElement, OptionalChildren {
   /**
    * Alt text used for aria-label, img alt, tooltip, etc.
    */
   alt: string
   /**
-   * <Avatar> childrens
-   */
-  children?: React.ReactNode
-  /**
    * ClassName
    */
   className?: string
-  /**
-   * Thematic color or a CSS color string
-   */
-  color?: Color | string
   /**
    * Size in pixels; Default: 40
    */
@@ -50,7 +43,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
       alt,
       children,
       className,
-      color = 'default',
+      color: naturalColor = 'default',
       size = 40,
       src,
       style = {},
@@ -58,10 +51,12 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
       ...rest
     } = props
 
+    const color = useColor(naturalColor)
+
     const classNames = classnames(
       classes.avatar,
       'variant--contained', // Access global colors
-      `color--${color}`,
+      color.className,
       'no-hover',
       className
     )
@@ -77,7 +72,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
 
     const finalProps = {
       className: classNames,
-      style: { ...style, '--size': `${size}px`, '--color': cssColor(color) },
+      style: { ...style, '--size': `${size}px`, ...color.style },
       role: 'img',
       'aria-label': alt !== children ? alt : undefined,
       ref,

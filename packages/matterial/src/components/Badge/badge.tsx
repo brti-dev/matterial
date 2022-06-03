@@ -1,18 +1,39 @@
 import * as React from 'react'
 
-import { Color } from '../../interfaces/theme'
-import cssColor from '../../lib/css-color'
+import { ColoredElement } from '../../interfaces/theme'
+import { RequiredChildren } from '../../interfaces/children'
+import useColor from '../../lib/use-color'
 import classes from './badge.module.scss'
 
-type BadgePropsBase = {
-  children: React.ReactNode
+interface BadgePropsBase
+  extends Omit<React.ComponentPropsWithoutRef<'span'>, 'children'>,
+    ColoredElement,
+    RequiredChildren {
+  /**
+   * CSS class
+   */
   className?: string
-  color?: Color | string
+  /**
+   * Content label of the badge
+   */
+  content?: string | number | null | React.ReactElement
+  /**
+   * Maximum number to show on the badge label
+   */
   max?: number
+  /**
+   * Show badge if content is 0; Default: false
+   */
   showZero?: boolean
+  /**
+   * Size of the badge; If number, in pixels
+   */
   size?: 'small' | 'medium' | 'large' | number
-  variant?: 'default' | 'dot' | string
-} & React.ComponentPropsWithoutRef<'span'>
+  /**
+   * Style variant
+   */
+  variant?: 'default' | 'dot'
+}
 type BadgePropsContent = BadgePropsBase & {
   content: string | number | null | React.ReactElement
 }
@@ -35,11 +56,13 @@ export function Badge({
   variant = 'default',
   ...rest
 }: BadgeProps): JSX.Element {
+  const cssColor = useColor(color)
+
   const classNames = [
     'badge',
     classes.content,
     'variant--contained', // Access global colors
-    `color--${color}`,
+    cssColor.className,
     'no-hover',
     classes[`variant--${variant}`],
     classes[`size--${size}`],
@@ -61,7 +84,7 @@ export function Badge({
     classNames.push(classes.componentAsBadge)
   }
 
-  const style = { ...naturalStyle, '--color': cssColor(color) }
+  const style = { ...naturalStyle, ...cssColor.style }
 
   return (
     <span className={classes.container}>

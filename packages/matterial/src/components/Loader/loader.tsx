@@ -26,11 +26,7 @@ export function Loader({
   }
 
   return (
-    <div
-      className={`loader__container ${color.className}`}
-      style={style}
-      {...rest}
-    >
+    <div className="loader__container" style={style} {...rest}>
       <div className="loader">
         <div className="loader__bar"></div>
         <div className="loader__bar"></div>

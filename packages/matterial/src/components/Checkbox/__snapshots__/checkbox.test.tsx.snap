@@ -427,7 +427,7 @@ Array [
     className="checkbox size--small variant--default color--default"
     style={
       Object {
-        "--color": null,
+        "--color": "var(--color-default)",
       }
     }
   >
@@ -468,7 +468,7 @@ Array [
     className="checkbox size--large variant--default color--default"
     style={
       Object {
-        "--color": null,
+        "--color": "var(--color-default)",
       }
     }
   >
@@ -509,7 +509,7 @@ Array [
     className="checkbox variant--default color--default"
     style={
       Object {
-        "--color": null,
+        "--color": "var(--color-default)",
         "--size": "50px",
       }
     }

@@ -47,7 +47,7 @@ Array [
     role="alert"
     style={
       Object {
-        "--color": null,
+        "--color": "var(--color-default)",
       }
     }
   >
@@ -67,7 +67,7 @@ Array [
     role="alert"
     style={
       Object {
-        "--color": null,
+        "--color": "var(--color-default)",
       }
     }
   >
@@ -87,7 +87,7 @@ Array [
     role="alert"
     style={
       Object {
-        "--color": null,
+        "--color": "var(--color-default)",
       }
     }
   >

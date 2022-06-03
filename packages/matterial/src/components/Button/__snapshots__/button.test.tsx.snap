@@ -24,7 +24,7 @@ exports[`should render icon button correctly 1`] = `
   className="button color--default shape--circle size--medium variant--default"
   style={
     Object {
-      "--color": null,
+      "--color": "var(--color-default)",
     }
   }
   type="button"
@@ -183,7 +183,7 @@ Array [
     className="button color--default shape--circle size--medium variant--default"
     style={
       Object {
-        "--color": null,
+        "--color": "var(--color-default)",
       }
     }
     type="button"
@@ -198,7 +198,7 @@ Array [
     className="button color--default shape--square size--medium variant--default"
     style={
       Object {
-        "--color": null,
+        "--color": "var(--color-default)",
       }
     }
     type="button"
@@ -218,7 +218,7 @@ Array [
     className="button color--default size--small variant--default"
     style={
       Object {
-        "--color": null,
+        "--color": "var(--color-default)",
       }
     }
     type="button"
@@ -233,7 +233,7 @@ Array [
     className="button color--default size--medium variant--default"
     style={
       Object {
-        "--color": null,
+        "--color": "var(--color-default)",
       }
     }
     type="button"
@@ -248,7 +248,7 @@ Array [
     className="button color--default size--large variant--default"
     style={
       Object {
-        "--color": null,
+        "--color": "var(--color-default)",
       }
     }
     type="button"
@@ -268,7 +268,7 @@ Array [
     className="button color--default size--medium variant--default"
     style={
       Object {
-        "--color": null,
+        "--color": "var(--color-default)",
       }
     }
     type="button"
@@ -283,7 +283,7 @@ Array [
     className="button color--default size--medium variant--outlined"
     style={
       Object {
-        "--color": null,
+        "--color": "var(--color-default)",
       }
     }
     type="button"
@@ -298,7 +298,7 @@ Array [
     className="button color--default size--medium variant--contained"
     style={
       Object {
-        "--color": null,
+        "--color": "var(--color-default)",
       }
     }
     type="button"

@@ -21,7 +21,7 @@ exports[`should render correctly 1`] = `
       htmlFor="checkButton__daddy__true"
       style={
         Object {
-          "--color": null,
+          "--color": "var(--color-default)",
         }
       }
       type="button"
@@ -50,7 +50,7 @@ exports[`should render correctly 1`] = `
       htmlFor="checkButton__has_boat__true"
       style={
         Object {
-          "--color": null,
+          "--color": "var(--color-default)",
         }
       }
       type="button"

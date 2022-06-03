@@ -75,9 +75,10 @@
 }
 
 .menuButton {
-  position: absolute;
-  top: var(--space-small);
-  right: var(--space-small);
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  background-color: var(--color-body);
 }
 
 .header {

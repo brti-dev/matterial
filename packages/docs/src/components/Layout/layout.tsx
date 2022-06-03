@@ -113,8 +113,13 @@ function DialogNav({ children }: RequiredChildren) {
 
   return (
     <>
-      <Button shape="circle" onClick={open} className={classes.menuButton}>
-        <Icon.Menu size={50} />
+      <Button
+        shape="circle"
+        onClick={open}
+        className={classes.menuButton}
+        size={54}
+      >
+        <Icon.Menu size={54} />
       </Button>
       <Dialog
         active={active}

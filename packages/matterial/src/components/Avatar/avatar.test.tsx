@@ -2,7 +2,7 @@ import * as React from 'react'
 import renderer from 'react-test-renderer'
 import '@testing-library/jest-dom'
 
-import { render } from '../../test-utils'
+import { render, screen } from '../../test-utils'
 import { COLORS } from '../../const'
 import { Avatar, AvatarGroup } from '.'
 import {
@@ -123,7 +123,7 @@ describe('avatar group', () => {
   })
 
   test('should hide excess avatars', () => {
-    const { getAllByRole } = render(
+    render(
       <AvatarGroup max={2}>
         <Avatar alt="foo">F</Avatar>
         <Avatar alt="bar">B</Avatar>
@@ -132,7 +132,10 @@ describe('avatar group', () => {
       </AvatarGroup>
     )
 
-    expect(getAllByRole('img')).toHaveLength(3)
+    expect(screen.getAllByRole('img')).toHaveLength(3) // Including the "+2" avatar
+    expect(
+      screen.getByLabelText('There are 2 hidden avatars')
+    ).toBeInTheDocument()
   })
 
   test('should indicate total', () => {

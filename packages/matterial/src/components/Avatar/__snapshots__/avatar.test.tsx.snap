@@ -51,6 +51,18 @@ Array [
     light
   </div>,
   <div
+    className="avatar variant--contained color--contrast no-hover"
+    role="img"
+    style={
+      Object {
+        "--color": "var(--color-contrast)",
+        "--size": "40px",
+      }
+    }
+  >
+    contrast
+  </div>,
+  <div
     className="avatar variant--contained color--error no-hover"
     role="img"
     style={

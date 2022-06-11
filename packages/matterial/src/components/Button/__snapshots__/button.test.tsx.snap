@@ -100,6 +100,21 @@ Array [
     </span>
   </button>,
   <button
+    className="button color--contrast size--medium variant--default"
+    style={
+      Object {
+        "--color": "var(--color-contrast)",
+      }
+    }
+    type="button"
+  >
+    <span
+      className="main-content"
+    >
+      contrast
+    </span>
+  </button>,
+  <button
     className="button color--error size--medium variant--default"
     style={
       Object {

@@ -7,6 +7,7 @@ export const COLORS: Color[] = [
   'secondary',
   'dark',
   'light',
+  'contrast',
   ...SEVERITIES,
 ]
 

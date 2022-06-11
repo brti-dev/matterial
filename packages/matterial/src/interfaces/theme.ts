@@ -17,6 +17,7 @@ export type Color =
   | 'green'
   | 'dark'
   | 'light'
+  | 'contrast'
 
 export interface ColoredElement {
   color?: OpenColor

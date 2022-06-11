@@ -10,8 +10,9 @@
   --space-large: 6rem;
   --gap: 1rem;
 
-  --color-background: #{$color-body-light};
   --color-body: #{$color-body-light};
+  --color-font: #{$color-font-light};
+  --color-background: #{$color-body-light};
   --color-foreground: #{$color-font-light};
   --color-primary: #{$color-primary-light};
   --color-primary-hover: #{$color-primary-hover-light};
@@ -44,6 +45,8 @@
   --input-height-large: 2.2rem;
 
   @include theme(dark) {
+    --color-body: #{$color-body-dark};
+    --color-font: #{$color-font-dark};
     --color-background: #{$color-body-dark};
     --color-foreground: #{$color-font-dark};
     --color-primary: #{$color-primary-dark};
@@ -130,13 +133,23 @@ body {
   }
 
   &.color--light {
-    --color-foreground: #{$color-font-light};
     --color-background: #{$color-surface-light};
+    --color-foreground: #{$color-font-light};
   }
 
   &.color--dark {
-    --color-foreground: #{$color-font-dark};
     --color-background: #{$color-surface-dark};
+    --color-foreground: #{$color-font-dark};
+  }
+
+  &.color--contrast {
+    --color-background: #{$color-body-dark};
+    --color-foreground: #{$color-font-dark};
+
+    @include theme(dark) {
+      --color-background: #{$color-body-light};
+      --color-foreground: #{$color-font-light};
+    }
   }
 
   &.color--red {
@@ -156,7 +169,7 @@ body {
   }
 
   // Colors with white text
-  &:not(.color--default, .color--light, .color--dark) {
+  &:not(.color--default, .color--light, .color--dark, .color--contrast) {
     --color-background: var(--color);
     --color-foreground: white;
   }

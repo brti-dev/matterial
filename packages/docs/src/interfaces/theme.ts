@@ -9,5 +9,6 @@ export type Color =
   | 'green'
   | 'dark'
   | 'light'
+  | 'contrast'
 
 export type Variant = 'default' | 'contained' | 'outlined'

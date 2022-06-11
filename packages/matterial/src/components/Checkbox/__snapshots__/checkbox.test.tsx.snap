@@ -214,6 +214,47 @@ Array [
     </span>
   </label>,
   <label
+    className="checkbox size--medium variant--default color--contrast"
+    style={
+      Object {
+        "--color": "var(--color-contrast)",
+      }
+    }
+  >
+    <input
+      checked={false}
+      className="visually-hidden"
+      disabled={false}
+      name="checkbox"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <svg
+      aria-hidden={true}
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7 5c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2H7zm0 12V7h10l.002 10H7z"
+      />
+    </svg>
+    <span
+      className="label"
+    >
+      contrast
+    </span>
+  </label>,
+  <label
     className="checkbox size--medium variant--default color--error"
     style={
       Object {

@@ -78,6 +78,20 @@ Array [
   <span
     className="container"
   >
+    co
+    <span
+      className="badge content variant--contained color--contrast no-hover variant--dot size--medium "
+      hidden={false}
+      style={
+        Object {
+          "--color": "var(--color-contrast)",
+        }
+      }
+    />
+  </span>,
+  <span
+    className="container"
+  >
     er
     <span
       className="badge content variant--contained color--error no-hover variant--dot size--medium "

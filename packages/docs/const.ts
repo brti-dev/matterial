@@ -10,6 +10,7 @@ export const COLORS: Color[] = [
   'success',
   'dark',
   'light',
+  'contrast',
 ]
 
 export const TITLE = 'Matterial UI'

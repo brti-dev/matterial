@@ -8,6 +8,19 @@ import { terser } from 'rollup-plugin-terser'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import copy from 'rollup-plugin-copy'
 
+const plugins = [
+  peerDepsExternal(),
+  resolve(),
+  commonjs(),
+  typescript({ tsconfig: './tsconfig.json' }),
+  postcss(),
+  json(),
+  copy({
+    targets: [{ src: 'src/styles/**/*', dest: 'dist/styles' }],
+  }),
+  terser(),
+]
+
 export default [
   {
     input: 'src/index.ts',
@@ -23,23 +36,28 @@ export default [
         sourcemap: true,
       },
     ],
-    plugins: [
-      peerDepsExternal(),
-      resolve(),
-      commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
-      postcss(),
-      json(),
-      copy({
-        targets: [{ src: 'src/styles/**/*', dest: 'dist/styles' }],
-      }),
-      terser(),
-    ],
+    plugins,
   },
   {
     input: 'dist/esm/types/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     plugins: [dts()],
     external: [/\.s?css$/, /\.json$/],
+  },
+  {
+    input: 'src/components/examples.ts',
+    output: [
+      {
+        file: 'dist/cjs/examples.js',
+        format: 'cjs',
+        sourcemap: true,
+      },
+      {
+        file: 'dist/esm/examples.js',
+        format: 'esm',
+        sourcemap: true,
+      },
+    ],
+    plugins,
   },
 ]

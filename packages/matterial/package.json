@@ -1,6 +1,6 @@
 {
   "name": "matterial",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "A React design system made by Matt Berti",
   "private": false,
   "author": "Matt Berti <mat.berti@gmail.com> (https://brti.dev)",
@@ -20,8 +20,8 @@
   ],
   "type": "module",
   "exports": {
-    ".": "./dist/cjs/index.js",
-    "./examples/*": "./dist/cjs/examples.js",
+    ".": "./dist/esm/index.js",
+    "./examples/*": "./dist/esm/examples.js",
     "./styles/*": "./dist/styles/*"
   },
   "types": "dist/index.d.ts",

@@ -32,6 +32,7 @@ export function FormExample() {
               onChange={handleChange}
             />
           }
+          helperText="Please enter your full name"
         />
         <FormGroup
           label="Feedback"

@@ -18,13 +18,21 @@ export function FormGroup({
     error && classes.error
   )
   const id = `form__${toKebabCase(label)}`
-  const inputProps = { id, ...(error && { 'aria-invalid': true }) }
+  const inputProps = {
+    id,
+    ...(error && { 'aria-invalid': true }),
+    ...(helperText && { 'aria-describedby': `${id}-note` }),
+  }
 
   return (
     <div className={classNames}>
       <label htmlFor={id}>{label}</label>
       {React.cloneElement(input, inputProps)}
-      {helperText && <div role="note">{helperText}</div>}
+      {helperText && (
+        <div role="note" id={`${id}-note`}>
+          {helperText}
+        </div>
+      )}
     </div>
   )
 }

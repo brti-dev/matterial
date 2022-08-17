@@ -88,7 +88,7 @@ describe('form group', () => {
   test('should have helper text', () => {
     const note = 'foo'
     const label = 'bar'
-    const { getByText } = render(
+    render(
       <FormGroup
         label={label}
         input={<TextInput name={label} />}
@@ -96,7 +96,8 @@ describe('form group', () => {
       />
     )
 
-    expect(getByText(note)).toBeInTheDocument()
+    expect(screen.getByRole('note')).toBeInTheDocument()
+    expect(screen.getByLabelText(label)).toHaveAccessibleDescription(note)
   })
 
   test('should indicate error', () => {

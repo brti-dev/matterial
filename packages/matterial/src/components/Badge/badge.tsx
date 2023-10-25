@@ -1,42 +1,49 @@
 import * as React from 'react'
 
-import { ColoredElement } from '../../interfaces/theme'
-import { RequiredChildren } from '../../interfaces/children'
+import type { ColoredElement } from '../../interfaces/theme'
+import type { RequiredChildren } from '../../interfaces/children'
 import useColor from '../../lib/use-color'
 import classes from './badge.module.scss'
 
 interface BadgePropsBase
-  extends Omit<React.ComponentPropsWithoutRef<'span'>, 'children'>,
+  extends Omit<React.ComponentPropsWithoutRef<'span'>, 'children' | 'content'>,
     ColoredElement,
     RequiredChildren {
   /**
    * CSS class
    */
   className?: string
+
   /**
-   * Content label of the badge
+   * Text label of the badge
    */
   content?: string | number | null | React.ReactElement
+
   /**
    * Maximum number to show on the badge label
    */
   max?: number
+
   /**
    * Show badge if content is 0; Default: false
    */
   showZero?: boolean
+
   /**
    * Size of the badge; If number, in pixels
    */
   size?: 'small' | 'medium' | 'large' | number
+
   /**
    * Style variant
    */
   variant?: 'default' | 'dot'
 }
+
 type BadgePropsContent = BadgePropsBase & {
   content: string | number | null | React.ReactElement
 }
+
 type BadgePropsDot = BadgePropsBase & {
   content?: string | number | null | React.ReactElement
   variant: 'dot'

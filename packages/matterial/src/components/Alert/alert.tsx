@@ -27,31 +27,38 @@ export type AlertDispatch = {
    * A button or other call to action
    */
   action?: string | React.ReactElement
+
   /**
    * Append an action to dismiss the alert; Overwritten by `action`
    */
   dismiss?: boolean
+
   /**
    * Display an icon; Differs by severity, or indicate custom; Default: false
    */
   icon?: AlertIcon
+
   /**
    * Prefix a short phrase; Defaults to a phrase based on severity, or suppress with false
    */
   label?: boolean | string
+
   /**
    * A short message to show; Nullable for use in useAlert hook
    */
   message: string | null
+
   /**
    * Describes the type of alert
    */
   severity?: Severity
+
   /**
    * Controls whether the assistive technology should read immediately
    * ("assertive") or wait until the user is idle ("polite"); Default: 'polite'
    */
   type?: 'polite' | 'assertive'
+
   /**
    * Style variants
    */
@@ -69,7 +76,9 @@ export type AlertProps = Partial<AlertDispatch> & {
  */
 function shrink(component: string | React.ReactElement) {
   if (React.isValidElement(component)) {
-    return React.cloneElement(component, { size: 'small' })
+    return React.cloneElement(component as React.ReactElement<any>, {
+      size: 'small',
+    })
   }
 
   return component

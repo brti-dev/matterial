@@ -20,7 +20,8 @@ export function LoadingButtonExample() {
 }
 
 export function OverloadedButtonExample() {
-  const Foo = ({ foo }: { foo: string }) => <button data-foo={foo}>foo</button>
+  type FooProps = { foo: string }
+  const Foo = ({ foo }: FooProps) => <button data-foo={foo}>foo</button>
 
   return (
     <Button as={Foo} foo="foo">

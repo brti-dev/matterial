@@ -1,6 +1,6 @@
 {
   "name": "matterial",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "description": "A React design system made by Matt Berti",
   "private": false,
   "author": "Matt Berti <mat.berti@gmail.com> (https://brti.dev)",
@@ -13,15 +13,15 @@
   "bugs": {
     "url": "https://github.com/dr-spaceman/matterial/issues"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "files": [
     "dist"
   ],
   "type": "module",
   "exports": {
-    ".": "./dist/esm/index.js",
-    "./examples/*": "./dist/esm/examples.js",
+    ".": "./dist/index.js",
+    "./examples/*": "./dist/examples.js",
     "./styles/*": "./dist/styles/*"
   },
   "types": "dist/index.d.ts",
@@ -43,6 +43,7 @@
     "@reach/tooltip": "^0.17.0",
     "@reach/visually-hidden": "^0.17.0",
     "react-icons": "^4.3.1",
+    "rollup-plugin-delete": "^2.0.0",
     "sass": "^1.51.0"
   },
   "devDependencies": {

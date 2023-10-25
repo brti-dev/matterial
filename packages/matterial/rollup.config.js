@@ -7,6 +7,7 @@ import json from '@rollup/plugin-json'
 import { terser } from 'rollup-plugin-terser'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import copy from 'rollup-plugin-copy'
+import deleteFiles from 'rollup-plugin-delete'
 
 const plugins = [
   peerDepsExternal(),
@@ -24,22 +25,15 @@ const plugins = [
 export default [
   {
     input: 'src/index.ts',
-    output: [
-      {
-        file: 'dist/cjs/index.js',
-        format: 'cjs',
-        sourcemap: true,
-      },
-      {
-        file: 'dist/esm/index.js',
-        format: 'esm',
-        sourcemap: true,
-      },
-    ],
-    plugins,
+    output: {
+      file: 'dist/index.js',
+      format: 'esm',
+      assetFileNames: '[name][extname]',
+    },
+    plugins: [deleteFiles({ targets: 'dist/*' }), ...plugins],
   },
   {
-    input: 'dist/esm/types/index.d.ts',
+    input: 'dist/types/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     plugins: [dts()],
     external: [/\.s?css$/, /\.json$/],
@@ -48,12 +42,7 @@ export default [
     input: 'src/components/examples.ts',
     output: [
       {
-        file: 'dist/cjs/examples.js',
-        format: 'cjs',
-        sourcemap: true,
-      },
-      {
-        file: 'dist/esm/examples.js',
+        file: 'dist/examples.js',
         format: 'esm',
         sourcemap: true,
       },

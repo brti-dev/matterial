@@ -19,7 +19,9 @@ const plugins = [
   copy({
     targets: [{ src: 'src/styles/**/*', dest: 'dist/styles' }],
   }),
-  terser(),
+  terser({
+    compress: { directives: false },
+  }),
 ]
 
 export default [
@@ -29,6 +31,13 @@ export default [
       file: 'dist/index.js',
       format: 'esm',
       assetFileNames: '[name][extname]',
+      banner: `/*
+ * Matterial UI
+ * https://matterial.brti.dev
+ * Matt Berti
+ * @license MIT
+ */
+'use client';`,
     },
     plugins: [deleteFiles({ targets: 'dist/*' }), ...plugins],
   },

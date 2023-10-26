@@ -14,10 +14,10 @@ const LABELS = {
   success: 'Success',
 }
 const ICONS = {
-  error: <Icon.Error />,
-  warning: <Icon.Warning />,
-  success: <Icon.Success />,
-  info: <Icon.Info />,
+  error: <Icon icon="Error" />,
+  warning: <Icon icon="Warning" />,
+  success: <Icon icon="Success" />,
+  info: <Icon icon="Info" />,
 }
 
 type AlertIcon = boolean | React.ReactElement

@@ -58,7 +58,7 @@ export function Article({
           <small className="text-label">Up Next</small>
           <big>
             <strong>{nextArticle.props.children}</strong>
-            <Icon.ArrowRight className="arrow" />
+            <Icon icon="ArrowRight" className="arrow" />
           </big>
         </Link>
       </section>

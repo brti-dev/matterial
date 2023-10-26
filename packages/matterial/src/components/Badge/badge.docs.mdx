@@ -11,7 +11,7 @@ import { Badge } from 'matterial'
 function App() {
   return (
     <Badge content={99}>
-      <Icon.Notification />
+      <Icon icon="Notification" />
     </Badge>
   )
 }
@@ -21,13 +21,13 @@ function App() {
 
 <Badge content={1}>
   <IconButton variant="contained" color="primary">
-    <Icon.Notification />
+    <Icon icon="Notification" />
   </IconButton>
 </Badge>
 
 ```jsx
 <Badge content={1}>
-  <Icon.Notification />
+  <Icon icon="Notification" />
 </Badge>
 ```
 
@@ -49,13 +49,13 @@ count.
 
 <Badge variant="dot" color="secondary">
   <IconButton variant="contained">
-    <Icon.Notification />
+    <Icon icon="Notification" />
   </IconButton>
 </Badge>
 
 ```jsx
 <Badge variant="dot" color="secondary">
-  <Icon.Notification />
+  <Icon icon="Notification" />
 </Badge>
 ```
 
@@ -66,13 +66,13 @@ badge.
 
 <Badge color="red" max={99} content={100}>
   <IconButton variant="contained">
-    <Icon.Notification />
+    <Icon icon="Notification" />
   </IconButton>
 </Badge>
 
 ```jsx
 <Badge color="red" max={99} content={100}>
-  <Icon.Notification />
+  <Icon icon="Notification" />
 </Badge>
 ```
 
@@ -84,17 +84,17 @@ override this with the <code>showZero</code> prop.
 <Container>
   <Badge color="red" content={0}>
     <IconButton variant="contained">
-      <Icon.Notification />
+      <Icon icon="Notification" />
     </IconButton>
   </Badge>
   <Badge color="red" content={0} showZero>
     <IconButton variant="contained">
-      <Icon.Notification />
+      <Icon icon="Notification" />
     </IconButton>
   </Badge>
 </Container>
 
 ```jsx
-<Badge color="red" content={0}><Icon.Notification /></Badge>
-<Badge color="red" content={0} showZero><Icon.Notification /></Badge>
+<Badge color="red" content={0}><Icon icon="Notification" /></Badge>
+<Badge color="red" content={0} showZero><Icon icon="Notification" /></Badge>
 ```

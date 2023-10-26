@@ -94,14 +94,14 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
 )
 
 function CheckboxIcon(props: CheckboxProps): React.ReactElement {
-  let Component: any
+  let icon: string
   if (props.checked) {
-    Component = Icon.CheckboxChecked
+    icon = 'CheckboxChecked'
   } else if (props.indeterminate) {
-    Component = Icon.CheckboxMinus
+    icon = 'CheckboxMinus'
   } else {
-    Component = Icon.Checkbox
+    icon = 'Checkbox'
   }
 
-  return <Component aria-hidden />
+  return <Icon icon={icon} aria-hidden />
 }

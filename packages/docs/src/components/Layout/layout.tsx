@@ -92,7 +92,7 @@ export function Navigation({ components }: { components: string[] }) {
             key={slug}
             className={isCurrentPage(slug) ? 'current' : undefined}
           >
-            <Link href={`/components/${slug}`}>
+            <Link href={`/components/${slug}`} legacyBehavior>
               {capitalize(unKebabCase(slug))}
             </Link>
           </li>
@@ -119,7 +119,7 @@ function DialogNav({ children }: RequiredChildren) {
         className={classes.menuButton}
         size={54}
       >
-        <Icon.Menu size={54} />
+        <Icon icon="Menu" size={54} />
       </Button>
       <Dialog
         active={active}
@@ -145,7 +145,7 @@ export function Footer({ children }: OptionalChildren) {
         className={classes.scrollToTop}
         onClick={scrollToTop}
       >
-        <Icon.ArrowToTop />
+        <Icon icon="ArrowToTop" />
       </Button>
       {children}
     </footer>

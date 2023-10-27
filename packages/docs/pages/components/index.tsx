@@ -16,14 +16,14 @@ export default function Foo({ slugs }: Props) {
       <ul>
         {slugs.map(slug => (
           <li key={slug}>
-            <NextLink href={`/components/${slug}`} passHref>
+            <NextLink href={`/components/${slug}`} passHref legacyBehavior>
               <Link>{capitalize(slug)}</Link>
             </NextLink>
           </li>
         ))}
       </ul>
     </Layout>
-  )
+  );
 }
 
 export async function getStaticProps(): Promise<{ props: Props }> {

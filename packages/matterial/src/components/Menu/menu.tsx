@@ -7,7 +7,7 @@ import {
   MenuItems,
   MenuPopover,
   MenuLink,
-} from '@reach/menu-button'
+} from './reach-menu'
 import * as React from 'react'
 
 import { OverloadedElementProps } from '../../interfaces/OverloadedElement'

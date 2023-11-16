@@ -1,11 +1,25 @@
-.body {
-  font-size: var(--font-size);
-  font-weight: var(--font-weight);
-}
+@use '../../styles/breakpoint' as *;
 
 .layout {
+  --page-margin-top: var(--space-small);
+
+  @include breakpoint(screen) {
+    --page-margin-top: var(--space-medium);
+    --layout-spacing: var(--space-large);
+  }
+
+  box-sizing: border-box;
+  max-width: 1280px;
+  margin: var(--page-margin-top) auto;
+  padding-right: var(--layout-spacing, var(--space-small));
+  padding-left: var(--layout-spacing, var(--space-small));
 }
 
-.fullWidth {
-  width: 100%;
+.containerNav {
+  --nav-width: 12em;
+  --nav-offset: calc(var(--nav-width) + var(--space-small));
+
+  @include breakpoint(screen) {
+    padding-left: var(--nav-offset);
+  }
 }

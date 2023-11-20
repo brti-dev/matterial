@@ -15,11 +15,148 @@
   padding-left: var(--layout-spacing, var(--space-small));
 }
 
-.containerNav {
+.navLayoutContainer {
   --nav-width: 12em;
   --nav-offset: calc(var(--nav-width) + var(--space-small));
 
   @include breakpoint(screen) {
     padding-left: var(--nav-offset);
+  }
+}
+
+.navigation {
+  --margin: 0.5em;
+
+  font-size: 80%;
+
+  h1 {
+    display: inline-block;
+    margin: 0 0 var(--margin);
+    padding: 0;
+    font-size: 1.8em;
+  }
+
+  ul,
+  li {
+    margin: var(--margin) 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  h5 {
+    margin: calc(var(--margin) + var(--margin)) 0;
+    font-size: 1rem;
+  }
+
+  a {
+    padding: 0.1em 0;
+    display: block;
+    color: var(--color-accent-5);
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--color-accent-8);
+      text-decoration: none;
+    }
+  }
+}
+
+.navigationScreen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: var(--nav-width);
+  height: 100vh;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  padding: var(--page-margin-top) 0;
+  margin-left: calc(0em - var(--nav-offset));
+}
+
+.menuButton {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  background-color: var(--color-body);
+}
+
+.main {
+  line-height: 1.6;
+  margin-top: 1rem;
+
+  h1 {
+    font-weight: 300;
+  }
+}
+
+.footer {
+  position: relative;
+  margin-top: calc(var(--layout-spacing, var(--space-small)) * 3);
+  margin-bottom: var(--layout-spacing, var(--space-small));
+  line-height: 1.6;
+  font-size: 90%;
+
+  @include breakpoint(screen) {
+    margin-top: var(--layout-spacing, var(--space-small));
+  }
+
+  // nav ul {
+  //   margin: 0;
+  //   padding: 1em 0 0;
+  //   list-style-type: none;
+  //   display: flex;
+  //   flex-direction: column;
+  //   border-top: 1px solid var(--color-comment);
+
+  //   @include breakpoint(screen) {
+  //     padding: 0;
+  //     border: none;
+  //     flex-direction: row;
+  //   }
+
+  //   li {
+  //     margin: 0 1em 0 0;
+  //     padding: 0;
+
+  //     &:first-child {
+  //       font-weight: bold;
+  //     }
+  //   }
+  // }
+
+  [class~='sourcelink'] {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    text-decoration: none !important;
+
+    svg {
+      width: 1.5em;
+      height: 1.5em;
+    }
+  }
+}
+
+.scrollToTop {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: transform 0.2s ease-in-out;
+
+  @include breakpoint(screen) {
+    bottom: unset;
+    top: 0;
+    margin-top: -0.5em;
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+    background-color: transparent !important;
+  }
+
+  svg {
+    width: 1.5em;
+    height: 1.5em;
   }
 }

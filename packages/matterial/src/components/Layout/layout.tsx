@@ -12,6 +12,7 @@ import { Dialog, useDialog } from '../Dialog'
 import { Icon } from '../Icon'
 
 import '../../styles/global.scss'
+import { isValidElement } from 'react'
 
 export type HtmlProps = React.ComponentPropsWithoutRef<'html'> &
   RequiredChildren
@@ -26,9 +27,19 @@ export type LayoutProps = {
   /**
    * Include the given component as a navigation panel
    */
-  nav?: React.ReactNode
+  nav?: React.ReactElement<typeof Nav> | NavMap
 } & React.ComponentPropsWithoutRef<'div'> &
   RequiredChildren
+export type NavMap = {
+  /** Identify title for heading level-1 */
+  _title?: string
+  /** No heading for this group */
+  _?: React.ReactElement[]
+  /** Insert a horizontal rule */
+  _hr?: string
+} & {
+  [key: string]: React.ReactElement[] | string
+}
 
 export function Html({
   children,
@@ -46,23 +57,63 @@ export function Body({ children, ...props }: BodyProps): JSX.Element {
   return <body {...props}>{children}</body>
 }
 
+function H5({ children }: RequiredChildren): JSX.Element {
+  if (children === '_') {
+    return <></>
+  }
+  if (children === '_hr') {
+    return <hr />
+  }
+  return <h5>{children}</h5>
+}
+
 export function Layout({
   children,
-  fullWidth,
   className,
+  fullWidth,
   nav,
   ...props
 }: LayoutProps): JSX.Element {
   const classNames = [className, classes.layout]
   if (fullWidth) classNames.push(classes.fullWidth)
 
-  const Main = () => <main className={classes.main}>{children}</main>
+  const LayoutNav = (): JSX.Element => {
+    if (!nav) {
+      return <></>
+    }
+    // It's a <Nav /> component
+    if (isValidElement(nav)) {
+      return nav
+    }
+    // It's a nav map
+    const { _title, ...navMap } = nav
+    return (
+      <Nav>
+        {_title && <h1>{_title}</h1>}
+        {Object.entries(navMap).map(([menuKey, items]) => (
+          <div key={menuKey}>
+            <H5>{menuKey}</H5>
+            {Array.isArray(items) && (
+              <ul>
+                {items.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </Nav>
+    )
+  }
+  const Main = (): JSX.Element => (
+    <main className={classes.main}>{children}</main>
+  )
 
   return (
     <div className={classNames.join(' ')} {...props}>
       {nav ? (
         <div className={classes.navLayoutContainer}>
-          {nav}
+          <LayoutNav />
           <Main />
         </div>
       ) : (
@@ -72,7 +123,7 @@ export function Layout({
   )
 }
 
-export function Nav({ children }: any): JSX.Element {
+export function Nav({ children }: RequiredChildren): JSX.Element {
   // const { pathname } = useRouter()
   // const pathnameRoot = pathname.split('/', 2).join('/')
   // const isCurrentPage = (link: string) => link === pathnameRoot

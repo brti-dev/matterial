@@ -1,5 +1,6 @@
 'use client'
 
+import { isValidElement } from 'react'
 import type {
   OptionalChildren,
   RequiredChildren,
@@ -10,9 +11,6 @@ import scrollToTop from '../../lib/scroll-to-top'
 import { Button } from '../Button'
 import { Dialog, useDialog } from '../Dialog'
 import { Icon } from '../Icon'
-
-import '../../styles/global.scss'
-import { isValidElement } from 'react'
 
 export type HtmlProps = React.ComponentPropsWithoutRef<'html'> &
   RequiredChildren
@@ -33,12 +31,14 @@ export type LayoutProps = {
 export type NavMap = {
   /** Identify title for heading level-1 */
   _title?: string
+  /** Heading component */
+  _heading?: React.ReactElement
   /** No heading for this group */
   _?: React.ReactElement[]
   /** Insert a horizontal rule */
   _hr?: string
 } & {
-  [key: string]: React.ReactElement[] | string
+  [key: string]: React.ReactElement[] | React.ReactElement | string
 }
 
 export function Html({
@@ -86,10 +86,11 @@ export function Layout({
       return nav
     }
     // It's a nav map
-    const { _title, ...navMap } = nav
+    const { _title, _heading, ...navMap } = nav
     return (
       <Nav>
         {_title && <h1>{_title}</h1>}
+        {_heading}
         {Object.entries(navMap).map(([menuKey, items]) => (
           <div key={menuKey}>
             <H5>{menuKey}</H5>
@@ -111,14 +112,10 @@ export function Layout({
 
   return (
     <div className={classNames.join(' ')} {...props}>
-      {nav ? (
-        <div className={classes.navLayoutContainer}>
-          <LayoutNav />
-          <Main />
-        </div>
-      ) : (
+      <div className={classes.navContainer}>
+        <LayoutNav />
         <Main />
-      )}
+      </div>
     </div>
   )
 }

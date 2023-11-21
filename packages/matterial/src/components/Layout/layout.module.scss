@@ -15,12 +15,19 @@
   padding-left: var(--layout-spacing, var(--space-small));
 }
 
-.navLayoutContainer {
-  --nav-width: 12em;
-  --nav-offset: calc(var(--nav-width) + var(--space-small));
+.navContainer {
+  width: 100%;
+  margin-top: var(--layout-spacing, var(--space-small));
 
-  @include breakpoint(screen) {
-    padding-left: var(--nav-offset);
+  &:has(nav) {
+    --nav-width: 12em;
+    --nav-offset: calc(var(--nav-width) + var(--space-small));
+    width: auto;
+    margin-top: inherit;
+
+    @include breakpoint(screen) {
+      padding-left: var(--nav-offset);
+    }
   }
 }
 

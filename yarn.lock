@@ -1162,6 +1162,14 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@bedrock-layout/use-forwarded-ref@^1.3.1":
+  version "1.6.1"
+  dependencies:
+    "@bedrock-layout/use-stateful-ref" "^1.4.1"
+
+"@bedrock-layout/use-stateful-ref@^1.4.1":
+  version "1.4.1"
+
 "@csstools/normalize.css@*":
   version "12.0.0"
   resolved "https://registry.npmjs.org/@csstools/normalize.css/-/normalize.css-12.0.0.tgz"
@@ -3571,6 +3579,9 @@ body-parser@1.20.1:
     type-is "~1.6.18"
     unpipe "1.0.0"
 
+body-scroll-lock@^3.1.5:
+  version "3.1.5"
+
 bonjour-service@^1.0.11:
   version "1.1.1"
   resolved "https://registry.npmjs.org/bonjour-service/-/bonjour-service-1.1.1.tgz"
@@ -3835,6 +3846,9 @@ cjs-module-lexer@^1.0.0:
   version "1.2.2"
   resolved "https://registry.npmjs.org/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz"
   integrity sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==
+
+classnames@^2.3.1:
+  version "2.3.2"
 
 clean-css@^5.2.2:
   version "5.3.2"
@@ -7475,10 +7489,11 @@ markdown-table@^3.0.0:
   dependencies:
     "@reach/alert" "^0.17.0"
     "@reach/dialog" "^0.18.0"
-    "@reach/menu-button" "^0.17.0"
+    "@reach/menu-button" "^0.18.0"
     "@reach/skip-nav" "^0.17.0"
     "@reach/tooltip" "^0.17.0"
     "@reach/visually-hidden" "^0.17.0"
+    normalize.css "^8.0.1"
     react-icons "^4.3.1"
     rollup-plugin-delete "^2.0.0"
     sass "^1.51.0"
@@ -9475,7 +9490,7 @@ react-dev-utils@^12.0.1:
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
 
-"react-dom@^16.8.0 || 17.x", react-dom@^18.0.0, react-dom@^18.1.0, react-dom@<18.0.0, "react-dom@>=16.x <=18.x":
+"react-dom@^16.8.0 || ^17 || ^18", "react-dom@^16.8.0 || 17.x", react-dom@^18.0.0, react-dom@^18.1.0, react-dom@<18.0.0, "react-dom@>=16.x <=18.x":
   version "18.1.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.1.0.tgz"
   integrity sha512-fU1Txz7Budmvamp7bshe4Zi32d0ll7ect+ccxNu9FlObT605GOEB8BfO4tmRJ39R5Zj831VCpvQ05QPBW5yb+w==
@@ -9653,7 +9668,7 @@ react-test-renderer@17.0.2:
     react-shallow-renderer "^16.13.1"
     scheduler "^0.20.2"
 
-react@*, "react@^15.3.0 || ^16.0.0 || ^17.0.0", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || 17.x", react@^18.0.0, react@^18.1.0, react@<18.0.0, "react@>= 16", react@>=16, "react@>=16.x <=18.x", react@17.0.2:
+react@*, "react@^15.3.0 || ^16.0.0 || ^17.0.0", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8 || ^17 || ^18", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || 17.x", react@^18.0.0, react@^18.1.0, react@<18.0.0, "react@>= 16", react@>=16, "react@>=16.x <=18.x", react@17.0.2:
   version "18.1.0"
   resolved "https://registry.npmjs.org/react/-/react-18.1.0.tgz"
   integrity sha512-4oL8ivCz5ZEPyclFQXaNksK3adutVS8l2xzZU0cqEFrE9Sb7fC0EFK5uEk74wIreL1DERyjvsU915j1pcT2uEQ==

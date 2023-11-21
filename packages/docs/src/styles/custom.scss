@@ -11,3 +11,16 @@
   --color-primary-hover: #46c1dd;
   --color-secondary: #f64f59;
 }
+
+#heading_h1 {
+  // Gradient: https://tonfisk.fish/
+  background-color: #f3ec78;
+  background-image: linear-gradient(90deg, #12c2e9, #c471ed, #f64f59);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  display: inline-block;
+}

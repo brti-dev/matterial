@@ -1,3 +1,5 @@
+'use client'
+
 import * as matterial from '../../../../matterial/src'
 import * as matterialExamples from '../../../../matterial/src/components/examples'
 // import { getMDXComponent } from 'mdx-bundler/client'

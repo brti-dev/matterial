@@ -13,7 +13,7 @@ const navMap: NavMap = {
   _: [
     <Link href="/">Homepage</Link>,
     <Link href="/setup">Setup</Link>,
-    <Link href="/layout">Layout</Link>,
+    <Link href="/layout">Page Layout</Link>,
   ],
   Components: components.map(slug => (
     <Link href={`/components/${slug}`} legacyBehavior>

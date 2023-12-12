@@ -1,4 +1,4 @@
-import { Layout, Article } from '../../../matterial/src'
+import { Page, Article } from '../../../matterial/src'
 import metadata_ from 'utils/metadata'
 import { Mdx } from 'components/Mdx'
 import { compileMdx } from 'utils/mdx'
@@ -25,18 +25,18 @@ export default function Layout({ children }) {
 }
 \`\`\`
 
-Use Matterial's \`<Layout>\` component in your page:
+Use Matterial's \`<Page>\` component in your page:
 
 \`\`\`jsx
 // app/page.tsx
 
-import { Layout } from 'matterial'
+import { Page } from 'matterial'
 
-export default function Page() {
+export default function AppPage() {
   return (
-    <Layout>
+    <Page>
       Hello, world
-    </Layout>
+    </Page>
   )
 }
 \`\`\`
@@ -48,7 +48,7 @@ Import components to use them in your app:
 
 import { Button, Container } from 'matterial'
 
-export default function Page() {
+export default function MyComponent() {
   return (
     <Container row>
       <Button variant="contained" color="primary">Foo</Button>
@@ -64,10 +64,10 @@ export default async function SetupPage() {
   const { compiledSource } = await compileMdx(source)
 
   return (
-    <Layout nav={navMap}>
+    <Page nav={navMap}>
       <Article title="Setup">
         <Mdx source={compiledSource} />
       </Article>
-    </Layout>
+    </Page>
   )
 }

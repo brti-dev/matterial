@@ -2,46 +2,73 @@ import Link from 'next/link'
 import { Layout, Article, NavMap } from '../../../matterial/src'
 import Heading from 'components/Heading'
 import metadata_ from 'lib/metadata'
-// import { Layout, Header, Navigation, Main } from 'components/Layout'
-// import { Mdx } from 'components/Mdx'
-// import { Article } from '../../../matterial/src'
-// import { compileMdx, getDocsFiles } from 'lib/mdx'
+import { Mdx } from 'components/Mdx'
+import { compileMdx, getDocsFiles } from 'lib/mdx'
 
-// const source = `To begin, install the package.
+const source = `To begin, install the package.
 
-// \`npm i matterial\`
+\`npm i matterial\`
 
-// Import the base styles into your root app component before any custom styles, but after \`normalize.css\` (if using).
+Use Matterial's \`<Html>\` and \`<Body>\` components in your layout:
 
-// \`\`\`jsx
-// import 'normalize.css'
-// import 'matterial/styles/main.css'
-// import 'styles/custom.scss' // Your custom CSS
+\`\`\`jsx
+// app/layout.tsx
 
-// export default function MyApp() {
-//   // Mount app
-// }
-// \`\`\`
+import { Html, Body } from 'matterial'
+import 'src/styles/main.scss' // Your additional styles
 
-// Import the components and use them in your app.
+export const metadata = {} // Your metadata
 
-// \`\`\`jsx
-// import { Button, Container } from 'matterial'
+export default function Layout({ children }) {
+  return (
+    <Html>
+      <Body>{children}</Body>
+    </Html>
+  )
+}
+\`\`\`
 
-// export default function Page() {
-//   return (
-//     <Container row>
-//       <Button variant="contained" color="primary">Foo</Button>
-//       <Button variant="contained" color="secondary">Bar</Button>
-//     </Container>
-//   )
-// }`
+Use Matterial's \`<Layout>\` component in your page:
 
-// type Props = { mdxSource: string; components: string[] }
+\`\`\`jsx
+// app/page.tsx
+
+import { Layout, NavMap } from 'matterial'
+
+export default function Page() {
+  const navMap: NavMap = {
+    Foo: [<Link href="/bar">Bar</Link>, <Link href="/baz">Baz</Link>],
+    _hr: '',
+    Lorem: [<Link href="/ipsum">Ipsum</Link>],
+  }
+  return (
+    <Layout nav={navMap}>
+      Hello, world
+    </Layout>
+  )
+}
+\`\`\`
+
+Import components to use them in your app:
+
+\`\`\`jsx
+// src/components/my-component.tsx
+
+import { Button, Container } from 'matterial'
+
+export default function Page() {
+  return (
+    <Container row>
+      <Button variant="contained" color="primary">Foo</Button>
+      <Button variant="contained" color="secondary">Bar</Button>
+    </Container>
+  )
+}
+\`\`\``
 
 export const metadata = metadata_({ title: 'Matterial UI -- Getting Started' })
 
-export default function SetupPage(/*{ mdxSource }: Props*/) {
+export default async function SetupPage() {
   const navMap: NavMap = {
     _heading: <Heading />,
     _: [<Link href="/ipsum">Ipsum</Link>],
@@ -49,32 +76,17 @@ export default function SetupPage(/*{ mdxSource }: Props*/) {
     _hr: '',
     Lorem: [<Link href="/ipsum">Ipsum</Link>],
   }
+
+  const { compiledSource } = await compileMdx(source)
+  // const components = getDocsFiles().map(fileName =>
+  //   fileName.replace('.docs.mdx', '')
+  // )
+
   return (
     <Layout nav={navMap}>
       <Article title="Setup">
-        hello world
-        {/* <Mdx source={mdxSource} /> */}
+        <Mdx source={compiledSource} />
       </Article>
     </Layout>
   )
 }
-
-// export const getStaticProps = async (): Promise<{ props: Props }> => {
-//   try {
-//     const { compiledSource } = await compileMdx(source)
-//     const components = getDocsFiles().map(fileName =>
-//       fileName.replace('.docs.mdx', '')
-//     )
-
-//     return {
-//       props: {
-//         mdxSource: compiledSource,
-//         components,
-//       },
-//     }
-//   } catch (err) {
-//     console.error(err)
-
-//     return { props: { mdxSource: '', components: [] } }
-//   }
-// }

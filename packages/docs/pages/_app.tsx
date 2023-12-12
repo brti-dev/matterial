@@ -1,7 +1,7 @@
 // import App from "next/app";
 import type { AppProps /*, AppContext */ } from 'next/app'
 
-import 'normalize.css'
+// import 'normalize.css'
 import '../../matterial/src/styles/global.scss'
 // Importing matterial bundle will require the above global and below compiled css
 // import 'matterial/styles/global.scss'

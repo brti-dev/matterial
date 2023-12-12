@@ -16,7 +16,7 @@ export type HtmlProps = React.ComponentPropsWithoutRef<'html'> &
   RequiredChildren
 export type BodyProps = React.ComponentPropsWithoutRef<'body'> &
   RequiredChildren
-export type LayoutProps = {
+export type PageProps = {
   /**
    * Stretch the width of the layout to the full width of the viewport, otherwise a max-width will be imposed
    */
@@ -67,17 +67,17 @@ function H5({ children }: RequiredChildren): JSX.Element {
   return <h5>{children}</h5>
 }
 
-export function Layout({
+export function Page({
   children,
   className,
   fullWidth,
   nav,
   ...props
-}: LayoutProps): JSX.Element {
+}: PageProps): JSX.Element {
   const classNames = [className, classes.layout]
   if (fullWidth) classNames.push(classes.fullWidth)
 
-  const LayoutNav = (): JSX.Element => {
+  const PageNav = (): JSX.Element => {
     if (!nav) {
       return <></>
     }
@@ -113,7 +113,7 @@ export function Layout({
   return (
     <div className={classNames.join(' ')} {...props}>
       <div className={classes.navContainer}>
-        <LayoutNav />
+        <PageNav />
         <Main />
       </div>
     </div>

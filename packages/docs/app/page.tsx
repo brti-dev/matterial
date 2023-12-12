@@ -1,9 +1,9 @@
-import { Layout, Link, Button, Container, Icon } from '../../matterial/src'
+import { Page, Link, Button, Container, Icon } from '../../matterial/src'
 import Heading from 'components/Heading'
 
 export default function Home() {
   return (
-    <Layout fullWidth>
+    <Page fullWidth>
       <Heading />
       <p>
         A minimalist design system by{' '}
@@ -34,6 +34,6 @@ export default function Home() {
           Source Code
         </Button>
       </Container>
-    </Layout>
+    </Page>
   )
 }

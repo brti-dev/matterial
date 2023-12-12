@@ -6,9 +6,9 @@ import * as React from 'react'
 
 import { RequiredChildren, OptionalChildren } from 'interfaces/children'
 import { TITLE } from '../../../const'
-import scrollToTop from 'lib/scroll-to-top'
-import { capitalize, unKebabCase } from 'lib/string'
-import useMediaQuery from 'lib/use-media-query'
+import scrollToTop from 'utils/scroll-to-top'
+import { capitalize, unKebabCase } from 'utils/string'
+import useMediaQuery from 'utils/use-media-query'
 import classes from './layout.module.scss'
 
 export type LayoutProps = {

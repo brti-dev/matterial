@@ -1,8 +1,8 @@
 import NextLink from 'next/link'
 import { Link } from '../../../matterial/src'
 
-import { getDocsFiles } from 'lib/mdx'
-import { capitalize } from 'lib/string'
+import { getDocsFiles } from 'utils/mdx'
+import { capitalize } from 'utils/string'
 import { Layout } from 'components/Layout'
 
 type Props = {
@@ -23,7 +23,7 @@ export default function Foo({ slugs }: Props) {
         ))}
       </ul>
     </Layout>
-  );
+  )
 }
 
 export async function getStaticProps(): Promise<{ props: Props }> {

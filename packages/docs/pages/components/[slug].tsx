@@ -2,8 +2,8 @@ import { Alert, Article, Link } from '../../../matterial/src'
 import { GetStaticPaths } from 'next'
 import { AiFillGithub as GithubIcon } from 'react-icons/ai'
 
-import { capitalize, toPascalCase } from 'lib/string'
-import { Metadata, getDocSource, getDocsFiles, compileMdx } from 'lib/mdx'
+import { capitalize, toPascalCase } from 'utils/string'
+import { Metadata, getDocSource, getDocsFiles, compileMdx } from 'utils/mdx'
 import { Layout, Header, Navigation, Main, Footer } from 'components/Layout'
 import { Mdx } from 'components/Mdx'
 

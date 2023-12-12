@@ -1,6 +1,6 @@
 import { Html, Body } from 'matterial'
 import { RequiredChildren } from 'interfaces/children'
-import metadata_ from 'lib/metadata'
+import metadata_ from 'utils/metadata'
 
 import '../src/styles/main.scss'
 

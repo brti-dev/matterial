@@ -1,8 +1,8 @@
 import { Layout, Article } from '../../../matterial/src'
-import metadata_ from 'lib/metadata'
+import metadata_ from 'utils/metadata'
 import { Mdx } from 'components/Mdx'
-import { compileMdx } from 'lib/mdx'
-import navMap from 'lib_/nav-map'
+import { compileMdx } from 'utils/mdx'
+import navMap from 'lib/nav-map'
 
 const source = `To begin, install the package.
 

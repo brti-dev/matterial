@@ -1,7 +1,7 @@
 import { Layout, Header, Navigation, Main } from 'components/Layout'
 import { Mdx } from 'components/Mdx'
 import { Article } from 'matterial/src'
-import { compileMdx, getDocsFiles } from 'lib/mdx'
+import { compileMdx, getDocsFiles } from 'utils/mdx'
 
 const source = `To begin, install the package.
 

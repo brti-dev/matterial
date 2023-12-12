@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import Heading from 'components/Heading'
-import { NavMap } from '../../../matterial/src'
-import { capitalize, unKebabCase } from 'lib/string'
-import { getDocsFiles } from 'lib/mdx'
+import { NavMap } from 'matterial/src'
+import { capitalize, unKebabCase } from 'utils/string'
+import { getDocsFiles } from 'utils/mdx'
 
 const components = getDocsFiles().map(fileName =>
   fileName.replace('.docs.mdx', '')

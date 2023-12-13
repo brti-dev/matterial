@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Heading from 'components/Heading'
 import { NavMap } from 'matterial/src'
 import { capitalize, unKebabCase } from 'utils/string'
@@ -11,15 +10,14 @@ const components = getDocsFiles().map(fileName =>
 const navMap: NavMap = {
   _heading: <Heading />,
   _: [
-    <Link href="/">Homepage</Link>,
-    <Link href="/setup">Setup</Link>,
-    <Link href="/layout">Page Layout</Link>,
+    { href: '/', title: 'Homepage' },
+    { href: '/setup', title: 'Setup' },
+    { href: '/layout', title: 'Page' },
   ],
-  Components: components.map(slug => (
-    <Link href={`/components/${slug}`} legacyBehavior>
-      {capitalize(unKebabCase(slug))}
-    </Link>
-  )),
+  Components: components.map(slug => ({
+    href: `/components/${slug}`,
+    title: capitalize(unKebabCase(slug)),
+  })),
 }
 
 export default navMap

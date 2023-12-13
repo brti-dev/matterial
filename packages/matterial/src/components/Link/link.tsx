@@ -3,6 +3,7 @@ import * as React from 'react'
 import { ColoredElement } from '../../interfaces/theme'
 import useColor from '../../lib/use-color'
 import classnames from '../../lib/classnames'
+import AppContext from '../../contexts/app-context'
 
 interface Props extends ColoredElement {
   /**
@@ -34,6 +35,8 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       ...rest
     } = props
 
+    const { linkComponent: LinkComponent } = React.useContext(AppContext)
+
     const color = useColor(naturalColor)
 
     const classNames = classnames(
@@ -45,7 +48,13 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     const style = { ...naturalStyle, ...color.style }
 
     return (
-      <a href={href} className={classNames} style={style} ref={ref} {...rest} />
+      <LinkComponent
+        href={href}
+        className={classNames}
+        style={style}
+        ref={ref}
+        {...rest}
+      />
     )
   }
 )

@@ -12,7 +12,7 @@ const navMap: NavMap = {
   _: [
     { href: '/', title: 'Homepage' },
     { href: '/setup', title: 'Setup' },
-    { href: '/layout', title: 'Page' },
+    { href: '/layout', title: 'Page layout' },
   ],
   Components: components.map(slug => ({
     href: `/components/${slug}`,

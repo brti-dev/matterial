@@ -42,8 +42,6 @@ type LinkProps = CustomLink &
   Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof CustomLink>
 type LinkList = Array<LinkProps | React.ReactElement>
 export type NavMap = {
-  /** Identify title for heading level-1 */
-  _title?: string
   /** Heading component */
   _heading?: React.ReactElement
   /** No heading for this group */
@@ -92,7 +90,7 @@ export function Page({
   nav,
   ...props
 }: PageProps): JSX.Element {
-  const { linkComponent: LinkComponent } = useContext(AppContext)
+  const { appTitle, linkComponent: LinkComponent } = useContext(AppContext)
   const classNames = [className, classes.layout]
   if (fullWidth) classNames.push(classes.fullWidth)
 
@@ -108,8 +106,7 @@ export function Page({
     const { _title, _heading, ...navMap } = nav
     return (
       <Nav>
-        {_title && <h1>{_title}</h1>}
-        {_heading}
+        {_heading || (appTitle && <h1>{appTitle}</h1>)}
         {Object.entries(navMap).map(([menuKey, items]) => (
           <div key={menuKey}>
             <H5>{menuKey}</H5>
@@ -122,11 +119,13 @@ export function Page({
                   }
 
                   // Link object
-                  const { title, ...linkItemProps } = item as LinkProps
+                  const { href, title, ...linkItemProps } = item as LinkProps
 
                   return (
                     <li key={index}>
-                      <LinkComponent {...linkItemProps}>{title}</LinkComponent>
+                      <LinkComponent href={href} {...linkItemProps}>
+                        {title}
+                      </LinkComponent>
                     </li>
                   )
                 })}

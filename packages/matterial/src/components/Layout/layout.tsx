@@ -1,18 +1,23 @@
 'use client'
 
-import { isValidElement } from 'react'
+import { isValidElement, useContext } from 'react'
+
 import type {
   OptionalChildren,
   RequiredChildren,
 } from '../../interfaces/children'
+import type { AppConfig } from '../../contexts/app-context'
 import classes from './layout.module.scss'
 import useMediaQuery from '../../lib/use-media-query'
 import scrollToTop from '../../lib/scroll-to-top'
 import { Button } from '../Button'
 import { Dialog, useDialog } from '../Dialog'
 import { Icon } from '../Icon'
+import AppContext, { defaultAppConfig } from '../../contexts/app-context'
 
-export type HtmlProps = React.ComponentPropsWithoutRef<'html'> &
+export type HtmlProps = {
+  config: AppConfig
+} & React.ComponentPropsWithoutRef<'html'> &
   RequiredChildren
 export type BodyProps = React.ComponentPropsWithoutRef<'body'> &
   RequiredChildren
@@ -28,27 +33,40 @@ export type PageProps = {
   nav?: React.ReactElement<typeof Nav> | NavMap
 } & React.ComponentPropsWithoutRef<'div'> &
   RequiredChildren
+type CustomLink = {
+  href: string
+  title: string
+  isActive?: boolean
+}
+type LinkProps = CustomLink &
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof CustomLink>
+type LinkList = Array<LinkProps | React.ReactElement>
 export type NavMap = {
   /** Identify title for heading level-1 */
   _title?: string
   /** Heading component */
   _heading?: React.ReactElement
   /** No heading for this group */
-  _?: React.ReactElement[]
+  _?: LinkList
   /** Insert a horizontal rule */
   _hr?: string
 } & {
-  [key: string]: React.ReactElement[] | React.ReactElement | string
+  [key: string]: LinkList | React.ReactElement | string
 }
 
 export function Html({
   children,
+  config,
   lang = 'en',
   ...props
 }: HtmlProps): JSX.Element {
+  const configComplete = { ...defaultAppConfig, ...config }
+
   return (
     <html lang={lang} {...props}>
-      {children}
+      <AppContext.Provider value={configComplete}>
+        {children}
+      </AppContext.Provider>
     </html>
   )
 }
@@ -74,6 +92,7 @@ export function Page({
   nav,
   ...props
 }: PageProps): JSX.Element {
+  const { linkComponent: LinkComponent } = useContext(AppContext)
   const classNames = [className, classes.layout]
   if (fullWidth) classNames.push(classes.fullWidth)
 
@@ -96,9 +115,21 @@ export function Page({
             <H5>{menuKey}</H5>
             {Array.isArray(items) && (
               <ul>
-                {items.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
+                {items.map((item, index) => {
+                  // React element
+                  if (isValidElement(item)) {
+                    return <li key={index}>{item}</li>
+                  }
+
+                  // Link object
+                  const { title, ...linkItemProps } = item as LinkProps
+
+                  return (
+                    <li key={index}>
+                      <LinkComponent {...linkItemProps}>{title}</LinkComponent>
+                    </li>
+                  )
+                })}
               </ul>
             )}
           </div>
@@ -136,28 +167,6 @@ export function Nav({ children }: RequiredChildren): JSX.Element {
       }`}
     >
       {children}
-      {/* <Heading />
-      <ul>
-        <li>
-          <Link href="/">Homepage</Link>
-        </li>
-        <li>
-          <Link href="/setup">Getting Started</Link>
-        </li>
-      </ul>
-      <h5>Components</h5>
-      <ul>
-        {components.map(slug => (
-          <li
-            key={slug}
-            className={isCurrentPage(slug) ? 'current' : undefined}
-          >
-            <Link href={`/components/${slug}`} legacyBehavior>
-              {capitalize(unKebabCase(slug))}
-            </Link>
-          </li>
-        ))}
-      </ul> */}
     </nav>
   )
 

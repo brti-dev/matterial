@@ -1,8 +1,12 @@
 import { Page, Article, Footer } from '../../../matterial/src'
 import navMap from 'lib/nav-map'
-import metadata_ from 'utils/metadata'
+import generatePageData from 'utils/generate-page-data'
 import { compileMdx } from 'utils/mdx'
 import { Mdx } from 'components/Mdx'
+
+export const { metadata } = generatePageData({
+  metadata: { title: 'Matterial UI -- Getting Started' },
+})
 
 const source = `To begin, install the package.
 
@@ -57,8 +61,6 @@ export default function MyComponent() {
   )
 }
 \`\`\``
-
-export const metadata = metadata_({ title: 'Matterial UI -- Getting Started' })
 
 export default async function SetupPage() {
   const { compiledSource } = await compileMdx(source)

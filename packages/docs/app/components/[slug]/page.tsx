@@ -5,7 +5,7 @@ import { capitalize, toPascalCase } from 'utils/string'
 import { getDocSource, getDocsFiles, compileMdx } from 'utils/mdx'
 import { Mdx } from 'components/Mdx'
 import navMap from 'lib/nav-map'
-import metadata_ from 'utils/metadata'
+import generatePageData from 'utils/generate-page-data'
 
 type Props = {
   params: { slug: string }
@@ -22,12 +22,15 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params: { slug } }: Props) {
-  return metadata_({
-    title: `Matterial UI Components -- ${capitalize(slug)}`,
-    description: `${capitalize(
-      slug
-    )} React component API; How to use ${slug} to build an accessible, responsive UI.`,
+  const { metadata } = generatePageData({
+    metadata: {
+      title: `Matterial UI Components -- ${capitalize(slug)}`,
+      description: `${capitalize(
+        slug
+      )} React component API; How to use ${slug} to build an accessible, responsive UI.`,
+    },
   })
+  return metadata
 }
 
 export default async function ComponentPage({ params: { slug } }: Props) {

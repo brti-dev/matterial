@@ -1,13 +1,13 @@
 import { Html, Body } from '../../matterial/src'
 import Link from 'next/link'
 import { RequiredChildren } from 'interfaces/children'
-import metadata_ from 'utils/metadata'
+import generatePageData from 'utils/generate-page-data'
 
 import '../src/styles/main.scss'
 
 type RootLayoutProps = RequiredChildren
 
-export const metadata = metadata_()
+export const { metadata, viewport } = generatePageData()
 
 const config = {
   linkComponent: Link,

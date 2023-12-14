@@ -1,10 +1,12 @@
 import { Page, Article, Footer } from '../../../matterial/src'
-import metadata_ from 'utils/metadata'
+import generatePageData from 'utils/generate-page-data'
 import { compileMdx } from 'utils/mdx'
 import navMap from 'lib/nav-map'
 import { Mdx } from 'components/Mdx'
 
-export const metadata = metadata_({ title: 'Matterial UI -- Getting Started' })
+export const { metadata } = generatePageData({
+  metadata: { title: 'Matterial UI -- Getting Started' },
+})
 
 const source = `__Configure page layout, including navigation, in a [Next.js page](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#pages)__
 

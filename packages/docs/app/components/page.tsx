@@ -2,10 +2,12 @@ import { Page, Link, Article, Footer } from '../../../matterial/src'
 
 import { getDocsFiles } from 'utils/mdx'
 import { capitalize } from 'utils/string'
-import metadata_ from 'utils/metadata'
+import generateMetadata from 'utils/generate-page-data'
 import navMap from 'lib/nav-map'
 
-export const metadata = metadata_({ title: 'Matterial UI -- Components API' })
+export const { metadata } = generateMetadata({
+  metadata: { title: 'Matterial UI -- Components API' },
+})
 
 export default function ComponentsPage({
   params: { slug },

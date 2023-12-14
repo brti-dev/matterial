@@ -1,8 +1,8 @@
-import { Page, Article } from '../../../matterial/src'
-import metadata_ from 'utils/metadata'
-import { Mdx } from 'components/Mdx'
-import { compileMdx } from 'utils/mdx'
+import { Page, Article, Footer } from '../../../matterial/src'
 import navMap from 'lib/nav-map'
+import metadata_ from 'utils/metadata'
+import { compileMdx } from 'utils/mdx'
+import { Mdx } from 'components/Mdx'
 
 const source = `To begin, install the package.
 
@@ -68,6 +68,7 @@ export default async function SetupPage() {
       <Article title="Setup">
         <Mdx source={compiledSource} />
       </Article>
+      <Footer />
     </Page>
   )
 }

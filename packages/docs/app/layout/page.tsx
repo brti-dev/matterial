@@ -1,8 +1,10 @@
 import { Page, Article } from '../../../matterial/src'
 import metadata_ from 'utils/metadata'
-import { Mdx } from 'components/Mdx'
 import { compileMdx } from 'utils/mdx'
 import navMap from 'lib/nav-map'
+import { Mdx } from 'components/Mdx'
+
+export const metadata = metadata_({ title: 'Matterial UI -- Getting Started' })
 
 const source = `__Configure page layout, including navigation, in a [Next.js page](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts#pages)__
 
@@ -139,8 +141,6 @@ export default function Page() {
   )
 }
 \`\`\``
-
-export const metadata = metadata_({ title: 'Matterial UI -- Getting Started' })
 
 export default async function SetupPage() {
   const { compiledSource } = await compileMdx(source)

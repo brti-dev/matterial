@@ -211,7 +211,7 @@ export function Footer({ children }: OptionalChildren) {
       >
         <Icon icon="ArrowToTop" />
       </Button>
-      {children}
+      {children ?? <>&nbsp;</>}
     </footer>
   )
 }

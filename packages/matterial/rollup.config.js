@@ -41,12 +41,12 @@ export default [
     },
     plugins: [deleteFiles({ targets: 'dist/*' }), ...plugins],
   },
-  {
-    input: 'dist/types/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
-    plugins: [dts()],
-    external: [/\.s?css$/, /\.json$/],
-  },
+  // {
+  //   input: 'dist/types/index.d.ts',
+  //   output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+  //   plugins: [dts()],
+  //   external: [/\.s?css$/, /\.json$/],
+  // },
   {
     input: 'src/components/examples.ts',
     output: [

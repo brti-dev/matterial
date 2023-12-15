@@ -16,7 +16,7 @@ import { Icon } from '../Icon'
 import AppContext, { defaultAppConfig } from '../../contexts/app-context'
 
 export type HtmlProps = {
-  config: AppConfig
+  config?: AppConfig
 } & React.ComponentPropsWithoutRef<'html'> &
   RequiredChildren
 export type BodyProps = React.ComponentPropsWithoutRef<'body'> &
@@ -54,7 +54,7 @@ export type NavMap = {
 
 export function Html({
   children,
-  config,
+  config = {},
   lang = 'en',
   ...props
 }: HtmlProps): JSX.Element {

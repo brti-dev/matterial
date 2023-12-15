@@ -4,25 +4,57 @@ A design system by [Matt Berti](https://brti.dev).
 
 ## Setup
 
-First, install the package in your project directory.
+To begin, install the package in your existing project folder.
 
-```
-npm i matterial
-```
+`npm i matterial`
 
-Then import `main.css` into your app entry in the appropriate load order.
-
-On a Next.js app, you would do something like the following:
+Use Matterial's `<Html>` and `<Body>` components in your root layout:
 
 ```jsx
-// ./pages/_app.tsx
-import type { AppProps } from 'next/app'
-import 'normalize.css' // If using
-import '../node_modules/matterial/dist/main.css'
-import 'styles/custom.scss' // Overwrite main.css
+// app/layout.tsx
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+import { Html, Body } from 'matterial'
+import 'src/styles/main.scss' // Your additional styles
+
+export default function Layout({ children }) {
+  return (
+    <Html>
+      <Body>{children}</Body>
+    </Html>
+  )
+}
+```
+
+Use Matterial's `<Page>` component in your page:
+
+```jsx
+// app/page.tsx
+
+import { Page } from 'matterial'
+
+export default function AppPage() {
+  return <Page>Hello, world</Page>
+}
+```
+
+Import components to use them in your app:
+
+```jsx
+// src/components/my-component.tsx
+
+import { Button, Container } from 'matterial'
+
+export default function MyComponent() {
+  return (
+    <Container row>
+      <Button variant="contained" color="primary">
+        Foo
+      </Button>
+      <Button variant="contained" color="secondary">
+        Bar
+      </Button>
+    </Container>
+  )
 }
 ```
 
@@ -41,7 +73,7 @@ Apache 2.0.
 ## Built With
 
 - [Reach UI](https://reach.tech)
-- React
+- React 18
 - Typescript
 - Sass
 

@@ -1,5 +1,8 @@
 import React from 'react'
-import { Button, Container, Tooltip, useAlert } from '../index'
+import { Button } from '../Button'
+import { Container } from '../Container'
+import { Tooltip } from '../Tooltip'
+import { useAlert } from '../Alert'
 import * as Icons from './icon'
 import useClipboardCopy from '../../lib/use-clipboard-copy'
 

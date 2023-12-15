@@ -6,19 +6,14 @@ import type {
   OptionalChildren,
   RequiredChildren,
 } from '../../interfaces/children'
-import type { AppConfig } from '../../contexts/app-context'
 import classes from './layout.module.scss'
 import useMediaQuery from '../../lib/use-media-query'
 import scrollToTop from '../../lib/scroll-to-top'
 import { Button } from '../Button'
 import { Dialog, useDialog } from '../Dialog'
 import { Icon } from '../Icon'
-import AppContext, { defaultAppConfig } from '../../contexts/app-context'
+import AppContext from '../../contexts/app-context'
 
-export type HtmlProps = {
-  config?: AppConfig
-} & React.ComponentPropsWithoutRef<'html'> &
-  RequiredChildren
 export type BodyProps = React.ComponentPropsWithoutRef<'body'> &
   RequiredChildren
 export type PageProps = {
@@ -50,23 +45,6 @@ export type NavMap = {
   _hr?: string
 } & {
   [key: string]: LinkList | React.ReactElement | string
-}
-
-export function Html({
-  children,
-  config = {},
-  lang = 'en',
-  ...props
-}: HtmlProps): JSX.Element {
-  const configComplete = { ...defaultAppConfig, ...config }
-
-  return (
-    <html lang={lang} {...props}>
-      <AppContext.Provider value={configComplete}>
-        {children}
-      </AppContext.Provider>
-    </html>
-  )
 }
 
 export function Body({ children, ...props }: BodyProps): JSX.Element {
@@ -151,10 +129,6 @@ export function Page({
 }
 
 export function Nav({ children }: RequiredChildren): JSX.Element {
-  // const { pathname } = useRouter()
-  // const pathnameRoot = pathname.split('/', 2).join('/')
-  // const isCurrentPage = (link: string) => link === pathnameRoot
-
   const isScreenMobile = useMediaQuery('(max-width: 680px)')
 
   const navContent = (

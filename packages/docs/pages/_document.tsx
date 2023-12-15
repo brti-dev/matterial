@@ -2,7 +2,7 @@
  * Rewrites Next document tree. The only reason to do this is to inject `lang` prop into <html> tag..
  */
 import Document, { Head, Main, NextScript } from 'next/document'
-import { Html, Body, Layout } from 'matterial'
+import { Html, Body, Page } from 'matterial'
 
 class MyDocument extends Document {
   render() {
@@ -10,9 +10,9 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head />
         <Body>
-          <Layout>
+          <Page>
             <Main />
-          </Layout>
+          </Page>
           <NextScript />
         </Body>
       </Html>

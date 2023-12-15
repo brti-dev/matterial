@@ -49,6 +49,9 @@
 
   --bouncy: cubic-bezier(1, -1, 0, 2);
 
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  color: var(--color-font);
   line-height: 100%;
   color-scheme: light dark;
 
@@ -95,9 +98,6 @@
 
 body {
   background-color: var(--color-background);
-  color: var(--color-font);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight);
 }
 
 // Theme

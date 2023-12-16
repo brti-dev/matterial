@@ -36,13 +36,13 @@
     "react-dom": "^18.1.0"
   },
   "dependencies": {
-    "@reach/alert": "^0.17.0",
+    "@reach/alert": "^0.18.0",
     "@reach/dialog": "^0.18.0",
     "@reach/menu-button": "^0.18.0",
-    "@reach/skip-nav": "^0.17.0",
-    "@reach/tooltip": "^0.17.0",
-    "@reach/visually-hidden": "^0.17.0",
-    "react-icons": "^4.3.1",
+    "@reach/skip-nav": "^0.18.0",
+    "@reach/tooltip": "^0.18.0",
+    "@reach/visually-hidden": "^0.18.0",
+    "react-icons": "^4.12.0",
     "sass": "^1.51.0"
   },
   "devDependencies": {

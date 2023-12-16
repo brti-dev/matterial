@@ -1,5 +1,5 @@
 import * as React from 'react'
-import ReachAlert from '@reach/alert'
+import { Alert as ReachAlert } from '@reach/alert'
 import { Icon } from '../Icon'
 
 import { Severity, Variant } from '../../interfaces/theme'

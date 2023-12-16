@@ -13,9 +13,54 @@ function App() {
 }
 ```
 
+## Configuration
+
+Global wrappers for `Link` can be defined in the root layout component. Here's an example to wrap all `<Link>` components with [Next.js `<Link>`](https://nextjs.org/docs/pages/api-reference/components/link) (and therefore utilize all its features):
+
+```jsx
+// app/layout.tsx
+
+import { Html, Body } from 'matterial'
+import Link from 'next/link'
+
+const config = {
+  linkComponent: Link,
+}
+
+export default function Layout({ children }) {
+  return (
+    <Html config={config}>
+      <Body>{children}</Body>
+    </Html>
+  )
+}
+```
+
+Thereafter, Next.js Link props can be safely used, as well as the below Matterial Link props.
+
+```jsx
+// app/my-page/page.tsx
+
+import { Link } from 'matterial'
+
+export default function Page() {
+  return (
+    <Link
+      href="/dashboard"
+      replace // Next.js prop
+      unstyled // Matterial prop
+    >
+      Dashboard
+    </Link>
+  )
+}
+```
+
 ## Link Props
 
 ### Color
+
+`color = string`
 
 <Container>
   <Link href="#" color="primary">Primary (thematic)</Link>
@@ -43,19 +88,4 @@ Create a button-like link with the `to` prop on a `<Button>` component.
 ```jsx
 <Button to="#" color="primary">Home</Button>
 <Button to="#" variant="contained" color="primary">Home</Button>
-```
-
-## NextLink
-
-Wrap `Link` components in a component imported from `next/link`. **Pass the `passHref` prop to the wrapper to <a href="https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag">ensure the link component renders a `href` tag</a>.**
-
-```jsx
-import NextLink from 'next/link'
-import { Link } from 'matterial'
-
-const App = () => (
-  <NextLink href="/" passHref>
-    <Link color="secondary">Home</Link>
-  </NextLink>
-)
 ```

@@ -15,6 +15,7 @@ export type LayoutProps = {
   fullWidth?: boolean
 } & RequiredChildren
 
+/** @deprecated Use Matterial's `Layout` components */
 export function Layout({ children, fullWidth = false }: LayoutProps) {
   return (
     <div className={classes.container}>
@@ -27,6 +28,7 @@ export function Layout({ children, fullWidth = false }: LayoutProps) {
   )
 }
 
+/** @deprecated Use Matterial's `Layout` components */
 export function Header({
   children,
   title,
@@ -51,10 +53,12 @@ export function Header({
   )
 }
 
+/** @deprecated Use Matterial's `Layout` components */
 export function Heading({ children = TITLE }: OptionalChildren) {
   return <h1 className={classes.heading}>{children}</h1>
 }
 
+/** @deprecated Use Matterial's `Layout` components */
 export function Navigation({ components }: { components: string[] }) {
   const { pathname } = useRouter()
   const pathnameRoot = pathname.split('/', 2).join('/')
@@ -103,6 +107,7 @@ export function Navigation({ components }: { components: string[] }) {
   return navContent
 }
 
+/** @deprecated Use Matterial's `Layout` components */
 function DialogNav({ children }: RequiredChildren) {
   const { active, open, close } = useDialog(false)
 
@@ -128,10 +133,12 @@ function DialogNav({ children }: RequiredChildren) {
   )
 }
 
+/** @deprecated Use Matterial's `Layout` components */
 export function Main({ children }: RequiredChildren) {
   return <main className={classes.main}>{children}</main>
 }
 
+/** @deprecated Use Matterial's `Layout` components */
 export function Footer({ children }: OptionalChildren) {
   return (
     <footer className={classes.footer}>

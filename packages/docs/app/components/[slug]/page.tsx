@@ -4,7 +4,6 @@ import { AiFillGithub as GithubIcon } from 'react-icons/ai'
 import { capitalize, toPascalCase } from 'utils/string'
 import { getDocSource, getDocsFiles, compileMdx } from 'utils/mdx'
 import { Mdx } from 'components/Mdx'
-import navMap from 'lib/nav-map'
 import generatePageData from 'utils/generate-page-data'
 
 type Props = {
@@ -41,7 +40,7 @@ export default async function ComponentPage({ params: { slug } }: Props) {
   const { compiledSource: mdxSource, frontmatter } = await compileMdx(source)
 
   return (
-    <Page nav={navMap}>
+    <Page>
       <Article
         title={frontmatter.name || capitalize(slug)}
         description={frontmatter.description}

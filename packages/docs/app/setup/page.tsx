@@ -1,5 +1,4 @@
 import { Page, Article, Footer } from '../../../matterial/src'
-import navMap from 'lib/nav-map'
 import generatePageData from 'utils/generate-page-data'
 import { compileMdx } from 'utils/mdx'
 import { Mdx } from 'components/Mdx'
@@ -66,7 +65,7 @@ export default async function SetupPage() {
   const { compiledSource } = await compileMdx(source)
 
   return (
-    <Page nav={navMap}>
+    <Page>
       <Article title="Setup">
         <Mdx source={compiledSource} />
       </Article>

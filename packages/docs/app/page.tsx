@@ -3,7 +3,7 @@ import Heading from 'components/Heading'
 
 export default function Home() {
   return (
-    <Page fullWidth>
+    <Page fullWidth noNav>
       <Heading />
       <p>
         A minimalist design system by{' '}

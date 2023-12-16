@@ -1,4 +1,5 @@
 import { createContext } from 'react'
+import type { NavElement } from '../components/Layout'
 
 type RequiredLinkProps = {
   href: any // Could be something like a UrlObject
@@ -20,18 +21,22 @@ export type AppConfig = {
   /** Title of your app */
   appTitle?: string
 
-  /* Inject a custom link component */
+  /** Inject a custom link component */
   linkComponent?:
     | string
     | ((props: LinkProps) => JSX.Element)
     | React.ComponentType<LinkProps>
     | React.ForwardRefExoticComponent<LinkProps>
+
+  /** Global navigation element for all pages */
+  navElement?: NavElement | null
 }
 type DefinedAppConfig = Required<AppConfig>
 
 export const defaultAppConfig: DefinedAppConfig = {
   appTitle: 'Matterial App',
   linkComponent: 'a',
+  navElement: null,
 }
 
 const AppContext = createContext<DefinedAppConfig>(defaultAppConfig)

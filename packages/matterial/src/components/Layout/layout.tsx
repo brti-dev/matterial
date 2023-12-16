@@ -16,6 +16,7 @@ import AppContext from '../../contexts/app-context'
 
 export type BodyProps = React.ComponentPropsWithoutRef<'body'> &
   RequiredChildren
+export type NavElement = React.ReactElement<typeof Nav> | NavMap
 export type PageProps = {
   /**
    * Stretch the width of the layout to the full width of the viewport, otherwise a max-width will be imposed
@@ -25,7 +26,12 @@ export type PageProps = {
   /**
    * Include the given component as a navigation panel
    */
-  nav?: React.ReactElement<typeof Nav> | NavMap
+  nav?: NavElement
+
+  /**
+   * Don't display nav, including nav defined in Html config
+   */
+  noNav?: boolean
 } & React.ComponentPropsWithoutRef<'div'> &
   RequiredChildren
 type CustomLink = {
@@ -61,59 +67,73 @@ function H5({ children }: RequiredChildren): JSX.Element {
   return <h5>{children}</h5>
 }
 
+export function PageNav({ nav: navProp }: Pick<PageProps, 'nav'>): JSX.Element {
+  const {
+    appTitle,
+    linkComponent: LinkComponent,
+    navElement,
+  } = useContext(AppContext)
+
+  const nav = navProp || navElement // Prop takes precedence over config
+
+  if (!nav) {
+    return <></>
+  }
+
+  // It's a <Nav /> component
+  if (isValidElement(nav)) {
+    return nav
+  }
+
+  // It's a nav map
+  const { _title, _heading, ...navMap } = nav
+
+  return (
+    <Nav>
+      {_heading || (appTitle && <h1>{appTitle}</h1>)}
+      {Object.entries(navMap).map(([menuKey, items]) => (
+        <div key={menuKey}>
+          <H5>{menuKey}</H5>
+          {Array.isArray(items) && (
+            <ul>
+              {items.map((item, index) => {
+                // React element
+                if (isValidElement(item)) {
+                  return <li key={index}>{item}</li>
+                }
+
+                // Link object
+                const { href, title, ...linkItemProps } = item as LinkProps
+
+                return (
+                  <li key={index}>
+                    <LinkComponent href={href} {...linkItemProps}>
+                      {title}
+                    </LinkComponent>
+                  </li>
+                )
+              })}
+            </ul>
+          )}
+        </div>
+      ))}
+    </Nav>
+  )
+}
+
 export function Page({
   children,
   className,
   fullWidth,
   nav,
+  noNav,
   ...props
 }: PageProps): JSX.Element {
-  const { appTitle, linkComponent: LinkComponent } = useContext(AppContext)
   const classNames = [className, classes.layout]
-  if (fullWidth) classNames.push(classes.fullWidth)
-
-  const PageNav = (): JSX.Element => {
-    if (!nav) {
-      return <></>
-    }
-    // It's a <Nav /> component
-    if (isValidElement(nav)) {
-      return nav
-    }
-    // It's a nav map
-    const { _title, _heading, ...navMap } = nav
-    return (
-      <Nav>
-        {_heading || (appTitle && <h1>{appTitle}</h1>)}
-        {Object.entries(navMap).map(([menuKey, items]) => (
-          <div key={menuKey}>
-            <H5>{menuKey}</H5>
-            {Array.isArray(items) && (
-              <ul>
-                {items.map((item, index) => {
-                  // React element
-                  if (isValidElement(item)) {
-                    return <li key={index}>{item}</li>
-                  }
-
-                  // Link object
-                  const { href, title, ...linkItemProps } = item as LinkProps
-
-                  return (
-                    <li key={index}>
-                      <LinkComponent href={href} {...linkItemProps}>
-                        {title}
-                      </LinkComponent>
-                    </li>
-                  )
-                })}
-              </ul>
-            )}
-          </div>
-        ))}
-      </Nav>
-    )
+  if (fullWidth) {
+    classNames.push(classes.fullWidth)
   }
+
   const Main = (): JSX.Element => (
     <main className={classes.main}>{children}</main>
   )
@@ -121,7 +141,7 @@ export function Page({
   return (
     <div className={classNames.join(' ')} {...props}>
       <div className={classes.navContainer}>
-        <PageNav />
+        {!noNav && <PageNav nav={nav} />}
         <Main />
       </div>
     </div>
@@ -130,7 +150,6 @@ export function Page({
 
 export function Nav({ children }: RequiredChildren): JSX.Element {
   const isScreenMobile = useMediaQuery('(max-width: 680px)')
-
   const navContent = (
     <nav
       id="navigation__nav"

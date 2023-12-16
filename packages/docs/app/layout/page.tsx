@@ -1,7 +1,6 @@
 import { Page, Article, Footer } from '../../../matterial/src'
 import generatePageData from 'utils/generate-page-data'
 import { compileMdx } from 'utils/mdx'
-import navMap from 'lib/nav-map'
 import { Mdx } from 'components/Mdx'
 
 export const { metadata } = generatePageData({
@@ -148,7 +147,7 @@ export default async function SetupPage() {
   const { compiledSource } = await compileMdx(source)
 
   return (
-    <Page nav={navMap}>
+    <Page>
       <Article title="Page Layout">
         <Mdx source={compiledSource} />
       </Article>

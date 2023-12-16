@@ -3,6 +3,7 @@
 @use './breakpoint' as *;
 @use './extensions' as *;
 @use './theme' as *;
+@use './font-family' as *;
 
 :root {
   --space-small: 1rem;

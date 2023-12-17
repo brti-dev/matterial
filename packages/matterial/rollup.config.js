@@ -28,10 +28,12 @@ const makeExternalPredicate = externalArr => {
   return id => pattern.test(id)
 }
 
+const peerDeps = Object.keys(pkg.peerDependencies || {})
+console.log('peer deps', peerDeps)
 const external = makeExternalPredicate([
   // Handles both dependencies and peer dependencies so we don't have to manually maintain a list
-  ...Object.keys(pkg.dependencies || {}),
-  ...Object.keys(pkg.peerDependencies || {}),
+  // ...Object.keys(pkg.dependencies || {}),
+  ...peerDeps,
 ])
 const globals = { react: 'React' }
 const plugins = [

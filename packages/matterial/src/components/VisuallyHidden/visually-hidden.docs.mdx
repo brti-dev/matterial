@@ -1,0 +1,17 @@
+---
+name: Visually Hidden
+description: Provides anounced text for screen readers that is not visible in other screens.
+---
+
+`<VisuallyHidden>` is the logical opposite of the `aria-hidden` attribute.
+
+In the following example, screen readers will announce "Save" and will ignore the icon; the browser displays the icon and ignores the text.
+
+```jsx
+import { VisuallyHidden, Icon } from 'matterial'
+
+<button>
+  <VisuallyHidden>Save</VisuallyHidden>
+  <Icon icon="Download" aria-hidden />
+</button>
+```

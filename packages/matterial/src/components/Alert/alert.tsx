@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { Alert as ReachAlert } from '@reach/alert'
 import { Icon } from '../Icon'
 
-import { Severity, Variant } from '../../interfaces/theme'
+import { Severity, Variant, Urgency } from '../../interfaces/theme'
 import classnames from '../../lib/classnames'
 import cssColor from '../../lib/css-color'
 import { Button } from '../Button'
@@ -22,7 +21,7 @@ const ICONS = {
 
 type AlertIcon = boolean | React.ReactElement
 
-export type AlertDispatch = {
+type AlertDispatch = {
   /**
    * A button or other call to action
    */
@@ -57,7 +56,7 @@ export type AlertDispatch = {
    * Controls whether the assistive technology should read immediately
    * ("assertive") or wait until the user is idle ("polite"); Default: 'polite'
    */
-  type?: 'polite' | 'assertive'
+  urgency?: Urgency
 
   /**
    * Style variants
@@ -65,7 +64,7 @@ export type AlertDispatch = {
   variant?: Variant
 }
 
-export type AlertProps = Partial<AlertDispatch> & {
+type AlertProps = Partial<AlertDispatch> & {
   children?: React.ReactNode
   className?: string
   style?: React.CSSProperties
@@ -84,65 +83,66 @@ function shrink(component: string | React.ReactElement) {
   return component
 }
 
-export function Alert({
-  action,
-  children,
-  className,
-  dismiss = false,
-  icon = false,
-  label: naturalLabel = true,
-  message: naturalMessage,
-  severity,
-  style: naturalStyle = {},
-  type,
-  variant = 'outlined',
-}: AlertProps): JSX.Element {
-  const classNames = classnames(
-    classes.alert,
-    `variant--${variant}`,
-    severity && `color--${severity}`,
-    className
-  )
-
-  let [message, setMessage] = React.useState(children || naturalMessage)
-
-  if (dismiss && !action) {
-    action = (
-      <Button
-        variant="outlined"
-        color={severity}
-        onClick={() => setMessage(null)}
-      >
-        Dismiss
-      </Button>
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
+  (props, forwardedRef): JSX.Element => {
+    const {
+      action: naturalAction,
+      children,
+      className,
+      dismiss = false,
+      icon = false,
+      label: naturalLabel = true,
+      message: naturalMessage,
+      severity,
+      style: naturalStyle = {},
+      urgency,
+      variant = 'outlined',
+    } = props
+    const classNames = classnames(
+      classes.alert,
+      `variant--${variant}`,
+      severity && `color--${severity}`,
+      className
     )
-  }
 
-  if (!message) {
-    return <></>
-  }
+    let [message, setMessage] = React.useState(children || naturalMessage)
 
-  let label: any
-  if (naturalLabel === true && severity) {
-    // @ts-ignore
-    label = severity in LABELS ? LABELS[severity] : null
-  } else if (typeof naturalLabel === 'string') {
-    label = naturalLabel
-  }
+    let action = naturalAction
+    if (dismiss && !action) {
+      action = (
+        <Button
+          variant="outlined"
+          color={severity}
+          onClick={() => setMessage(null)}
+        >
+          Dismiss
+        </Button>
+      )
+    }
 
-  const color = severity || 'default'
-  const style = { ...naturalStyle, '--color': cssColor(color) }
+    if (!message) {
+      return <></>
+    }
 
-  return (
-    <ReachAlert
-      type={type}
-      className={classNames}
-      role="alert"
-      // aria-label={label || severity || 'alert'}
-      data-severity={severity}
-      style={style}
-    >
-      <>
+    let label: any
+    if (naturalLabel === true && severity) {
+      // @ts-ignore
+      label = severity in LABELS ? LABELS[severity] : null
+    } else if (typeof naturalLabel === 'string') {
+      label = naturalLabel
+    }
+
+    const color = severity || 'default'
+    const style = { ...naturalStyle, '--color': cssColor(color) }
+
+    return (
+      <div
+        role={urgency === 'assertive' ? 'alert' : 'status'}
+        data-severity={severity}
+        className={classNames}
+        style={style}
+        ref={forwardedRef}
+      >
         {icon && <AlertIcon icon={icon} severity={severity} />}
         <div className={classes.content}>
           <div className={classes.message}>
@@ -151,10 +151,10 @@ export function Alert({
           </div>
           {action && <div className={classes.action}>{shrink(action)}</div>}
         </div>
-      </>
-    </ReachAlert>
-  )
-}
+      </div>
+    )
+  }
+)
 
 function AlertIcon({
   icon,
@@ -182,3 +182,6 @@ function AlertIcon({
     </div>
   )
 }
+
+export { Alert }
+export type { AlertDispatch, AlertProps }

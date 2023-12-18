@@ -28,3 +28,5 @@ export type OpenColor = Color | string
 export type Severity = 'error' | 'warning' | 'info' | 'success'
 
 export type Variant = 'default' | 'contained' | 'outlined'
+
+export type Urgency = 'polite' | 'assertive'

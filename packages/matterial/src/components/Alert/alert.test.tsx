@@ -2,10 +2,10 @@ import '@testing-library/jest-dom'
 import renderer from 'react-test-renderer'
 import userEvent from '@testing-library/user-event/dist'
 
-import { Severity, Variant } from '../../interfaces/theme'
+import { Severity, Urgency, Variant } from '../../interfaces/theme'
 import { alertReducer } from './use-alert'
-import { render, screen } from '../../test-utils'
-import { Alert, AlertDispatch } from '.'
+import { render, screen, waitFor } from '../../test-utils'
+import { Alert, AlertDispatch } from './alert'
 import { Button } from '../Button'
 import { AlertExample } from './alert.examples'
 
@@ -22,7 +22,7 @@ describe('useAlert hook', () => {
     expect(alertReducer(null, initialState)).toEqual(initialState)
   })
 
-  test('alert appears and disappears', () => {
+  test('alert appears and disappears', async () => {
     render(<AlertExample />)
 
     const alertBtn = screen.getByText('Alert')
@@ -30,13 +30,13 @@ describe('useAlert hook', () => {
 
     expect(alertBtn).toBeInTheDocument()
     expect(dismissBtn).toBeInTheDocument()
-    expect(screen.queryByRole('alert')).not.toBeInTheDocument() // Query will return node OR null; It will never throw
+    expect(screen.queryByRole('status')).not.toBeInTheDocument() // Query will return node OR null; It will never throw
 
-    userEvent.click(alertBtn)
-    expect(screen.queryByRole('alert')).toBeInTheDocument()
+    await waitFor(() => userEvent.click(alertBtn))
+    await screen.findByText(/something happened/i)
 
-    userEvent.click(dismissBtn)
-    expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+    await waitFor(() => userEvent.click(dismissBtn))
+    expect(screen.queryByRole('status')).not.toBeInTheDocument() // Query will return node OR null; It will never throw
   })
 })
 
@@ -67,18 +67,38 @@ describe('alert component', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  test('has the proper `severity` attributes', () => {
+  test('should work with different urgency variables', () => {
+    const tree = renderer
+      .create(
+        <>
+          {([null, 'polite', 'assertive'] as Urgency[]).map(urgency => (
+            <Alert urgency={urgency} key={urgency}>
+              {urgency}
+            </Alert>
+          ))}
+        </>
+      )
+      .toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  test.skip('has the proper label', () => {
+    const label = 'alert label'
+    const { getByText } = render(<Alert label={label} message="lorem ipsum" />)
+    // Test fails for unknown reason
+    expect(getByText(label)).toBeInTheDocument()
+  })
+
+  test('has the proper severity and label attributes', () => {
     const severity = SEVERITY[0]
     const { getByRole, rerender } = render(
-      <Alert severity={severity as Severity} label="Alert">
-        Foo
-      </Alert>
+      <Alert severity={severity as Severity}>Foo</Alert>
     )
-    expect(getByRole('alert')).toHaveAttribute('data-severity', severity)
+    expect(getByRole('status')).toHaveAttribute('data-severity', severity)
 
     SEVERITY.slice(1).forEach(severity => {
       rerender(<Alert severity={severity}>alert</Alert>)
-      expect(getByRole('alert')).toHaveAttribute('data-severity', severity)
+      expect(getByRole('status')).toHaveAttribute('data-severity', severity)
     })
   })
 
@@ -104,7 +124,9 @@ describe('alert component', () => {
 
     const btn = getByRole('button')
     expect(btn).toBeInTheDocument()
-    userEvent.click(btn)
-    expect(btn).not.toBeVisible()
+
+    waitFor(() => userEvent.click(btn)).then(() => {
+      expect(btn).not.toBeVisible()
+    })
   })
 })

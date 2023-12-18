@@ -3,9 +3,8 @@
 exports[`alert component should render correctly 1`] = `
 <div
   className="alert variant--outlined color--error"
-  data-reach-alert={true}
   data-severity="error"
-  role="alert"
+  role="status"
   style={
     Object {
       "--color": "var(--color-error)",
@@ -39,12 +38,54 @@ exports[`alert component should render correctly 1`] = `
 </div>
 `;
 
+exports[`alert component should work with different urgency variables 1`] = `
+Array [
+  <div
+    className="alert variant--outlined"
+    role="status"
+    style={
+      Object {
+        "--color": "var(--color-default)",
+      }
+    }
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="message"
+      >
+        polite
+      </div>
+    </div>
+  </div>,
+  <div
+    className="alert variant--outlined"
+    role="alert"
+    style={
+      Object {
+        "--color": "var(--color-default)",
+      }
+    }
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="message"
+      >
+        assertive
+      </div>
+    </div>
+  </div>,
+]
+`;
+
 exports[`alert component should work with different variants 1`] = `
 Array [
   <div
     className="alert variant--default"
-    data-reach-alert={true}
-    role="alert"
+    role="status"
     style={
       Object {
         "--color": "var(--color-default)",
@@ -63,8 +104,7 @@ Array [
   </div>,
   <div
     className="alert variant--outlined"
-    data-reach-alert={true}
-    role="alert"
+    role="status"
     style={
       Object {
         "--color": "var(--color-default)",
@@ -83,8 +123,7 @@ Array [
   </div>,
   <div
     className="alert variant--contained"
-    data-reach-alert={true}
-    role="alert"
+    role="status"
     style={
       Object {
         "--color": "var(--color-default)",

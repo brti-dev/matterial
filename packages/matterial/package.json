@@ -38,7 +38,6 @@
   "dependencies": {
     "@reach/dialog": "^0.18.0",
     "@reach/menu-button": "^0.18.0",
-    "@reach/skip-nav": "^0.18.0",
     "@reach/tooltip": "^0.18.0",
     "react-icons": "^4.12.0",
     "sass": "^1.51.0"

@@ -1,0 +1,32 @@
+---
+name: Skip Navigation
+description: Allows users with screen readers to skip long navigation
+---
+
+Skip navigation link for screen reader and keyboard users. Because the main content is not usually the first thing in the document, it's valuable to provide a shortcut for keyboard and screen reader users to skip to the content.
+
+<Alert
+  icon
+  message="This feature is automatically applied in Matterial's `<Page>` Layout component."
+/>
+
+For a demo, click some empty space on this page to move focus to the document body, then hit the "tab" key You'll see the link pop up. Hit enter, then tab again. Rather than cycling through the navigation, you are tabbing through the main content of the page.
+
+## Use
+
+```jsx
+import { SkipNavContent, SkipNavLink } from 'matterial'
+
+function App() {
+  return (
+    <html>
+      <body>
+        <SkipNavLink />
+        <YourNav />
+        <SkipNavContent />
+        <YourMainContent />
+      </body>
+    </html>
+  )
+}
+```

@@ -12,6 +12,7 @@ import scrollToTop from '../../lib/scroll-to-top'
 import { Button } from '../Button'
 import { Dialog, useDialog } from '../Dialog'
 import { Icon } from '../Icon'
+import { SkipNavContent, SkipNavLink } from '../SkipNav'
 import AppContext from '../../contexts/app-context'
 
 export type BodyProps = React.ComponentPropsWithoutRef<'body'> &
@@ -135,11 +136,14 @@ export function Page({
   }
 
   const Main = (): JSX.Element => (
-    <main className={classes.main}>{children}</main>
+    <SkipNavContent>
+      <main className={classes.main}>{children}</main>
+    </SkipNavContent>
   )
 
   return (
     <div className={classNames.join(' ')} {...props}>
+      <SkipNavLink />
       <div className={classes.navContainer}>
         {!noNav && <PageNav nav={nav} />}
         <Main />

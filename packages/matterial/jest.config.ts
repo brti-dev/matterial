@@ -1,5 +1,6 @@
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
-module.exports = {
+import type { Config } from 'jest'
+
+const config: Config = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -164,7 +165,16 @@ module.exports = {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  // transform: {
+  //   // '^.+\\.[tj]sx?$' to process js/ts with `ts-jest`
+  //   // '^.+\\.m?[tj]sx?$' to process js/ts/mjs/mts with `ts-jest`
+  //   '^.+\\.tsx?$': [
+  //     'ts-jest',
+  //     {
+  //       // ts-jest configuration goes here
+  //     },
+  //   ],
+  // },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
@@ -184,3 +194,5 @@ module.exports = {
   // Whether to use watchman for file crawling
   // watchman: true,
 }
+
+export default config

@@ -9,8 +9,7 @@ export function DialogExample() {
       <Button variant="contained" color="primary" onClick={open}>
         Open Dialog
       </Button>
-      <Dialog active={active} closable onDismiss={close} labelledBy="foo">
-        <h5 id="foo">Foo</h5>
+      <Dialog active={active} closable onDismiss={close} title="Lorem Ipsum">
         <p>
           Culpa nostrud sint elit duis ad aute aliqua non cupidatat eiusmod
           consequat adipisicing.

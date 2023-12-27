@@ -1,22 +1,16 @@
-import {
-  Dialog as ReachDialog,
-  DialogProps as ReachDialogProps,
-} from './reach-dialog'
-
-import { AriaLabel, AriaLabelledBy } from '../../interfaces/other'
+import type { RequiredChildren } from '../../interfaces/children'
+import type { AriaLabel, AriaLabelledBy } from '../../interfaces/other'
+import classnames from '../../lib/classnames'
 import useMediaQuery from '../../lib/use-media-query'
 import { CloseButton } from './close-button'
+import { DialogWrapper } from './dialog-wrapper'
+import classes from './dialog.module.scss'
 
-type DialogProps_base = Omit<ReachDialogProps, 'isOpen'> & {
+type DialogProps_base = React.ComponentPropsWithoutRef<'div'> & {
   /**
    * Indicates if the dialog is open/shown
    */
   active?: boolean
-
-  /**
-   * This seems to want to be explicitly typed
-   */
-  className?: string
 
   /**
    * If true, add a CloseButton with onDismiss callback when clicked
@@ -31,14 +25,14 @@ type DialogProps_base = Omit<ReachDialogProps, 'isOpen'> & {
 
   /**
    * Description of contextual information for the interactive controls inside
-   * the dialog; Required if `labelledBy` is not specified
+   * the dialog; Required if neither of `title` or `labelledBy` is specified
    */
   label?: string
 
   /**
    * Element ID within the dialog that describes contextual information for the
-   * interactive controls inside the dialog; Required if `label` is not
-   * specified
+   * interactive controls inside the dialog; Required if neither of `label` or
+   * `title` is specified
    */
   labelledBy?: string
 
@@ -48,43 +42,49 @@ type DialogProps_base = Omit<ReachDialogProps, 'isOpen'> & {
    * closing
    */
   onDismiss: () => void
-}
 
-export type DialogProps = DialogProps_base & (AriaLabelledBy | AriaLabel)
+  /**
+   * Add a heading, also used as label
+   */
+  title?: string
+} & RequiredChildren
 
-export function Dialog({
+type DialogLabel =
+  | { title: Required<DialogProps_base['title']> }
+  | AriaLabel
+  | AriaLabelledBy
+
+type DialogProps = DialogProps_base & DialogLabel
+
+function Dialog({
   active = false,
   children,
+  className,
   closable = false,
   fullscreen = 'auto',
-  label,
-  labelledBy,
   ...rest
 }: DialogProps) {
   const isScreenMobile = useMediaQuery('(max-width: 640px)')
 
   let isFullscreen: boolean
-  if (!fullscreen) {
-    isFullscreen = false
+  if (isScreenMobile || fullscreen === true) {
+    isFullscreen = true
   } else {
-    if (fullscreen === true) {
-      isFullscreen = true
-    } else {
-      isFullscreen = isScreenMobile
-    }
+    isFullscreen = false
   }
 
   return (
-    // @ts-ignore
-    <ReachDialog
-      isOpen={active}
-      data-fullscreen={isFullscreen || undefined}
-      aria-label={label || undefined}
-      aria-labelledby={labelledBy || undefined}
+    <DialogWrapper
+      active={active}
+      className={classnames(className, 'surface', classes.dialog)}
+      data-fullscreen={isFullscreen}
       {...rest}
     >
       {closable && <CloseButton onClick={rest.onDismiss} />}
       {children}
-    </ReachDialog>
+    </DialogWrapper>
   )
 }
+
+export type { DialogProps }
+export { Dialog }

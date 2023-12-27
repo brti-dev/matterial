@@ -1,6 +1,8 @@
+import type { CommonButtonProps } from '../Button'
 import classnames from '../../lib/classnames'
 import { VisuallyHidden } from '../VisuallyHidden'
-import { Button, CommonButtonProps } from '../Button'
+import { Button } from '../Button'
+import classes from './dialog.module.scss'
 
 export function CloseButton({
   className,
@@ -10,7 +12,7 @@ export function CloseButton({
 }: Omit<CommonButtonProps, 'children'> & { onClick: () => void }) {
   return (
     <Button
-      className={classnames('button__close', className)}
+      className={classnames(classes.closeButton, className)}
       shape="circle"
       size={size}
       onClick={onClick}

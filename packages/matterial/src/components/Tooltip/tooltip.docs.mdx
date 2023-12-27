@@ -3,14 +3,49 @@ name: Tooltip
 description: Hints and additional information on hover
 ---
 
-## Example
+## Example: Simple tooltip
+
+Use a simplified tooltip by supplying only (1) a `label` prop and (2) a child component.
 
 <Tooltip label="Save">
-  <Button shape="circle" style={{ fontSize: 25 }}>💾</Button>
+  <Button shape="circle" style={{ fontSize: 25 }}>
+    💾
+  </Button>
 </Tooltip>
 
 ```jsx
-<Tooltip label="Save">
-  <Button shape="circle">💾</Button>
-</Tooltip>
+import { Button, Tooltip } from 'matterial'
+
+function TooltipExample() {
+  return (
+    <Tooltip label="Save">
+      <Button shape="circle">💾</Button>
+    </Tooltip>
+  )
+}
 ```
+
+## Example: Ariakit tooltip
+
+Matterial's tooltip is built on top of [Ariakit Tooltip](https://ariakit.org/components/tooltip), which has robust features that can be leveraged.
+
+<TooltipProvider placement='bottom' timeout={100}>
+  <TooltipAnchor render={<a href="https://ariakit.org/components/tooltip" />}>Tooltip</TooltipAnchor>
+  <Tooltip>https://ariakit.org/components/tooltip</Tooltip>
+</TooltipProvider>
+
+```jsx
+import { TooltipProvider, TooltipAnchor, Tooltip } from 'matterial'
+
+function TooltipExample() {
+  return (
+    <TooltipProvider placement='bottom' timeout={100}>
+      <TooltipAnchor render={<a href="https://ariakit.org/components/tooltip" />}>
+        Tooltip
+      </TooltipAnchor>
+      <Tooltip>
+        https://ariakit.org/components/tooltip
+      </Tooltip>
+    </TooltipProvider>
+  )
+}

@@ -715,25 +715,6 @@
     }
   }
 
-  .tooltip,
-  [data-reach-tooltip] {
-    z-index: 1;
-    pointer-events: none;
-    position: absolute;
-    padding: 0.25em 0.5em;
-    white-space: nowrap;
-    font-size: 0.6rem;
-    color: #{$color-font-dark};
-    background: #{$color-body-dark};
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-
-    @include theme(dark) {
-      color: #{$color-font-light};
-      background: #{$color-body-light};
-    }
-  }
-
   .surface {
     @extend %surface;
   }

@@ -12,6 +12,7 @@ export function IconButton({ tooltip, ...rest }: IconButtonProps) {
   return (
     <>
       {tooltip ? (
+        // @ts-ignore
         <Tooltip label={tooltip}>
           <IconButtonContent aria-label={tooltip} {...rest} />
         </Tooltip>

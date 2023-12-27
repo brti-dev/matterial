@@ -22,8 +22,12 @@
     --color-primary-hover: #{$color-primary-hover-light};
     --color-secondary: #{$color-secondary};
     --color-secondary-hover: #{$color-secondary-hover};
-    --color-surface: #{$color-surface-light}; // Default color, non-thematic
-    --color-surface-hover: #{$color-surface-hover-light};
+    --color-surface-light: #{$color-surface-light};
+    --color-surface-hover-light: #{$color-surface-hover-light};
+    --color-surface-dark: #{$color-surface-dark};
+    --color-surface-hover-dark: #{$color-surface-hover-dark};
+    --color-surface: var(--color-surface-light);
+    --color-surface-hover: var(--color-surface-hover-light);
     --color-comment: #{$color-comment-light};
     --color-error: #{$red};
     --color-warning: #{$yellow};
@@ -67,8 +71,8 @@
       --color-foreground: #{$color-font-dark};
       --color-primary: #{$color-primary-dark};
       --color-primary-hover: #{$color-primary-hover-dark};
-      --color-surface: #{$color-surface-dark};
-      --color-surface-hover: #{$color-surface-hover-dark};
+      --color-surface: var(--color-surface-dark);
+      --color-surface-hover: var(--color-surface-hover-dark);
       --color-comment: #{$color-comment-dark};
       --color-shadow: black;
 
@@ -145,12 +149,12 @@
     }
 
     &.color--light {
-      --color-background: #{$color-surface-light};
+      --color-background: var(--color-surface-light);
       --color-foreground: #{$color-font-light};
     }
 
     &.color--dark {
-      --color-background: #{$color-surface-dark};
+      --color-background: var(--color-surface-dark);
       --color-foreground: #{$color-font-dark};
     }
 
@@ -350,7 +354,7 @@
     border-radius: 6px;
     white-space: pre-wrap;
     @include theme(dark) {
-      background-color: $color-surface-dark;
+      background-color: var(--color-surface-dark);
     }
   }
 
@@ -404,12 +408,6 @@
   .button {
     --input-padding: calc(0.95rem - var(--border-width, 0px));
     --color-background: transparent;
-
-    // On dialog, close button has focus on open
-    // Problem: need to indicate focus without distraction
-    // &.button__close {
-    //   --color-comment: rgba(0, 0, 0, 0.05);
-    // }
   }
 
   input,
@@ -611,34 +609,6 @@
     animation: load 1.1s infinite linear;
   }
 
-  .modal,
-  [data-reach-dialog-content] {
-    @extend %surface;
-    width: 50vw;
-    height: auto;
-    margin: 10vh auto;
-    transition: all 0.3s ease;
-    outline: none;
-
-    &[data-fullscreen] {
-      width: 100%;
-      height: 100vh;
-      margin: 0;
-      box-sizing: border-box;
-    }
-
-    .button__close {
-      position: fixed;
-      top: 0.5rem;
-      right: 0.5rem;
-      transition: transform 0.3s var(--bouncy);
-
-      &:hover {
-        transform: scale(1.2);
-      }
-    }
-  }
-
   .overlay,
   [data-reach-dialog-overlay] {
     position: fixed;
@@ -648,7 +618,7 @@
     height: 100vh;
     overflow: auto;
     background: hsla(0, 0%, 100%, 0.97);
-    @extend .fade-in;
+    animation: fade-in 0.3s ease;
 
     @include theme(dark) {
       background: hsla(0, 0%, 0%, 0.91);

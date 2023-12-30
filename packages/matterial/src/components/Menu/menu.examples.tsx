@@ -1,19 +1,21 @@
 import * as React from 'react'
-import { Menu, MenuList, MenuButton, MenuItem } from './menu'
+import { MenuProvider, Menu, MenuButton, MenuItem } from './menu'
 
 export function MenuExample() {
   const [selected, setSelected] = React.useState<null | string>(null)
 
   return (
-    <Menu>
+    <MenuProvider>
       <MenuButton variant="contained">Open Menu</MenuButton>{' '}
       <span>
         Selected option: <b>{selected ?? 'none'}</b>
       </span>
-      <MenuList>
-        <MenuItem onSelect={() => setSelected('Foo')}>Foo</MenuItem>
-        <MenuItem onSelect={() => setSelected('Bar')}>Bar</MenuItem>
-      </MenuList>
-    </Menu>
+      <Menu>
+        <MenuItem onClick={() => setSelected('Foo')}>
+          Foo
+        </MenuItem>
+        <MenuItem onClick={() => setSelected('Bar')}>Bar</MenuItem>
+      </Menu>
+    </MenuProvider>
   )
 }

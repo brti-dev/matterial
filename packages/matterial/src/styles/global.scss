@@ -4,6 +4,7 @@
 @use './extensions' as *;
 @use './theme' as *;
 @use './font-family' as *;
+@use './animation' as *;
 
 @layer normalize, matterial;
 
@@ -654,128 +655,9 @@
     outline: none;
     font-size: 85%;
   }
-  [data-reach-menu-item] {
-    display: block;
-    user-select: none;
-  }
-  /*
- The dom structure of a MenuLink is reach-menu-item > a,
- so to target all items we can use `data-reach-menu-item`
-*/
-  [data-reach-menu-item] {
-    /*
-    These are styled in one rule instead of something like a[data-reach-menu-item]
-    and li[data-reach-menu-item] so that apps don't have to fight specificity and
-    can style both li and a menu items with one rule,
-    ie: `[data-selected] { background: red; }`.
-    Otherwise they'd have to define two styles, one for a and one for li.
-  */
-
-    /* reach-menu-item */
-    cursor: pointer;
-
-    /* a */
-    display: block;
-    color: inherit;
-    font: inherit;
-    text-decoration-line: initial;
-
-    /* both */
-    padding: 0.5em 1em;
-    opacity: 0.8;
-
-    & + * {
-      border-top: 1px solid var(--color-comment);
-    }
-  }
-  /* pseudo pseudo selector */
-  [data-reach-menu-item][data-selected] {
-    outline: none;
-    opacity: 1;
-  }
-  [data-reach-menu-item][aria-disabled] {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  .popover,
-  [data-reach-popover] {
-    margin-top: 1em;
-    padding: 1em;
-    border: 0;
-    border-radius: 3px;
-    background-color: var(--color-surface);
-    box-shadow: var(--shadow) !important;
-    outline: none !important;
-
-    .current-nav,
-    [data-current-nav] {
-      background-color: $color-comment-light;
-      color: var(--color-foreground);
-    }
-  }
 
   .surface {
     @extend %surface;
-  }
-
-  // Animations
-
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  .fade-in {
-    animation: fade-in 0.5s ease;
-  }
-
-  @keyframes load {
-    0% {
-      -webkit-transform: rotate(0deg);
-      transform: rotate(0deg);
-    }
-    100% {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes wave {
-    0% {
-      transform: translateX(-100%);
-    }
-    60% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
-
-  @keyframes open {
-    0% {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  @keyframes close {
-    0% {
-      opacity: 1;
-      transform: none;
-    }
-    to {
-      opacity: 0;
-      transform: translateY(10px);
-    }
   }
 
   // Other

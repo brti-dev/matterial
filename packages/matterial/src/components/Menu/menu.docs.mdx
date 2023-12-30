@@ -3,30 +3,30 @@ name: Menu
 description: A dropdown menu with a list of choices
 ---
 
-Besides the `MenuButton` component which extends <Link href="/components/button">Button</Link>, all other component operations are identical to <a href="https://reach.tech/menu-button/#menuitems">Reach UI</a> specification.
+Besides the `MenuButton` component which extends <Link href="/components/button">Button</Link>, all other component operations are identical to [Ariakit Menu](https://ariakit.org/components/menu) specification.
 
 ## Example
 
 <MenuExample />
 
 ```jsx
-import { Menu, MenuList, MenuButton, MenuItem } from 'matterial'
+import { MenuProvider, Menu, MenuButton, MenuItem } from 'matterial'
 import { useState } from 'react'
 
 export default function MenuExample() {
   const [selected, setSelected] = useState(null)
 
   return (
-    <Menu>
+    <MenuProvider>
       <MenuButton variant="contained">Open Menu</MenuButton>{' '}
       <span>
         Selected option: <b>{selected ?? 'none'}</b>
       </span>
-      <MenuList>
+      <Menu>
         <MenuItem onSelect={() => setSelected('Foo')}>Foo</MenuItem>
         <MenuItem onSelect={() => setSelected('Bar')}>Bar</MenuItem>
-      </MenuList>
-    </Menu>
+      </Menu>
+    </MenuProvider>
   )
 }
 ```

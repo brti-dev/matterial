@@ -1,0 +1,60 @@
+@use '../../styles/animation' as *;
+
+.separator {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  height: 0px;
+  width: 100%;
+  border-top-width: 1px;
+  border-color: hsl(204 20% 88%);
+}
+
+.menu {
+  margin-top: 0.5em;
+  border: 0;
+  border-radius: 3px;
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow);
+  outline: none !important;
+  position: relative;
+  z-index: 50;
+  display: flex;
+  max-height: var(--popover-available-height);
+  min-width: 180px;
+  flex-direction: column;
+  overflow: auto;
+  overscroll-behavior: contain;
+  animation: open 0.1s ease forwards;
+}
+
+.item {
+  display: block;
+  user-select: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.5em 1em;
+  opacity: 0.8;
+  scroll-margin: 0.5rem;
+  outline: none !important;
+
+  & + * {
+    border-top: 1px solid var(--color-comment);
+  }
+
+  &[aria-disabled='true'] {
+    opacity: 0.25;
+    cursor: not-allowed;
+  }
+
+  // hover/focus
+  &[data-active-item] {
+    opacity: 1;
+    background-color: var(--color-surface-hover);
+  }
+
+  // clicked
+  &:active,
+  &[data-active] {
+    color: var(--color-secondary);
+  }
+}

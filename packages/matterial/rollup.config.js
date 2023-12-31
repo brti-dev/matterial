@@ -46,9 +46,9 @@ const plugins = [
   copy({
     targets: [{ src: 'src/styles/**/*', dest: 'dist/styles' }],
   }),
-  terser({
-    compress: { directives: false },
-  }),
+  // terser({
+  //   compress: { directives: false },
+  // }),
 ]
 const onwarn = (warning, warn) => {
   if (

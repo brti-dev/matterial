@@ -1,7 +1,10 @@
+'use client'
+
 import * as React from 'react'
 import { Icon } from '../Icon'
 
 import { Severity, Variant, Urgency } from '../../interfaces/theme'
+import { OptionalChildren } from '../../interfaces/children'
 import classnames from '../../lib/classnames'
 import cssColor from '../../lib/css-color'
 import { Button } from '../Button'
@@ -65,10 +68,9 @@ type AlertDispatch = {
 }
 
 type AlertProps = Partial<AlertDispatch> & {
-  children?: React.ReactNode
   className?: string
   style?: React.CSSProperties
-}
+} & OptionalChildren
 
 /**
  * Regenerate a React element with the prop `size` small

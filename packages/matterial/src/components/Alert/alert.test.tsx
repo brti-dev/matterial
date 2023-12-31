@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import renderer from 'react-test-renderer'
-import userEvent from '@testing-library/user-event/dist'
+import userEvent from '@testing-library/user-event'
 
 import { Severity, Urgency, Variant } from '../../interfaces/theme'
 import { alertReducer } from './use-alert'

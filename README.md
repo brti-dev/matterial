@@ -72,7 +72,7 @@ Apache 2.0.
 
 ## Built With
 
-- [Reach UI](https://reach.tech)
+- [Ariakit](https://ariakit.org/)
 - React 18
 - Typescript
 - Sass

@@ -3,9 +3,7 @@ import { OverloadedElementProps } from '../../interfaces/OverloadedElement'
 import { OptionalChildren } from '../../interfaces/children'
 import classes from './skip-nav.module.scss'
 
-// The user may want to provide their own ID (maybe there are multiple nav
-// menus on a page a use might want to skip at various points in tabbing?).
-let DEFAULT_ID = 'reach-skip-nav'
+let DEFAULT_ID = 'skip-nav-to-content'
 
 type SkipNavLinkProps = {
   /**

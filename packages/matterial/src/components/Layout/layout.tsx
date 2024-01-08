@@ -7,8 +7,9 @@ import type {
   RequiredChildren,
 } from '../../interfaces/children'
 import classes from './layout.module.scss'
-import useMediaQuery from '../../lib/use-media-query'
+import classnames from '../../lib/classnames'
 import scrollToTop from '../../lib/scroll-to-top'
+import useMediaQuery from '../../lib/use-media-query'
 import { Button } from '../Button'
 import { Dialog, useDialog } from '../Dialog'
 import { Icon } from '../Icon'
@@ -142,9 +143,9 @@ export function Page({
   )
 
   return (
-    <div className={classNames.join(' ')} {...props}>
+    <div className={classnames(...classNames)} {...props}>
       <SkipNavLink />
-      <div className={classes.navContainer}>
+      <div className={classes.layoutInner} data-has-nav={!noNav}>
         {!noNav && <PageNav nav={nav} />}
         <Main />
       </div>

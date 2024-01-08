@@ -15,11 +15,11 @@
   padding-left: var(--layout-spacing, var(--space-small));
 }
 
-.navContainer {
+.layoutInner {
   width: 100%;
   margin-top: var(--layout-spacing, var(--space-small));
 
-  &:has(nav) {
+  &[data-has-nav='true'] {
     --nav-width: 12em;
     --nav-offset: calc(var(--nav-width) + var(--space-small));
     width: auto;

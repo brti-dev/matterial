@@ -24,7 +24,7 @@ import { Html, Body } from 'matterial'
 function Link = ({ href, title }) => <a href={href} class="my-link">{title}</a>
 
 const config = {
-  appTitle = 'My App',
+  appTitle: 'My App',
   // You may wish to use pass framework's \`Link\` component instead (eg, Next.js Link)
   linkComponent: Link,
 }

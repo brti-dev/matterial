@@ -21,7 +21,7 @@ interface IconMap {
   [key: string]: IconType
 }
 
-export interface IconProps extends IconBaseProps, ColoredElement {
+interface IconProps extends IconBaseProps, ColoredElement {
   icon: keyof IconMap
 }
 
@@ -40,7 +40,7 @@ const icons: IconMap = {
   Warning: BiError,
 }
 
-export function Icon({ color, icon, ...rest }: IconProps): JSX.Element {
+function Icon({ color, icon, ...rest }: IconProps): JSX.Element {
   const Component = icons[icon]
   if (!Component) {
     console.error(`Unknown icon "${icon}"`)
@@ -52,3 +52,6 @@ export function Icon({ color, icon, ...rest }: IconProps): JSX.Element {
 
   return <Component style={style} color={cssColor || undefined} {...rest} />
 }
+
+export type { IconProps }
+export { icons, Icon }

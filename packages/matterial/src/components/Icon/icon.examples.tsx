@@ -3,7 +3,7 @@ import { Button } from '../Button'
 import { Container } from '../Container'
 import { Tooltip } from '../Tooltip'
 import { useAlert } from '../Alert'
-import * as Icons from './icon'
+import { Icon, icons } from './icon'
 import useClipboardCopy from '../../lib/use-clipboard-copy'
 
 export function AllIcons() {
@@ -29,11 +29,11 @@ export function AllIcons() {
           <Alert />
         </div>
       )}
-      {Object.keys(Icons).map(icon => (
+      {Object.keys(icons).map(icon => (
         <Tooltip key={icon} label={icon}>
           <Button size="large" shape="circle" onClick={() => copy(icon)}>
             {/* @ts-ignore */}
-            {React.createElement(Icons[icon], { size: 40 })}
+            {React.createElement(Icon, { icon, size: 40 })}
           </Button>
         </Tooltip>
       ))}

@@ -11,6 +11,7 @@ import {
   BiErrorCircle,
   BiMenu,
   BiRightArrowAlt,
+  BiSearch,
 } from 'react-icons/bi'
 import { IconType, IconBaseProps } from 'react-icons'
 
@@ -36,6 +37,7 @@ const icons: IconMap = {
   Info: BiInfoCircle,
   Menu: BiMenu,
   Notification: BiBell,
+  Search: BiSearch,
   Success: BiCheckCircle,
   Warning: BiError,
 }

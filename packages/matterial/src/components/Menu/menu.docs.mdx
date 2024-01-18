@@ -23,8 +23,8 @@ export default function MenuExample() {
         Selected option: <b>{selected ?? 'none'}</b>
       </span>
       <Menu>
-        <MenuItem onSelect={() => setSelected('Foo')}>Foo</MenuItem>
-        <MenuItem onSelect={() => setSelected('Bar')}>Bar</MenuItem>
+        <MenuItem onClick={() => setSelected('Foo')}>Foo</MenuItem>
+        <MenuItem onClick={() => setSelected('Bar')}>Bar</MenuItem>
       </Menu>
     </MenuProvider>
   )

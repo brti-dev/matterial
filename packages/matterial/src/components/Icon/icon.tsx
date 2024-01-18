@@ -28,24 +28,25 @@ interface IconProps extends IconBaseProps, ColoredElement {
 }
 
 const icons: IconMap = {
-  ArrowRight: BiRightArrowAlt,
-  ArrowToTop: BiArrowToTop,
-  Checkbox: BiCheckbox,
-  CheckboxChecked: BiCheckboxChecked,
-  CheckboxMinus: BiCheckboxMinus,
-  CheckboxSquare: BiCheckboxSquare,
-  Error: BiErrorCircle,
-  Info: BiInfoCircle,
-  Menu: BiMenu,
-  Notification: BiBell,
-  Search: BiSearch,
-  Settings: IoSettingsOutline,
-  Success: BiCheckCircle,
-  Warning: BiError,
+  arrowRight: BiRightArrowAlt,
+  arrowToTop: BiArrowToTop,
+  checkbox: BiCheckbox,
+  checkboxChecked: BiCheckboxChecked,
+  checkboxMinus: BiCheckboxMinus,
+  checkboxSquare: BiCheckboxSquare,
+  error: BiErrorCircle,
+  info: BiInfoCircle,
+  menu: BiMenu,
+  notification: BiBell,
+  search: BiSearch,
+  settings: IoSettingsOutline,
+  success: BiCheckCircle,
+  warning: BiError,
 }
 
 function Icon({ color, icon, ...rest }: IconProps): JSX.Element {
-  const Component = icons[icon]
+  const upperCase = String(icon).charAt(0).toLowerCase() + String(icon).slice(1)
+  const Component = icons[icon] || icons[upperCase]
   if (!Component) {
     console.error(`Unknown icon "${icon}"`)
 

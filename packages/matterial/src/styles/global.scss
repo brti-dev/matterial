@@ -10,9 +10,11 @@
 
 @layer matterial {
   :root {
+    --space-x-small: 0.5rem;
     --space-small: 1rem;
     --space-medium: 3rem;
     --space-large: 6rem;
+    --space-x-large: 9rem;
     --gap: 1rem;
 
     --color-body: #{$color-body-light};

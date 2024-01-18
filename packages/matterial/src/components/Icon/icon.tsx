@@ -13,6 +13,7 @@ import {
   BiRightArrowAlt,
   BiSearch,
 } from 'react-icons/bi'
+import { IoSettingsOutline } from 'react-icons/io5'
 import { IconType, IconBaseProps } from 'react-icons'
 
 import { ColoredElement } from '../../interfaces/theme'
@@ -38,6 +39,7 @@ const icons: IconMap = {
   Menu: BiMenu,
   Notification: BiBell,
   Search: BiSearch,
+  Settings: IoSettingsOutline,
   Success: BiCheckCircle,
   Warning: BiError,
 }

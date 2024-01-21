@@ -6,12 +6,16 @@ import {
   BiCheckboxMinus,
   BiCheckboxSquare,
   BiCheckCircle,
-  BiInfoCircle,
   BiError,
   BiErrorCircle,
+  BiInfoCircle,
   BiMenu,
+  BiPlus,
+  BiPlusCircle,
   BiRightArrowAlt,
   BiSearch,
+  BiSolidPlusCircle,
+  BiSolidPlusSquare,
 } from 'react-icons/bi'
 import { IoSettingsOutline } from 'react-icons/io5'
 import { IconType, IconBaseProps } from 'react-icons'
@@ -38,6 +42,10 @@ const icons: IconMap = {
   info: BiInfoCircle,
   menu: BiMenu,
   notification: BiBell,
+  plus: BiPlus,
+  plusCircle: BiPlusCircle,
+  plusCircleSolid: BiSolidPlusCircle,
+  plusSquareSolid: BiSolidPlusSquare,
   search: BiSearch,
   settings: IoSettingsOutline,
   success: BiCheckCircle,

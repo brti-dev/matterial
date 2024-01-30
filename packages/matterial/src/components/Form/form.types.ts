@@ -12,7 +12,7 @@ export type ChangeEvent = React.ChangeEvent<
  */
 export type FormChangeEvent = (
   nameOrEvent: string | ChangeEvent,
-  value: string | number | boolean | null
+  value?: string | number | boolean | null
 ) => void
 
 /**
@@ -20,7 +20,7 @@ export type FormChangeEvent = (
  */
 export type CheckboxChangeEvent = (
   nameOrEvent: string | ChangeEvent,
-  value: boolean
+  value?: boolean
 ) => void
 
 export type TextInputProps = {
@@ -34,8 +34,7 @@ export type TextInputProps = {
    */
   name: string
   /**
-   * Callback to fire when the input element is *blurred* (doesn't fire on
-   * event change)
+   * Callback to fire when input changes; This should update the `value` prop
    */
   onChange?: FormChangeEvent
   /**

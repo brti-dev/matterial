@@ -15,30 +15,17 @@ export const TextInput = React.forwardRef<
     onChange = () => null,
     ...fieldProps
   } = props
-  const [textValue, setTextValue] = React.useState<string>(value)
-
-  const handleBlur = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => onChange(event, textValue)
-
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { value } = event.currentTarget /* as HTMLInputElement*/
-    setTextValue(value)
-  }
 
   if (multiline) {
     return (
       <textarea
         {...fieldProps}
-        name={name}
-        onBlur={handleBlur}
-        onChange={handleChange}
-        rows={rows}
         ref={ref}
+        name={name}
+        value={value}
+        rows={rows}
         className="input"
-        value={textValue}
+        onChange={onChange}
       />
     )
   }
@@ -47,12 +34,11 @@ export const TextInput = React.forwardRef<
     <input
       type={type}
       {...fieldProps}
-      name={name}
-      value={textValue}
-      onBlur={handleBlur}
-      onChange={handleChange}
       ref={ref}
+      name={name}
+      value={value}
       className="input"
+      onChange={onChange}
     />
   )
 })

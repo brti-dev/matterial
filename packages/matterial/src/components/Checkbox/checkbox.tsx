@@ -73,7 +73,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       disabled ? classes.disabled : undefined
     )
 
-    const toggleChecked = (event: ChangeEvent) => onChange(event, !checked)
+    const toggleChecked = () => onChange(name, !checked)
 
     return (
       <label className={classNames} style={style}>
@@ -93,11 +93,14 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   }
 )
 
-function CheckboxIcon(props: CheckboxProps): React.ReactElement {
+function CheckboxIcon({
+  checked,
+  indeterminate,
+}: Pick<CheckboxProps, 'checked' | 'indeterminate'>): React.ReactElement {
   let icon: string
-  if (props.checked) {
+  if (checked) {
     icon = 'CheckboxChecked'
-  } else if (props.indeterminate) {
+  } else if (indeterminate) {
     icon = 'CheckboxMinus'
   } else {
     icon = 'Checkbox'

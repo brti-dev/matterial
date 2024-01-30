@@ -23,6 +23,21 @@ export type CheckboxChangeEvent = (
   value?: boolean
 ) => void
 
+export type NumberInputProps = Omit<JSX.IntrinsicElements['input'], 'type'> & {
+  /**
+   * Input name (required)
+   */
+  name: string
+  /**
+   * Callback to fire when input changes; This should update the `value` prop
+   */
+  onChange?: FormChangeEvent
+  /**
+   * Input value
+   */
+  value?: number
+}
+
 export type TextInputProps = {
   /**
    * If true, renders a <textarea> element, otherwise renders an

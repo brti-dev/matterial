@@ -3,7 +3,7 @@ import { Button } from '../Button'
 import { CheckButton, CheckButtonGroup } from '../CheckButton'
 import { Checkbox } from '../Checkbox'
 import { Container } from '../Container'
-import * as React from 'react'
+import { NumberInput } from './number-input'
 
 const initialFormVals = {
   name: '',
@@ -12,8 +12,7 @@ const initialFormVals = {
   gender: '',
   foo: true,
   bar: false,
-  baz: false,
-  bazDescription: '',
+  counter: 0,
   submitted: false,
 }
 
@@ -101,24 +100,15 @@ export function FormExample() {
           </Checkbox>
         </Container>
         <Container row>
-          <Checkbox
-            name="baz"
-            checked={form.data.baz}
-            onChange={(_, checked) =>
-              setForm({
-                data: {
-                  ...form.data,
-                  baz: checked || false,
-                  bazDescription: checked ? 'checked' : 'not checked',
-                },
-              })
-            }
+          <Button
+            variant="outlined"
+            onClick={() => handleChange('counter', form.data.counter + 1)}
           >
-            Synced check
-          </Checkbox>
-          <TextInput
+            Synced Inputs
+          </Button>
+          <NumberInput
             name="bazDescription"
-            value={form.data.bazDescription}
+            value={form.data.counter}
             readOnly
           />
         </Container>

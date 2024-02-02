@@ -27,24 +27,32 @@ export function useForm<T>(initialData: T) {
     }
   )
 
-  const handleChange: FormChangeEvent = (nameOrEvent, maybeValue) => {
+  const handleChange: FormChangeEvent = (eventOrObjectOrName, maybeValue) => {
     let name: string
     let value = maybeValue
-    if (typeof nameOrEvent === 'string') {
-      name = nameOrEvent
-    } else {
+    let newData
+    if (typeof eventOrObjectOrName === 'string') {
+      name = eventOrObjectOrName
+      newData = { [name]: value }
+    } else if (
+      'target' in eventOrObjectOrName &&
+      'value' in eventOrObjectOrName.target
+    ) {
       const { name: targetName, value: targetValue } =
-        nameOrEvent.currentTarget as HTMLInputElement
+        eventOrObjectOrName.currentTarget as HTMLInputElement
       name = targetName
       value = targetValue
+      newData = { [name]: value }
+    } else {
+      name = Object.keys(eventOrObjectOrName)[0]
+      newData = eventOrObjectOrName
     }
-    console.log('handle change', name, value, nameOrEvent, maybeValue)
 
     if (form.error?.inputName === name) {
       setForm({ error: null })
     }
 
-    setForm({ data: { ...form.data, [name]: value } })
+    setForm({ data: { ...form.data, ...newData } })
   }
 
   const isError = (inputName?: string) => {

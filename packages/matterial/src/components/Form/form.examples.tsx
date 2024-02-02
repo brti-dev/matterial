@@ -14,9 +14,10 @@ const initialFormVals = {
   bar: false,
   counter: 0,
   submitted: false,
+  nested: { nested: 'nested' },
 }
 
-export function FormExample() {
+function FormExample() {
   const { form, handleChange, setForm } = useForm(initialFormVals)
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault()
@@ -70,7 +71,7 @@ export function FormExample() {
             name="gender"
             value="male"
             checked={form.data.gender === 'male'}
-            onChange={() => handleChange('gender', 'male')}
+            onChange={() => handleChange({ gender: 'male' })}
           >
             👨 Male
           </CheckButton>
@@ -112,6 +113,15 @@ export function FormExample() {
             readOnly
           />
         </Container>
+        <Container row>
+          <TextInput
+            name="nested.nested"
+            value={form.data.nested.nested}
+            onChange={(
+              e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+            ) => handleChange({ nested: { nested: e.target.value } })}
+          />
+        </Container>
         <SubmitRow>
           <Button type="submit" variant="contained" color="primary">
             Submit
@@ -125,3 +135,5 @@ export function FormExample() {
     </>
   )
 }
+
+export { FormExample }

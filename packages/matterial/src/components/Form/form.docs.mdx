@@ -83,7 +83,7 @@ export function FormExample() {
             name="gender"
             value="male"
             checked={form.data.gender === 'male'}
-            onChange={() => handleChange('gender', 'male')}
+            onChange={() => handleChange({ gender: 'male' })}
           >
             👨 Male
           </CheckButton>
@@ -123,6 +123,15 @@ export function FormExample() {
             name="bazDescription"
             value={form.data.counter}
             readOnly
+          />
+        </Container>
+        <Container row>
+          <TextInput
+            name="nested.nested"
+            value={form.data.nested.nested}
+            onChange={(
+              e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+            ) => handleChange({ nested: { nested: e.target.value } })}
           />
         </Container>
         <SubmitRow>

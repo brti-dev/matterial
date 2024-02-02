@@ -10,18 +10,17 @@ export type ChangeEvent = React.ChangeEvent<
 /**
  * Interchangeable change event used by Form components
  */
-export type FormChangeEvent = (
-  nameOrEvent: string | ChangeEvent,
-  value?: string | number | boolean | null
-) => void
+export type FormChangeEvent =
+  | ((
+      eventOrObjectOrName: string | Record<string, any> | ChangeEvent,
+      value?: string | number | boolean | null
+    ) => void)
+  | ((event: ChangeEvent) => void)
 
 /**
  * Change event used by Checkbox only
  */
-export type CheckboxChangeEvent = (
-  nameOrEvent: string | ChangeEvent,
-  value?: boolean
-) => void
+export type CheckboxChangeEvent = (name: string, checked: boolean) => void
 
 export type NumberInputProps = Omit<JSX.IntrinsicElements['input'], 'type'> & {
   /**

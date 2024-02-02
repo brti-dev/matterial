@@ -73,8 +73,6 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       disabled ? classes.disabled : undefined
     )
 
-    const toggleChecked = () => onChange(name, !checked)
-
     return (
       <label className={classNames} style={style}>
         <input
@@ -82,7 +80,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           name={name}
           className="visually-hidden"
           ref={ref}
-          onChange={toggleChecked}
+          onChange={() => onChange(name, !checked)}
           checked={checked}
           disabled={disabled}
         />

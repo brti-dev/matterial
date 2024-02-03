@@ -10,4 +10,7 @@
 # 3.3.2 / 2024-02-03
 
 - Add radio icons
+
+# 3.3.3 / 2024-02-03
+
 - Add menu checkbox and radio

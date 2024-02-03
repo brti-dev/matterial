@@ -6,3 +6,8 @@
 # 3.3.1 / 2024-02-03
 
 - Improved form event handling, including nested form data
+
+# 3.3.2 / 2024-02-03
+
+- Add radio icons
+- Add menu checkbox and radio

@@ -53,8 +53,19 @@
   }
 
   // clicked
-  &:active,
-  &[data-active] {
-    color: var(--color-secondary);
+  // &:active,
+  // &[data-active] {
+  //   color: var(--color-accent-7);
+  // }
+}
+
+.itemCheckbox {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.3em;
+  align-items: center;
+
+  svg {
+    margin-left: -4px;
   }
 }

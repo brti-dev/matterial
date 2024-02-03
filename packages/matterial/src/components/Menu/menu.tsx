@@ -9,7 +9,6 @@ import {
   MenuGroupLabel,
   MenuHeading,
   MenuItem,
-  MenuItemCheck,
   MenuItemCheckbox,
   MenuItemRadio,
   MenuList,
@@ -18,7 +17,9 @@ import {
 } from '@ariakit/react'
 import type {
   MenuButtonProps,
+  MenuItemCheckboxProps,
   MenuItemProps,
+  MenuItemRadioProps,
   MenuProps,
   MenuSeparatorProps,
 } from '@ariakit/react'
@@ -28,6 +29,8 @@ import { OverloadedElementProps } from '../../interfaces/OverloadedElement'
 import { Button, CommonButtonProps } from '../Button'
 import classnames from '../../lib/classnames'
 import classes from './menu.module.scss'
+import { Icon } from '../Icon'
+import { RequiredChildren } from '../../interfaces/children'
 
 type NewMenuButtonProps =
   | (Required<OverloadedElementProps> & any) // MenuButton props `as` conflict with ButtonProps `as`
@@ -65,6 +68,42 @@ function StyledMenuSeparator({ className, ...props }: MenuSeparatorProps) {
   )
 }
 
+function MenuItemCheckboxNew({
+  checked,
+  children,
+  className,
+  size = 25,
+  ...props
+}: MenuItemCheckboxProps & RequiredChildren & { size?: number }) {
+  return (
+    <MenuItemCheckbox
+      {...props}
+      className={classnames(classes.item, classes.itemCheckbox, className)}
+    >
+      <Icon icon={checked ? 'checkboxChecked' : 'checkbox'} size={size} />
+      {children}
+    </MenuItemCheckbox>
+  )
+}
+
+function MenuItemRadioNew({
+  checked,
+  children,
+  className,
+  size = 25,
+  ...props
+}: MenuItemRadioProps & RequiredChildren & { size?: number }) {
+  return (
+    <MenuItemRadio
+      {...props}
+      className={classnames(classes.item, classes.itemCheckbox, className)}
+    >
+      <Icon icon={checked ? 'radioChecked' : 'radio'} size={size} />
+      {children}
+    </MenuItemRadio>
+  )
+}
+
 export {
   StyledMenu as Menu,
   MenuArrow,
@@ -76,9 +115,8 @@ export {
   MenuGroupLabel,
   MenuHeading,
   StyledMenuItem as MenuItem,
-  MenuItemCheck,
-  MenuItemCheckbox,
-  MenuItemRadio,
+  MenuItemCheckboxNew as MenuItemCheckbox,
+  MenuItemRadioNew as MenuItemRadio,
   MenuList,
   MenuProvider,
   StyledMenuSeparator as MenuSeparator,

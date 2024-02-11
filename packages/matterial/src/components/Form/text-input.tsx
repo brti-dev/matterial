@@ -8,8 +8,6 @@ export const TextInput = React.forwardRef<
 >((props, ref) => {
   const {
     type = 'text',
-    name,
-    value = '',
     multiline = false,
     rows = 1,
     onChange = () => null,
@@ -21,8 +19,6 @@ export const TextInput = React.forwardRef<
       <textarea
         {...fieldProps}
         ref={ref}
-        name={name}
-        value={value}
         rows={rows}
         className="input"
         onChange={onChange}
@@ -35,8 +31,6 @@ export const TextInput = React.forwardRef<
       type={type}
       {...fieldProps}
       ref={ref}
-      name={name}
-      value={value}
       className="input"
       onChange={onChange}
     />

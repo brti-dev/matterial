@@ -45,12 +45,11 @@ type CheckboxProps = NativeProps & Props
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (props: CheckboxProps, ref: any) => {
     const {
-      checked = false,
+      checked: controlledChecked,
       children,
       className,
       color: naturalColor = 'default',
       disabled = false,
-      // indeterminate = false,
       name,
       onChange = () => null,
       size = 'medium',
@@ -73,6 +72,23 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       disabled ? classes.disabled : undefined
     )
 
+    // Provide local state if the parent is not controlling this component
+    const isControlled = controlledChecked !== undefined
+    const [localChecked, setLocalChecked] = React.useState<boolean>(
+      controlledChecked || false
+    )
+
+    const checked = isControlled ? controlledChecked : localChecked
+
+    const handleChange = () => {
+      if (isControlled) {
+        onChange(name, !controlledChecked)
+      } else {
+        setLocalChecked(!localChecked)
+        onChange(name, localChecked)
+      }
+    }
+
     return (
       <label className={classNames} style={style}>
         <input
@@ -80,11 +96,11 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           name={name}
           className="visually-hidden"
           ref={ref}
-          onChange={() => onChange(name, !checked)}
+          onChange={handleChange}
           checked={checked}
           disabled={disabled}
         />
-        <CheckboxIcon {...props} />
+        <CheckboxIcon checked={checked} indeterminate={props.indeterminate} />
         <span className={classes.label}>{children}</span>
       </label>
     )

@@ -151,13 +151,14 @@ export function FormExample() {
 
 ### Uncontrolled Forms
 
-Form components are controlled via inputs to the `value` prop. To render an uncontrolled component, simply omit the `value` prop.
+Form components are controlled via inputs to the `value` or `checked` prop. To render an uncontrolled component, simply omit the controlling prop.
 
 ```jsx
 <TextInput name="foo" />
+<Checkbox name="check">Check</Checkbox>
 ```
 
 <Container>
   <TextInput name="foo" />
-  <NumberInput name="num" />
+  <Checkbox name="check">Check</Checkbox>
 </Container>

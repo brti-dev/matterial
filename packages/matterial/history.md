@@ -14,3 +14,7 @@
 # 3.3.3 / 2024-02-03
 
 - Add menu checkbox and radio
+
+# 3.3.4 / 2024-02-11
+
+- Allow form components to be uncontrolled

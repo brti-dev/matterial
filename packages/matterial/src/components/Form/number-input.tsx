@@ -10,16 +10,27 @@ export const NumberInput = React.forwardRef<
 >((props, ref) => {
   const {
     append,
-    prepend,
     className,
     onChange = () => null,
+    prepend,
+    width,
     ...fieldProps
   } = props
+
+  const containerStyle: React.CSSProperties = {}
+  if (typeof width === 'number') {
+    containerStyle.width = `${width}px`
+  } else if (typeof width === 'string') {
+    containerStyle.width = width
+  }
 
   const classNames = classnames(className, 'mt-input', classes.input)
 
   return (
-    <div className={classnames('mt-field', classes.inputContainer)}>
+    <div
+      className={classnames('mt-field', classes.inputContainer)}
+      style={containerStyle}
+    >
       {prepend && <span className={classes.contentPrepend}>{prepend}</span>}
       <input
         {...fieldProps}

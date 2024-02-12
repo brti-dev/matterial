@@ -9,13 +9,14 @@ description: Handle user inputs
 
 ```jsx
 import {
-  useForm,
-  Form,
-  FormGroup,
-  TextInput,
-  SubmitRow,
   Button,
   Container,
+  Form,
+  FormGroup,
+  NumberInput,
+  SubmitRow,
+  TextInput,
+  useForm,
 } from 'matterial'
 
 const initialFormVals = {
@@ -26,6 +27,7 @@ const initialFormVals = {
   foo: true,
   bar: false,
   counter: 0,
+  nested: { nested: 'nested' },
   submitted: false,
 }
 
@@ -123,6 +125,7 @@ export function FormExample() {
             name="bazDescription"
             value={form.data.counter}
             readOnly
+            width="25ch"
           />
         </Container>
         <Container row>
@@ -173,4 +176,13 @@ Use the `prepend` and `append` props to add content like icons or additional lab
 <TextInput name="search" append={<Button><Icon icon="search" /></Button>} />
 <TextInput name="required-item" required append={<span style={{color: 'var(--color-error)', paddingRight: 'var(--input-padding)'}}>required</span>} />
 <NumberInput name="bones" step="0.01" prepend={<b style={{ marginLeft: 'var(--input-padding)', color: '#00a264' }}>$</b>} style={{ paddingLeft: 'calc(0.2em + var(--input-padding) * 2)' }} />
+```
+
+### Width
+
+Use the `width` prop to set the width of the input to any CSS unit.
+
+```jsx
+<TextInput name="100-px-width" width={100} />
+<TextInput name="search" width="max(50%, 150px)" />
 ```

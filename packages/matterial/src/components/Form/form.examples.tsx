@@ -14,8 +14,8 @@ const initialFormVals = {
   foo: true,
   bar: false,
   counter: 0,
-  submitted: false,
   nested: { nested: 'nested' },
+  submitted: false,
 }
 
 function FormExample() {
@@ -112,6 +112,7 @@ function FormExample() {
             name="bazDescription"
             value={form.data.counter}
             readOnly
+            width="25ch"
           />
         </Container>
         <Container row>
@@ -139,7 +140,7 @@ function FormExample() {
 
 function FormInsertContentExample() {
   return (
-    <Container>
+    <Container row nowrap>
       <TextInput
         name="search"
         append={
@@ -147,6 +148,7 @@ function FormInsertContentExample() {
             <Icon icon="search" />
           </Button>
         }
+        width="33%"
       />
       <TextInput
         name="required-item"
@@ -161,6 +163,7 @@ function FormInsertContentExample() {
             required
           </span>
         }
+        width="33%"
       />
       <NumberInput
         name="bones"
@@ -170,6 +173,7 @@ function FormInsertContentExample() {
             $
           </b>
         }
+        width="33%"
         style={{ paddingLeft: 'calc(0.2em + var(--input-padding) * 2)' }}
       />
     </Container>

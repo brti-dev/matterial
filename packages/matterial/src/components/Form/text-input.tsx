@@ -17,12 +17,23 @@ export const TextInput = React.forwardRef<
     onChange = () => null,
     prepend,
     rows = 1,
+    width,
     ...fieldProps
   } = props
 
+  const containerStyle: React.CSSProperties = {}
+  if (typeof width === 'number') {
+    containerStyle.width = `${width}px`
+  } else if (typeof width === 'string') {
+    containerStyle.width = width
+  }
+
   function Container({ children }: RequiredChildren): JSX.Element {
     return (
-      <div className={classnames('mt-field', classes.inputContainer)}>
+      <div
+        className={classnames('mt-field', classes.inputContainer)}
+        style={containerStyle}
+      >
         {prepend && <span className={classes.contentPrepend}>{prepend}</span>}
         {children}
         {append && <span className={classes.contentAppend}>{append}</span>}

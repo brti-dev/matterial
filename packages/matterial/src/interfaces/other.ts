@@ -1,3 +1,5 @@
+type CssUnit = number | string
+
 export type DateTimeType = Date | string | number
 
 /**
@@ -23,4 +25,11 @@ export type InsertContent = {
    * Content to put on the LEFT side of children/main content
    */
   prepend?: React.ReactNode
+}
+
+export type FixedWidth = {
+  /**
+   * Apply a fixed width in pixels (number) or percentage (string)
+   */
+  width?: CssUnit
 }

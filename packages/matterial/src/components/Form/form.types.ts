@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { InsertContent } from '../../interfaces/other'
+import { FixedWidth, InsertContent } from '../../interfaces/other'
 
 /**
  * Synthetic change event on an HTML input element
@@ -38,7 +38,8 @@ export type NumberInputProps = Omit<JSX.IntrinsicElements['input'], 'type'> & {
    * Input value
    */
   value?: number
-} & InsertContent
+} & InsertContent &
+  FixedWidth
 
 export type TextInputProps = {
   /**
@@ -72,6 +73,7 @@ export type TextInputProps = {
    */
   value?: string
 } & InsertContent &
+  FixedWidth &
   Omit<JSX.IntrinsicElements['input'], 'onChange'> & // Necessary because of some strange error
   Omit<JSX.IntrinsicElements['textarea'], 'onChange'>
 

@@ -76,9 +76,17 @@
   width: var(--nav-width);
   height: 100vh;
   overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
   box-sizing: border-box;
   padding: var(--page-margin-top) 0;
   margin-left: calc(0em - var(--nav-offset));
+
+  &::-webkit-scrollbar {
+    /* WebKit */
+    width: 0;
+    height: 0;
+  }
 }
 
 .menuButton {

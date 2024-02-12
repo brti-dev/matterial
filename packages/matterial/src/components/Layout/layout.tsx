@@ -159,9 +159,10 @@ export function Nav({ children }: RequiredChildren): JSX.Element {
     <nav
       id="navigation__nav"
       aria-label="Main"
-      className={`${classes.navigation} ${
+      className={classnames(
+        classes.navigation,
         !isScreenMobile && classes.navigationScreen
-      }`}
+      )}
     >
       {children}
     </nav>

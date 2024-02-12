@@ -260,8 +260,8 @@
     letter-spacing: -0.5px;
   }
 
-  a:not(.button),
-  .a:not(.button) {
+  a:not(.mt-button),
+  .a:not(.mt-button) {
     color: var(--color, var(--color-primary));
     text-decoration-line: none;
     cursor: pointer;

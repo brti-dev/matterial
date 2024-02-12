@@ -155,7 +155,7 @@ function FormInsertContentExample() {
           <span
             style={{
               color: 'var(--color-error)',
-              paddingRight: 'var(--input-padding)',
+              marginRight: 'var(--input-padding)',
             }}
           >
             required

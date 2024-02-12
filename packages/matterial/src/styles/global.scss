@@ -38,14 +38,17 @@
     --color-success: #{$green};
     --color-shadow: #3a3b3c57;
 
-    --color-accent-1: hsl(0, 0%, 95%);
-    --color-accent-2: hsl(0, 0%, 92%);
-    --color-accent-3: hsl(0, 0%, 60%);
-    --color-accent-4: hsl(0, 0%, 53%);
-    --color-accent-5: hsl(0, 0%, 40%);
-    --color-accent-6: hsl(0, 0%, 27%);
-    --color-accent-7: hsl(0, 0%, 20%);
-    --color-accent-8: hsl(0, 0%, 7%);
+    --color-accent-05: hsl(0, 0%, 95%);
+    --color-accent-1: hsl(0, 0%, 90%);
+    --color-accent-2: hsl(0, 0%, 80%);
+    --color-accent-3: hsl(0, 0%, 70%);
+    --color-accent-4: hsl(0, 0%, 60%);
+    --color-accent-5: hsl(0, 0%, 50%);
+    --color-accent-6: hsl(0, 0%, 40%);
+    --color-accent-7: hsl(0, 0%, 30%);
+    --color-accent-8: hsl(0, 0%, 20%);
+    --color-accent-9: hsl(0, 0%, 10%);
+    --color-accent-95: hsl(0, 0%, 10%);
 
     --radius: 0.13rem;
     --shadow: 0 1px 3px 0 var(--color-shadow),
@@ -79,14 +82,17 @@
       --color-comment: #{$color-comment-dark};
       --color-shadow: black;
 
-      --color-accent-8: #fafafa;
-      --color-accent-7: #eaeaea;
-      --color-accent-6: #999;
-      --color-accent-5: #888;
-      --color-accent-4: #666;
-      --color-accent-3: #444;
-      --color-accent-2: #333;
-      --color-accent-1: #222;
+      --color-accent-05: hsl(0, 0%, 5%);
+      --color-accent-1: hsl(0, 0%, 10%);
+      --color-accent-2: hsl(0, 0%, 20%);
+      --color-accent-3: hsl(0, 0%, 30%);
+      --color-accent-4: hsl(0, 0%, 40%);
+      --color-accent-5: hsl(0, 0%, 50%);
+      --color-accent-6: hsl(0, 0%, 60%);
+      --color-accent-7: hsl(0, 0%, 70%);
+      --color-accent-8: hsl(0, 0%, 80%);
+      --color-accent-9: hsl(0, 0%, 90%);
+      --color-accent-95: hsl(0, 0%, 95%);
 
       color: var(--color-foreground);
     }
@@ -397,25 +403,33 @@
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 0 #fff inset;
   }
 
-  button,
-  .button {
+  // Container variables for buttons
+  .mt-button {
     --input-padding: calc(0.95rem - var(--border-width, 0px));
     --color-background: transparent;
+    --line-height: 2.2em;
+    --input-font-size: 0.8rem;
+    --input-font-weight: 300;
   }
 
-  input,
-  button,
-  .input,
-  .button {
+  // Container variables for text input, number input, textarea, etc
+  .mt-field {
+    --color-background: var(--color-surface);
+    --input-padding: 0.5rem;
     --line-height: 2.2em;
+    --input-font-size: 0.8rem;
+    --input-font-weight: 300;
+  }
 
+  // Base styles for inputs like form fields and buttons
+  .mt-input {
     box-sizing: border-box;
     height: var(--input-height);
     line-height: var(--line-height);
     outline: none;
     padding: 0 var(--input-padding);
-    font-size: var(--font-size, 0.8rem);
-    font-weight: var(--font-weight, 300);
+    font-size: var(--input-font-size);
+    font-weight: var(--input-font-weight);
     color: var(--color-foreground);
     border: var(--border-width) solid var(--color-border, transparent);
     border-radius: var(--radius);
@@ -457,20 +471,20 @@
     }
   }
 
-  select.input {
+  select.mt-input {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     font-size: 88%;
   }
 
-  textarea.input {
+  textarea.mt-input {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     line-height: 1;
     height: auto;
   }
 
-  .button {
+  .mt-button {
     display: inline-flex;
     justify-content: center;
     vertical-align: middle;

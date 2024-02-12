@@ -41,11 +41,6 @@
 }
 
 .inputContainer {
-  --input-padding: 0.75rem;
-  --color-background: var(--color-surface);
-  --font-size: 0.8rem;
-  --font-weight: 300;
-
   position: relative;
   width: 100%;
 }
@@ -70,8 +65,8 @@
   align-items: center;
 
   * {
-    font-size: var(--font-size);
-    font-weight: var(--font-weight);
+    font-size: var(--input-font-size);
+    font-weight: var(--input-font-weight);
   }
 }
 

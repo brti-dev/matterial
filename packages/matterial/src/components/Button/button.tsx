@@ -119,7 +119,8 @@ export const Button = React.forwardRef<
   }
 
   const classNameString = classnames(
-    'button', // Give access to global button style shared with other inputs
+    'mt-input',
+    'mt-button',
     cssColor.className,
     shape && `shape--${shape}`,
     `size--${size}`,

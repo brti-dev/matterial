@@ -16,10 +16,10 @@ export const NumberInput = React.forwardRef<
     ...fieldProps
   } = props
 
-  const classNames = classnames(className, 'input', classes.input)
+  const classNames = classnames(className, 'mt-input', classes.input)
 
   return (
-    <div className={classes.inputContainer}>
+    <div className={classnames('mt-field', classes.inputContainer)}>
       {prepend && <span className={classes.contentPrepend}>{prepend}</span>}
       <input
         {...fieldProps}

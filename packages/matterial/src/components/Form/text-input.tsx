@@ -22,7 +22,7 @@ export const TextInput = React.forwardRef<
 
   function Container({ children }: RequiredChildren): JSX.Element {
     return (
-      <div className={classes.inputContainer}>
+      <div className={classnames('mt-field', classes.inputContainer)}>
         {prepend && <span className={classes.contentPrepend}>{prepend}</span>}
         {children}
         {append && <span className={classes.contentAppend}>{append}</span>}
@@ -30,7 +30,7 @@ export const TextInput = React.forwardRef<
     )
   }
 
-  const classNames = classnames(className, 'input', classes.input)
+  const classNames = classnames(className, 'mt-input', classes.input)
 
   if (multiline) {
     return (

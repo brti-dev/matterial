@@ -162,3 +162,15 @@ Form components are controlled via inputs to the `value` or `checked` prop. To r
   <TextInput name="foo" />
   <Checkbox name="check">Check</Checkbox>
 </Container>
+
+### Insert Content
+
+Use the `prepend` and `append` props to add content like icons or additional labels.
+
+<FormInsertContentExample />
+
+```jsx
+<TextInput name="search" append={<Button><Icon icon="search" /></Button>} />
+<TextInput name="required-item" required append={<span style={{color: 'var(--color-error)', paddingRight: 'var(--input-padding)'}}>required</span>} />
+<NumberInput name="bones" step="0.01" prepend={<b style={{ marginLeft: 'var(--input-padding)', color: '#00a264' }}>$</b>} style={{ paddingLeft: 'calc(0.2em + var(--input-padding) * 2)' }} />
+```

@@ -39,3 +39,46 @@
   flex-direction: row;
   gap: var(--form-gap);
 }
+
+.inputContainer {
+  --input-padding: 0.75rem;
+  --color-background: var(--color-surface);
+  --font-size: 0.8rem;
+  --font-weight: 300;
+
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  z-index: 1;
+
+  &.variant--outlined {
+    --input-padding: calc(0.75rem - 2px);
+  }
+}
+
+.contentAppend,
+.contentPrepend {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+  * {
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+  }
+}
+
+.contentAppend {
+  right: 0;
+}
+
+.contentPrepend {
+  left: 0;
+}

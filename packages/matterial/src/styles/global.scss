@@ -397,16 +397,6 @@
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 0 #fff inset;
   }
 
-  input,
-  .input {
-    --input-padding: 0.75rem;
-    --color-background: var(--color-surface);
-
-    &.variant--outlined {
-      --input-padding: calc(0.75rem - 2px);
-    }
-  }
-
   button,
   .button {
     --input-padding: calc(0.95rem - var(--border-width, 0px));
@@ -424,8 +414,8 @@
     line-height: var(--line-height);
     outline: none;
     padding: 0 var(--input-padding);
-    font-size: 0.8rem;
-    font-weight: 300;
+    font-size: var(--font-size, 0.8rem);
+    font-weight: var(--font-weight, 300);
     color: var(--color-foreground);
     border: var(--border-width) solid var(--color-border, transparent);
     border-radius: var(--radius);

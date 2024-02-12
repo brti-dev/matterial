@@ -3,6 +3,7 @@ import { Button } from '../Button'
 import { CheckButton, CheckButtonGroup } from '../CheckButton'
 import { Checkbox } from '../Checkbox'
 import { Container } from '../Container'
+import { Icon } from '../Icon'
 import { NumberInput } from './number-input'
 
 const initialFormVals = {
@@ -136,4 +137,43 @@ function FormExample() {
   )
 }
 
-export { FormExample }
+function FormInsertContentExample() {
+  return (
+    <Container>
+      <TextInput
+        name="search"
+        append={
+          <Button shape="circle" color="primary">
+            <Icon icon="search" />
+          </Button>
+        }
+      />
+      <TextInput
+        name="required-item"
+        required
+        append={
+          <span
+            style={{
+              color: 'var(--color-error)',
+              paddingRight: 'var(--input-padding)',
+            }}
+          >
+            required
+          </span>
+        }
+      />
+      <NumberInput
+        name="bones"
+        step="0.01"
+        prepend={
+          <b style={{ marginLeft: 'var(--input-padding)', color: '#00a264' }}>
+            $
+          </b>
+        }
+        style={{ paddingLeft: 'calc(0.2em + var(--input-padding) * 2)' }}
+      />
+    </Container>
+  )
+}
+
+export { FormExample, FormInsertContentExample }

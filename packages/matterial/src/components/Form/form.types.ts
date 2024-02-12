@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { InsertContent } from '../../interfaces/other'
 
 /**
  * Synthetic change event on an HTML input element
@@ -27,15 +28,17 @@ export type NumberInputProps = Omit<JSX.IntrinsicElements['input'], 'type'> & {
    * Input name (required)
    */
   name: string
+
   /**
    * Callback to fire when input changes; This should update the `value` prop
    */
   onChange?: FormChangeEvent
+
   /**
    * Input value
    */
   value?: number
-}
+} & InsertContent
 
 export type TextInputProps = {
   /**
@@ -43,27 +46,33 @@ export type TextInputProps = {
    * <input type={type}> element
    */
   multiline?: boolean
+
   /**
    * Input name (required)
    */
   name: string
+
   /**
    * Callback to fire when input changes; This should update the `value` prop
    */
   onChange?: FormChangeEvent
+
   /**
    * If multiline, renders this many rows
    */
   rows?: number
+
   /**
    * HTML input types
    */
   type?: 'text' | 'date' | 'email' | 'number' | 'password' | 'tel' | 'url'
+
   /**
    * Input value
    */
   value?: string
-} & Omit<JSX.IntrinsicElements['input'], 'onChange'> & // Necessary because of some strange error
+} & InsertContent &
+  Omit<JSX.IntrinsicElements['input'], 'onChange'> & // Necessary because of some strange error
   Omit<JSX.IntrinsicElements['textarea'], 'onChange'>
 
 export type FormProps = React.ComponentPropsWithoutRef<'form'> & {

@@ -22,3 +22,10 @@
 # 3.4.0 / 2024-02-12
 
 - Input fields have insertable content (icons, extra labels, etc)
+
+# 3.4.1 / 2024-02-12
+
+- Adjust accent colors and provide additional colors
+- Input fields have a `width` prop
+- Implement `defaultChecked` on Checkbox
+- Small fixes and cleanups

@@ -112,7 +112,7 @@ function FormExample() {
             name="bazDescription"
             value={form.data.counter}
             readOnly
-            width="25ch"
+            width="10ch"
           />
         </Container>
         <Container row>

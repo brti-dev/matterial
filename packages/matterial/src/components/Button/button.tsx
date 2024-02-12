@@ -1,7 +1,6 @@
 import * as React from 'react'
 
-import type { Variant } from '../../interfaces/theme'
-import type { ColoredElement } from '../../interfaces/theme'
+import type { Variant, ColoredElement } from '../../interfaces/theme'
 import classnames from '../../lib/classnames'
 import useColor from '../../lib/use-color'
 import { Link } from '../Link'
@@ -10,7 +9,7 @@ type Percent = `${number}%`
 
 export interface CommonButtonProps extends ColoredElement {
   /**
-   * Stuff to put on the right side of children/main content
+   * Content to put on the RIGHT side of children/main content
    */
   append?: React.ReactNode
 
@@ -35,7 +34,7 @@ export interface CommonButtonProps extends ColoredElement {
   loading?: boolean
 
   /**
-   * Stuff to put on the left side of children/main content
+   * Content to put on the LEFT side of children/main content
    */
   prepend?: React.ReactNode
 
@@ -86,10 +85,6 @@ type ButtonProps<T> = {
   children: React.ReactNode
 } & OverloadedElementProps<T>
 
-/**
- * TODO: Make this work without the `any` type assignment at the end
- * Cannot currently read overloaded props
- */
 export const Button = React.forwardRef<
   PolymorphicButton,
   ButtonProps<React.ComponentType<any>>
@@ -170,4 +165,4 @@ export const Button = React.forwardRef<
       {content}
     </Component>
   )
-}) // as any // sorry (-_-) sorry
+})

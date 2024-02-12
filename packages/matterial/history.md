@@ -18,3 +18,7 @@
 # 3.3.4 / 2024-02-11
 
 - Allow form components to be uncontrolled
+
+# 3.4.0 / 2024-02-12
+
+- Input fields have insertable content (icons, extra labels, etc)

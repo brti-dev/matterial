@@ -17,7 +17,7 @@ export function FormGroup({
     className,
     error && classes.error
   )
-  const id = `form__${toKebabCase(label)}`
+  const id = React.useId()
   const inputProps = {
     id,
     ...(error && { 'aria-invalid': true }),

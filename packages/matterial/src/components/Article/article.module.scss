@@ -70,9 +70,16 @@
   pre {
     padding: 1em 5%;
     overflow: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
     background: var(--color-accent-2);
     counter-reset: linenumbers;
     line-height: 1;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
   }
 
   dl dd,

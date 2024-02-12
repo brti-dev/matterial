@@ -49,6 +49,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       children,
       className,
       color: naturalColor = 'default',
+      defaultChecked,
       disabled = false,
       name,
       onChange = () => null,
@@ -75,7 +76,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     // Provide local state if the parent is not controlling this component
     const isControlled = controlledChecked !== undefined
     const [localChecked, setLocalChecked] = React.useState<boolean>(
-      controlledChecked || false
+      controlledChecked || defaultChecked || false
     )
 
     const checked = isControlled ? controlledChecked : localChecked

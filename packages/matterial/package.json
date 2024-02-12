@@ -29,7 +29,8 @@
     "prepare": "node ./scripts/prepare.mjs",
     "build": "rollup -c",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "publish": "npm publish"
   },
   "peerDependencies": {
     "react": "^18.1.0",

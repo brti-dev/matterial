@@ -22,8 +22,8 @@
   ],
   "scripts": {
     "dev": "yarn workspace docs dev",
-    "build": "yarn workspace docs build",
-    "bundle": "yarn workspace matterial build",
+    "build": "yarn workspace matterial build",
+    "publish": "yarn workspace matterial publish",
     "start": "yarn workspace docs start",
     "test": "yarn workspace matterial test",
     "test:watch": "yarn workspace matterial test:watch"

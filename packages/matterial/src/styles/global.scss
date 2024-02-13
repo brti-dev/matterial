@@ -38,6 +38,11 @@
     --color-success: #{$green};
     --color-shadow: #3a3b3c57;
 
+    --color-mt-red: #{$red};
+    --color-mt-green: #{$green};
+    --color-mt-blue: #{$blue};
+    --color-mt-yellow: #{$yellow};
+
     --color-accent-05: hsl(0, 0%, 95%);
     --color-accent-1: hsl(0, 0%, 90%);
     --color-accent-2: hsl(0, 0%, 80%);
@@ -343,21 +348,23 @@
 
   hr,
   .divider {
+    --color: rgba(0, 0, 0, 0.12);
+
     border: none;
     width: 100%;
     height: 1px;
     margin: 0;
     flex-shrink: 0;
-    background-color: rgba(0, 0, 0, 0.12);
+    background-color: var(--color);
+
+    @include theme(dark) {
+      --color: rgba(255, 255, 255, 0.12);
+    }
 
     &.vertical {
       width: 1px;
       height: auto;
       align-self: stretch;
-    }
-
-    @include theme(dark) {
-      background-color: rgba(255, 255, 255, 0.12);
     }
   }
 

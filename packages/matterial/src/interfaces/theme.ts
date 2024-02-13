@@ -9,6 +9,7 @@ export type Accent =
   | 'accent-8'
 
 export type Color =
+  | NamedColor
   | Severity
   | 'default'
   | 'primary'
@@ -24,6 +25,8 @@ export interface ColoredElement {
 }
 
 export type OpenColor = Color | string
+
+export type NamedColor = 'mt-red' | 'mt-green' | 'mt-blue' | 'mt-yellow'
 
 export type Severity = 'error' | 'warning' | 'info' | 'success'
 

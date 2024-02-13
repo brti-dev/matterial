@@ -7,18 +7,27 @@ export type ContainerProps = React.ComponentPropsWithoutRef<'div'> & {
    * Align items in the center rather than at flex-start
    */
   center?: boolean
+
   /**
    * Container contents
    */
   children: React.ReactNode
+
   /**
    * CSS flex properties
    */
   flex?: number | string
+
+  /**
+   * The space between each child
+   */
+  gap?: number | string
+
   /**
    * Don't wrap contents
    */
   nowrap?: boolean
+
   /**
    * Orient content into rows; Default is columns
    */
@@ -29,14 +38,21 @@ export function Container({
   center = false,
   children,
   flex,
+  gap: naturalGap,
   nowrap = false,
   row = false,
   style: naturalStyle = {},
   ...rest
 }: ContainerProps) {
+  let gap = '1em'
+  if (typeof naturalGap === 'number') {
+    gap = `${naturalGap}px`
+  } else if (typeof naturalGap === 'string') {
+    gap = naturalGap
+  }
   const style: React.CSSProperties = {
     display: 'flex',
-    gap: 'var(--gap)',
+    gap,
     flexDirection: row ? 'row' : 'column',
     flexWrap: nowrap ? 'nowrap' : 'wrap',
     alignItems: center ? 'center' : 'flex-start',

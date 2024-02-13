@@ -1,3 +1,7 @@
+'use client'
+
+import ContainerContext from './container-context'
+
 export type ContainerProps = React.ComponentPropsWithoutRef<'div'> & {
   /**
    * Align items in the center rather than at flex-start
@@ -38,9 +42,13 @@ export function Container({
     alignItems: center ? 'center' : 'flex-start',
     flex,
   }
+  const orientation = row ? 'row' : 'column'
+
   return (
     <div style={{ ...style, ...naturalStyle }} {...rest}>
-      {children}
+      <ContainerContext.Provider value={{ orientation }}>
+        {children}
+      </ContainerContext.Provider>
     </div>
   )
 }

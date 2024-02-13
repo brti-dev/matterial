@@ -43,7 +43,9 @@ With the `row` prop, contents will wrap normally.
 
 <Container row>
   {Array.from('ABCDEFGH').map(letter => (
-    <div className="surface" key={letter}>{letter}</div>
+    <div className="surface" key={letter}>
+      {letter}
+    </div>
   ))}
 </Container>
 
@@ -51,7 +53,9 @@ To prevent wrapping, set `nowrap`.
 
 <Container row nowrap>
   {Array.from('ABCDEFGH').map(letter => (
-    <div className="surface" key={letter}>{letter}</div>
+    <div className="surface" key={letter}>
+      {letter}
+    </div>
   ))}
 </Container>
 
@@ -73,9 +77,13 @@ To prevent wrapping, set `nowrap`.
 Use `center` to align contents to the container, and `style.alignSelf` to align individual items.
 
 <Container row center>
-  <div className="surface" style={{ height: 100 }}>A</div>
+  <div className="surface" style={{ height: 100 }}>
+    A
+  </div>
   <div className="surface">B</div>
-  <div className="surface" style={{ alignSelf: 'flex-start' }}>C</div>
+  <div className="surface" style={{ alignSelf: 'flex-start' }}>
+    C
+  </div>
 </Container>
 
 ```jsx
@@ -85,3 +93,21 @@ Use `center` to align contents to the container, and `style.alignSelf` to align 
   <div style={{ alignSelf: 'flex-start' }}>C</div>
 </Container>
 ```
+
+## Dividers
+
+Use the `<Divider>` component to add a divider between container children.
+
+<Container>
+  <Container row nowrap>
+    <div className="surface">Foo</div>
+    <Divider />
+    <div className="surface">Bar</div>
+  </Container>
+  <Divider />
+  <Container row nowrap>
+    <div className="surface">Lorem</div>
+    <Divider />
+    <div className="surface">Ipsum</div>
+  </Container>
+</Container>

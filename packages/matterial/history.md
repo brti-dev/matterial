@@ -29,3 +29,8 @@
 - Input fields have a `width` prop
 - Implement `defaultChecked` on Checkbox
 - Small fixes and cleanups
+
+# 3.4.2 / 2024-02-12
+
+- Add icons
+- Small bug fix

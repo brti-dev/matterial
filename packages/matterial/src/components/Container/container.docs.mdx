@@ -3,7 +3,7 @@ name: Container
 description: Grid system for complex layouts
 ---
 
-## Usage
+## Example
 
 ```jsx
 import { Container } from 'matterial'
@@ -24,8 +24,6 @@ function ContainerExample() {
 }
 ```
 
-## Example
-
 <Container>
   <Container row nowrap>
     <div className="surface">Foo</div>
@@ -39,6 +37,8 @@ function ContainerExample() {
 
 ## Rows
 
+`row = boolean`
+
 With the `row` prop, contents will wrap normally.
 
 <Container row>
@@ -48,6 +48,10 @@ With the `row` prop, contents will wrap normally.
     </div>
   ))}
 </Container>
+
+## Wrapping
+
+`nowrap = boolean`
 
 To prevent wrapping, set `nowrap`.
 
@@ -74,6 +78,8 @@ To prevent wrapping, set `nowrap`.
 
 ## Alignments
 
+`center = boolean`
+
 Use `center` to align contents to the container, and `style.alignSelf` to align individual items.
 
 <Container row center>
@@ -98,16 +104,38 @@ Use `center` to align contents to the container, and `style.alignSelf` to align 
 
 Use the `<Divider>` component to add a divider between container children.
 
+```jsx
+<Container>
+  <Container row nowrap>
+    <div>Foo</div>
+    <Divider />
+    <div>Bar</div>
+  </Container>
+  <Divider color="mt-red" size={5} />
+  <Container row nowrap>
+    <div>Lorem</div>
+    <Divider />
+    <div>Ipsum</div>
+  </Container>
+</Container>
+```
+
 <Container>
   <Container row nowrap>
     <div className="surface">Foo</div>
     <Divider />
     <div className="surface">Bar</div>
   </Container>
-  <Divider />
+  <Divider color="mt-red" size={5} />
   <Container row nowrap>
     <div className="surface">Lorem</div>
     <Divider />
     <div className="surface">Ipsum</div>
   </Container>
 </Container>
+
+## Gaps
+
+`gap = number|string`
+
+Use `gap` to add space between container children. A number indicates pixels, and a string indicates a CSS value, eg `1rem`.

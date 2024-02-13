@@ -1,25 +1,32 @@
 import {
+  BiArea,
+  BiArrowFromTop,
   BiArrowToTop,
   BiBell,
+  BiBellOff,
+  BiBulb,
   BiCheckbox,
   BiCheckboxChecked,
   BiCheckboxMinus,
   BiCheckboxSquare,
   BiCheckCircle,
+  BiCog,
   BiError,
   BiErrorCircle,
+  BiFullscreen,
+  BiHome,
   BiInfoCircle,
   BiMenu,
   BiPlus,
   BiPlusCircle,
   BiRadioCircle,
   BiRadioCircleMarked,
+  BiLeftArrowAlt,
   BiRightArrowAlt,
   BiSearch,
   BiSolidPlusCircle,
   BiSolidPlusSquare,
 } from 'react-icons/bi'
-import { IoSettingsOutline } from 'react-icons/io5'
 import { IconType, IconBaseProps } from 'react-icons'
 
 import { ColoredElement } from '../../interfaces/theme'
@@ -34,16 +41,23 @@ interface IconProps extends IconBaseProps, ColoredElement {
 }
 
 const icons: IconMap = {
+  arrowLeft: BiLeftArrowAlt,
   arrowRight: BiRightArrowAlt,
+  arrowToBottom: BiArrowFromTop,
   arrowToTop: BiArrowToTop,
   checkbox: BiCheckbox,
   checkboxChecked: BiCheckboxChecked,
   checkboxMinus: BiCheckboxMinus,
   checkboxSquare: BiCheckboxSquare,
   error: BiErrorCircle,
+  expand: BiArea,
+  fullscreen: BiFullscreen,
+  home: BiHome,
   info: BiInfoCircle,
+  lightBulb: BiBulb,
   menu: BiMenu,
   notification: BiBell,
+  notificationOff: BiBellOff,
   plus: BiPlus,
   plusCircle: BiPlusCircle,
   plusCircleSolid: BiSolidPlusCircle,
@@ -51,7 +65,7 @@ const icons: IconMap = {
   radio: BiRadioCircle,
   radioChecked: BiRadioCircleMarked,
   search: BiSearch,
-  settings: IoSettingsOutline,
+  settings: BiCog,
   success: BiCheckCircle,
   warning: BiError,
 }

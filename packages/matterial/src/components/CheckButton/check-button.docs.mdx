@@ -43,6 +43,24 @@ function App() {
 
 <CheckButtonRadioExample />
 
+## Uncontrolled Example
+
+```jsx
+<Container row>
+  <CheckButtonGroup>
+    <CheckButton name="foo">Foo</CheckButton>
+    <CheckButton name="bar" defaultChecked>Bar</CheckButton>
+  </CheckButtonGroup>
+  <Divider />
+  <CheckButtonGroup>
+    <CheckButton type="radio" name="lorem" value="ipsum">Ipsum</CheckButton>
+    <CheckButton type="radio" name="lorem" value="Dolor" defaultChecked>Dolor</CheckButton>
+  </CheckButtonGroup>
+</Container>
+```
+
+<CheckButtonUncontrolledExample />
+
 ## `CheckButtonGroup` Props
 
 ### as
@@ -54,6 +72,10 @@ function App() {
 `orientation = 'horizontal' | 'vertical'`
 
 <CheckButtonGroup orientation="vertical">
-  <CheckButton name="foo" value="1" checked>Foo</CheckButton>
-  <CheckButton name="bar" value="1">Bar</CheckButton>
+  <CheckButton name="foo" value="1" defaultChecked>
+    Foo
+  </CheckButton>
+  <CheckButton name="bar" value="1">
+    Bar
+  </CheckButton>
 </CheckButtonGroup>

@@ -1,5 +1,7 @@
 import * as React from 'react'
 import { CheckButton, CheckButtonGroup } from '.'
+import { Container } from '../Container'
+import { Divider } from '../Divider'
 
 export function CheckButtonCheckBoxExample() {
   const [checked, setChecked] = React.useState({ foo: true, bar: false })
@@ -8,7 +10,6 @@ export function CheckButtonCheckBoxExample() {
     <CheckButtonGroup>
       <CheckButton
         name="foo"
-        value="foo"
         checked={checked.foo}
         onChange={isChecked => setChecked(c => ({ ...c, foo: isChecked }))}
       >
@@ -16,16 +17,15 @@ export function CheckButtonCheckBoxExample() {
       </CheckButton>
       <CheckButton
         name="bar"
-        value="bar"
         checked={checked.bar}
         onChange={isChecked => setChecked(c => ({ ...c, bar: isChecked }))}
       >
         Bar
       </CheckButton>
-      <CheckButton name="baz" value="baz" disabled>
+      <CheckButton name="baz" disabled>
         Disabled
       </CheckButton>
-      <CheckButton name="fiz" value="fiz" loading>
+      <CheckButton name="fiz" loading>
         Loading
       </CheckButton>
     </CheckButtonGroup>
@@ -33,13 +33,14 @@ export function CheckButtonCheckBoxExample() {
 }
 
 export function CheckButtonRadioExample() {
-  const [radio, setRadio] = React.useState('has_boat')
+  const [radio, setRadio] = React.useState('boat')
 
   return (
     <CheckButtonGroup>
       <CheckButton
-        name="daddy"
-        value="true"
+        type="radio"
+        name="daddy_or_boat"
+        value="daddy"
         checked={radio === 'daddy'}
         onChange={() => setRadio('daddy')}
         prepend="👨"
@@ -47,10 +48,11 @@ export function CheckButtonRadioExample() {
         I'm a daddy
       </CheckButton>
       <CheckButton
-        name="has_boat"
-        value="true"
-        checked={radio === 'has_boat'}
-        onChange={() => setRadio('has_boat')}
+        type="radio"
+        name="daddy_or_boat"
+        value="boat"
+        checked={radio === 'boat'}
+        onChange={() => setRadio('boat')}
         prepend="🛥️"
       >
         I have a boat
@@ -59,5 +61,27 @@ export function CheckButtonRadioExample() {
         Checked: <strong>{radio || 'none'}</strong>
       </div>
     </CheckButtonGroup>
+  )
+}
+
+export function CheckButtonUncontrolledExample() {
+  return (
+    <Container row>
+      <CheckButtonGroup>
+        <CheckButton name="foo">Foo</CheckButton>
+        <CheckButton name="bar" defaultChecked>
+          Bar
+        </CheckButton>
+      </CheckButtonGroup>
+      <Divider />
+      <CheckButtonGroup>
+        <CheckButton type="radio" name="lorem" value="ipsum">
+          Ipsum
+        </CheckButton>
+        <CheckButton type="radio" name="lorem" value="Dolor" defaultChecked>
+          Dolor
+        </CheckButton>
+      </CheckButtonGroup>
+    </Container>
   )
 }

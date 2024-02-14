@@ -42,3 +42,7 @@
 - Container gap prop
 - color and size props on Divider
 - add named colors
+
+# 3.5.1 / 2024-02-14
+
+- Fix form field bug

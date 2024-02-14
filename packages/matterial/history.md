@@ -34,3 +34,11 @@
 
 - Add icons
 - Small bug fix
+
+# 3.5.0 / 2024-02-14
+
+- CheckButton 'radio' type and uncontrolled option
+- improved Container docs
+- Container gap prop
+- color and size props on Divider
+- add named colors

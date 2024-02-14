@@ -28,44 +28,34 @@ export const TextInput = React.forwardRef<
     containerStyle.width = width
   }
 
-  function Container({ children }: RequiredChildren): JSX.Element {
-    return (
-      <div
-        className={classnames('mt-field', classes.inputContainer)}
-        style={containerStyle}
-      >
-        {prepend && <span className={classes.contentPrepend}>{prepend}</span>}
-        {children}
-        {append && <span className={classes.contentAppend}>{append}</span>}
-      </div>
-    )
-  }
-
   const classNames = classnames(className, 'mt-input', classes.input)
 
-  if (multiline) {
-    return (
-      <Container>
-        <textarea
-          {...fieldProps}
-          ref={ref}
-          rows={rows}
-          className={classNames}
-          onChange={onChange}
-        />
-      </Container>
-    )
-  }
+  const content = multiline ? (
+    <textarea
+      {...fieldProps}
+      ref={ref}
+      rows={rows}
+      className={classNames}
+      onChange={onChange}
+    />
+  ) : (
+    <input
+      type={type}
+      {...fieldProps}
+      ref={ref}
+      className={classNames}
+      onChange={onChange}
+    />
+  )
 
   return (
-    <Container>
-      <input
-        type={type}
-        {...fieldProps}
-        ref={ref}
-        className={classNames}
-        onChange={onChange}
-      />
-    </Container>
+    <div
+      className={classnames('mt-field', classes.inputContainer)}
+      style={containerStyle}
+    >
+      {prepend && <span className={classes.contentPrepend}>{prepend}</span>}
+      {content}
+      {append && <span className={classes.contentAppend}>{append}</span>}
+    </div>
   )
 })

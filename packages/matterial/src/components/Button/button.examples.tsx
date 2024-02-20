@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Button } from './button'
+import { Icon } from '../Icon'
 
 export function LoadingButtonExample() {
   const [loading, setLoading] = React.useState(false)
@@ -13,9 +14,19 @@ export function LoadingButtonExample() {
   }
 
   return (
-    <Button loading={loading} onClick={() => toggleLoading()}>
-      Click Me
-    </Button>
+    <>
+      <Button loading={loading} onClick={() => toggleLoading()}>
+        Click Me
+      </Button>
+      <Button shape="circle" loading={loading} onClick={() => toggleLoading()}>
+        <Icon
+          icon="loader"
+          style={{
+            ...(loading && { animation: 'spin 1s ease-in-out infinite' }),
+          }}
+        />
+      </Button>
+    </>
   )
 }
 

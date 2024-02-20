@@ -46,3 +46,8 @@
 # 3.5.1 / 2024-02-14
 
 - Fix form field bug
+
+# 3.5.2 / 2024-02-20
+
+- Add spin animation
+- Add loader icon

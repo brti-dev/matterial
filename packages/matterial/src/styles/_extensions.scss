@@ -6,7 +6,16 @@
   padding: 1.5rem;
   background-color: var(--color-background);
 
-  & * {
+  & .variant--contained.color--default {
     --color-background: var(--color-comment);
   }
+}
+
+%p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  line-height: var(--line-height);
 }

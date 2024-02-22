@@ -6,7 +6,7 @@ description:
 ## Usage
 
 ```jsx
-import { Button, Dialog, useDialog } from 'matterial'
+import { Button, Dialog, useDialog, SubmitRow } from 'matterial'
 
 function DialogExample() {
   const { active, open, close } = useDialog(false)
@@ -16,15 +16,16 @@ function DialogExample() {
       <Button variant="contained" color="primary" onClick={open}>
         Open Dialog
       </Button>
-      <Dialog active={active} closable onDismiss={close} labelledBy="foo">
-        <h5 id="foo">Foo</h5>
+      <Dialog active={active} closable onDismiss={close} title="Lorem Ipsum">
         <p>
           Culpa nostrud sint elit duis ad aute aliqua non cupidatat eiusmod
           consequat adipisicing.
         </p>
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Button onClick={close}>Close Dialog</Button>
-        </div>
+        <SubmitRow>
+          <Button variant="contained" onClick={close}>
+            Close Dialog
+          </Button>
+        </SubmitRow>
       </Dialog>
     </>
   )

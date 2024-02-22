@@ -1,16 +1,10 @@
 @use '../../styles/breakpoint' as *;
 @use '../../styles/extensions' as *;
 
-%p {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-}
-
 // <Article>
 .root {
+  --line-height: 1.6;
+
   counter-reset: article;
 
   & + article {

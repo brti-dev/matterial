@@ -37,7 +37,7 @@
   padding: 0;
   display: flex;
   flex-direction: row;
-  gap: var(--form-gap);
+  gap: var(--form-gap, 1em);
 }
 
 .inputContainer {

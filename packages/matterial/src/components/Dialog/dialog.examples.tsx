@@ -1,5 +1,6 @@
 import { Button } from '../Button'
 import { Dialog, useDialog } from '.'
+import { SubmitRow } from '../Form'
 
 export function DialogExample() {
   const { active, open, close } = useDialog(false)
@@ -14,9 +15,11 @@ export function DialogExample() {
           Culpa nostrud sint elit duis ad aute aliqua non cupidatat eiusmod
           consequat adipisicing.
         </p>
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Button onClick={close}>Close Dialog</Button>
-        </div>
+        <SubmitRow>
+          <Button variant="contained" onClick={close}>
+            Close Dialog
+          </Button>
+        </SubmitRow>
       </Dialog>
     </>
   )

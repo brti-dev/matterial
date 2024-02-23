@@ -51,3 +51,9 @@
 
 - Add spin animation
 - Add loader icon
+
+# 3.5.3 / 2024-02-24
+
+- Add `Radio` and `RadioGroup` components
+- Introduce `--line-height` CSS variable to dialog
+- Fix dialog button color bug; Only default color 'contained' buttons are recolored

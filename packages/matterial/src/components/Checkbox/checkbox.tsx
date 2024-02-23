@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { ChangeEvent, CheckboxChangeEvent } from '../Form'
+import { CheckboxChangeEvent } from '../Form'
 import { ColoredElement } from '../../interfaces/theme'
 import { Icon } from '../Icon'
 import classnames from '../../lib/classnames'
@@ -10,40 +10,45 @@ import { RequiredChildren } from '../../interfaces/children'
 
 type Size = number | 'small' | 'medium' | 'large'
 
-type Props = RequiredChildren &
-  ColoredElement & {
-    /**
-     * Indicates if it's initially checked or not; **Controlled component**:
-     * state is only set by the `checked` prop, not by the DOM
-     */
-    checked?: boolean
-    /**
-     * Indicates the checkbox is not changeable
-     */
-    disabled?: boolean
-    /**
-     * Limbo state
-     */
-    indeterminate?: boolean
-    /**
-     * Input name
-     */
-    name: string
-    /**
-     * Callback executed when the input value changes
-     */
-    onChange?: CheckboxChangeEvent
-    /**
-     * Size of checkbox and label; Number in pixels
-     */
-    size?: Size
-  }
+type Props = {
+  /**
+   * Indicates if it's initially checked or not; **Controlled component**:
+   * state is only set by the `checked` prop, not by the DOM
+   */
+  checked?: boolean
 
-type NativeProps = Omit<React.ComponentPropsWithRef<'input'>, keyof Props>
+  /**
+   * Indicates the checkbox is not changeable
+   */
+  disabled?: boolean
+
+  /**
+   * Limbo state
+   */
+  indeterminate?: boolean
+
+  /**
+   * Input name
+   */
+  name: string
+
+  /**
+   * Callback executed when the input value changes
+   */
+  onChange?: CheckboxChangeEvent
+
+  /**
+   * Size of checkbox and label; Number in pixels
+   */
+  size?: Size
+} & RequiredChildren &
+  ColoredElement
+
+type NativeProps = Omit<React.ComponentPropsWithRef<'label'>, keyof Props>
 type CheckboxProps = NativeProps & Props
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  (props: CheckboxProps, ref: any) => {
+  (props: CheckboxProps, ref: React.Ref<HTMLInputElement>) => {
     const {
       checked: controlledChecked,
       children,
@@ -51,10 +56,12 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       color: naturalColor = 'default',
       defaultChecked,
       disabled = false,
+      indeterminate,
       name,
       onChange = () => null,
       size = 'medium',
       style: naturalStyle,
+      ...rest
     } = props
     const color = useColor(naturalColor)
     const sizePx = typeof size === 'number' ? `${size}px` : null
@@ -73,35 +80,32 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       disabled ? classes.disabled : undefined
     )
 
-    // Provide local state if the parent is not controlling this component
-    const isControlled = controlledChecked !== undefined
-    const [localChecked, setLocalChecked] = React.useState<boolean>(
-      controlledChecked || defaultChecked || false
+    const [checked, setChecked] = React.useState<boolean>(
+      controlledChecked !== undefined ? controlledChecked : !!defaultChecked
     )
 
-    const checked = isControlled ? controlledChecked : localChecked
-
-    const handleChange = () => {
-      if (isControlled) {
-        onChange(name, !controlledChecked)
-      } else {
-        setLocalChecked(!localChecked)
-        onChange(name, localChecked)
-      }
+    const toggleChecked = () => {
+      const newChecked = !checked
+      setChecked(newChecked)
+      onChange(name, newChecked)
     }
 
     return (
-      <label className={classNames} style={style}>
+      <label className={classNames} style={style} {...rest}>
         <input
+          ref={ref}
           type="checkbox"
           name={name}
-          className="visually-hidden"
-          ref={ref}
-          onChange={handleChange}
           checked={checked}
           disabled={disabled}
+          className="visually-hidden"
+          onChange={toggleChecked}
         />
-        <CheckboxIcon checked={checked} indeterminate={props.indeterminate} />
+        <CheckboxIcon
+          checked={checked}
+          indeterminate={indeterminate}
+          aria-hidden
+        />
         <span className={classes.label}>{children}</span>
       </label>
     )
@@ -112,14 +116,13 @@ function CheckboxIcon({
   checked,
   indeterminate,
 }: Pick<CheckboxProps, 'checked' | 'indeterminate'>): React.ReactElement {
-  let icon: string
+  let iconType = 'checkbox'
+  let icon: string = ''
   if (checked) {
-    icon = 'CheckboxChecked'
+    icon = 'Checked'
   } else if (indeterminate) {
-    icon = 'CheckboxMinus'
-  } else {
-    icon = 'Checkbox'
+    icon = 'Minus'
   }
 
-  return <Icon icon={icon} aria-hidden />
+  return <Icon icon={`${iconType}${icon}`} aria-hidden />
 }

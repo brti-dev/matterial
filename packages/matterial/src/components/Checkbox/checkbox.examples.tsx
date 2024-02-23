@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Checkbox } from '.'
+import { Checkbox, Radio, RadioGroup } from '.'
 import { Container } from '../Container'
 import { Form, useForm } from '../Form'
 import { COLORS } from '../../const'
@@ -129,5 +129,28 @@ export function CheckboxIndeterminateExample() {
         Reset
       </Button>
     </Container>
+  )
+}
+
+export function RadioExample() {
+  const defaultChecked = 'ipsum'
+  const [checked, setChecked] = React.useState(defaultChecked)
+
+  return (
+    <>
+      <Container row>
+        <RadioGroup
+          name="radio1"
+          defaultChecked={defaultChecked}
+          onChange={setChecked}
+        >
+          <Radio value="lorem">Lorem</Radio>
+          <Radio value="ipsum">Ipsum</Radio>
+        </RadioGroup>
+        <span>
+          Checked: <b>{checked}</b>
+        </span>
+      </Container>
+    </>
   )
 }

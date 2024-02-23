@@ -9,7 +9,9 @@ description: Display a Boolean value
 import { Checkbox } from 'matterial'
 
 function CheckboxExample() {
-  return <Checkbox onClick={() => console.log('I got clicked!')}>Click Me</Checkbox>
+  return (
+    <Checkbox onClick={() => console.log('I got clicked!')}>Click Me</Checkbox>
+  )
 }
 ```
 
@@ -51,6 +53,38 @@ function App() {
   )
 }
 ```
+
+## Uncontrolled
+
+To use the Checkbox as an uncontrolled component, omit the `checked` prop. Optionally, make use of the [`defaultChecked` prop](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#defaultchecked) to set the initial value.
+
+<Container row>
+  <Checkbox name="foo">Foo</Checkbox>
+  <Checkbox name="bar" defaultChecked>Bar</Checkbox>
+</Container>
+
+```jsx
+<Container row>
+  <Checkbox name="foo">Foo</Checkbox>
+  <Checkbox name="bar" defaultChecked>Bar</Checkbox>
+  <Divider />
+  <Checkbox type="radio" name="lorem" value="ipsum">Ipsum</Checkbox>
+  <Checkbox type="radio" name="lorem" value="dolor" defaultChecked>Dolor</Checkbox>
+</Container>
+```
+
+## Radio type
+
+Radio buttons must be wrapped in a `RadioGroup` component.
+
+```jsx
+<RadioGroup name="radio1" defaultChecked="ipsum">
+  <Radio value="lorem">Lorem</Radio>
+  <Radio value="ipsum">Ipsum</Radio>
+</RadioGroup>
+```
+
+<RadioExample />
 
 ## Sizes
 
